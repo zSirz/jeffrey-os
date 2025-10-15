@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.737183'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 26
+  processed_length: 26
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02362
+source: go_emotions
+text: Now let's see the samples!

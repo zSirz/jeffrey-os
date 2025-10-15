@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.109208'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 100
+  processed_length: 100
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03520
+source: go_emotions
+text: I'm a firm climate change believer but jeez that was painful to read. Sorry,
+  this is far from bestof

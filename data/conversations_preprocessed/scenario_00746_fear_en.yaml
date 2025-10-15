@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.361835'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 99
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00746
+source: go_emotions
+text: Your imaginary boyfriend is kind of creepy. Although, if he's kinky then he
+  may be for keeps. *wink

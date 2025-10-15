@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.260509'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 148
+  processed_length: 148
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03981
+source: go_emotions
+text: I see notifications of people commenting the source but this sub must auto delete
+  or something. Sorry, guys. I binged her and found me quick though.

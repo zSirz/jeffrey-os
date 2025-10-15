@@ -1,0 +1,9 @@
+created_at: '2025-10-13T12:40:30.813226'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+quality: public_dataset_single_label
+scenario_id: goemo_00127
+source: go_emotions
+text: When an article implies something rather than stating it explicitly, it's almost
+  always to create a better headline.

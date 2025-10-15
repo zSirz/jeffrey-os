@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.403971'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 127
+  processed_length: 127
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00930
+source: go_emotions
+text: I mean I still attend regular school, this is just a Saturday school. I'm just
+  frustrated that I have to waste Saturday on this

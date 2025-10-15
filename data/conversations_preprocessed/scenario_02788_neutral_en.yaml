@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.895319'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 80
+  processed_length: 80
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02788
+source: go_emotions
+text: Please provide a source, as far as I know our DND said they found nothing of
+  the

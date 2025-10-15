@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_disgust_03"
+  title: "Dégoût Physique"
+  expected_emotion: "disgust"
+  difficulty: "easy"
+  tags: ["disgust", "physical", "environment"]
+
+conversation:
+  - role: "user"
+    content: "Le frigo du bureau n'a pas été nettoyé depuis des mois... L'odeur est insupportable."
+    expected_emotion: "disgust"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "Les espaces communs mal entretenus peuvent être vraiment désagréables. Quelqu'un est responsable du nettoyage ?"
+    emotional_tone: "practical"
+
+  - role: "user"
+    content: "Personne veut s'en occuper... Y'a de la bouffe pourrie depuis des semaines. C'est répugnant."
+    expected_emotion: "disgust"
+    expected_intensity: 0.75
+
+validation:
+  should_detect: ["disgust", "frustration"]
+  should_remember: "office fridge dirty for months, bad smell, no one cleaning"
+  continuity_check: true

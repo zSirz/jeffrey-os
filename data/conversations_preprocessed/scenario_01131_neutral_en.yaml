@@ -1,0 +1,15 @@
+created_at: '2025-10-13T11:58:53.450705'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 72
+  processed_length: 222
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01131
+source: go_emotions
+text: 'Say it with me now: WE :clapping_hands:LOVE :clapping_hands:PAT :clapping_hands:C
+  :clapping_hands:AND :clapping_hands:WE :clapping_hands:DON’T :clapping_hands:CARE
+  :clapping_hands:WHO :clapping_hands:KNOWS :clapping_hands:'

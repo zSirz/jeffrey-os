@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.848106'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 96
+  processed_length: 96
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02605
+source: go_emotions
+text: Sorry, I would like your comment, but it's at 666. And I just can't bring myself
+  to change that.

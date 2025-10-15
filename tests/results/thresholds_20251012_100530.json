@@ -1,0 +1,10 @@
+{
+  "hyperparams": {
+    "temperature": 0.05,
+    "min_confidence": 0.3,
+    "min_margin": 0.12,
+    "k_prototypes": 1
+  },
+  "timestamp": "20251012_100530",
+  "note": "Seuils optimaux trouv\u00e9s par grid global avec contrainte coverage"
+}

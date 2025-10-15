@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.934064'
+emotion: joy
+language: en
+original_goemotions_label: admiration
+preprocessing:
+  emoji_demojized: true
+  original_length: 65
+  processed_length: 65
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02954
+source: go_emotions
+text: I read this is the voice of [NAME]. Great job with the narration!

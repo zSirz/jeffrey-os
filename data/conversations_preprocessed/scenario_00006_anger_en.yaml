@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.186249'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 88
+  processed_length: 88
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00006
+source: go_emotions
+text: Everyone hates guys that talk shit and can't back it up, don't start shit when
+  you suck.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.394941'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 132
+  processed_length: 132
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00891
+source: go_emotions
+text: Yeah, series of holes like that make me uncomfortable and this picture has popped
+  up in my head too many times since I first saw it.

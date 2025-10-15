@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2025-10-09T23:20:45.359408",
+    "user_input": "Je suis super heureux ! 🎉✨",
+    "response_generated": "analyse_en_cours",
+    "feedback_received": null,
+    "user_emotion": "joie",
+    "response_quality": 0.4,
+    "pattern_matched": null,
+    "context_factors": {
+      "summary": "Nouvelle conversation",
+      "emotion_analysis": {
+        "emotion_dominante": "joie",
+        "intensite": 100,
+        "confiance": 90.00000000000001,
+        "integration_mode": "core_only",
+        "engines_used": [
+          "core"
+        ],
+        "detected_emotions": {
+          "joie": 2.05,
+          "enthousiasme": 0.7,
+          "émerveillement": 0.5
+        },
+        "emotion_scores": null,
+        "resonance": 0.5,
+        "etat_interne": "calm",
+        "suggested_response_tone": null,
+        "consensus": false,
+        "from_cache": false,
+        "processing_time_ms": 0.16,
+        "timestamp": "2025-10-09T23:20:45.358677",
+        "cache_key": "5a17961be560f815b27c77ec70c8978aa36d9264"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-10-09T23:20:45.360111",
+    "user_input": "Je suis super heureux ! 🎉✨",
+    "response_generated": "Génial ! Je suis super heureux ! 🎉✨",
+    "feedback_received": null,
+    "user_emotion": "joie",
+    "response_quality": 0.6,
+    "pattern_matched": null,
+    "context_factors": {
+      "user_id": "test_user",
+      "memory_context": {
+        "recent_conversation": [],
+        "contextual_memories": [],
+        "context_summary": "Nouvelle conversation",
+        "memory_enhanced": true
+      },
+      "response_time": 0.00255584716796875,
+      "learning_suggestion": {
+        "input_type": "expression_emotion",
+        "confidence": 0.0,
+        "suggested_approach": "default",
+        "pattern_matched": null,
+        "response_modifiers": {},
+        "learned_insights": []
+      }
+    }
+  },
+  {
+    "timestamp": "2025-10-09T23:20:45.863220",
+    "user_input": "Je me sens triste aujourd'hui 😔💔",
+    "response_generated": "analyse_en_cours",
+    "feedback_received": null,
+    "user_emotion": "tristesse",
+    "response_quality": 0.4,
+    "pattern_matched": null,
+    "context_factors": {
+      "summary": "Sujets: émotion | Émotions: joie",
+      "emotion_analysis": {
+        "emotion_dominante": "tristesse",
+        "intensite": 30,
+        "confiance": 50.0,
+        "integration_mode": "core_only",
+        "engines_used": [
+          "core"
+        ],
+        "detected_emotions": {
+          "tristesse": 0.3
+        },
+        "emotion_scores": null,
+        "resonance": 0.5,
+        "etat_interne": "calm",
+        "suggested_response_tone": null,
+        "consensus": false,
+        "from_cache": false,
+        "processing_time_ms": 0.43,
+        "timestamp": "2025-10-09T23:20:45.863078",
+        "cache_key": "5062bb90eb7c817e90e0749c62290387941f1450"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-10-09T23:20:45.865307",
+    "user_input": "Je me sens triste aujourd'hui 😔💔",
+    "response_generated": "Ça doit être dur...",
+    "feedback_received": null,
+    "user_emotion": "tristesse",
+    "response_quality": 0.4,
+    "pattern_matched": null,
+    "context_factors": {
+      "user_id": "test_user",
+      "memory_context": {
+        "recent_conversation": [],
+        "contextual_memories": [
+          {
+            "id": "6e1fc430-000c-4d0d-96e6-c0b57577eddf",
+            "timestamp": "2025-10-09T23:20:45.359786",
+            "content": "Moment émotionnel: joie (intensité: 1.0) - Dialogue: Je suis super heureux ! 🎉✨...",
+            "memory_type":

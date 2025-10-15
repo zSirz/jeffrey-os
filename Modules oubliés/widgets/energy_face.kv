@@ -1,0 +1,442 @@
+<EnergyFaceWidget@Widget>:
+    y_offset: 0
+    touched_recently: False
+    scale: 1.0  # Propriété pour la respiration
+
+    canvas.before:
+        # Respiration globale du visage
+        PushMatrix
+        Scale:
+            origin: self.center
+            x: self.scale
+            y: self.scale
+        # Fond radieux
+        Color:
+            rgba: self.emotion_color if hasattr(self, "emotion_color") else (0.05, 0.05, 0.1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+        # Fond animé étoilé
+        PushMatrix
+        Rotate:
+            angle: (Clock.get_boottime() * 10) % 360
+            origin: self.center
+        Color:
+            rgba: (1, 1, 1, 0.1)
+        Line:
+            circle: (self.center_x, self.center_y, self.width * 0.48, 0, 180)
+            width: 1
+        PopMatrix
+
+        # Étoiles scintillantes aléatoires
+        Color:
+            rgba: (1, 1, 1, 0.15 + 0.1 * math.sin(Clock.get_boottime() * 3))
+        # On dessine plusieurs étoiles
+        # On utilise des coordonnées fixes pour éviter recalcul à chaque frame
+        Ellipse:
+            pos: self.x + self.width * 0.1, self.y + self.height * 0.85
+            size: dp(2), dp(2)
+        Ellipse:
+            pos: self.x + self.width * 0.3, self.y + self.height * 0.75
+            size: dp(1.5), dp(1.5)
+        Ellipse:
+            pos: self.x + self.width * 0.55, self.y + self.height * 0.9
+            size: dp(2.5), dp(2.5)
+        Ellipse:
+            pos: self.x + self.width * 0.7, self.y + self.height * 0.8
+            size: dp(1.8), dp(1.8)
+        Ellipse:
+            pos: self.x + self.width * 0.85, self.y + self.height * 0.95
+            size: dp(2), dp(2)
+
+        # Cheveux d'énergie flottants - 3 lignes sinusoïdales
+        Color:
+            rgba: (0.9, 0.8, 1, 0.1)
+        Line:
+            points: [self.x + i * self.width / 20 for i in range(21)] + [self.y + self.height * 0.9 + 10 * math.sin(Clock.get_boottime() * 2 + i) for i in range(21)]
+            width: 1.2
+            close: False
+        Line:
+            points: [self.x + i * self.width / 20 for i in range(21)] + [self.y + self.height * 0.92 + 8 * math.sin(Clock.get_boottime() * 2.5 + i + 2) for i in range(21)]
+            width: 1.0
+            close: False
+        Line:
+            points: [self.x + i * self.width / 20 for i in range(21)] + [self.y + self.height * 0.94 + 6 * math.sin(Clock.get_boottime() * 3 + i + 4) for i in range(21)]
+            width: 0.8
+            close: False
+
+    FloatLayout:
+        id: FaceGroup
+        size: root.size
+        pos: root.pos
+        canvas.before:
+            PushMatrix
+            Translate:
+                x: 0
+                y: root.height * 0.005 * math.sin(Clock.get_boottime() * 0.5)
+            Rotate:
+                angle: 2 * math.sin(Clock.get_boottime() * 0.3)
+                origin: self.center
+        canvas.after:
+            PopMatrix
+
+        # Halo d'énergie pulsé
+        PushMatrix
+        Scale:
+            origin: self.center
+            x: 1.08 + 0.04 * (self.intensity if hasattr(self, "intensity") else 0)
+            y: 1.08 + 0.04 * (self.intensity if hasattr(self, "intensity") else 0)
+        Color:
+            rgba:
+                (1, 0.8, 1, 0.25 + 0.25 * (self.intensity if hasattr(self, "intensity") else 0)) if not hasattr(self, "emotion") else \
+                (1, 0.6, 0.7, 0.25 + 0.25 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "amour" else \
+                (0.4, 0.4, 0.6, 0.15 + 0.15 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "tristesse" else \
+                (1, 0.3, 0.3, 0.3 + 0.3 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "colère" else \
+                (1, 0.7, 0.85, 0.28 + 0.22 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "timidité" else (1, 0.8, 1, 0.25 + 0.25 * (self.intensity if hasattr(self, "intensity") else 0))
+        Ellipse:
+            pos: self.center_x - self.width * 0.48, self.center_y - self.height * 0.48
+            size: self.width * 0.96, self.height * 0.96
+        PopMatrix
+
+        # Aura externe céleste : deux halos tournants, dégradé rose-violet-bleu ou selon émotion
+        PushMatrix
+        Rotate:
+            angle: (Clock.get_boottime() * 18) % 360
+            origin: self.center
+        Color:
+            rgba:
+                (1, 0.6, 0.95, 0.16 + 0.09 * (self.intensity if hasattr(self, "intensity") else 0)) if not hasattr(self, "emotion") else \
+                (1, 0.5, 0.7, 0.3 + 0.15 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "amour" else \
+                (0.3, 0.4, 0.8, 0.1 + 0.05 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "tristesse" else \
+                (1, 0.2, 0.2, 0.25 + 0.15 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "colère" else \
+                (1, 0.65, 0.9, 0.22 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "timidité" else (1, 0.6, 0.95, 0.16 + 0.09 * (self.intensity if hasattr(self, "intensity") else 0))
+        Ellipse:
+            angle_start: 0
+            angle_end: 360
+            pos: self.center_x - self.width * 0.52, self.center_y - self.height * 0.52
+            size: self.width * 1.04, self.height * 1.04
+        # Halo arc-en-ciel tournant
+        Color:
+            rgba: (1, 1, 1, 0.06)
+        Line:
+            circle: (self.center_x, self.center_y, self.width * 0.6, 0, 360)
+            width: 1.4
+        PopMatrix
+        PushMatrix
+        Rotate:
+            angle: (Clock.get_boottime() * 9) % 360
+            origin: self.center
+        Color:
+            rgba:
+                (0.6, 0.7, 1, 0.13 + 0.09 * (self.intensity if hasattr(self, "intensity") else 0)) if not hasattr(self, "emotion") else \
+                (0.7, 0.6, 1, 0.2 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "amour" else \
+                (0.3, 0.4, 0.9, 0.1 + 0.05 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "tristesse" else \
+                (1, 0.3, 0.3, 0.2 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "colère" else \
+                (0.7, 0.7, 0.95, 0.16 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "timidité" else (0.6, 0.7, 1, 0.13 + 0.09 * (self.intensity if hasattr(self, "intensity") else 0))
+        Ellipse:
+            angle_start: 0
+            angle_end: 360
+            pos: self.center_x - self.width * 0.56, self.center_y - self.height * 0.56
+            size: self.width * 1.12, self.height * 1.12
+        # Halo arc-en-ciel tournant
+        Color:
+            rgba: (1, 1, 1, 0.06)
+        Line:
+            circle: (self.center_x, self.center_y, self.width * 0.6, 0, 360)
+            width: 1.4
+        PopMatrix
+
+        # Gradient radial subtil
+        Color:
+            rgba: (1, 1, 1, 0.04 + 0.06 * (root.beauty_intensity if hasattr(root, "beauty_intensity") else 0))
+        Ellipse:
+            pos: self.center_x - self.width * 0.5, self.center_y - self.height * 0.5
+            size: self.width, self.height
+
+        # Lueur cœur inversé centrée sur le visage
+        Color:
+            rgba: (1, 0.85, 1, 0.06 + 0.08 * (self.intensity if hasattr(self, "intensity") else 0))
+        Bezier:
+            points: [
+                self.center_x - self.width * 0.18, self.center_y + self.height * 0.17,
+                self.center_x, self.center_y - self.height * 0.22,
+                self.center_x + self.width * 0.18, self.center_y + self.height * 0.17
+            ]
+            segments: 180
+            width: 24
+
+        # Yeux angéliques avec éclat lumineux, reflets & animation
+        Widget:
+            id: left_eye
+            pos_hint: {"center_x": 0.35, "center_y": 0.75 + 0.01 * math.sin(Clock.get_boottime() * 1.5)}
+            size_hint: None, None
+            size: root.width * 0.12, root.height * 0.12
+            canvas:
+                # Éclat externe subtil, pulsant comme un souffle (battement lent)
+                Color:
+                    rgba: (1, 1, 1, 0.19 + 0.13 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 0.7)))
+                Ellipse:
+                    pos: self.center_x - self.width * 0.1, self.center_y - self.height * 0.1
+                    size: self.width * 0.20, self.height * 0.20
+                # Dégradé radial plus subtil
+                Color:
+                    rgba: (0.95, 0.9, 1, 0.11 + 0.09 * (root.intensity if hasattr(root, "intensity") else 0))
+                Ellipse:
+                    pos: self.center_x - self.width * 0.13, self.center_y - self.height * 0.13
+                    size: self.width * 0.26, self.height * 0.26
+                # Iris lumineuse
+                Color:
+                    rgba: (1, 1, 1, 0.93)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.04, self.center_y - self.height * 0.04
+                    size: self.width * 0.08, self.height * 0.08
+                # Pupille cristalline avec reflet interne
+                Color:
+                    rgba: (0.38, 0.45, 0.65, 0.47)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.018, self.center_y - self.height * 0.018
+                    size: self.width * 0.036, self.height * 0.036
+                # Reflet d'âme mobile
+                Color:
+                    rgba: (1, 1, 1, 0.6)
+                Ellipse:
+                    pos: self.center_x + self.width * 0.01 * math.sin(Clock.get_boottime() * 1.2), self.center_y + self.height * 0.015 * math.cos(Clock.get_boottime() * 1.3)
+                    size: self.width * 0.015, self.height * 0.015
+                # Petit reflet blanc
+                Color:
+                    rgba: (1, 1, 1, 0.9)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.012, self.center_y + self.height * 0.012
+                    size: self.width * 0.018, self.height * 0.012
+            canvas.after:
+                # Scintillement dessus
+                Color:
+                    rgba: (1, 0.95, 1, 0.12 + 0.12 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 2.5)))
+                Line:
+                    points: [self.center_x - dp(8), self.center_y + dp(10), self.center_x + dp(8), self.center_y + dp(10)]
+                    width: 1.4
+                # Clignement d'œil (paupière)
+                CanvasGroup:
+                    group: 'eyelid_color'
+                    Color:
+                        rgba: (0.3, 0.4, 0.5, 0.25 * (1.0 - root.eyelid_openness))
+                # Micro-expression : excitation - effet de scintillement subtil des paupières en mode excitation privé
+                Color:
+                    rgba: (1, 0.8, 1, 0.08 + 0.08 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 3.2))) if root.emotion == "excitation" and root.context_mode == "private" else (0, 0, 0, 0)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                CanvasGroup:
+                    group: 'eyelid'
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height * (1.0 - root.eyelid_openness)
+
+        Widget:
+            id: right_eye
+            pos_hint: {"center_x": 0.65, "center_y": 0.75 + 0.01 * math.sin(Clock.get_boottime() * 1.5)}
+            size_hint: None, None
+            size: root.width * 0.12, root.height * 0.12
+            canvas:
+                # Éclat externe subtil, pulsant comme un souffle (battement lent)
+                Color:
+                    rgba: (1, 1, 1, 0.19 + 0.13 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 0.7)))
+                Ellipse:
+                    pos: self.center_x - self.width * 0.1, self.center_y - self.height * 0.1
+                    size: self.width * 0.20, self.height * 0.20
+                # Dégradé radial plus subtil
+                Color:
+                    rgba: (0.95, 0.9, 1, 0.11 + 0.09 * (root.intensity if hasattr(root, "intensity") else 0))
+                Ellipse:
+                    pos: self.center_x - self.width * 0.13, self.center_y - self.height * 0.13
+                    size: self.width * 0.26, self.height * 0.26
+                # Iris lumineuse
+                Color:
+                    rgba: (1, 1, 1, 0.93)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.04, self.center_y - self.height * 0.04
+                    size: self.width * 0.08, self.height * 0.08
+                # Pupille cristalline avec reflet interne
+                Color:
+                    rgba: (0.38, 0.45, 0.65, 0.47)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.018, self.center_y - self.height * 0.018
+                    size: self.width * 0.036, self.height * 0.036
+                # Reflet d'âme mobile
+                Color:
+                    rgba: (1, 1, 1, 0.6)
+                Ellipse:
+                    pos: self.center_x + self.width * 0.01 * math.sin(Clock.get_boottime() * 1.2), self.center_y + self.height * 0.015 * math.cos(Clock.get_boottime() * 1.3)
+                    size: self.width * 0.015, self.height * 0.015
+                # Petit reflet blanc
+                Color:
+                    rgba: (1, 1, 1, 0.9)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.012, self.center_y + self.height * 0.012
+                    size: self.width * 0.018, self.height * 0.012
+            canvas.after:
+                # Scintillement dessus
+                Color:
+                    rgba: (1, 0.95, 1, 0.12 + 0.12 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 2.5)))
+                Line:
+                    points: [self.center_x - dp(8), self.center_y + dp(10), self.center_x + dp(8), self.center_y + dp(10)]
+                    width: 1.4
+                # Clignement d'œil (paupière)
+                CanvasGroup:
+                    group: 'eyelid_color'
+                    Color:
+                        rgba: (0.3, 0.4, 0.5, 0.25 * (1.0 - root.eyelid_openness))
+                # Micro-expression : excitation - effet de scintillement subtil des paupières en mode excitation privé
+                Color:
+                    rgba: (1, 0.8, 1, 0.08 + 0.08 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 3.2))) if root.emotion == "excitation" and root.context_mode == "private" else (0, 0, 0, 0)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                CanvasGroup:
+                    group: 'eyelid'
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height * (1.0 - root.eyelid_openness)
+
+        # Nez lumineux avec lueur subtile
+        Label:
+            text: "•"
+            font_size: min(self.width, self.height) * 0.06
+            pos_hint: {"center_x": 0.5, "center_y": 0.6 + 0.01 * math.sin(Clock.get_boottime() * 1.5)}
+            color: (1, 1, 1, 0.46)
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 1, 0.09 + 0.06 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 2.1)))
+                Ellipse:
+                    pos: self.center_x - self.width * 0.05, self.center_y - self.height * 0.025
+                    size: self.width * 0.10, self.height * 0.05
+                # Scintillement du nez
+                Color:
+                    rgba: (1, 1, 1, 0.1 + 0.1 * math.sin(Clock.get_boottime() * 3))
+                Ellipse:
+                    pos: self.center_x - self.width * 0.02, self.center_y
+                    size: self.width * 0.04, self.height * 0.04
+
+        # Bouche sublime avec pulsation lumineuse et contour blush
+        Label:
+            id: mouth_shape
+            text: root.current_mouth_shape if hasattr(root, "current_mouth_shape") else "-"
+            font_size: min(self.width, self.height) * 0.08
+            bold: True
+            font_name: "Cinzel-Decorative"
+            color: (1, 0.9, 0.95, 1) if root.current_mouth_shape != "X" else (0.7, 0.7, 0.7, 0.5)
+            pos_hint: {"center_x": 0.5, "center_y": 0.4 + 0.01 * math.sin(Clock.get_boottime() * 1.5)}
+            canvas.before:
+                # Contour doux blush autour de la bouche
+                Color:
+                    rgba: (1, 0.7, 0.88, 0.17)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.25, self.center_y - self.height * 0.08
+                    size: self.width * 0.5, self.height * 0.18
+                # Pulsation lumineuse ondulante autour de la bouche
+                PushMatrix
+                Scale:
+                    origin: self.center
+                    x: 1.0 + 0.06 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 2.0))
+                    y: 1.0 + 0.06 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 2.0))
+                Color:
+                    rgba: (1, 0.8, 1, 0.09 + 0.09 * (0.5 + 0.5 * math.sin(Clock.get_boottime() * 2.0)))
+                Ellipse:
+                    pos: self.center_x - self.width * 0.22, self.center_y - self.height * 0.06
+                    size: self.width * 0.44, self.height * 0.12
+                PopMatrix
+                # Lueur blush centrale
+                Color:
+                    rgba: (1, 0.8, 1, 0.1)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.15, self.center_y
+                    size: self.width * 0.3, self.height * 0.1
+
+        # Emotion exprimée, flottante et éthérée
+        Label:
+            id: emotion_label
+            text: root.emotion if hasattr(root, "emotion") else ""
+            font_size: min(self.width, self.height) * 0.08
+            color: 1, 1, 1, 0.25
+            pos_hint: {"center_x": 0.5, "center_y": 0.15 + 0.01 * math.sin(Clock.get_boottime() * 1.5)}
+            y: root.y + dp(10)
+
+    # Points de scintillement beauté
+    canvas:
+        # Points de scintillement beauté
+        Color:
+            rgba: (1, 1, 1, 0.3)
+        Ellipse:
+            pos: self.center_x + self.width * 0.2, self.center_y + self.height * 0.3
+            size: dp(4), dp(4)
+        Ellipse:
+            pos: self.center_x - self.width * 0.3, self.center_y + self.height * 0.25
+            size: dp(3), dp(3)
+        Ellipse:
+            pos: self.center_x, self.center_y + self.height * 0.35
+            size: dp(5), dp(5)
+
+    canvas.after:
+        # Symétrie lumineuse subtile
+        Color:
+            rgba: (1, 1, 1, 0.04)
+        Line:
+            points: [self.center_x, self.y, self.center_x, self.top]
+            width: 0.8
+        # Halo intérieur doux
+        Color:
+            rgba:
+                (1, 0.9, 1, 0.05 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0)) if not hasattr(self, "emotion") else \
+                (1, 0.6, 0.7, 0.1 + 0.2 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "amour" else \
+                (0.3, 0.4, 0.8, 0.04 + 0.06 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "tristesse" else \
+                (1, 0.3, 0.3, 0.1 + 0.15 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "colère" else \
+                (1, 0.65, 0.9, 0.08 + 0.14 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "timidité" else (1, 0.9, 1, 0.05 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0))
+        Ellipse:
+            pos: self.center_x - self.width * 0.49, self.center_y - self.height * 0.49
+            size: self.width * 0.98, self.height * 0.98
+        # Aura circulaire en ligne fine
+        Color:
+            rgba: (1, 1, 1, 0.08)
+        Line:
+            rounded_rectangle: (*self.pos, *self.size, min(self.width, self.height) * 0.15)
+            width: 2
+        # Spirale cosmique lumineuse et dansante
+        Color:
+            rgba:
+                (1, 0.95, 1, 0.05 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0)) if not hasattr(self, "emotion") else \
+                (1, 0.6, 0.7, 0.07 + 0.12 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "amour" else \
+                (0.3, 0.4, 0.9, 0.04 + 0.05 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "tristesse" else \
+                (1, 0.3, 0.3, 0.07 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "colère" else \
+                (1, 0.75, 0.9, 0.06 + 0.12 * (self.intensity if hasattr(self, "intensity") else 0)) if self.emotion == "timidité" else (1, 0.95, 1, 0.05 + 0.1 * (self.intensity if hasattr(self, "intensity") else 0))
+        Rotate:
+            angle: Clock.get_boottime() % 360
+            origin: self.center
+        Line:
+            circle: (self.center_x, self.center_y, self.width * 0.45, 0, 720)
+            width: 1.2
+        # Traces de larmes subtiles (indicateur visuel seulement)
+        Color:
+            rgba: (0.8, 0.9, 1, 0.3) if hasattr(root, 'active_tears') and len(root.active_tears) > 0 else (0, 0, 0, 0)
+        Line:
+            points: [self.center_x - dp(5), self.center_y + dp(20), self.center_x - dp(5), self.center_y - dp(30)]
+            width: 1.5
+        Line:
+            points: [self.center_x + dp(5), self.center_y + dp(20), self.center_x + dp(5), self.center_y - dp(30)]
+            width: 1.5
+
+        # Halo interactif pulsant si touché récemment
+        Color:
+            rgba: (1, 0.8, 1, 0.15 + 0.15 * (1 if root.touched_recently else 0) + 0.1 * (root.beauty_intensity if hasattr(root, "beauty_intensity") else 0))
+        Ellipse:
+            pos: self.center_x - self.width * 0.55, self.center_y - self.height * 0.55
+            size: self.width * (1.1 if root.touched_recently else 1.0), self.height * (1.1 if root.touched_recently else 1.0)
+        PopMatrix  # Fin respiration globale
+
+    on_touch_down:
+        app = self
+        def clear_touch(dt):
+            self.touched_recently = False
+        self.touched_recently = True
+        Clock.unschedule(clear_touch)
+        Clock.schedule_once(clear_touch, 0.6)

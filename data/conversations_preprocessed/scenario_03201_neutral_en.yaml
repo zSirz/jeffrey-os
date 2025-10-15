@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.033727'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 98
+  processed_length: 98
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03201
+source: go_emotions
+text: I would focus on being an enlisted Marine first. That’s what you’ll be doing
+  for the next 4 years.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.553030'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 84
+  processed_length: 84
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01576
+source: go_emotions
+text: Do your worst. The tag just describes your views. Could have been much more
+  vicious.

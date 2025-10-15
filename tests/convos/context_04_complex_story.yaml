@@ -1,0 +1,33 @@
+metadata:
+  scenario_id: "context_04"
+  title: "Histoire Complexe avec Plusieurs Personnages"
+  expected_emotion: "mixed"
+  difficulty: "hard"
+  tags: ["context", "complex", "narrative"]
+
+conversation:
+  - role: "user"
+    content: "Situation compliquée au boulot. Mon collègue Marc a pris le crédit de mon idée devant Sophie, notre boss."
+    expected_emotion: "anger"
+
+  - role: "assistant"
+    content: "C'est frustrant. Comment Sophie a-t-elle réagi ?"
+
+  - role: "user"
+    content: "Elle a félicité Marc ! Et moi j'étais là comme un con. Et le pire c'est que Julie, qui était dans la réunion, a rien dit."
+    expected_emotion: "anger"
+    expected_intensity: 0.85
+
+  - role: "assistant"
+    content: "Donc Marc s'est approprié ton idée devant Sophie (ta boss), et Julie (qui savait ?) n'est pas intervenue ?"
+
+  - role: "user"
+    content: "Exactement. Julie savait que c'était mon idée, on en avait parlé la semaine dernière."
+    expected_emotion: "betrayal"
+
+validation:
+  should_detect: ["anger", "betrayal", "injustice"]
+  should_remember: "Marc took user's idea, Sophie (boss) praised Marc, Julie knew but stayed silent"
+  continuity_check: true
+  entities: ["Marc", "Sophie", "Julie"]
+  relationships: ["Marc=colleague", "Sophie=boss", "Julie=coworker"]

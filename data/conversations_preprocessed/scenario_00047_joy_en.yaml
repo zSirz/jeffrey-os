@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.196351'
+emotion: joy
+language: en
+original_goemotions_label: approval
+preprocessing:
+  emoji_demojized: true
+  original_length: 105
+  processed_length: 105
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00047
+source: go_emotions
+text: I’m sure [NAME] was thinking this when he told his daughter that she stunk like
+  a toilet on his deathbed.

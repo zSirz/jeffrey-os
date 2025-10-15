@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.106217'
+emotion: joy
+language: en
+original_goemotions_label: love
+preprocessing:
+  emoji_demojized: true
+  original_length: 76
+  processed_length: 76
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03507
+source: go_emotions
+text: It’s good dude I had to have it explained to me I’m just passing on the love

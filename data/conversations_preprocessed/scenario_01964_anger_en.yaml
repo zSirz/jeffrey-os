@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.645029'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 146
+  processed_length: 146
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01964
+source: go_emotions
+text: 'What''s even worse: the deciding voter refused to support the subway because
+  he was strangely obsessed with a horse & buggy transit plan from 1858.'

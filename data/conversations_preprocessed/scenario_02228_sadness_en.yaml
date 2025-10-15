@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.706001'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 139
+  processed_length: 139
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02228
+source: go_emotions
+text: The sad thing is his is still glitched. Just a couple days ago I died from [NAME]
+  lightsaber about 5 seconds after someone else killed him.

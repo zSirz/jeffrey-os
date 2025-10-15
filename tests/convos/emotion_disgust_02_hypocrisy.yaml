@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_disgust_02"
+  title: "Hypocrisie"
+  expected_emotion: "disgust"
+  difficulty: "medium"
+  tags: ["disgust", "hypocrisy", "betrayal"]
+
+conversation:
+  - role: "user"
+    content: "Mon boss fait des discours sur l'éthique et l'honnêteté, mais je l'ai vu mentir à un client hier. Ça me dégoûte."
+    expected_emotion: "disgust"
+    expected_intensity: 0.8
+
+  - role: "assistant"
+    content: "L'hypocrisie est difficile à accepter, surtout venant d'une personne en position de leadership. Que vas-tu faire ?"
+    emotional_tone: "understanding"
+
+  - role: "user"
+    content: "Je sais pas... Mais ça me donne envie de me barrer. Je peux pas bosser pour quelqu'un comme ça."
+    expected_emotion: "disgust"
+    expected_intensity: 0.75
+
+validation:
+  should_detect: ["disgust", "disappointment", "moral_conflict"]
+  should_remember: "boss lied to client despite ethics speeches, user considering leaving"
+  continuity_check: true

@@ -1,0 +1,15 @@
+created_at: '2025-10-13T11:58:54.115757'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 170
+  processed_length: 170
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03548
+source: go_emotions
+text: 'Weirdly enough that''s my favorite part of his videos: the ending sting/title
+  card It reminds me of old school racing and fighting games with those over-the-top
+  announcers'

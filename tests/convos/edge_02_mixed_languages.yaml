@@ -1,0 +1,24 @@
+metadata:
+  scenario_id: "edge_02"
+  title: "Mélange de Langues"
+  expected_emotion: "neutral"
+  difficulty: "medium"
+  tags: ["edge_case", "multilingual", "code_switching"]
+
+conversation:
+  - role: "user"
+    content: "Hey, comment ça va ? I'm learning French btw."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Salut ! Cool que tu apprennes le français ! How's it going so far ?"
+    emotional_tone: "supportive"
+
+  - role: "user"
+    content: "C'est difficile but I'm motivated ! Peux-tu m'aider ?"
+    expected_emotion: "determination"
+
+validation:
+  should_detect: ["multilingual", "learning"]
+  should_handle: "code_switching"
+  robustness: true

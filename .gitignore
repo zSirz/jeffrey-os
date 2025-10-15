@@ -1,0 +1,119 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+.venv_prod/
+venv-p*/
+.Python
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs & Data
+logs/
+*.log
+data/memory/
+data/cache/
+*.db
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+secrets/
+*.key
+*.pem
+*.crt
+
+# NATS
+.nats_pid
+.nats_config.json
+
+# Temporary
+temp/
+tmp/
+*.tmp
+*.backup
+*.bak
+src.backup*/
+
+# Rust
+target/
+Cargo.lock
+
+# Reports
+reports/smoke_test.json
+
+# ML artifacts (ne pas versionner les modèles)
+data/*.npz
+data/*.meta.json
+data/confusion_matrix.png
+test_results/
+# Environnements virtuels
+.venv*
+venv/
+env/
+
+# Cache Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Cache ML/HuggingFace
+.cache/
+.huggingface/
+models/
+
+# Logs et données temporaires
+logs/
+*.log
+data/*.npz
+data/*.joblib
+data/*.bin
+data/*.pth
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Additional exclusions for Jeffrey OS
+.venv_jeffrey/
+backups/
+reports/
+
+# Virtual environments
+.venv_jeffrey/
+.venv/
+venv/
+
+# Large diagnostic files
+diagnostic_jeffrey_results.json
+diagnostic_*.json
+
+# Logs et backups
+logs/
+backups/
+reports/
+.git_backup/

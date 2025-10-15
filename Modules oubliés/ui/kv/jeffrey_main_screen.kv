@@ -1,0 +1,292 @@
+<JeffreyMainScreen@Screen>:
+    name: "jeffrey_main"
+    canvas.before:
+        Color:
+            rgba: 0.05, 0.05, 0.1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        PushMatrix
+        Scale:
+            x: 1 + 0.005 * math.sin(time.time() * 1.2)
+            y: 1 + 0.005 * math.sin(time.time() * 1.2)
+            origin: self.center
+        PopMatrix
+
+    FloatLayout:
+        id: container
+
+        EmotionalAuroraBackground:
+            id: aurora
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            emotion: root.current_emotion
+            intensity: root.emotion_intensity
+
+        # Halo central animé autour de Jeffrey
+        Image:
+            id: halo
+            source: "assets/halo.gif"
+            size_hint: (0.5, 0.5)
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            opacity: 0.9
+            canvas.before:
+                PushMatrix
+                Scale:
+                    x: 1 + 0.03 * root.emotion_intensity
+                    y: 1 + 0.03 * root.emotion_intensity
+                    origin: self.center
+                PopMatrix
+
+        # Avatar magique de Jeffrey (remplacé par le visage énergétique vivant)
+        EnergyFace:
+            id: jeffrey_face
+            size_hint: (0.3, 0.3)
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            emotion: root.current_emotion
+            intensity: root.emotion_intensity
+            speaking_state: root.speaking_state
+            # Placeholder for future animation support: dynamic source
+            source: "assets/faces/face_" + root.current_emotion + ".gif" if root.current_emotion else "assets/faces/face_neutre.gif"
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    angle: 1.5 * root.emotion_intensity * math.sin(time.time() * 2) + 5 * math.sin(time.time() * 1.2)
+                    axis: (0, 0, 1)
+                    origin: self.center
+                Scale:
+                    x: 1 + 0.015 * root.emotion_intensity * math.sin(time.time() * 3)
+                    y: 1 + 0.015 * root.emotion_intensity * math.cos(time.time() * 3)
+                    origin: self.center
+                Translate:
+                    x: 5 * math.sin(time.time() * 1.8) * root.emotion_intensity
+                    y: 3 * math.cos(time.time() * 1.3) * root.emotion_intensity
+                Rotate:
+                    angle: 5 * math.sin(time.time() * 6) if root.speaking_state else 0
+                    axis: (1, 0, 0)
+                    origin: self.center
+                PopMatrix
+            canvas.after:
+                # Halo d'énergie vivant autour du visage
+                Color:
+                    rgba: (1, 0.3, 0.9, 0.15 + 0.25 * root.emotion_intensity)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.6, self.center_y - self.height * 0.6
+                    size: self.width * 1.2, self.height * 1.2
+
+                # Micro-expressions dynamiques
+                Color:
+                    rgba: (1, 1, 1, 0.1 * root.emotion_intensity)
+                Rectangle:
+                    pos: self.x + self.width * 0.25, self.y + self.height * 0.65
+                    size: self.width * 0.15, self.height * 0.05  # sourcils
+                Rectangle:
+                    pos: self.x + self.width * 0.6, self.y + self.height * 0.65
+                    size: self.width * 0.15, self.height * 0.05
+                Rectangle:
+                    pos: self.x + self.width * 0.4, self.y + self.height * 0.35
+                    size: self.width * 0.2, self.height * 0.08  # bouche
+
+                Color:
+                    rgba: (1, 0.5, 0.7, 0.6) if root.speaking_state else (0, 0, 0, 0)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.1, self.center_y - self.height * 0.2 + 3 * math.sin(time.time() * 12)
+                    size: self.width * 0.2, self.height * 0.05
+
+        # Interactive heart/energy orb
+        Button:
+            id: heart_icon
+            background_normal: ""
+            background_down: ""
+            background_color: 1, 0, 0.8, 0  # Invisible but clickable
+            size_hint: (0.3, 0.3)
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            on_release: root.on_heart_pressed()
+            canvas.before:
+                Color:
+                    rgba: (1, 0, 0.8, 0.1 + 0.2 * root.emotion_intensity)
+                Ellipse:
+                    pos: self.center_x - self.width * 0.5, self.center_y - self.height * 0.5
+                    size: self.width, self.height
+
+        # Bulles de pensée animées
+        Label:
+            id: thoughts
+            text: root.bubble_text
+            font_size: "18sp"
+            pos_hint: {"center_x": 0.5, "y": 0.05}
+            size_hint: 0.8, 0.2
+            color: 0.9, 0.9, 1, 1
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+
+        EmotionBubbleStream:
+            id: emotion_bubbles
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        EmotionalSparkAura:
+            id: spark_aura
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        EmotionalSoundEmitter:
+            id: sound_emitter
+            size_hint: 0, 0  # Invisible widget, just logic
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        EmotionalLightPulse:
+            id: light_pulse
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        HeartBeatPulse:
+            id: heart_pulse
+            size_hint: 0.3, 0.3
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+
+        FireflyField:
+            id: fireflies
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        StarlightTrail:
+            id: starlight_trail
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        EmotionalMist:
+            id: emotional_mist
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        VoiceWaveVisualizer:
+            id: voice_wave
+            size_hint: 0.9, 0.05
+            pos_hint: {"center_x": 0.5, "y": 0.095}
+
+        EmotionalNotificationHalo:
+            id: emotion_notify
+            size_hint: 0.35, 0.35
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+
+        # État émotionnel affiché
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: None, None
+            size: self.minimum_size
+            pos_hint: {"center_x": 0.5, "y": 0.85}
+            spacing: "5dp"
+
+            Label:
+                id: emotion_icon
+                text: root.current_emotion_icon
+                font_size: "20sp"
+                size_hint: None, None
+                size: self.texture_size
+                canvas.before:
+                    PushMatrix
+                    Scale:
+                        x: 1 + 0.05 * root.emotion_intensity * math.sin(time.time() * 3)
+                        y: 1 + 0.05 * root.emotion_intensity * math.sin(time.time() * 3)
+                        origin: self.center
+                    PopMatrix
+
+            Label:
+                id: emotion_display
+                text: root.current_emotion
+                font_size: "20sp"
+                color: 1, 0.7, 0.9, 1
+                size_hint_x: None
+                width: self.texture_size[0]
+
+            # Indicateur pour voir le profil émotionnel
+            Button:
+                text: "📊"
+                font_size: "18sp"
+                size_hint: None, None
+                size: dp(30), dp(30)
+                background_color: 0, 0, 0, 0
+                on_release:
+                    app.root.current = 'emotional_profile' if hasattr(app.root, 'has_screen') and app.root.has_screen('emotional_profile') else None
+
+            # Bouton pour changer le ton de Jeffrey
+            Button:
+                text: "🔊"
+                font_size: "18sp"
+                size_hint: None, None
+                size: dp(30), dp(30)
+                background_color: 0, 0, 0, 0
+                on_release: root.show_tone_selection_dialog()
+                bold: True
+                italic: True
+                canvas.before:
+                    Color:
+                        rgba: 0.2, 0.1, 0.3, 0.4
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [12]
+                    PushMatrix
+                    Scale:
+                        x: 1 + 0.02 * root.emotion_intensity * math.sin(time.time() * 4)
+                        y: 1 + 0.02 * root.emotion_intensity * math.sin(time.time() * 4)
+                        origin: self.center
+                    PopMatrix
+
+        # Résumé émotionnel contextuel
+        Label:
+            id: emotion_summary_label
+            text: root.emotion_summary
+            font_size: "16sp"
+            pos_hint: {"center_x": 0.5, "y": 0.8}
+            size_hint: 0.9, 0.1
+            color: 1, 0.8, 1, 0.8
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            opacity: 0
+            canvas.before:
+                Color:
+                    rgba: 0.3, 0.1, 0.4, 0.2
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]
+
+        LienAffectifWidget:
+            id: lien_widget
+            size_hint: (0.9, 0.08)
+            pos_hint: {"center_x": 0.5, "y": 0.11}
+            lien_value: root.lien_value
+            lien_description: root.lien_description
+            canvas.before:
+                Color:
+                    rgba:
+                        (1, 0.4, 0.4, 0.6) if self.lien_value < 0.3 else \
+                        (1, 0.8, 0.6, 0.6) if self.lien_value < 0.7 else \
+                        (1, 0.9, 0.6, 0.8)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        # Chat input bar
+        TextInput:
+            id: chat_input
+            hint_text: "Écris à Jeffrey..."
+            size_hint: 0.8, 0.08
+            pos_hint: {"center_x": 0.5, "y": 0.01}
+            multiline: False
+            on_text_validate: root.on_chat_message(self.text)
+            foreground_color: 1, 1, 1, 1
+            background_color: 0.2, 0.2, 0.4, 0.8
+            padding: 10
+            font_size: "16sp"
+            write_tab: False
+
+        FloatParticleDrift:
+            id: particle_drift
+            size_hint: 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}

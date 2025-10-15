@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.185777'
+emotion: joy
+language: en
+original_goemotions_label: approval
+preprocessing:
+  emoji_demojized: true
+  original_length: 99
+  processed_length: 99
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03850
+source: go_emotions
+text: I used to know a woman who got a lot of freelance work out of okcupid. Never
+  done it myself though.

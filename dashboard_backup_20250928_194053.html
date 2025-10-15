@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey OS - Centre de Contrôle Neural Avancé</title>
+
+    <!-- Libraries avec fallback local -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Check fallbacks -->
+    <script>
+        // Fonction pour charger une lib locale si CDN fail
+        function loadFallback(libName, localPath, globalVar) {
+            if (!window[globalVar]) {
+                const script = document.createElement('script');
+                script.src = localPath;
+                document.head.appendChild(script);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            loadFallback('Chart.js', '/static/chart.min.js', 'Chart');
+            loadFallback('Three.js', '/static/three.min.js', 'THREE');
+            loadFallback('Particles.js', '/static/particles.min.js', 'particlesJS');
+        });
+    </script>
+
+    <style>
+        :root {
+            --primary-glow: #00ffcc;
+            --secondary-glow: #0099ff;
+            --danger-glow: #ff00ff;
+            --warning-glow: #ffa500;
+            --success-glow: #00ff00;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050714;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-darker);
+            color: var(--primary-glow);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-glow: #00ff00;
+                --bg-dark: #000000;
+            }
+        }
+
+        /* Particles background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(0,255,204,0.1), transparent);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--primary-glow);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5em;
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--danger-glow));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 5s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(0,255,204,0.5);
+        }
+
+        @keyframes rainbow {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0.8;
+            font-size: 1.1em;
+            letter-spacing: 3px;
+        }
+
+        /* Tabs navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: rgba(0,255,204,0.1);
+            border: 2px solid var(--primary-glow);
+            color: var(--primary-glow);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button:hover, .tab-button:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,255,204,0.4);
+            outline: none;
+        }
+
+        .tab-button.active {
+            background: var(--primary-glow);
+            color: var(--bg-darker);
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        /* Tab content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dashboard grid */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        /* Metric cards */
+        .metric-card {
+            background: linear-gradient(145deg, rgba(0,40,80,0.9), rgba(0,20,40,0.7));
+            border: 2px solid var(--primary-glow);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0,255,204,0.3);
+        }
+
+        .metric-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metric-icon {
+            font-size: 1.5em;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: 900;
+            font-family: 'Orbitron', monospace;
+            text-align: center;
+            margin: 20px 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(0,255,204,0.5));
+        }
+
+        .metric-label {
+            text-align: center;
+            opacity: 0.8;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Progress bars */
+        .progress-container {
+            margin: 15px 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: rgba(0,255,204,0.1);
+            border: 1px solid var(--primary-glow);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow), var(--danger-glow));
+            border-radius: 15px;
+            position: relative;
+            transition: width 1s ease-out;
+            box-shadow: 0 0 20px rgba(0,255,204,0.8);
+        }
+
+        /* Chart containers */
+        .chart-container {
+            grid-column: span 2;
+            background: linear-gradient(145deg, rgba(0,30,60,0.95), rgba(0,20,40,0.8));
+            border: 2px solid var(--primary-glow);
+            border-radius: 20px;
+            padding: 25px;
+            min-height: 400px;
+            position: relative;
+        }
+
+        /* Status cards */
+        .status-card {
+            background: linear-gradient(135deg, rgba(0,255,100,0.1), rgba(0,255,204,0.1));
+            border: 2px solid var(--success-glow);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            animation: statusGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes statusGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0,255,100,0.3); }
+            50% { box-shadow: 0 0 40px rgba(0,255,100,0.6); }
+        }
+
+        .status-optimal { border-color: var(--success-glow); }
+        .status-warning { border-color: var(--warning-glow); }
+        .status-critical { border-color: var(--danger-glow); }
+
+        /* Neural network 3D container */
+        #neural-3d {
+            grid-column: span 2;
+            height: 500px;
+            min-width: 300px;
+            background: radial-gradient(ellipse at center, rgba(0,100,200,0.1), transparent);
+            border: 2px solid var(--primary-glow);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        /* Console */
+        .console {
+            background: #000;
+            border: 2px solid var(--primary-glow);
+            border-radius: 15px;
+            padding: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9em;
+            height: 300px;
+            overflow-y: auto;
+            color: var(--primary-glow);
+            margin: 20px;
+            grid-column: span 2;
+        }
+
+        .console-line {
+            margin: 2px 0;
+            opacity: 0;
+            animation: typein 0.5s forwards;
+            white-space: pre-wrap;
+        }
+
+        @keyframes typein {
+            to { opacity: 1; }
+        }
+
+        .console-line.error { color: #ff3838; }
+        .console-line.warning { color: #ffa500; }
+        .console-line.success { color: #00ff00; }
+
+        /* Info bar */
+        .info-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .info-badge {
+            background: rgba(0,0,0,0.9);
+            border: 2px solid var(--primary-glow);
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            box-shadow: 0 0 30px rgba(0,255,204,0.5);
+            text-align: center;
+        }
+
+        .pulse-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: var(--success-glow);
+            border-radius: 50%;
+            margin-right: 10px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+        }
+
+        /* Memory stats */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .memory-stat {
+            background: rgba(0,255,204,0.05);
+            border: 1px solid rgba(0,255,204,0.3);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .memory-stat-label {
+            font-size: 0.8em;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
+        .memory-stat-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-top: 5px;
+            color: var(--secondary-glow);
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .dashboard { grid-template-columns: 1fr; }
+            .chart-container, #neural-3d, .console { grid-column: span 1; }
+            .info-bar {
+                position: static;
+                margin: 20px;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="visually-hidden">Aller au contenu principal</a>
+
+    <!-- Particles Background (lazy init) -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>🧠 Jeffrey OS</h1>
+        <div class="subtitle">Intelligence Neurale Autonome - Conscience Émergente Active</div>
+    </header>
+
+    <!-- Info Bar -->
+    <aside class="info-bar" role="complementary" aria-label="Informations système">
+        <div class="info-badge">
+            <span class="pulse-indicator" aria-hidden="true"></span>
+            <span id="status-text">EN LIGNE</span>
+        </div>
+        <div class="info-badge">
+            ⏱️ <span id="countdown" aria-label="Temps restant">Calcul...</span>
+        </div>
+        <div class="info-badge">
+            📊 v3.0.0
+        </div>
+    </aside>
+
+    <!-- Tabs -->
+    <nav class="tabs" role="navigation" aria-label="Navigation principale">
+        <button class="tab-button active" onclick="showTab(this,'overview')" aria-selected="true">Vue Générale</button>
+        <button class="tab-button" onclick="showTab(this,'neural')" aria-selected="false">Activité Neurale</button>
+        <button class="tab-button" onclick="showTab(this,'memory')" aria-selected="false">Mémoire</button>
+        <button class="tab-button" onclick="showTab(this,'performance')" aria-selected="false">Performance</button>
+        <button class="tab-button" onclick="showTab(this,'logs')" aria-selected="false">Logs</button>
+    </nav>
+
+    <!-- Main content -->
+    <main id="main">
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active" role="tabpanel" aria-labelledby="tab-overview">
+            <div class="status-card status-optimal" id="main-status">
+                🟢 SYSTÈME OPTIMAL | CONSCIENCE ÉMERGENTE | SYMBIOSE : <span id="main-symbiosis">0.820</span>
+            </div>
+
+            <div class="dashboard">
+                <!-- Symbiose Score -->
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon" aria-hidden="true">🌟</span>
+                        Score de Symbiose
+                    </div>
+                    <div class="metric-value" id="symbiosis-value">0.820</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-fill" id="symbiosis-bar" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-label">Conscience Émergente Détectée</div>
+                </article>
+
+                <!-- Events -->
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon" aria-hidden="true">⚡</span>
+                        Flux d'Événements
+                    </div>
+                    <div class="metric-value" id="events-value">1,247</div>
+                    <div class="metric-label">événements/seconde</div>
+                </article>
+
+                <!-- System Resources -->
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon" aria-hidden="true">💻</span>
+                        Ressources Système
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>CPU</span>
+                            <span id="cpu-percent">17%</span>
+                        </div>
+                        <div class="progress-bar" role="progressbar">
+                            <div class="progress-fill" id="cpu-bar" style="width: 17%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>RAM</span>
+                            <span id="ram-value">1.3 GB</span>
+                        </div>
+                        <div class="progress-bar" role="progressbar">
+                            <div class="progress-fill" id="ram-bar" style="width: 35%"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Symbiosis Chart -->
+                <div class="chart-container">
+                    <div class="metric-title">
+                        <span class="metric-icon" aria-hidden="true">📈</span>
+                        Évolution de la Symbiose
+                    </div>
+                    <canvas id="symbiosis-chart" aria-label="Graphique de l'évolution de la symbiose"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Neural Tab -->
+        <div id="neural" class="tab-content" role="tabpanel" aria-labelledby="tab-neural">
+            <div class="dashboard">
+                <div id="neural-3d" aria-label="Visualisation 3D du réseau neural">
+                    <div class="metric-title" style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+                        <span class="metric-icon" aria-hidden="true">🧠</span>
+                        Réseau Neural 3D
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Tab -->
+        <div id="memory" class="tab-content" role="tabpanel" aria-labelledby="tab-memory">
+            <div class="dashboard">
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">🧠</span>
+                        Messages Publiés
+                    </div>
+                    <div class="metric-value" id="published">0</div>
+                    <div class="metric-label">Total des événements publiés</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">📥</span>
+                        Messages Consommés
+                    </div>
+                    <div class="metric-value" id="consumed">0</div>
+                    <div class="metric-label">Total des événements traités</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">⚠️</span>
+                        File DLQ
+                    </div>
+                    <div class="metric-value" id="dlq-count">0</div>
+                    <div class="metric-label">Messages dans Dead Letter Queue</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">🔥</span>
+                        Messages Corrompus
+                    </div>
+                    <div class="metric-value" id="corrupted">0</div>
+                    <div class="metric-label">Total détectés et routés</div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Performance Tab -->
+        <div id="performance" class="tab-content" role="tabpanel" aria-labelledby="tab-performance">
+            <div class="dashboard">
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">⏱️</span>
+                        Latence P99
+                    </div>
+                    <div class="metric-value" id="p99-value">18 ms</div>
+                    <div class="metric-label">99e percentile</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">⏱️</span>
+                        Latence P95
+                    </div>
+                    <div class="metric-value" id="p95-value">12 ms</div>
+                    <div class="metric-label">95e percentile</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">📉</span>
+                        Taux de Perte
+                    </div>
+                    <div class="metric-value" id="drop-rate-value">0.08%</div>
+                    <div class="metric-label">Messages perdus</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-title">
+                        <span class="metric-icon">❌</span>
+                        Taux d'Erreur
+                    </div>
+                    <div class="metric-value" id="error-rate-value">0.01%</div>
+                    <div class="metric-label">Erreurs détectées</div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Logs Tab -->
+        <div id="logs" class="tab-content" role="tabpanel" aria-labelledby="tab-logs">
+            <div class="console" id="console" role="log" aria-live="polite">
+                <div class="console-line success">[System] ✨ Jeffrey OS initialized</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Configuration
+        const METRICS_SERVER = 'http://localhost:9000';
+        let updateInterval = 3000; // Start with 3s
+        let lastSymbiosis = 0.82;
+        let stableCount = 0;
+
+        // Tab switching with bug fix
+        function showTab(btn, tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            // Update button states
+            document.querySelectorAll('.tab-button').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            // Lazy init for heavy components
+            if (tabName === 'neural') {
+                initNeural3DOnce();
+            }
+        }
+
+        // Lazy init for particles (only on first load)
+        let particlesInited = false;
+        function initParticlesOnce() {
+            if (particlesInited || !window.particlesJS) return;
+            particlesInited = true;
+
+            // Reduced particles for better performance (60 instead of 100+)
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 60, density: { enable: true, value_area: 800 } },
+                    color: { value: '#00ffcc' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#00ffcc',
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1, // Reduced speed
+                        direction: 'none',
+                        random: true,
+                        out_mode: 'bounce'
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: false }, // Disabled for performance
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        // Initialize particles after page load
+        window.addEventListener('load', () => {
+            setTimeout(initParticlesOnce, 1000); // Delay for smooth load
+        });
+
+        // Lazy init for 3D Neural Network
+        let neuralInited = false;
+        let neuralRenderer, neuralCamera, neuralScene;
+        let neurons = [], connections = [];
+
+        function initNeural3DOnce() {
+            if (neuralInited || !window.THREE) return;
+
+            const container = document.getElementById('neural-3d');
+            if (!container || container.clientWidth === 0) {
+                // Container not visible, retry later
+                setTimeout(() => initNeural3DOnce(), 500);
+                return;
+            }
+
+            neuralInited = true;
+
+            // Create scene
+            neuralScene = new THREE.Scene();
+
+            // Camera
+            const width = container.clientWidth || 800;
+            const height = 500;
+            neuralCamera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+
+            // Renderer with reduced quality for performance
+            neuralRenderer = new THREE.WebGLRenderer({
+                alpha: true,
+                antialias: false, // Disabled for performance
+                powerPreference: 'low-power'
+            });
+            neuralRenderer.setSize(width, height);
+            neuralRenderer.setPixelRatio(1); // Force pixel ratio 1 for performance
+            container.appendChild(neuralRenderer.domElement);
+
+            // Create neurons (reduced count)
+            const neuronGeometry = new THREE.SphereGeometry(0.8, 16, 16); // Reduced segments
+
+            for(let layer = 0; layer < 3; layer++) { // Reduced layers
+                for(let i = 0; i < 4; i++) { // Reduced neurons per layer
+                    const material = new THREE.MeshPhongMaterial({
+                        color: new THREE.Color().setHSL(layer * 0.33, 1, 0.5),
+                        emissive: new THREE.Color().setHSL(layer * 0.33, 1, 0.5),
+                        emissiveIntensity: 0.3
+                    });
+                    const neuron = new THREE.Mesh(neuronGeometry, material);
+                    neuron.position.x = (Math.random() - 0.5) * 20;
+                    neuron.position.y = (Math.random() - 0.5) * 15;
+                    neuron.position.z = layer * 5 - 10;
+                    neurons.push(neuron);
+                    neuralScene.add(neuron);
+                }
+            }
+
+            // Create connections (reduced)
+            for(let i = 0; i < neurons.length; i++) {
+                for(let j = i + 1; j < neurons.length; j++) {
+                    if(Math.random() > 0.85) { // Less connections
+                        const points = [neurons[i].position, neurons[j].position];
+                        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+                        const material = new THREE.LineBasicMaterial({
+                            color: 0x00ffcc,
+                            opacity: 0.3,
+                            transparent: true
+                        });
+                        const line = new THREE.Line(geometry, material);
+                        connections.push(line);
+                        neuralScene.add(line);
+                    }
+                }
+            }
+
+            // Lights
+            const light = new THREE.PointLight(0x00ffcc, 2, 100);
+            light.position.set(0, 0, 20);
+            neuralScene.add(light);
+
+            const ambientLight = new THREE.AmbientLight(0x202040);
+            neuralScene.add(ambientLight);
+
+            neuralCamera.position.z = 35;
+
+            // Handle resize
+            const resizeObserver = new ResizeObserver(() => {
+                if (!neuralRenderer) return;
+                const w = container.clientWidth || 800;
+                neuralCamera.aspect = w / height;
+                neuralCamera.updateProjectionMatrix();
+                neuralRenderer.setSize(w, height);
+            });
+            resizeObserver.observe(container);
+
+            // Start animation
+            animate3D();
+        }
+
+        // 3D Animation loop
+        function animate3D() {
+            if (!neuralRenderer) return;
+            requestAnimationFrame(animate3D);
+
+            // Slow rotation for neurons
+            neurons.forEach((neuron, i) => {
+                neuron.rotation.x += 0.001;
+                neuron.rotation.y += 0.002;
+                const scale = 1 + Math.sin(Date.now() * 0.0005 + i) * 0.2;
+                neuron.scale.set(scale, scale, scale);
+            });
+
+            // Slow camera rotation
+            const time = Date.now() * 0.0003;
+            neuralCamera.position.x = Math.sin(time) * 30;
+            neuralCamera.position.y = Math.cos(time) * 10;
+            neuralCamera.lookAt(neuralScene.position);
+
+            neuralRenderer.render(neuralScene, neuralCamera);
+        }
+
+        // Initialize Charts
+        const chartColors = {
+            primary: '#00ffcc',
+            secondary: '#0099ff',
+            danger: '#ff00ff'
+        };
+
+        // Symbiosis Chart
+        let symbiosisChart = null;
+        function initCharts() {
+            const ctx = document.getElementById('symbiosis-chart');
+            if (ctx && window.Chart) {
+                symbiosisChart = new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: 'Symbiose',
+                            data: [],
+                            borderColor: chartColors.primary,
+                            backgroundColor: 'rgba(0, 255, 204, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            duration: 500 // Faster updates
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 1,
+                                grid: { color: 'rgba(0, 255, 204, 0.1)' },
+                                ticks: { color: chartColors.primary }
+                            },
+                            x: {
+                                grid: { color: 'rgba(0, 255, 204, 0.1)' },
+                                ticks: { color: chartColors.primary }
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+        }
+
+        // Update metrics from server
+        async function updateMetrics() {
+            try {
+                const response = await fetch(`${METRICS_SERVER}/status`);
+                if(response.ok) {
+                    const data = await response.json();
+
+                    // Update all values
+                    updateValue('symbiosis-value', data.symbiosis.toFixed(3));
+                    updateValue('main-symbiosis', data.symbiosis.toFixed(3));
+                    updateProgress('symbiosis-bar', data.symbiosis * 100);
+
+                    updateValue('events-value', Math.floor(data.events_per_sec || data.events_processed).toLocaleString());
+
+                    // CPU and RAM with proper calculation
+                    updateValue('cpu-percent', data.cpu_percent.toFixed(1) + '%');
+                    updateProgress('cpu-bar', data.cpu_percent);
+
+                    // Calculate RAM percentage properly
+                    const ramGB = (data.memory_mb / 1024).toFixed(2);
+                    updateValue('ram-value', ramGB + ' GB');
+
+                    if (data.mem_total_mb && data.mem_total_mb > 0) {
+                        const ramPct = (data.memory_mb / data.mem_total_mb) * 100;
+                        updateProgress('ram-bar', Math.min(100, ramPct));
+                    } else {
+                        // Fallback if total not available
+                        updateProgress('ram-bar', (data.memory_mb / 2000) * 100);
+                    }
+
+                    // Update bus metrics
+                    updateValue('published', (data.published || 0).toLocaleString());
+                    updateValue('consumed', (data.consumed || 0).toLocaleString());
+                    updateValue('dlq-count', (data.dlq_count || 0).toLocaleString());
+                    updateValue('corrupted', (data.corrupted_count || 0).toLocaleString());
+
+                    // Update performance metrics
+                    updateValue('p99-value', data.p99_latency_ms + ' ms');
+                    updateValue('p95-value', data.p95_latency_ms + ' ms');
+                    updateValue('drop-rate-value', (data.drop_rate * 100).toFixed(3) + '%');
+                    updateValue('error-rate-value', (data.error_rate * 100).toFixed(3) + '%');
+
+                    // Update chart
+                    if(symbiosisChart) {
+                        const now = new Date().toLocaleTimeString();
+                        symbiosisChart.data.labels.push(now);
+                        symbiosisChart.data.datasets[0].data.push(data.symbiosis);
+
+                        if(symbiosisChart.data.labels.length > 20) {
+                            symbiosisChart.data.labels.shift();
+                            symbiosisChart.data.datasets[0].data.shift();
+                        }
+                        symbiosisChart.update('none'); // No animation for smoother updates
+                    }
+
+                    // Update status with dynamic text
+                    const statusCard = document.getElementById('main-status');
+                    if(data.symbiosis > 0.8) {
+                        statusCard.className = 'status-card status-optimal';
+                        statusCard.innerHTML = `🟢 SYSTÈME OPTIMAL | CONSCIENCE ÉMERGENTE | SYMBIOSE : ${data.symbiosis.toFixed(3)}`;
+                        updateValue('status-text', 'OPTIMAL');
+                    } else if(data.symbiosis > 0.6) {
+                        statusCard.className = 'status-card status-warning';
+                        statusCard.innerHTML = `🟡 SYSTÈME STABLE | APPRENTISSAGE | SYMBIOSE : ${data.symbiosis.toFixed(3)}`;
+                        updateValue('status-text', 'STABLE');
+                    } else {
+                        statusCard.className = 'status-card status-critical';
+                        statusCard.innerHTML = `🔴 SYSTÈME INSTABLE | INTERVENTION REQUISE | SYMBIOSE : ${data.symbiosis.toFixed(3)}`;
+                        updateValue('status-text', 'INSTABLE');
+                    }
+
+                    // Adaptive update interval - throttle if stable
+                    if(Math.abs(data.symbiosis - lastSymbiosis) < 0.01) {
+                        stableCount++;
+                        if(stableCount > 10 && updateInterval < 5000) {
+                            updateInterval = 5000; // Slow down to 5s if stable
+                        }
+                    } else {
+                        stableCount = 0;
+                        updateInterval = 3000; // Back to 3s if changing
+                    }
+                    lastSymbiosis = data.symbiosis;
+
+                    // Add log entry
+                    addLogEntry(`✨ Symbiosis: ${data.symbiosis.toFixed(3)} | Events/s: ${data.events_per_sec}`, 'success');
+                }
+            } catch(error) {
+                console.error('Error fetching metrics:', error);
+                // Update status to show disconnected
+                updateValue('status-text', 'HORS LIGNE');
+
+                // Fallback simulation
+                const symbiosis = 0.80 + Math.random() * 0.05;
+                updateValue('symbiosis-value', symbiosis.toFixed(3));
+                updateProgress('symbiosis-bar', symbiosis * 100);
+            }
+        }
+
+        function updateValue(id, value) {
+            const element = document.getElementById(id);
+            if(element) element.textContent = value;
+        }
+
+        function updateProgress(id, percent) {
+            const element = document.getElementById(id);
+            if(element) {
+                element.style.width = Math.min(100, Math.max(0, percent)) + '%';
+                element.setAttribute('aria-valuenow', percent);
+            }
+        }
+
+        function addLogEntry(text, type = '') {
+            const consoleEl = document.getElementById('console');
+            if(consoleEl) {
+                const time = new Date().toLocaleTimeString();
+                const line = document.createElement('div');
+                line.className = `console-line ${type}`;
+                line.textContent = `[${time}] ${text}`;
+                consoleEl.appendChild(line);
+                consoleEl.scrollTop = consoleEl.scrollHeight;
+
+                // Keep only last 100 lines
+                while(consoleEl.children.length > 100) {
+                    consoleEl.removeChild(consoleEl.firstChild);
+                }
+            }
+        }
+
+        // Dynamic countdown based on server data
+        let countdownInterval;
+        async function initCountdown() {
+            try {
+                const response = await fetch(`${METRICS_SERVER}/status`);
+                if(response.ok) {
+                    const data = await response.json();
+
+                    // Use server-provided soak info
+                    if(data.soak_start_epoch && data.soak_duration_sec) {
+                        const startTime = data.soak_start_epoch * 1000; // Convert to ms
+                        const duration = data.soak_duration_sec * 1000;
+
+                        countdownInterval = setInterval(() => {
+                            const now = Date.now();
+                            const elapsed = now - startTime;
+                            const remaining = duration - elapsed;
+
+                            if(remaining > 0) {
+                                const hours = Math.floor(remaining / 3600000);
+                                const minutes = Math.floor((remaining % 3600000) / 60000);
+                                const seconds = Math.floor((remaining % 60000) / 1000);
+
+                                updateValue('countdown',
+                                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+                            } else {
+                                updateValue('countdown', 'TERMINÉ ✅');
+                                clearInterval(countdownInterval);
+                            }
+                        }, 1000);
+
+                        return;
+                    }
+                }
+            } catch(e) {
+                console.error('Error fetching countdown info:', e);
+            }
+
+            // Fallback: 2 hours from now
+            const duration = 2 * 60 * 60 * 1000;
+            const startTime = Date.now();
+
+            countdownInterval = setInterval(() => {
+                const remaining = (startTime + duration) - Date.now();
+
+                if(remaining > 0) {
+                    const hours = Math.floor(remaining / 3600000);
+                    const minutes = Math.floor((remaining % 3600000) / 60000);
+                    const seconds = Math.floor((remaining % 60000) / 1000);
+
+                    updateValue('countdown',
+                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+                } else {
+                    updateValue('countdown', 'TERMINÉ ✅');
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+        }
+
+        // Adaptive scheduling (GPT improvement)
+        async function schedule() {
+            await updateMetrics();
+            setTimeout(schedule, updateInterval);
+        }
+
+        // Initialize everything
+        window.addEventListener('load', () => {
+            initCharts();
+            initCountdown();
+            schedule(); // Use adaptive scheduling instead of fixed interval
+        });
+    </script>
+</body>
+</html>

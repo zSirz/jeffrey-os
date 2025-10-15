@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_neutral_01"
+  title: "Demande d'Information"
+  expected_emotion: "neutral"
+  difficulty: "easy"
+  tags: ["neutral", "information", "factual"]
+
+conversation:
+  - role: "user"
+    content: "Peux-tu m'expliquer comment fonctionne le machine learning ?"
+    expected_emotion: "neutral"
+    expected_intensity: 0.5
+
+  - role: "assistant"
+    content: "Bien sûr ! Le machine learning est une branche de l'IA qui permet aux machines d'apprendre à partir de données sans être explicitement programmées. Tu veux des détails sur un type spécifique ?"
+    emotional_tone: "informative"
+
+  - role: "user"
+    content: "Oui, parle-moi du supervised learning."
+    expected_emotion: "neutral"
+    expected_intensity: 0.5
+
+validation:
+  should_detect: ["neutral", "curiosity"]
+  should_remember: "user interested in machine learning, specifically supervised learning"
+  continuity_check: true

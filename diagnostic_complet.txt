@@ -1,0 +1,103 @@
+=== DIAGNOSTIC JEFFREY OS ===
+
+1️⃣ CONTENU DE compat/stubs.py:
+-----------------------------
+"""
+Stubs pour modules manquants (Rust, modules récupérés).
+Permet à la démo de tourner même si certains modules ne sont pas encore intégrés.
+"""
+
+import logging
+import os
+
+logger = logging.getLogger(__name__)
+
+DEMO_MODE = os.getenv("JEFFREY_DEMO", "1") == "1"
+
+
+# Stub pour ImmuneSystem (module Rust)
+class ImmuneSystem:
+    def __init__(self, config=None):
+        if DEMO_MODE:
+            logger.warning("ImmuneSystem running in stub mode (JEFFREY_DEMO=1)")
+        self.config = config or {}
+
+    def scan(self):
+        return {"status": "healthy", "threats": [], "stub": True}
+
+    def defend(self, threat):
+        return {"blocked": True, "stub": True}
+
+
+# Stub pour PapaControl (module Rust)
+class PapaControl:
+    def __init__(self, config=None):
+        if DEMO_MODE:
+            logger.warning("PapaControl running in stub mode (JEFFREY_DEMO=1)")
+        self.config = config or {}
+
+    def check_privileges(self):
+        return {"admin": False, "stub": True}
+
+
+# Stub pour modules Python manquants
+class IAOrchestratorUltimate:
+    def __init__(self, config=None):
+        if DEMO_MODE:
+            logger.warning("IAOrchestratorUltimate running in stub mode")
+        self.config = config or {}
+
+    def orchestrate(self, task):
+        return {"status": "simulated", "stub": True}
+
+
+# Helper pour import avec fallback
+
+2️⃣ CONTENU DU DOSSIER tools/:
+-----------------------------
+total 96
+drwxr-xr-x   3 davidproz  staff    96B Sep 29 19:03 admin
+drwxr-xr-x  11 davidproz  staff   352B Sep 29 19:03 analyser
+drwxr-xr-x@  3 davidproz  staff    96B Sep 29 19:03 analysis
+-rw-r--r--@  1 davidproz  staff   2.3K Oct  5 22:49 audit_final.py
+drwxr-xr-x@  3 davidproz  staff    96B Sep 29 19:03 census
+-rw-r--r--@  1 davidproz  staff   1.9K Sep 29 19:03 check_import_cycles.py
+-rw-r--r--@  1 davidproz  staff   3.9K Sep 29 19:03 fix_all_syntax.py
+-rwxr-xr-x@  1 davidproz  staff   3.7K Sep 28 16:24 migrate_priority_modules.sh
+drwxr-xr-x@  5 davidproz  staff   160B Sep 29 19:03 phoenix
+-rw-r--r--@  1 davidproz  staff   2.1K Oct  5 23:33 propose_safe_mappings.py
+drwxr-xr-x@  4 davidproz  staff   128B Sep 29 19:03 refactor
+drwxr-xr-x@ 14 davidproz  staff   448B Sep 28 16:24 reports
+-rwxr-xr-x@  1 davidproz  staff   2.7K Oct  5 23:33 restore_from_archives.py
+-rwxr-xr-x@  1 davidproz  staff   6.2K Oct  5 23:33 scan_broken_imports.py
+-rw-r--r--@  1 davidproz  staff   1.4K Oct  5 23:33 scan_core_imports.py
+-rw-r--r--@  1 davidproz  staff   5.4K Sep 29 19:03 scan_missing_modules.py
+-rwxr-xr-x@  1 davidproz  staff   649B Oct  5 23:04 search_archives.sh
+drwxr-xr-x   4 davidproz  staff   128B Sep 29 19:03 utils
+drwxr-xr-x   5 davidproz  staff   160B Sep 29 19:03 validation
+drwxr-xr-x@  2 davidproz  staff    64B Sep 23 21:40 vector_db
+
+3️⃣ TEST IMPORT unified_memory:
+-----------------------------
+❌ Import échoué: No module named 'jeffrey.core.unified_memory'
+
+4️⃣ RUFF INSTALLÉ:
+-----------------------------
+ruff                                              0.13.3
+
+5️⃣ TEST AUTRES MODULES CRITIQUES:
+-----------------------------
+Test: jeffrey.core.consciousness_loop
+  ✅ OK
+Test: jeffrey.core.emotions.core.emotion_engine
+  ✅ OK
+Test: jeffrey.core.memory.memory_manager
+  ✅ OK
+
+6️⃣ IMPORTS CASSÉS (ESTIMATION):
+-----------------------------
+error: invalid value 'E0401' for '--select <RULE_CODE>'
+
+For more information, try '--help'.
+...
+Total erreurs E0401: 1

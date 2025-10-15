@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.363245'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 117
+  processed_length: 117
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00752
+source: go_emotions
+text: '[NAME] got bigger plans ahead from the looks of it. I see [NAME] in the senate
+  if any democrat has a chance in Texas.'

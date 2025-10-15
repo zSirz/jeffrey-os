@@ -1,0 +1,122 @@
+{
+  "executive": {
+    "path": "src/jeffrey/core/learning/explainer.py",
+    "score": 160,
+    "classes": [
+      "from",
+      "class",
+      "ExplainerModule"
+    ],
+    "methods": [
+      "_initialize_explanation_templates",
+      "_generate_selection_explanation",
+      "_generate_comparative_explanation",
+      "_generate_next_steps_explanation",
+      "_generate_benefit_explanation",
+      "_generate_risk_explanation",
+      "_assess_data_quality_explanation",
+      "_calculate_explanation_confidence",
+      "_calculate_simulation_explanation_confidence",
+      "_calculate_recommendation_explanation_confidence",
+      "_cache_explanation",
+      "_update_explanation_stats",
+      "_generate_fallback_explanation",
+      "get_explanation_statistics"
+    ],
+    "size": 62960
+  },
+  "motor": {
+    "path": "src/jeffrey/services/providers/provider_manager.py",
+    "score": 360,
+    "classes": [
+      "AIProvider",
+      "for",
+      "GPTProvider",
+      "ClaudeProvider",
+      "GrokProvider",
+      "LlamaProvider",
+      "GenericSimulatedProvider",
+      "APIProvider",
+      "ProviderManager"
+    ],
+    "methods": [
+      "generate",
+      "\u2705 generate",
+      "generate",
+      "\u2705 generate",
+      "generate",
+      "\u2705 generate",
+      "generate",
+      "\u2705 generate",
+      "generate",
+      "\u2705 generate",
+      "generate",
+      "\u2705 generate",
+      "extract_response",
+      "generate",
+      "\u2705 generate",
+      "generate",
+      "\u2705 generate",
+      "generate_multi"
+    ],
+    "size": 51175
+  },
+  "language": {
+    "path": "src/jeffrey/services/providers/provider_manager.py",
+    "score": 260,
+    "classes": [
+      "AIProvider",
+      "for",
+      "GPTProvider",
+      "ClaudeProvider",
+      "GrokProvider",
+      "LlamaProvider",
+      "GenericSimulatedProvider",
+      "APIProvider",
+      "ProviderManager"
+    ],
+    "methods": [
+      "\u2705 generate",
+      "\u2705 generate",
+      "\u2705 generate",
+      "\u2705 generate",
+      "\u2705 generate",
+      "\u2705 generate",
+      "\u2705 generate",
+      "\u2705 generate"
+    ],
+    "size": 51175
+  },
+  "integration": {
+    "path": "src/jeffrey/core/orchestration/agi_orchestrator.py",
+    "score": 190,
+    "classes": [
+      "SynthesisModule",
+      "EmotionalJournal",
+      "ContextualEmpathy",
+      "NarrativeMemory",
+      "SecureImaginationEngine",
+      "JeffreyBiorhythms",
+      "CircadianRhythm",
+      "CreativeMemoryWeb",
+      "DreamEngine",
+      "SubtleLearning",
+      "MicroExpressions",
+      "PersonalValues",
+      "EmotionalMemoryManager",
+      "MetaCognition",
+      "ProactiveCuriosity",
+      "EvolutiveAttachment",
+      "AGIOrchestrator",
+      "BasicEmotionalState"
+    ],
+    "methods": [
+      "synthesize",
+      "\u2705 synthesize",
+      "\u2705 process",
+      "\u2705 process",
+      "\u2705 process"
+    ],
+    "size": 37549
+  }
+}

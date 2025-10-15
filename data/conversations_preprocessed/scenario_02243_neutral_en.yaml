@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.709561'
+emotion: neutral
+language: en
+original_goemotions_label: confusion
+preprocessing:
+  emoji_demojized: true
+  original_length: 37
+  processed_length: 37
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02243
+source: go_emotions
+text: Is this legit or just a random house?

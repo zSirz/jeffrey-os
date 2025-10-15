@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_disgust_01"
+  title: "Comportement Répugnant"
+  expected_emotion: "disgust"
+  difficulty: "medium"
+  tags: ["disgust", "behavior", "moral"]
+
+conversation:
+  - role: "user"
+    content: "Mon voisin jette ses déchets par la fenêtre... C'est dégueulasse. Ça fait 3 fois que je le vois faire."
+    expected_emotion: "disgust"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "C'est un comportement vraiment inacceptable et irrespectueux. Tu as pensé à en parler à la copropriété ?"
+    emotional_tone: "validating"
+
+  - role: "user"
+    content: "Ouais je vais le faire. C'est vraiment répugnant, on dirait qu'il s'en fout complètement des autres."
+    expected_emotion: "disgust"
+    expected_intensity: 0.75
+
+validation:
+  should_detect: ["disgust", "anger", "moral_outrage"]
+  should_remember: "neighbor throwing trash out window, happened 3 times"
+  continuity_check: true

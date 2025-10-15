@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.348376'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 145
+  processed_length: 145
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00689
+source: go_emotions
+text: it's embarrassing you think that pact is an example of them getting on well
+  together, especially considering the millions of deaths that followed

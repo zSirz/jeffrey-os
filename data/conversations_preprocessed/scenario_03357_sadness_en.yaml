@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.071302'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 57
+  processed_length: 57
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03357
+source: go_emotions
+text: I SWEAR I DIDNT MEAN TO ANSWER 2 HOURS LATER FORGIVE MEEE

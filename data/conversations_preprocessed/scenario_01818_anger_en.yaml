@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.609431'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 103
+  processed_length: 103
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01818
+source: go_emotions
+text: The bourgeoisie elected courts were going to backtrack on all [NAME] economic
+  reforms. Fuck those guys.

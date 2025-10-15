@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.607363'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 105
+  processed_length: 105
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01809
+source: go_emotions
+text: Huh? Mutts are usually healthier than pure-breds. It's the pure-bred dogs that
+  have weird genetic issues.

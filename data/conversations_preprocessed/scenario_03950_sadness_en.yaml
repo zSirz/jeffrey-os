@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.252974'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03950
+source: go_emotions
+text: I'm sorry but [NAME], [NAME] and [NAME] are my favs this year (and I hated [NAME]
+  in her Season).

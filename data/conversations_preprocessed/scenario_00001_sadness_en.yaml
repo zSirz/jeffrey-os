@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.184629'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 108
+  processed_length: 108
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00001
+source: go_emotions
+text: Sorry, should have searched for the artist's name. Karma Decay is a lot less
+  reliable than I thought it was.

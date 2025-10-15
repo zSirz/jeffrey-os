@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.111276'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 107
+  processed_length: 107
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03529
+source: go_emotions
+text: '> Mother wasn''t amused and I was forced to smile and bare it Wow, I would
+  hate taking nude family portraits'

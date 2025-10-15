@@ -1,0 +1,55 @@
+{
+  "bundle1_recommendations": {
+    "modules": [
+      {
+        "name": "emotion_engine",
+        "path": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+        "brain_region": "emotion",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "conscience_engine",
+        "path": "src/jeffrey/core/consciousness/conscience_engine.py",
+        "brain_region": "conscience",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "cognitive_pipeline",
+        "path": "src/jeffrey/core/pipeline/cognitive_pipeline.py",
+        "brain_region": "prefrontal",
+        "type": "real",
+        "priority": 2
+      },
+      {
+        "name": "curiosity_engine",
+        "path": "src/jeffrey/core/cognitive/curiosity_engine.py",
+        "brain_region": "hippocampus",
+        "type": "real",
+        "priority": 2
+      },
+      {
+        "name": "theory_of_mind",
+        "path": "src/jeffrey/core/cognitive/theory_of_mind.py",
+        "brain_region": "temporal",
+        "type": "real",
+        "priority": 2
+      },
+      {
+        "name": "basal_ganglia",
+        "path": "src/jeffrey/core/response/basal_ganglia_ucb1.py",
+        "brain_region": "basal_ganglia",
+        "type": "real",
+        "priority": 3
+      }
+    ]
+  },
+  "configuration": {
+    "parallel_processing": true,
+    "cache_enabled": true,
+    "max_latency_ms": 50,
+    "profiling_enabled": true,
+    "target_regions": 8
+  }
+}

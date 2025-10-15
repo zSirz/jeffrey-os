@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.714467'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 52
+  processed_length: 52
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02264
+source: go_emotions
+text: All the people in this thread are fucking disgusting

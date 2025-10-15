@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.904386'
+emotion: joy
+language: en
+original_goemotions_label: amusement
+preprocessing:
+  emoji_demojized: true
+  original_length: 52
+  processed_length: 63
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02827
+source: go_emotions
+text: 162 Again, for the 7th straight year. Like usual laugh out loud

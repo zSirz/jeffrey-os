@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.121909'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 35
+  processed_length: 35
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03575
+source: go_emotions
+text: Sorry, I’m just so hungry right now

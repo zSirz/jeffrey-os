@@ -1,0 +1,143 @@
+#:kivy 2.0.0
+#:import hex kivy.utils.get_color_from_hex
+#:import dp kivy.metrics.dp
+
+<EmotionCard>:
+    canvas.before:
+        Color:
+            rgba: root.emotion_color[0] * 0.7, root.emotion_color[1] * 0.7, root.emotion_color[2] * 0.7, 0.3
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(15)]
+
+        # Barre de progression
+        Color:
+            rgba: root.emotion_color
+        RoundedRectangle:
+            pos: self.x + dp(10), self.y + dp(10)
+            size: min((self.width - dp(20)) * (root.emotion_percentage / 100), self.width - dp(20)), dp(6)
+            radius: [dp(3)]
+
+    orientation: 'vertical'
+    padding: dp(15)
+    spacing: dp(5)
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: dp(30)
+
+        Label:
+            text: root.emotion_name.capitalize()
+            font_size: dp(18)
+            bold: True
+            halign: 'left'
+            size_hint_x: 0.7
+            text_size: self.size
+            valign: 'middle'
+
+        Label:
+            text: f"{root.emotion_count}"
+            font_size: dp(16)
+            halign: 'right'
+            size_hint_x: 0.3
+            text_size: self.size
+            valign: 'middle'
+
+    Label:
+        text: f"{root.emotion_percentage:.1f}%"
+        font_size: dp(14)
+        halign: 'left'
+        size_hint_y: None
+        height: dp(20)
+        text_size: self.width, None
+
+    Label:
+        text: f"Dernière observation: {root.last_seen}"
+        font_size: dp(12)
+        color: 0.8, 0.8, 0.8, 1
+        halign: 'left'
+        size_hint_y: None
+        height: dp(20)
+        text_size: self.width, None
+
+<EmotionalProfileScreen>:
+    name: "emotional_profile"
+    canvas.before:
+        Color:
+            rgba: 0.05, 0.05, 0.12, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+        # Effet visuel subtil
+        Color:
+            rgba: 0.1, 0.1, 0.2, 0.1
+        Rectangle:
+            pos: 0, 0
+            size: self.width, self.height / 2
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        # Titre et décoration
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: dp(120)
+            padding: [dp(20), dp(10)]
+
+            # Décoration graphique
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.3, 0.5, 0.3
+                RoundedRectangle:
+                    pos: self.x, self.y + self.height - dp(70)
+                    size: self.width, dp(70)
+                    radius: [0, 0, dp(15), dp(15)]
+
+            Label:
+                text: "[b]Profil Émotionnel[/b]"
+                markup: True
+                font_size: dp(24)
+                size_hint_y: None
+                height: dp(40)
+
+            # Information sur les émotions dominantes
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(50)
+
+                Label:
+                    text: "Tendances dominantes:" if root.dominant_emotions else "Aucune tendance émotionnelle dominante"
+                    font_size: dp(16)
+                    halign: 'right'
+                    valign: 'middle'
+                    size_hint_x: 0.4
+                    text_size: self.size
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_x: 0.6
+                    spacing: dp(10)
+
+                    # Affichage dynamique des émotions dominantes
+                    Label:
+                        text: root.dominant_emotions[0].capitalize() if len(root.dominant_emotions) > 0 else ""
+                        font_size: dp(16)
+                        color: 1, 0.9, 0.4, 1
+                        bold: True
+
+                    Label:
+                        text: root.dominant_emotions[1].capitalize() if len(root.dominant_emotions) > 1 else ""
+                        font_size: dp(16)
+                        color: 0.9, 0.9, 0.9, 0.8
+
+                    Label:
+                        text: root.dominant_emotions[2].capitalize() if len(root.dominant_emotions) > 2 else ""
+                        font_size: dp(16)
+                        color: 0.7, 0.7, 0.7, 0.6)
+
+        # Le contenu principal est ajouté dynamiquement via Python

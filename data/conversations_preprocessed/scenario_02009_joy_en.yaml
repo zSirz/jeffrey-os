@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.655775'
+emotion: joy
+language: en
+original_goemotions_label: approval
+preprocessing:
+  emoji_demojized: true
+  original_length: 90
+  processed_length: 90
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02009
+source: go_emotions
+text: I can always make new friends because I'm charismatic, but I still really care
+  about them.

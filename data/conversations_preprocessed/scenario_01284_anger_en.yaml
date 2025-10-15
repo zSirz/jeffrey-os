@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.485851'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 104
+  processed_length: 104
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01284
+source: go_emotions
+text: What she is doing is child abuse, plain and simple. Fight with everything you
+  have to protect your kids.

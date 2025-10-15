@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.085472'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 158
+  processed_length: 158
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03418
+source: go_emotions
+text: I remember writing on them was horrible. Slight delay which threw me off combined
+  with the letters ending up looking like crap. Whiteboard was so much easier.

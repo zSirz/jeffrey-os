@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.880509'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 107
+  processed_length: 107
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02724
+source: go_emotions
+text: This was the one post that truly frightened me about the insane left. They are
+  a cult, and not on our side.

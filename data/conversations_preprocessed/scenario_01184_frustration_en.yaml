@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.462916'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 83
+  processed_length: 83
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01184
+source: go_emotions
+text: I took swimming lessons for a while and my fingerprint thing didn't work for
+  months

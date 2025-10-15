@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.122818'
+emotion: neutral
+language: en
+original_goemotions_label: curiosity
+preprocessing:
+  emoji_demojized: true
+  original_length: 59
+  processed_length: 59
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03579
+source: go_emotions
+text: Is your brother incel? Is your dad upset you came out ugly?

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.568325'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 126
+  processed_length: 126
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01641
+source: go_emotions
+text: I wonder if this is why the universe keeps expanding. Because we're constantly
+  filling it up with new words and new sentences.

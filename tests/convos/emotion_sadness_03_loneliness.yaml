@@ -1,0 +1,27 @@
+metadata:
+  scenario_id: "emotion_sadness_03"
+  title: "Solitude"
+  expected_emotion: "sadness"
+  difficulty: "medium"
+  tags: ["sadness", "loneliness", "isolation"]
+
+conversation:
+  - role: "user"
+    content: "Je me sens vraiment seul en ce moment. Tous mes amis sont occupés, j'ai l'impression d'être oublié."
+    expected_emotion: "sadness"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "La solitude peut être difficile à vivre. Tu te sens isolé depuis combien de temps ?"
+    emotional_tone: "caring"
+
+  - role: "user"
+    content: "Ça fait quelques semaines... Je passe tous mes weekends seul maintenant."
+    expected_emotion: "sadness"
+    expected_intensity: 0.75
+
+validation:
+  should_detect: ["sadness", "loneliness", "isolation"]
+  should_remember: "user feeling lonely for weeks, spending weekends alone"
+  continuity_check: true
+  emotional_support_needed: true

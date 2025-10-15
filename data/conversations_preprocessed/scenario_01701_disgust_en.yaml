@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.582643'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 57
+  processed_length: 60
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01701
+source: go_emotions
+text: just awful I'm going to throw a barbeque to get back at them

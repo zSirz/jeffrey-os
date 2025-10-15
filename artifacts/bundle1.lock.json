@@ -1,0 +1,88 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2025-10-04T10:16:25.997690",
+  "bundle": "bundle1",
+  "regions_covered": "7/8",
+  "modules": [
+    {
+      "name": "kernel_adapter",
+      "path": "src/jeffrey/core/adapters/kernel_adapter.py",
+      "sha256": "8ea1a5f8642248d4fb39f0589bbfdab61f037b619b77300c826dbf57bdde13c2",
+      "size_bytes": 2947,
+      "lines": 101,
+      "region": "unknown"
+    },
+    {
+      "name": "input_parser",
+      "path": "src/jeffrey/core/input/input_parser.py",
+      "sha256": "e7a3c9945e9cbcdebfcf4eccff76df41108101f6dfabaae58c1f62b79623f76b",
+      "size_bytes": 8842,
+      "lines": 278,
+      "region": "unknown"
+    },
+    {
+      "name": "unified_memory",
+      "path": "src/jeffrey/core/memory/unified_memory.py",
+      "sha256": "bf940f369498d8021d49c4af6241fed73d6458451e590eaaecb09a52ed4dfc7c",
+      "size_bytes": 32855,
+      "lines": 913,
+      "region": "unknown"
+    },
+    {
+      "name": "guardian_integration",
+      "path": "src/jeffrey/utilities/guardian_integration.py",
+      "sha256": "6f6d1bc68b5aebe55a28f22ec537d777630eace6973224a1db277642d1e3628f",
+      "size_bytes": 21417,
+      "lines": 542,
+      "region": "unknown"
+    },
+    {
+      "name": "ia_orchestrator_ultimate",
+      "path": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "sha256": "da3e3b5762769573489f3b8d16e868ced3f4adc9d809df948701e29ada090f47",
+      "size_bytes": 29196,
+      "lines": 745,
+      "region": "unknown"
+    },
+    {
+      "name": "adaptive_rotator",
+      "path": "src/jeffrey/core/security/adaptive_rotator.py",
+      "sha256": "9265130ee86bd301cb8a3e9d45c0616c93002e28742dee56e203fc3b928d9b1a",
+      "size_bytes": 41544,
+      "lines": 1200,
+      "region": "unknown"
+    },
+    {
+      "name": "mtls_bridge",
+      "path": "src/jeffrey/core/security/mtls_bridge.py",
+      "sha256": "4f66a7f3b6aa5605d00144d965811deb416472a38854b4cdf3dd393d56b936c2",
+      "size_bytes": 11244,
+      "lines": 299,
+      "region": "unknown"
+    },
+    {
+      "name": "loop_manager",
+      "path": "src/jeffrey/core/loops/loop_manager.py",
+      "sha256": "b70de7f9e22c26e1d71e0007f4f297d06b797c39928430480372d5dd522d4e05",
+      "size_bytes": 32239,
+      "lines": 820,
+      "region": "unknown"
+    },
+    {
+      "name": "provider_manager",
+      "path": "src/jeffrey/services/providers/provider_manager.py",
+      "sha256": "ccef826f63744ad9036d01cb790ec1359bde74c9c201a9360097b96be09ae8ff",
+      "size_bytes": 51350,
+      "lines": 1291,
+      "region": "unknown"
+    },
+    {
+      "name": "jeffrey_ui_bridge",
+      "path": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "sha256": "d96f61a7e1b7accc6ef7ad060c738774073cfba1f3e5580de51f77781b69e5e8",
+      "size_bytes": 31068,
+      "lines": 880,
+      "region": "unknown"
+    }
+  ]
+}

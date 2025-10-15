@@ -1,0 +1,242 @@
+# Architecture Neuro-Pragmatique Jeffrey OS v6.0.0
+# Configuration complète avec modules RÉELS uniquement
+
+version: "6.0.0"
+mode: "progressive"
+created_by: "Team Jeffrey (Claude, GPT, Grok, Gemini)"
+last_updated: "2025-10-03"
+
+# Métadonnées système
+system:
+  python_version: "3.11.6"
+  platform: "darwin"  # macOS
+  hardware:
+    cpu: "Apple M1/M2"
+    ram_gb: 16
+    gpu_available: false  # Sera mis à jour par l'inventaire
+
+# Architecture 3 couches validée
+layers:
+  reactive:
+    description: "Couche I/O rapide, traitement immédiat"
+    latency_target_ms: 50
+    bus: "LocalAsyncBus"  # Bundle 1
+    modules_max: 3
+
+  cognitive:
+    description: "Cœur AGI - 6 Groupes de Fonctions Cognitives"
+    latency_target_ms: 200
+    bus: "NeuroBus"  # Bundle 2 avec NATS
+    modules_max: 30
+
+  meta:
+    description: "Conscience, apprentissage, auto-régulation"
+    latency_target_ms: 1000
+    bus: "MetaBus"  # Bundle 4
+    modules_max: 12
+
+# Les 6 GFC (Groupes de Fonctions Cognitives)
+gfc_groups:
+  perception_integration:
+    purpose: "Traitement et normalisation des entrées"
+    layer: "reactive"
+    critical: true
+    modules:
+      - name: "input_parser"
+        path: "src/jeffrey/core/input/input_parser.py"
+        priority: 5
+        active: true
+
+  memory_associative:
+    purpose: "Stockage, indexation et rappel contextuel"
+    layer: "cognitive"
+    critical: true
+    modules:
+      - name: "working_memory"
+        path: "src/jeffrey/core/memory/working_memory.py"
+        priority: 5
+        active: true
+        config:
+          ttl_minutes: 30
+          max_items: 50
+
+  valence_emotional:
+    purpose: "Contexte émotionnel et modulation affective"
+    layer: "cognitive"
+    critical: true
+    modules:
+      - name: "emotion_core"
+        path: "src/jeffrey/core/emotions/emotion_core.py"
+        priority: 5
+        active: true
+        config:
+          base_mood: "curious"
+          volatility: 0.3
+
+  executive_function:
+    purpose: "Décision, planification et contrôle exécutif"
+    layer: "cognitive"
+    critical: false  # Bundle 3
+    modules: []
+
+  expression_generation:
+    purpose: "Formulation et génération des réponses"
+    layer: "cognitive"
+    critical: true
+    modules:
+      - name: "ollama_interface"
+        path: "src/jeffrey/core/llm/ollama_interface.py"
+        priority: 5
+        active: false  # Disabled for now - timeout issues
+        config:
+          model: "mistral:7b-instruct"
+          temperature: 0.7
+          max_tokens: 512
+      - name: "response_generator"
+        path: "src/jeffrey/core/generation/response_generator.py"
+        priority: 3
+        active: true
+
+  metacognition:
+    purpose: "Auto-surveillance, introspection et régulation"
+    layer: "meta"
+    critical: false  # Bundle 4
+    modules: []
+
+# Infrastructure (transverse)
+infrastructure:
+  kernel:
+    name: "brain_kernel.py"
+    path: "src/jeffrey/core/kernel/brain_kernel.py"
+    active: false  # Will be created after inventory
+
+  bus:
+    bundle_1: "LocalAsyncBus"
+    bundle_2: "NeuroBus"  # NATS-based
+    bundle_3: "DistributedBus"
+    bundle_4: "QuantumBus"  # Experimental
+
+  runtime:
+    name: "runtime_manager.py"
+    path: "src/jeffrey/core/runtime/runtime_manager.py"
+    active: false  # Will be created after inventory
+
+  monitoring:
+    basic: true
+    prometheus: false  # Bundle 3
+    opentelemetry: false  # Bundle 4
+
+# Bundles de déploiement progressif
+bundles:
+  bundle_1_spark:
+    name: "Première Étincelle"
+    version: "6.1.0"
+    target: "Jeffrey parle, se souvient, ressent"
+    modules_count: 5
+    modules:
+      # Perception (1)
+      - "input_parser"
+      # Mémoire (1)
+      - "working_memory"
+      # Émotion (1)
+      - "emotion_core"
+      # Expression (2)
+      - "ollama_interface"
+      - "response_generator"
+    test_gates:
+      - name: "boot_time"
+        condition: "< 2s"
+        mandatory: true
+      - name: "response_latency"
+        condition: "P95 < 250ms"
+        mandatory: true
+      - name: "memory_recall"
+        condition: "accuracy > 80%"
+        mandatory: true
+      - name: "emotion_variation"
+        condition: "detected"
+        mandatory: true
+    estimated_time: "2 hours"
+
+  bundle_2_memory:
+    name: "Mémoire Profonde"
+    version: "6.2.0"
+    target: "Mémoire LT, associations, personnalité"
+    modules_count: 10
+    estimated_time: "4 hours"
+
+  bundle_3_executive:
+    name: "Décision Souveraine"
+    version: "6.3.0"
+    target: "Décisions complexes, refus intelligent"
+    modules_count: 10
+    estimated_time: "6 hours"
+
+  bundle_4_consciousness:
+    name: "Conscience Émergente"
+    version: "6.4.0"
+    target: "Méta-cognition, auto-régulation, healing"
+    modules_count: 12
+    estimated_time: "8 hours"
+
+# Sécurité (appliquée dès Bundle 1)
+security:
+  encryption:
+    algorithm: "AES-256-GCM"
+    key_derivation: "PBKDF2"
+    iterations: 100000
+
+  key_management:
+    bundle_1: "env"  # Variables d'environnement
+    bundle_2: "keychain"  # macOS Keychain
+    bundle_3: "vault"  # HashiCorp Vault
+
+  isolation:
+    process: true
+    container: false  # Bundle 3
+    sandbox: false  # Bundle 4
+
+  pii_redaction:
+    enabled: true
+    patterns:
+      - "email"
+      - "phone"
+      - "ssn"
+      - "credit_card"
+
+# Métriques et monitoring
+metrics:
+  enabled: true
+  export_interval_s: 10
+  retention_days: 7
+
+  tracked:
+    - "module_latency"
+    - "bus_throughput"
+    - "memory_usage"
+    - "emotion_state"
+    - "decision_confidence"
+    - "error_rate"
+
+# Optimisations hardware
+optimizations:
+  gpu:
+    check_availability: true
+    prefer_gpu: true
+    fallback_cpu: true
+
+  memory:
+    max_ram_gb: 8
+    gc_threshold_mb: 512
+    swap_warning_gb: 2
+
+  threading:
+    max_workers: 8
+    use_uvloop: true
+
+# Développement
+development:
+  debug: true
+  hot_reload: true
+  profiling: false
+  test_mode: false

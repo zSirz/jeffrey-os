@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.281638'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00402
+source: go_emotions
+text: Every time I get a staff kill, it feels like seeing a shooting star <3 Yeah,
+  it definitely sucks.

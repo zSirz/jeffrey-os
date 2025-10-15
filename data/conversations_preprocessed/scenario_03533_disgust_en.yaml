@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.112222'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 89
+  processed_length: 89
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03533
+source: go_emotions
+text: He was an awful HC, is in his 70s and has repeatedly said he doesn’t want to
+  do it again.

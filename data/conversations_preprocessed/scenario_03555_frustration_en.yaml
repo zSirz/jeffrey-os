@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.117414'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 118
+  processed_length: 118
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03555
+source: go_emotions
+text: '[NAME] a fucking creeper. Doesn''t he have some weird ass relationship with
+  that 14 year old girl from Stranger Things?'

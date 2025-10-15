@@ -1,0 +1,69 @@
+#:kivy 2.0.0
+<EmotionEntry@BoxLayout>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: self.minimum_height
+    padding: dp(10)
+    opacity: 0
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 0.08)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [12]
+    on_kv_post:
+        Animation(opacity=1, d=0.6, t='out_quad').start(self)
+    Label:
+        text: root.text
+        font_size: '16sp'
+        color: 1, 1, 1, 1
+        size_hint_y: None
+        height: self.texture_size[1]
+
+<EmotionJournalScreen>:
+    name: "emotion_journal"
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: (0.05, 0.05, 0.1, 1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+            # Optional: add a subtle shimmer background
+            Color:
+                rgba: (0.1, 0.1, 0.15, 0.05)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Image:
+            source: "assets/icons/emotion_sparkle.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {"right": 0.97, "top": 0.97}
+            opacity: 0.5
+        Label:
+            text: "[b][color=#FFD700]Journal Émotionnel[/color][/b]"
+            markup: True
+            font_size: '28sp'
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            size_hint: (1, 0.85)
+            pos_hint: {"center_x": 0.5, "y": 0.05}
+            do_scroll_x: False
+            GridLayout:
+                id: journal_entries
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(10)
+                padding: dp(20)
+                Label:
+                    text: "Aucun souvenir émotionnel pour l'instant..."
+                    font_size: '18sp'
+                    color: 1, 1, 1, 0.5
+                    size_hint_y: None
+                    height: self.texture_size[1]

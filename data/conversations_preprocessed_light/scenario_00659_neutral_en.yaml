@@ -1,0 +1,9 @@
+created_at: '2025-10-13T12:40:30.943718'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+quality: public_dataset_single_label
+scenario_id: goemo_00659
+source: go_emotions
+text: White, yellow, green, purple, red, from worst to best. Ranks go from 20-1, 1
+  as the best, 20 as the worst.

@@ -1,0 +1,9 @@
+created_at: '2025-10-13T12:40:31.902096'
+emotion: anger
+language: en
+original_goemotions_label: disapproval
+quality: public_dataset_single_label
+scenario_id: goemo_03960
+source: go_emotions
+text: Well, it is generating them. It has a vector space (latent space) from which
+  you can pick out a face.

@@ -1,0 +1,52 @@
+{
+  "timestamp": 1759592396.286056,
+  "git_commit": "843208f8df17a83acaff23bf2ea47aa51563342c",
+  "python": "3.11.6",
+  "modules": [
+    {
+      "region": "conscience",
+      "class": "SelfAwarenessTracker",
+      "path": "src/jeffrey/core/consciousness/self_awareness_tracker.py"
+    },
+    {
+      "region": "emotion",
+      "class": "EmotionEngineBridge",
+      "path": "src/jeffrey/core/orchestration/emotion_engine_bridge.py"
+    },
+    {
+      "region": "executive",
+      "class": "EmotionEngineBridge",
+      "path": "src/jeffrey/core/orchestration/emotion_engine_bridge.py"
+    },
+    {
+      "region": "integration",
+      "class": "TripleMemorySystem",
+      "path": "src/jeffrey/core/memory/triple_memory.py"
+    },
+    {
+      "region": "language",
+      "class": "BrocaWernickeRegion",
+      "path": "src/jeffrey/bundle2/language/broca_wernicke.py"
+    },
+    {
+      "region": "memory",
+      "class": "SQLiteMemoryStore",
+      "path": "src/jeffrey/bundle2/memory/sqlite_store.py"
+    },
+    {
+      "region": "motor",
+      "class": "ResponseGenerator",
+      "path": "src/jeffrey/core/generation/response_generator.py"
+    },
+    {
+      "region": "perception",
+      "class": "InputParser",
+      "path": "src/jeffrey/core/input/input_parser.py"
+    }
+  ],
+  "perf": {
+    "avg_ms": 0.1685269467998296,
+    "p95_ms": 0.9530829265713692,
+    "p99_ms": 0.9530829265713692
+  }
+}

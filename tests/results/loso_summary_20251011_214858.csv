@@ -1,0 +1,7 @@
+Metric,Value
+Macro-F1 Mean,0.4079
+Macro-F1 Std,0.0000
+Coverage Mean,1.0000
+ECE Mean,0.2959
+Accuracy Mean,0.4505
+Latency P95 Mean,0.00ms

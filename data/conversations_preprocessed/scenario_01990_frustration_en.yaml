@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.651042'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 144
+  processed_length: 144
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01990
+source: go_emotions
+text: My problem with history in school is we learned about American history every
+  year, which meant we learned a lot of the same stuff over and over.

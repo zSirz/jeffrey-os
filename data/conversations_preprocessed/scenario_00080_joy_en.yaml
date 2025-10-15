@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.205765'
+emotion: joy
+language: en
+original_goemotions_label: admiration
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00080
+source: go_emotions
+text: Yeah, that lamp was pretty tall and slender. But I don't think there were any
+  lights on upstairs.

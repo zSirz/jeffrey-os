@@ -1,0 +1,49 @@
+#:kivy 2.0.0
+#:import random random
+
+<ImmersiveEmotionFace>:
+    # Propriétés visuelles générales
+    size_hint: None, None
+    size: 250, 250        # Taille par défaut
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    # Propriétés pour l'affichage immersif
+    canvas.before:
+        # Fond avec effet d'aura, intensité liée au niveau d'immersion
+        Color:
+            rgba: 0.9, 0.95, 1.0, 0.08 * self.immersion_level
+        Ellipse:
+            pos: self.center_x - self.width*0.7, self.center_y - self.height*0.7
+            size: self.width*1.4, self.height*1.4
+
+    canvas.after:
+        # Indicateur d'émotion dominante (si activé)
+        PushMatrix
+        Translate:
+            x: self.x + self.width * 0.85
+            y: self.y + self.height * 0.85
+        Color:
+            rgba: 0.9, 0.9, 0.9, self.emotion_transparency * 0.7
+        Ellipse:
+            pos: -15, -15
+            size: 30, 30
+        PopMatrix
+
+        # Indicateur de complexité émotionnelle
+        PushMatrix
+        Translate:
+            x: self.x + self.width * 0.5
+            y: self.y + self.height * 0.1
+        Color:
+            rgba: 0.9, 0.9, 0.9, self.emotion_transparency * 0.5
+        Rectangle:
+            pos: -40, -5
+            size: 80 * self.emotional_complexity, 10
+        PopMatrix
+
+        # Effet d'immersion global
+        Color:
+            rgba: 0.97, 0.97, 1.0, 0.05 * self.immersion_level
+        Rectangle:
+            pos: self.pos
+            size: self.size

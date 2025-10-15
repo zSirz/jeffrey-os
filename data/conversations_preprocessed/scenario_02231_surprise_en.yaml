@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.706824'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 46
+  processed_length: 46
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02231
+source: go_emotions
+text: '[NAME] why are there so many guendouzi haters?'

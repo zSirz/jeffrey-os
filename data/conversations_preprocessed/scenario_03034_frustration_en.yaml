@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.952208'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 89
+  processed_length: 89
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03034
+source: go_emotions
+text: Oh, give me a break, it was worded like an insult, clear as a day. A mild one,
+  but still.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.345334'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 144
+  processed_length: 144
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00676
+source: go_emotions
+text: My only issue with private schooling is it discourages those with children in
+  private schools from wanting money to go towards public education.

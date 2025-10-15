@@ -1,0 +1,106 @@
+{
+  "created_shims": [
+    {
+      "shim": "services/jeffrey/core/orchestration/multi_model_orchestrator.py",
+      "target": "src/jeffrey/core/orchestration/multi_model_orchestrator.py",
+      "import": "jeffrey.core.orchestration.multi_model_orchestrator"
+    },
+    {
+      "shim": "services/jeffrey/core/llm/llm_provider.py",
+      "target": "src/jeffrey/core/llm/llm_provider.py",
+      "import": "jeffrey.core.llm.llm_provider"
+    },
+    {
+      "shim": "services/jeffrey/bundle2/language/broca_wernicke.py",
+      "target": "src/jeffrey/bundle2/language/broca_wernicke.py",
+      "import": "jeffrey.bundle2.language.broca_wernicke"
+    },
+    {
+      "shim": "services/jeffrey/core/personality/conversation_personality.py",
+      "target": "src/jeffrey/core/personality/conversation_personality.py",
+      "import": "jeffrey.core.personality.conversation_personality"
+    },
+    {
+      "shim": "services/jeffrey/core/orchestration/agi_orchestrator.py",
+      "target": "src/jeffrey/core/orchestration/agi_orchestrator.py",
+      "import": "jeffrey.core.orchestration.agi_orchestrator"
+    },
+    {
+      "shim": "services/jeffrey/core/consciousness/cognitive_synthesis.py",
+      "target": "src/jeffrey/core/consciousness/cognitive_synthesis.py",
+      "import": "jeffrey.core.consciousness.cognitive_synthesis"
+    },
+    {
+      "shim": "services/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+      "target": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+      "import": "jeffrey.core.emotions.core.emotion_ml_enhancer"
+    },
+    {
+      "shim": "services/jeffrey/core/neuralbus/bus_v2.py",
+      "target": "src/jeffrey/core/neuralbus/bus_v2.py",
+      "import": "jeffrey.core.neuralbus.bus_v2"
+    },
+    {
+      "shim": "services/jeffrey/core/consciousness/dream_engine.py",
+      "target": "src/jeffrey/core/consciousness/dream_engine.py",
+      "import": "jeffrey.core.consciousness.dream_engine"
+    },
+    {
+      "shim": "services/jeffrey/core/config.py",
+      "target": "src/jeffrey/core/config.py",
+      "import": "jeffrey.core.config"
+    },
+    {
+      "shim": "services/jeffrey/core/llm/ollama_interface.py",
+      "target": "src/jeffrey/core/llm/ollama_interface.py",
+      "import": "jeffrey.core.llm.ollama_interface"
+    },
+    {
+      "shim": "services/jeffrey/core/llm/apertus_client.py",
+      "target": "src/jeffrey/core/llm/apertus_client.py",
+      "import": "jeffrey.core.llm.apertus_client"
+    },
+    {
+      "shim": "services/jeffrey/core/neuralbus.py",
+      "target": "src/jeffrey/core/neuralbus/__init__.py",
+      "import": "jeffrey.core.neuralbus"
+    },
+    {
+      "shim": "services/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "target": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "import": "jeffrey.services.voice.engine.elevenlabs_v3_engine"
+    },
+    {
+      "shim": "services/jeffrey/core/emotions/surprises/surprises_emotionnelles.py",
+      "target": "src/jeffrey/core/emotions/surprises/surprises_emotionnelles.py",
+      "import": "jeffrey.core.emotions.surprises.surprises_emotionnelles"
+    },
+    {
+      "shim": "services/jeffrey/core/api_security.py",
+      "target": "src/jeffrey/core/api_security.py",
+      "import": "jeffrey.core.api_security"
+    },
+    {
+      "shim": "services/jeffrey/core/voice_engine.py",
+      "target": "src/jeffrey/core/voice_engine.py",
+      "import": "jeffrey.core.voice_engine"
+    },
+    {
+      "shim": "services/jeffrey/core/personality/relation_tracker_manager.py",
+      "target": "src/jeffrey/core/personality/relation_tracker_manager.py",
+      "import": "jeffrey.core.personality.relation_tracker_manager"
+    },
+    {
+      "shim": "services/jeffrey/core/jeffrey_emotional_core.py",
+      "target": "src/jeffrey/core/jeffrey_emotional_core.py",
+      "import": "jeffrey.core.jeffrey_emotional_core"
+    },
+    {
+      "shim": "services/jeffrey/core/response/neural_response_orchestrator.py",
+      "target": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "import": "jeffrey.core.response.neural_response_orchestrator"
+    }
+  ],
+  "skipped_cycles": [],
+  "backup_dir": "backups/shims_20251008_184230"
+}

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.248676'
+emotion: fear
+language: en
+original_goemotions_label: nervousness
+preprocessing:
+  emoji_demojized: true
+  original_length: 112
+  processed_length: 112
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03932
+source: go_emotions
+text: also anxious that people will be angry or surprised or upset at me for me never
+  telling people about this before

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.079684'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 138
+  processed_length: 138
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03393
+source: go_emotions
+text: I dated a guy from Steamboat Springs Colorado who used to do this. He had an
+  immune system made of steel but it was absolutely disgusting.

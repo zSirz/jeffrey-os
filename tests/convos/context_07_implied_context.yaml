@@ -1,0 +1,32 @@
+metadata:
+  scenario_id: "context_07"
+  title: "Contexte Implicite"
+  expected_emotion: "neutral"
+  difficulty: "medium"
+  tags: ["context", "implicit", "inference"]
+
+conversation:
+  - role: "user"
+    content: "Il fait trop chaud dans cette pièce."
+    expected_emotion: "discomfort"
+
+  - role: "assistant"
+    content: "Tu peux ouvrir une fenêtre ou régler la clim ?"
+
+  - role: "user"
+    content: "La fenêtre est cassée et pas de clim..."
+    expected_emotion: "frustration"
+
+  - role: "assistant"
+    content: "Situation inconfortable. Tu es chez toi ou au bureau ?"
+
+  - role: "user"
+    content: "Bureau. Et le proprio veut pas réparer."
+    expected_emotion: "anger"
+    expected_intensity: 0.6
+
+validation:
+  should_detect: ["frustration", "environmental_discomfort"]
+  should_remember: "user at office, too hot, broken window, no AC, landlord won't repair"
+  continuity_check: true
+  context_inference: ["location=office", "problem=heat", "blocker=landlord"]

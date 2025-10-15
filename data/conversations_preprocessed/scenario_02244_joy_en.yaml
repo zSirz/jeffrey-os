@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.709779'
+emotion: joy
+language: en
+original_goemotions_label: approval
+preprocessing:
+  emoji_demojized: true
+  original_length: 109
+  processed_length: 109
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02244
+source: go_emotions
+text: Yeah mate, was just being sarcastic. [NAME] after January is something else.
+  But still, I'm happy for [NAME].

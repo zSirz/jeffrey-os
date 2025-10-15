@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.672217'
+emotion: neutral
+language: en
+original_goemotions_label: curiosity
+preprocessing:
+  emoji_demojized: true
+  original_length: 53
+  processed_length: 55
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02082
+source: go_emotions
+text: How much do you get an onion of sniff for? 1500+ for me

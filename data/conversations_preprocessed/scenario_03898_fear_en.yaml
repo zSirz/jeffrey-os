@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.206918'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 120
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03898
+source: go_emotions
+text: 'This is the most scary [NAME] can ever be to me, cause it’s also the most real
+  he could ever be :face_with_tears_of_joy:'

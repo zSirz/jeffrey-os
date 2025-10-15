@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.448834'
+emotion: joy
+language: en
+original_goemotions_label: approval
+preprocessing:
+  emoji_demojized: true
+  original_length: 149
+  processed_length: 149
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01123
+source: go_emotions
+text: Kids Day in Toronto, Leafs STHs donate their tickets to kids so there's like
+  10,000 kids in the arena today. Pretty cool thing they started last year

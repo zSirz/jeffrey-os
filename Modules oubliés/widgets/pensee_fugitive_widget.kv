@@ -1,0 +1,36 @@
+
+
+#:kivy 2.1.0
+
+<PenseeFugitiveWidget@FloatLayout>:
+    size_hint: None, None
+    size: self.texture_size if hasattr(self, 'texture_size') else (200, 100)
+    pos_hint: {"top": 0.95, "center_x": 0.5}
+    opacity: 0
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 0.08
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+        Color:
+            rgba: 0.7, 0.9, 1, 0.15
+        RoundedRectangle:
+            pos: self.pos[0] + 3, self.pos[1] + 3
+            size: self.size[0] - 6, self.size[1] - 6
+            radius: [18]
+
+    Label:
+        id: text_label
+        text: root.message if hasattr(root, "message") else ""
+        font_size: "16sp"
+        font_name: "Cinzel-Regular"
+        halign: "center"
+        valign: "middle"
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        text_size: self.width * 0.95, None

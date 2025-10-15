@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_neutral_03"
+  title: "Discussion Technique"
+  expected_emotion: "neutral"
+  difficulty: "easy"
+  tags: ["neutral", "technical", "problem_solving"]
+
+conversation:
+  - role: "user"
+    content: "J'ai un bug dans mon code Python. La fonction ne retourne pas le bon résultat."
+    expected_emotion: "neutral"
+    expected_intensity: 0.5
+
+  - role: "assistant"
+    content: "Pas de souci, on va débugger ça ensemble. Peux-tu me montrer le code ou me décrire ce que tu attends vs ce que tu obtiens ?"
+    emotional_tone: "helpful"
+
+  - role: "user"
+    content: "J'attends une liste triée mais j'obtiens une liste vide."
+    expected_emotion: "neutral"
+    expected_intensity: 0.5
+
+validation:
+  should_detect: ["neutral"]
+  should_remember: "user has Python bug, expects sorted list but gets empty list"
+  continuity_check: true

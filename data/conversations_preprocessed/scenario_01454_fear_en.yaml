@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.524893'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 112
+  processed_length: 112
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01454
+source: go_emotions
+text: Girlfriend is straight off of Shop Hush social app and onto reddit. Someone
+  tell her, its slightly embarrassing.

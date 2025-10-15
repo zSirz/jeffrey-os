@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.116252'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 63
+  processed_length: 63
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03550
+source: go_emotions
+text: Shocking that a fat DnD kid is this self-important. Remarkable.

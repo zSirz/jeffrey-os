@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.380115'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 66
+  processed_length: 68
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00825
+source: go_emotions
+text: Wow if your mom didn’t come back for her card you were a goner crazy

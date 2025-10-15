@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.082970'
+emotion: joy
+language: en
+original_goemotions_label: relief
+preprocessing:
+  emoji_demojized: true
+  original_length: 108
+  processed_length: 108
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03407
+source: go_emotions
+text: You’re dehydrated and exausted, drink lots of water and maybe get some sleep.
+  You’ll feel better eventually.

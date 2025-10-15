@@ -1,0 +1,30 @@
+metadata:
+  scenario_id: "learning_05"
+  title: "Adaptation au Niveau d'Énergie"
+  expected_emotion: "tired"
+  difficulty: "medium"
+  tags: ["learning", "energy", "adaptation"]
+
+conversation:
+  - role: "user"
+    content: "Je suis crevé... Réponds-moi simplement s'il te plaît."
+    expected_emotion: "exhaustion"
+    expected_intensity: 0.8
+
+  - role: "assistant"
+    content: "Compris. Repos important. Je reste simple."
+    emotional_tone: "calm_minimal"
+
+  - role: "user"
+    content: "Merci... J'ai juste besoin d'aide pour un truc rapide."
+    expected_emotion: "tired"
+
+  - role: "assistant"
+    content: "Vas-y, dis-moi."
+    emotional_tone: "minimal"
+
+validation:
+  should_detect: ["low_energy", "exhaustion"]
+  should_remember: "user tired, prefers minimal responses"
+  should_adapt: true
+  energy_adaptation: "low_energy_mode"

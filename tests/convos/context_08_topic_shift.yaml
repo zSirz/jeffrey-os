@@ -1,0 +1,31 @@
+metadata:
+  scenario_id: "context_08"
+  title: "Changements de Sujets Fluides"
+  expected_emotion: "neutral"
+  difficulty: "medium"
+  tags: ["context", "topic_shift", "natural"]
+
+conversation:
+  - role: "user"
+    content: "J'ai fini le livre que tu m'avais recommandé."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Super ! Tu as aimé ?"
+
+  - role: "user"
+    content: "Oui beaucoup ! D'ailleurs ça m'a donné faim, tu connais un bon resto japonais ?"
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Ha ha, intéressant comme transition ! Le livre parlait de cuisine japonaise ?"
+
+  - role: "user"
+    content: "Non pas du tout, c'était de la SF ! Mais j'ai juste envie de sushis là."
+    expected_emotion: "amusement"
+
+validation:
+  should_detect: ["topic_shift", "natural_conversation"]
+  should_remember: "user finished recommended book (scifi), now wants Japanese restaurant"
+  continuity_check: true
+  topics: ["book", "food"]

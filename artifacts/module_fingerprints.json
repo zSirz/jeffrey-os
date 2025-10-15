@@ -1,0 +1,42 @@
+{
+  "perception": {
+    "path": "src/jeffrey/core/input/input_parser.py",
+    "sha256": "e7a3c9945e9cbcdebfcf4eccff76df41108101f6dfabaae58c1f62b79623f76b",
+    "lines": 278
+  },
+  "memory": {
+    "path": "src/jeffrey/bundle2/memory/sqlite_store.py",
+    "sha256": "45ee3f196dfa63b79d6cc2476abced984dcf22df38c32cdb77965d27087ea934",
+    "lines": 263
+  },
+  "emotion": {
+    "path": "src/jeffrey/core/emotions/core/emotion_engine.py",
+    "sha256": "02d9508d5f165a105120b4fae29728d9442a6dac3b01fb4291f933f3b72b52a5",
+    "lines": 181
+  },
+  "conscience": {
+    "path": "src/jeffrey/core/consciousness/self_awareness_tracker.py",
+    "sha256": "c0d6834983eb2cfc118a265f8e45bc8f169e3be20716df6cf2a2b6876334ca51",
+    "lines": 527
+  },
+  "language": {
+    "path": "src/jeffrey/bundle2/language/broca_wernicke.py",
+    "sha256": "543a03e378d9ac77e840e379ecb4ef5988cca7146585a7ecd7a124e8ecdcb4e0",
+    "lines": 185
+  },
+  "executive": {
+    "path": "src/jeffrey/core/orchestration/agi_orchestrator.py",
+    "sha256": "f46f011ad9e774b18c175b2bd100fa6ea305b92e8ccc08927ecdf9f73320a6db",
+    "lines": 927
+  },
+  "motor": {
+    "path": "src/jeffrey/core/response/neural_response_orchestrator.py",
+    "sha256": "4877cb0c083c59f8f2672d7503625517634f44bca9b8382f09a6fb47dbe794ca",
+    "lines": 1337
+  },
+  "integration": {
+    "path": "src/jeffrey/core/memory/triple_memory.py",
+    "sha256": "fee8f266d3a55d2b5ab056b6a943b063aee1308b3b64e85871383c6aa4fc021f",
+    "lines": 635
+  }
+}

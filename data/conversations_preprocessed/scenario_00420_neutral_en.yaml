@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.285739'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 137
+  processed_length: 137
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00420
+source: go_emotions
+text: DUP have just said they're voting for confidence in the government. Tory MPs
+  won't put their selections in jeopardy. There won't be a GE.

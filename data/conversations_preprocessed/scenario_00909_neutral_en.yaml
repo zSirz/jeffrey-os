@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.399104'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 65
+  processed_length: 65
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00909
+source: go_emotions
+text: Talk to his parents maybe if that's an option. Just tread gently.

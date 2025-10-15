@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.517177'
+emotion: joy
+language: en
+original_goemotions_label: excitement
+preprocessing:
+  emoji_demojized: true
+  original_length: 65
+  processed_length: 65
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01420
+source: go_emotions
+text: I think it may be interesting if the public could vote for films.

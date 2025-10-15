@@ -1,0 +1,26 @@
+{
+  "max_memories": 15000,
+  "decay_rates": {
+    "short_term": 0.05,
+    "medium_term": 0.02,
+    "long_term": 0.005
+  },
+  "promotion_thresholds": {
+    "short_to_medium": 0.65,
+    "medium_to_long": 0.75
+  },
+  "compression_threshold": 0.25,
+  "cleanup_interval": 3600,
+  "performance_target": 0.03,
+  "emotional_weight_multiplier": 2.5,
+  "cache_ttl": 600,
+  "max_cache_size": 2000,
+  "similarity_threshold": 0.8,
+  "semantic_boost_factor": 2.2,
+  "recency_decay_factor": 0.9,
+  "batching_enabled": true,
+  "batch_size": 100,
+  "quality_threshold": 0.7,
+  "context_expansion_factor": 1.5,
+  "emotional_memory_boost": 1.8
+}

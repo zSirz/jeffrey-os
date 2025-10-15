@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.749371'
+emotion: joy
+language: en
+original_goemotions_label: caring
+preprocessing:
+  emoji_demojized: true
+  original_length: 121
+  processed_length: 121
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02414
+source: go_emotions
+text: Eh happiness is just a fleeting fish in an ocean of emotion. You can catch it
+  a few times but dont expect to live off it.

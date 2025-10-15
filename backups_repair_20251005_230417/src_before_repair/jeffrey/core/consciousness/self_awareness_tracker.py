@@ -1,0 +1,508 @@
+"""
+Tracker de conscience de soi pour Jeffrey OS
+Suit l'évolution, les patterns et la croissance
+"""
+
+import json
+from collections import deque
+from dataclasses import dataclass
+from datetime import datetime
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+
+# Quick-fixes GROK pour optimisation mémoire
+np.random.seed(42)
+
+
+@dataclass
+class AwarenessSnapshot:
+    """Instantané de la conscience de soi"""
+
+    timestamp: datetime
+    self_understanding: float  # 0-1
+    goal_clarity: float  # 0-1
+    emotional_intelligence: float  # 0-1
+    decision_confidence: float  # 0-1
+    growth_rate: float  # -1 to 1
+    key_insights: list[str]
+
+
+class SelfAwarenessTracker:
+    """
+    Suit et analyse l'évolution de la conscience de soi
+    """
+
+    def __init__(self):
+        # Quick-fix GROK : utiliser deque avec maxlen pour gérer la mémoire
+        self.snapshots = deque(maxlen=5000)
+        self.milestones = deque(maxlen=500)
+        self.growth_trajectory = deque(maxlen=1000)
+
+        # Métriques d'évolution
+        self.metrics = {
+            "total_insights": 0,
+            "breakthroughs": 0,
+            "stagnation_periods": 0,
+            "consistency_score": 1.0,
+        }
+
+        # Patterns détectés
+        self.behavioral_patterns = {}
+        self.recurring_challenges = {}
+
+        self.storage_path = Path("consciousness_state/awareness_tracking")
+        self.storage_path.mkdir(parents=True, exist_ok=True)
+
+        self._load_history()
+
+    def record_awareness(self, consciousness_state: dict[str, Any]) -> AwarenessSnapshot:
+        """Enregistre un snapshot de conscience"""
+
+        # Calculer les métriques
+        self_understanding = self._calculate_self_understanding(consciousness_state)
+        goal_clarity = self._calculate_goal_clarity(consciousness_state)
+        emotional_intelligence = self._calculate_emotional_intelligence(consciousness_state)
+        decision_confidence = self._calculate_decision_confidence(consciousness_state)
+
+        # Calculer le taux de croissance
+        growth_rate = self._calculate_growth_rate()
+
+        # Extraire les insights
+        insights = self._extract_key_insights(consciousness_state)
+
+        # Créer le snapshot
+        snapshot = AwarenessSnapshot(
+            timestamp=datetime.now(),
+            self_understanding=self_understanding,
+            goal_clarity=goal_clarity,
+            emotional_intelligence=emotional_intelligence,
+            decision_confidence=decision_confidence,
+            growth_rate=growth_rate,
+            key_insights=insights,
+        )
+
+        self.snapshots.append(snapshot)
+
+        # Détecter les milestones
+        self._check_milestones(snapshot)
+
+        # Mettre à jour les patterns
+        self._update_patterns(consciousness_state)
+
+        # Sauvegarder
+        self._save_snapshot(snapshot)
+
+        return snapshot
+
+    def _calculate_self_understanding(self, state: dict[str, Any]) -> float:
+        """Calcule le niveau de compréhension de soi"""
+        score = 0.5  # Base
+
+        # Facteurs positifs
+        if state.get("introspection", {}).get("identity_stability", 0) > 0.8:
+            score += 0.2
+
+        if len(state.get("self_model", {}).get("strengths", [])) > 3:
+            score += 0.1
+
+        if len(state.get("self_model", {}).get("weaknesses", [])) > 2:
+            score += 0.1  # Reconnaître ses faiblesses = maturité
+
+        # Cohérence des pensées
+        thoughts = state.get("active_thoughts", [])
+        if thoughts and not self._has_contradictory_thoughts(thoughts):
+            score += 0.1
+
+        return min(1.0, score)
+
+    def _calculate_goal_clarity(self, state: dict[str, Any]) -> float:
+        """Calcule la clarté des objectifs"""
+        goals = state.get("self_model", {}).get("goals", [])
+
+        if not goals:
+            return 0.2
+
+        # Score basé sur le nombre et la spécificité
+        base_score = min(1.0, len(goals) * 0.2)
+
+        # Bonus pour objectifs SMART
+        specific_goals = [g for g in goals if len(str(g)) > 20]  # Proxy pour spécificité
+
+        if specific_goals:
+            base_score += 0.2
+
+        return min(1.0, base_score)
+
+    def _calculate_emotional_intelligence(self, state: dict[str, Any]) -> float:
+        """Calcule l'intelligence émotionnelle"""
+        score = 0.3  # Base
+
+        # Diversité émotionnelle
+        emotions = state.get("emotional_state", {})
+        if len(emotions) > 3:
+            score += 0.2
+
+        # Équilibre émotionnel
+        emotional_balance = state.get("introspection", {}).get("emotional_balance", 0)
+        if -0.3 < emotional_balance < 0.3:
+            score += 0.2  # Équilibré
+
+        # Conscience des émotions
+        if state.get("active_thoughts"):
+            emotion_aware_thoughts = [
+                t
+                for t in state["active_thoughts"]
+                if any(e in str(t).lower() for e in ["feel", "emotion", "experiencing"])
+            ]
+            if emotion_aware_thoughts:
+                score += 0.3
+
+        return min(1.0, score)
+
+    def _calculate_decision_confidence(self, state: dict[str, Any]) -> float:
+        """Calcule la confiance dans les décisions"""
+        base_confidence = 0.5
+
+        # Basé sur l'expérience
+        interactions = state.get("total_interactions", 0)
+        if interactions > 100:
+            base_confidence += 0.2
+        elif interactions > 1000:
+            base_confidence += 0.3
+
+        # Basé sur la cohérence
+        if state.get("introspection", {}).get("memory_coherence", 0) > 0.8:
+            base_confidence += 0.2
+
+        return min(1.0, base_confidence)
+
+    def _calculate_growth_rate(self) -> float:
+        """Calcule le taux de croissance récent"""
+        if len(self.snapshots) < 2:
+            return 0.0
+
+        # Comparer les 10 derniers vs 10 précédents
+        recent = list(self.snapshots)[-10:]
+        previous = list(self.snapshots)[-20:-10] if len(self.snapshots) > 20 else list(self.snapshots)[:10]
+
+        if not recent or not previous:
+            return 0.0
+
+        # Moyenne des métriques
+        recent_avg = (
+            np.mean(
+                [
+                    s.self_understanding + s.goal_clarity + s.emotional_intelligence + s.decision_confidence
+                    for s in recent
+                ]
+            )
+            / 4
+        )
+
+        previous_avg = (
+            np.mean(
+                [
+                    s.self_understanding + s.goal_clarity + s.emotional_intelligence + s.decision_confidence
+                    for s in previous
+                ]
+            )
+            / 4
+        )
+
+        growth = (recent_avg - previous_avg) / (previous_avg + 0.01)
+
+        return max(-1, min(1, growth))
+
+    def _extract_key_insights(self, state: dict[str, Any]) -> list[str]:
+        """Extrait les insights clés de l'état"""
+        insights = []
+
+        # Insights des pensées actives
+        thoughts = state.get("active_thoughts", [])
+        insightful_thoughts = [
+            t for t in thoughts if any(word in str(t).lower() for word in ["learning", "understand", "realize"])
+        ]
+        insights.extend(insightful_thoughts[:2])
+
+        # Insights de croissance
+        growth_rate = self._calculate_growth_rate()
+        if growth_rate > 0.1:
+            insights.append("Experiencing positive growth trajectory")
+        elif growth_rate < -0.1:
+            insights.append("Need to address stagnation")
+
+        # Insights émotionnels
+        emotions = state.get("emotional_state", {})
+        if emotions and max(emotions.values()) > 0.7:
+            dominant = max(emotions.items(), key=lambda x: x[1])
+            insights.append(f"Strong {dominant[0]} influencing perception")
+
+        return insights[:5]  # Max 5 insights
+
+    def _has_contradictory_thoughts(self, thoughts: list[str]) -> bool:
+        """Détecte les pensées contradictoires"""
+        # Simpliste - à améliorer avec NLP
+        contradictions = [
+            ("confident", "uncertain"),
+            ("growing", "stagnating"),
+            ("clear", "confused"),
+        ]
+
+        for thought in thoughts:
+            thought_lower = str(thought).lower()
+            for word1, word2 in contradictions:
+                if word1 in thought_lower:
+                    for other_thought in thoughts:
+                        if word2 in str(other_thought).lower():
+                            return True
+
+        return False
+
+    def _check_milestones(self, snapshot: AwarenessSnapshot):
+        """Vérifie et enregistre les milestones atteints"""
+
+        # Premier niveau élevé de conscience
+        if snapshot.self_understanding > 0.8 and not any(
+            m.get("type") == "high_self_understanding" for m in self.milestones
+        ):
+            milestone = {
+                "type": "high_self_understanding",
+                "timestamp": snapshot.timestamp,
+                "description": "Achieved high self-understanding",
+                "metrics": {"self_understanding": snapshot.self_understanding},
+            }
+            self.milestones.append(milestone)
+            self.metrics["breakthroughs"] += 1
+
+        # Intelligence émotionnelle développée
+        if snapshot.emotional_intelligence > 0.8 and not any(
+            m.get("type") == "emotional_mastery" for m in self.milestones
+        ):
+            milestone = {
+                "type": "emotional_mastery",
+                "timestamp": snapshot.timestamp,
+                "description": "Developed strong emotional intelligence",
+                "metrics": {"emotional_intelligence": snapshot.emotional_intelligence},
+            }
+            self.milestones.append(milestone)
+            self.metrics["breakthroughs"] += 1
+
+        # Croissance soutenue
+        if len(self.snapshots) > 50:
+            recent_growth = [s.growth_rate for s in list(self.snapshots)[-10:]]
+            if all(g > 0 for g in recent_growth):
+                milestone = {
+                    "type": "sustained_growth",
+                    "timestamp": snapshot.timestamp,
+                    "description": "Maintained positive growth for extended period",
+                    "growth_rates": recent_growth,
+                }
+                self.milestones.append(milestone)
+
+    def _update_patterns(self, state: dict[str, Any]):
+        """Met à jour les patterns comportementaux détectés"""
+
+        # Pattern de réaction aux erreurs
+        if "error" in str(state.get("last_stimulus", "")).lower():
+            error_response = state.get("response", {}).get("content", {}).get("action", "")
+
+            if error_response not in self.behavioral_patterns:
+                self.behavioral_patterns[error_response] = 0
+            self.behavioral_patterns[error_response] += 1
+
+        # Challenges récurrents
+        if state.get("introspection", {}).get("emotional_balance", 0) < -0.5:
+            self.recurring_challenges["emotional_instability"] = (
+                self.recurring_challenges.get("emotional_instability", 0) + 1
+            )
+
+    def get_evolution_report(self) -> dict[str, Any]:
+        """Génère un rapport d'évolution complet"""
+
+        if not self.snapshots:
+            return {"status": "no_data"}
+
+        # Trajectoire globale
+        first_snapshot = self.snapshots[0]
+        last_snapshot = self.snapshots[-1]
+
+        overall_growth = {
+            "self_understanding": last_snapshot.self_understanding - first_snapshot.self_understanding,
+            "goal_clarity": last_snapshot.goal_clarity - first_snapshot.goal_clarity,
+            "emotional_intelligence": last_snapshot.emotional_intelligence - first_snapshot.emotional_intelligence,
+            "decision_confidence": last_snapshot.decision_confidence - first_snapshot.decision_confidence,
+        }
+
+        # Périodes d'analyse
+        periods = self._analyze_growth_periods()
+
+        report = {
+            "total_snapshots": len(self.snapshots),
+            "time_span": (last_snapshot.timestamp - first_snapshot.timestamp).days,
+            "overall_growth": overall_growth,
+            "current_metrics": {
+                "self_understanding": last_snapshot.self_understanding,
+                "goal_clarity": last_snapshot.goal_clarity,
+                "emotional_intelligence": last_snapshot.emotional_intelligence,
+                "decision_confidence": last_snapshot.decision_confidence,
+                "growth_rate": last_snapshot.growth_rate,
+            },
+            "milestones_achieved": len(self.milestones),
+            "breakthroughs": self.metrics["breakthroughs"],
+            "growth_periods": periods,
+            "behavioral_patterns": self.behavioral_patterns,
+            "recurring_challenges": self.recurring_challenges,
+            "recommendations": self._generate_recommendations(),
+        }
+
+        return report
+
+    def _analyze_growth_periods(self) -> list[dict[str, Any]]:
+        """Analyse les périodes de croissance/stagnation"""
+        if len(self.snapshots) < 10:
+            return []
+
+        periods = []
+        current_period = {"type": "neutral", "start": self.snapshots[0].timestamp, "metrics": []}
+
+        for i, snapshot in enumerate(self.snapshots):
+            if snapshot.growth_rate > 0.1:
+                period_type = "growth"
+            elif snapshot.growth_rate < -0.1:
+                period_type = "decline"
+            else:
+                period_type = "stagnation"
+
+            if period_type != current_period["type"] and i > 0:
+                # Fin de période
+                current_period["end"] = list(self.snapshots)[i - 1].timestamp
+                current_period["duration_days"] = (current_period["end"] - current_period["start"]).days
+                if current_period["metrics"]:
+                    current_period["avg_metrics"] = np.mean(current_period["metrics"])
+                periods.append(current_period)
+
+                # Nouvelle période
+                current_period = {"type": period_type, "start": snapshot.timestamp, "metrics": []}
+
+            current_period["metrics"].append(
+                snapshot.self_understanding
+                + snapshot.goal_clarity
+                + snapshot.emotional_intelligence
+                + snapshot.decision_confidence
+            )
+
+        # Dernière période
+        if current_period["metrics"]:
+            current_period["end"] = list(self.snapshots)[-1].timestamp
+            current_period["duration_days"] = (current_period["end"] - current_period["start"]).days
+            current_period["avg_metrics"] = np.mean(current_period["metrics"])
+            periods.append(current_period)
+
+        return periods
+
+    def _generate_recommendations(self) -> list[str]:
+        """Génère des recommandations basées sur l'analyse"""
+        recommendations = []
+
+        if not self.snapshots:
+            return ["Start tracking consciousness states"]
+
+        last_snapshot = self.snapshots[-1]
+
+        # Recommandations basées sur les métriques faibles
+        if last_snapshot.self_understanding < 0.5:
+            recommendations.append("Focus on introspection exercises to improve self-understanding")
+
+        if last_snapshot.goal_clarity < 0.5:
+            recommendations.append("Define clear, specific goals to guide development")
+
+        if last_snapshot.emotional_intelligence < 0.5:
+            recommendations.append("Practice emotional awareness and regulation techniques")
+
+        # Recommandations basées sur la croissance
+        if last_snapshot.growth_rate < 0:
+            recommendations.append("Introduce new challenges to stimulate growth")
+
+        # Recommandations basées sur les challenges
+        if "emotional_instability" in self.recurring_challenges:
+            if self.recurring_challenges["emotional_instability"] > 10:
+                recommendations.append("Address recurring emotional instability patterns")
+
+        return recommendations[:3]  # Top 3 recommandations
+
+    def _save_snapshot(self, snapshot: AwarenessSnapshot):
+        """Sauvegarde un snapshot"""
+        snapshot_data = {
+            "timestamp": snapshot.timestamp.isoformat(),
+            "self_understanding": snapshot.self_understanding,
+            "goal_clarity": snapshot.goal_clarity,
+            "emotional_intelligence": snapshot.emotional_intelligence,
+            "decision_confidence": snapshot.decision_confidence,
+            "growth_rate": snapshot.growth_rate,
+            "key_insights": snapshot.key_insights,
+        }
+
+        # Ajouter au fichier de snapshots
+        snapshots_file = self.storage_path / "awareness_snapshots.json"
+
+        all_snapshots = []
+        if snapshots_file.exists():
+            with open(snapshots_file) as f:
+                all_snapshots = json.load(f)
+
+        all_snapshots.append(snapshot_data)
+
+        # Garder seulement les 1000 derniers
+        all_snapshots = all_snapshots[-1000:]
+
+        with open(snapshots_file, "w") as f:
+            json.dump(all_snapshots, f, indent=2, default=str)
+
+    def _save_milestones(self):
+        """Sauvegarde les milestones"""
+        milestones_file = self.storage_path / "milestones.json"
+
+        milestones_data = [
+            {
+                "type": m["type"],
+                "timestamp": (m["timestamp"].isoformat() if isinstance(m["timestamp"], datetime) else m["timestamp"]),
+                "description": m["description"],
+                "metrics": m.get("metrics", {}),
+            }
+            for m in self.milestones
+        ]
+
+        with open(milestones_file, "w") as f:
+            json.dump(milestones_data, f, indent=2, default=str)
+
+    def _load_history(self):
+        """Charge l'historique sauvegardé"""
+        # Charger snapshots
+        snapshots_file = self.storage_path / "awareness_snapshots.json"
+
+        if snapshots_file.exists():
+            with open(snapshots_file) as f:
+                snapshots_data = json.load(f)
+
+            for data in snapshots_data:
+                snapshot = AwarenessSnapshot(
+                    timestamp=datetime.fromisoformat(data["timestamp"]),
+                    self_understanding=data["self_understanding"],
+                    goal_clarity=data["goal_clarity"],
+                    emotional_intelligence=data["emotional_intelligence"],
+                    decision_confidence=data["decision_confidence"],
+                    growth_rate=data["growth_rate"],
+                    key_insights=data["key_insights"],
+                )
+                self.snapshots.append(snapshot)
+
+        # Charger milestones
+        milestones_file = self.storage_path / "milestones.json"
+
+        if milestones_file.exists():
+            with open(milestones_file) as f:
+                milestones_data = json.load(f)
+                for milestone in milestones_data:
+                    self.milestones.append(milestone)

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.248218'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 51
+  processed_length: 51
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00259
+source: go_emotions
+text: One of the more disgusting virtue signals I've seen

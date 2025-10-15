@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "started_at": null,
+    "last_updated": "2025-09-22T18:18:47.133648",
+    "phoenix_version": "1.0.0"
+  },
+  "statistics": {
+    "files_total": 0,
+    "processed": 40,
+    "succeeded": 28,
+    "failed": 12,
+    "skipped": 0
+  },
+  "phases": {
+    "p1_syntax": {
+      "completed": false,
+      "files": {
+        "src/jeffrey/core/discovery/namespace_firewall.py": {
+          "status": "success",
+          "hash": "5a80e14f92985f521c335aed628a2955",
+          "timestamp": "2025-09-22T18:18:46.623347"
+        },
+        "src/jeffrey/core/discovery/graph_engine.py": {
+          "status": "success",
+          "hash": "5cf3dedec36a4811f89a41d34fedf987",
+          "timestamp": "2025-09-22T18:18:46.633336"
+        },
+        "src/jeffrey/core/discovery/security_analyzer.py": {
+          "status": "success",
+          "hash": "3e2906a75eb5a9b76dec42e65b44ce7d",
+          "timestamp": "2025-09-22T18:18:46.640201"
+        },
+        "src/jeffrey/core/discovery/brain_discovery_final.py": {
+          "status": "success",
+          "hash": "06e7f007c620ed7df2940fe361bac30e",
+          "timestamp": "2025-09-22T18:18:46.673941"
+        },
+        "src/jeffrey/core/discovery/policy_bus.py": {
+          "status": "success",
+          "hash": "a31cded04ca9337d14a4e2b7835e50d5",
+          "timestamp": "2025-09-22T18:18:46.680956"
+        },
+        "src/jeffrey/core/orchestration/jeffrey_system_health.py": {
+          "status": "failed",
+          "error": "Cannot parse: 132:8:         if \"__pycache__\" in str(py_file) or \"venv\" in str(py_file):",
+          "timestamp": "2025-09-22T18:18:46.687447"
+        },
+        "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py": {
+          "status": "success",
+          "hash": "0017ad727028b4c04eddc0708806cdcc",
+          "timestamp": "2025-09-22T18:18:46.734679"
+        },
+        "src/jeffrey/core/orchestration/jeffrey_orchestrator.py": {
+          "status": "success",
+          "hash": "a764f17d7e1ecb813c4f4c36a3f211a4",
+          "timestamp": "2025-09-22T18:18:46.791309"
+        },
+        "src/jeffrey/core/orchestration/jeffrey_optimizer.py": {
+          "status": "failed",
+          "error": "Cannot parse: 65:0:                             for memory_file in old_memories:",
+          "timestamp": "2025-09-22T18:18:46.796568"
+        },
+        "src/jeffrey/core/orchestration/jeffrey_continuel.py": {
+          "status": "failed",
+          "error": "Cannot parse: 107:0:             def load_env_variables():",
+          "timestamp": "2025-09-22T18:18:46.802447"
+        },
+        "src/jeffrey/core/orchestration/linguistic_orchestrator.py": {
+          "status": "success",
+          "hash": "b44e1a0dd5c40e35d1a7ae5342128016",
+          "timestamp": "2025-09-22T18:18:46.811273"
+        },
+        "src/jeffrey/core/orchestration/enhanced_orchestrator.py": {
+          "status": "failed",
+          "error": "Cannot parse: 96:0:                         for capability, patterns in self.CAPABILITY_PATTERNS.items():",
+          "timestamp": "2025-09-22T18:18:46.816741"
+        },
+        "src/jeffrey/core/orchestration/multi_model_orchestrator.py": {
+          "status": "success",
+          "hash": "91d51de9e8eaa50b8d68b123d820b0bf",
+          "timestamp": "2025-09-22T18:18:46.825786"
+        },
+        "src/jeffrey/core/memory/memory_rituals.py": {
+          "status": "success",
+          "hash": "adf2bf6f52a83295e70b90819f911502",
+          "timestamp": "2025-09-22T18:18:46.895005"
+        },
+        "src/jeffrey/core/memory/memory_manager.py": {
+          "status": "success",
+          "hash": "c0dc9dc32b8f61db495ad9b8b0956bb6",
+          "timestamp": "2025-09-22T18:18:46.930872"
+        },
+        "src/jeffrey/core/memory/memory_health_check.py": {
+          "status": "success",
+          "hash": "7e82f88db51a291671d6abd1beafd5f7",
+          "timestamp": "2025-09-22T18:18:47.005887"
+        },
+        "src/jeffrey/core/memory/jeffrey_human_memory.py": {
+          "status": "failed",
+          "error": "Cannot parse: 131:0:             if len(self.episodic_memory[\"conversations\"]) > 10000:",
+          "timestamp": "2025-09-22T18:18:47.014212"
+        },
+        "src/jeffrey/core/memory/advanced/contextual_memory_manager.py": {
+          "status": "failed",
+          "error": "Cannot parse: 44:0:                                         def add_interaction(",
+          "timestamp": "2025-09-22T18:18:47.017288"
+        },
+        "src/jeffrey/core/memory/advanced/voice_memory_manager.py": {
+          "status": "success",
+          "hash": "89cc1c6eccdc01e8770784ee25a16478",
+          "timestamp": "2025-09-22T18:18:47.036523"
+        },
+        "src/jeffrey/core/memory/advanced/memory_manager.py": {
+          "status": "success",
+          "hash": "9e057ebda4cb9e036e430911f897d784",
+          "timestamp": "2025-09-22T18:18:47.065871"
+        }
+      }
+    },
+    "p2_imports": {
+      "completed": false,
+      "files": {}
+    },
+    "p3_plugins": {
+      "completed": false,
+      "files": {}
+    },
+    "p4_boot": {
+      "completed": false
+    }
+  },
+  "errors": [],
+  "checkpoints": []
+}

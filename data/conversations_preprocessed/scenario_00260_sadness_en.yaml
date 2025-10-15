@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.248444'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 106
+  processed_length: 106
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00260
+source: go_emotions
+text: I’m sorry to hear you’ve been cheated on.. but you’re free ! Makes it easier
+  for NC if they found a new FP

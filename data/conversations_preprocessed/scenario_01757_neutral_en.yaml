@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.595489'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 105
+  processed_length: 105
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01757
+source: go_emotions
+text: Respond to his comment including one of these Δ or !delta and an explanation
+  of why it changed your view.

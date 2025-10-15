@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.693573'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 45
+  processed_length: 68
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02175
+source: go_emotions
+text: 'Disgusting. Need to get the tooth hole fixed:face_with_tears_of_joy:'

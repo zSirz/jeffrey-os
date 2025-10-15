@@ -1,0 +1,61 @@
+# Jeffrey P2 - Caddy Configuration
+{
+    admin 127.0.0.1:2019
+
+    # Auto HTTPS avec certificats locaux
+    local_certs
+
+    # Debug désactivé en prod
+    debug off
+}
+
+# HTTP (port 80)
+:80 {
+    # Health check endpoint
+    handle /healthz {
+        respond "OK" 200
+    }
+
+    # Redirect vers HTTPS
+    handle {
+        redir https://localhost:8443{uri} permanent
+    }
+}
+
+# HTTPS (port 443 mappé sur 8443)
+https://localhost:8443 {
+    # TLS avec certificat auto-signé
+    tls internal
+
+    # Headers de sécurité
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+        Content-Security-Policy "default-src 'self'"
+    }
+
+    # Health check HTTPS
+    handle /healthz {
+        respond "OK" 200
+    }
+
+    # Proxies avec service names (Fix #7)
+    handle /nats* {
+        reverse_proxy nats-p2:8222
+    }
+
+    handle /prometheus* {
+        reverse_proxy prometheus-p2:9090
+    }
+
+    handle /grafana* {
+        reverse_proxy grafana-p2:3000
+    }
+
+    # Default response
+    handle {
+        respond "Jeffrey OS P2 Gateway - HTTPS" 200
+    }
+}

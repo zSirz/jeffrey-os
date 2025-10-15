@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.952453'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 121
+  processed_length: 123
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03035
+source: go_emotions
+text: That's probably the price a [NAME] pays to rent the Trump Hotel doncC. Ballroom
+  for a cocktail party. Whoop de fucking doo.

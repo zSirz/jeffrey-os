@@ -1,0 +1,16 @@
+# Critical dependencies for Jeffrey OS v2.4.2 - EXACT VERSIONS
+sentence-transformers==5.1.1
+
+# Pinned model revision for reproducibility (obtained via scripts/pin_model_version.py)
+# intfloat/multilingual-e5-large@0dc5580a448e4284468b8909bae50fa925907bc5
+scikit-learn==1.7.2
+joblib==1.5.2
+numpy==1.26.4
+PyYAML==6.0.3
+emoji==2.15.0
+datasets==4.2.0
+tqdm==4.67.1
+torch==2.7.0
+huggingface-hub==0.32.2
+transformers==4.41.1
+# End of critical dependencies

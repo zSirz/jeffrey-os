@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.190045'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 82
+  processed_length: 93
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00021
+source: go_emotions
+text: Sign my name to it too laugh out loud it was so awful we deserve pain and suffering
+  for that!

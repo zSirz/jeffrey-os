@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.069702'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 67
+  processed_length: 67
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03350
+source: go_emotions
+text: Yikes. Was he unfamiliar with the area? How did it go over at work?

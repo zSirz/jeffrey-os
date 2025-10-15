@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.858473'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 52
+  processed_length: 52
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02650
+source: go_emotions
+text: Underaged drinking in Wisconsin... get out no way!!!

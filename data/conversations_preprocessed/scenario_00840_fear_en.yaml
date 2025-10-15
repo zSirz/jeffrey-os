@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.383444'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 103
+  processed_length: 103
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00840
+source: go_emotions
+text: Omg I used to do something similar?! Yeah I’ve worn so many hats and then just
+  kicked them to the curb.

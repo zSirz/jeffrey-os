@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.448141'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 107
+  processed_length: 107
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01120
+source: go_emotions
+text: Same pigs who bombed a mosque full of kids learning Quran. In Shaa'Allah those
+  terrorists will burn in hell

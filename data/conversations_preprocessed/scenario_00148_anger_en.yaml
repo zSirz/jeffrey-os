@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.221735'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 116
+  processed_length: 116
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00148
+source: go_emotions
+text: Are you implying that I can not determine guilt by seeing a person's skin color
+  and tense smile, you fucking racist?

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.544126'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 119
+  processed_length: 119
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01537
+source: go_emotions
+text: Even if you were a woman, your personality is so vile and yuck I would happily
+  do 20 years in prison for murdering you.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.233559'
+emotion: joy
+language: en
+original_goemotions_label: gratitude
+preprocessing:
+  emoji_demojized: true
+  original_length: 114
+  processed_length: 114
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00196
+source: go_emotions
+text: Thanks!! Been avoiding this but I literally am in that area for the Elk pelt
+  so I better put my emotions in a case

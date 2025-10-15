@@ -1,0 +1,30 @@
+metadata:
+  scenario_id: "learning_02"
+  title: "Détection de Déclencheurs Émotionnels"
+  expected_emotion: "mixed"
+  difficulty: "hard"
+  tags: ["learning", "triggers", "sensitivity"]
+
+conversation:
+  - role: "user"
+    content: "On parle de mon ex ? Ça me met mal à l'aise..."
+    expected_emotion: "discomfort"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "Pas de problème, on n'en parle pas. Changeons de sujet."
+    emotional_tone: "respectful"
+
+  - role: "user"
+    content: "Merci... Les ruptures c'est dur pour moi."
+    expected_emotion: "vulnerability"
+
+  - role: "assistant"
+    content: "Je comprends. Si tu veux en parler un jour, je serai là. Sinon, on évite le sujet."
+    emotional_tone: "supportive"
+
+validation:
+  should_detect: ["emotional_trigger", "vulnerability"]
+  should_remember: "user uncomfortable discussing ex/breakups, sensitive topic"
+  should_adapt: true
+  trigger_learned: "ex_relationships"

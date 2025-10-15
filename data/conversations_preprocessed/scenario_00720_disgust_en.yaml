@@ -1,0 +1,15 @@
+created_at: '2025-10-13T11:58:53.355515'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 170
+  processed_length: 170
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00720
+source: go_emotions
+text: Disturbing =/= awful. Its incredibly well done by a professional. I feel like
+  this sub is more for unintentional awfulness, not purposeful shock value/ theatrical
+  makeup.

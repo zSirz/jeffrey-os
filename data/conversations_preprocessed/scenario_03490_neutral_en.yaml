@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.102214'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 139
+  processed_length: 139
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03490
+source: go_emotions
+text: This was not on night sight Not OP but also used Pixel 3 to take similar picture
+  from springs with binoculars carefully in line with camera

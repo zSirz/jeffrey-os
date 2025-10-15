@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey OS - Professional Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a0033 100%);
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        /* Matrix rain effect */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .card {
+            background: rgba(0, 20, 40, 0.8);
+            border: 1px solid #00ff88;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            backdrop-filter: blur(10px);
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 136, 0.6); }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #00ff88;
+            grid-column: 1 / -1;
+        }
+
+        .metric {
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+            animation: blink 2s infinite;
+        }
+
+        .status-good { background: #00ff88; }
+        .status-warning { background: #ffaa00; }
+        .status-error { background: #ff3366; }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* 3D rotating cube */
+        .cube-container {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 255, 136, 0.2);
+            border: 2px solid #00ff88;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+        }
+
+        .front { transform: translateZ(50px); }
+        .back { transform: rotateY(180deg) translateZ(50px); }
+        .right { transform: rotateY(90deg) translateZ(50px); }
+        .left { transform: rotateY(-90deg) translateZ(50px); }
+        .top { transform: rotateX(90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+        /* Progress bars */
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #00ffff);
+            transition: width 0.5s ease;
+            border-radius: 10px;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        /* Graph container */
+        #graph-container {
+            grid-column: span 2;
+        }
+
+        #chart {
+            width: 100%;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-bg"></canvas>
+
+    <div class="dashboard">
+        <h1>🧠 JEFFREY OS - NEURAL COMMAND CENTER</h1>
+
+        <!-- System Status Card -->
+        <div class="card">
+            <h2>System Status</h2>
+            <div class="metric">
+                <span>Status</span>
+                <span class="metric-value">ONLINE<span class="status-indicator status-good"></span></span>
+            </div>
+            <div class="metric">
+                <span>Uptime</span>
+                <span class="metric-value" id="uptime">00:00:00</span>
+            </div>
+            <div class="metric">
+                <span>Memory</span>
+                <span class="metric-value" id="memory">0 MB</span>
+            </div>
+            <div class="metric">
+                <span>CPU</span>
+                <span class="metric-value" id="cpu">0%</span>
+            </div>
+        </div>
+
+        <!-- Neural Activity Card -->
+        <div class="card">
+            <h2>Neural Activity</h2>
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face front">🧠</div>
+                    <div class="cube-face back">💭</div>
+                    <div class="cube-face right">⚡</div>
+                    <div class="cube-face left">🌟</div>
+                    <div class="cube-face top">🔮</div>
+                    <div class="cube-face bottom">💫</div>
+                </div>
+            </div>
+            <div class="metric">
+                <span>Symbiosis Score</span>
+                <span class="metric-value" id="symbiosis">0.00</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="symbiosis-bar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics Card -->
+        <div class="card">
+            <h2>Performance</h2>
+            <div class="metric">
+                <span>Events/sec</span>
+                <span class="metric-value" id="events-rate">0</span>
+            </div>
+            <div class="metric">
+                <span>P99 Latency</span>
+                <span class="metric-value" id="p99">0 ms</span>
+            </div>
+            <div class="metric">
+                <span>Drop Rate</span>
+                <span class="metric-value" id="drop-rate">0.00%</span>
+            </div>
+            <div class="metric">
+                <span>DLQ Count</span>
+                <span class="metric-value" id="dlq">0</span>
+            </div>
+        </div>
+
+        <!-- Awareness Card -->
+        <div class="card">
+            <h2>Consciousness</h2>
+            <div class="metric">
+                <span>Awareness</span>
+                <span class="metric-value" id="awareness">0.00</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="awareness-bar" style="width: 0%"></div>
+            </div>
+            <div class="metric">
+                <span>Active Loops</span>
+                <span class="metric-value" id="loops">0</span>
+            </div>
+            <div class="metric">
+                <span>Events Processed</span>
+                <span class="metric-value" id="events-total">0</span>
+            </div>
+        </div>
+
+        <!-- Graph Card -->
+        <div class="card" id="graph-container">
+            <h2>Real-time Metrics</h2>
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Configuration du serveur de métriques (GPT improvement)
+        const METRICS_SERVER = 'http://localhost:9000';
+
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "JEFFREY0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const matrixArray = matrix.split("");
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff88';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 35);
+
+        // Chart setup
+        const chartCanvas = document.getElementById('chart');
+        const chartCtx = chartCanvas.getContext('2d');
+        const chartData = {
+            symbiosis: [],
+            p99: [],
+            cpu: []
+        };
+        const maxDataPoints = 50;
+
+        function drawChart() {
+            chartCtx.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
+
+            // Draw grid
+            chartCtx.strokeStyle = 'rgba(0, 255, 136, 0.1)';
+            chartCtx.lineWidth = 1;
+
+            for(let i = 0; i < 10; i++) {
+                const y = (chartCanvas.height / 10) * i;
+                chartCtx.beginPath();
+                chartCtx.moveTo(0, y);
+                chartCtx.lineTo(chartCanvas.width, y);
+                chartCtx.stroke();
+            }
+
+            // Draw data lines
+            const datasets = [
+                { data: chartData.symbiosis, color: '#00ff88', scale: 1 },
+                { data: chartData.p99, color: '#00ffff', scale: 0.01 },
+                { data: chartData.cpu, color: '#ff00ff', scale: 0.01 }
+            ];
+
+            datasets.forEach(dataset => {
+                chartCtx.strokeStyle = dataset.color;
+                chartCtx.lineWidth = 2;
+                chartCtx.beginPath();
+
+                dataset.data.forEach((value, index) => {
+                    const x = (chartCanvas.width / maxDataPoints) * index;
+                    const y = chartCanvas.height - (value * dataset.scale * chartCanvas.height);
+
+                    if(index === 0) {
+                        chartCtx.moveTo(x, y);
+                    } else {
+                        chartCtx.lineTo(x, y);
+                    }
+                });
+
+                chartCtx.stroke();
+            });
+        }
+
+        // Fetch metrics and update dashboard
+        async function updateMetrics() {
+            try {
+                const response = await fetch(`${METRICS_SERVER}/status`);
+                const data = await response.json();
+
+                // Update values
+                document.getElementById('memory').textContent = `${data.memory_mb.toFixed(1)} MB`;
+                document.getElementById('cpu').textContent = `${data.cpu_percent.toFixed(1)}%`;
+                document.getElementById('symbiosis').textContent = data.symbiosis.toFixed(3);
+                document.getElementById('awareness').textContent = data.awareness_level.toFixed(3);
+                document.getElementById('events-rate').textContent = Math.floor(data.events_processed / data.uptime_seconds) || 0;
+                document.getElementById('events-total').textContent = data.events_processed.toLocaleString();
+                document.getElementById('p99').textContent = `${data.p99_latency_ms.toFixed(1)} ms`;
+                document.getElementById('drop-rate').textContent = `${(data.drop_rate * 100).toFixed(4)}%`;
+                document.getElementById('dlq').textContent = data.dlq_count.toLocaleString();
+                document.getElementById('loops').textContent = data.loops_active;
+
+                // Update progress bars
+                document.getElementById('symbiosis-bar').style.width = `${data.symbiosis * 100}%`;
+                document.getElementById('awareness-bar').style.width = `${data.awareness_level * 100}%`;
+
+                // Update uptime
+                const hours = Math.floor(data.uptime_seconds / 3600);
+                const minutes = Math.floor((data.uptime_seconds % 3600) / 60);
+                const seconds = Math.floor(data.uptime_seconds % 60);
+                document.getElementById('uptime').textContent =
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                // Update chart data
+                chartData.symbiosis.push(data.symbiosis);
+                chartData.p99.push(data.p99_latency_ms);
+                chartData.cpu.push(data.cpu_percent);
+
+                // Keep only last maxDataPoints
+                Object.keys(chartData).forEach(key => {
+                    if(chartData[key].length > maxDataPoints) {
+                        chartData[key].shift();
+                    }
+                });
+
+                drawChart();
+
+            } catch (error) {
+                console.error('Error fetching metrics:', error);
+            }
+        }
+
+        // Update every 2 seconds
+        setInterval(updateMetrics, 2000);
+        updateMetrics();
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

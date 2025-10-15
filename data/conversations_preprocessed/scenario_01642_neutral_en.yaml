@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.568566'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01642
+source: go_emotions
+text: This! A while back a girl on here said that “the ed is trying to trick you to
+  keep itself alive!”

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.116477'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 64
+  processed_length: 64
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03551
+source: go_emotions
+text: It’s time to stop lad, it’s getting a little embarrassing now...

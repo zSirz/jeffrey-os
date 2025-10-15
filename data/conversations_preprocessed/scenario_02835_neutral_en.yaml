@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.906244'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 77
+  processed_length: 77
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02835
+source: go_emotions
+text: And sitting on the side of the road for 8 hours to catch you doing 65 in a 55

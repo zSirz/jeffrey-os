@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.477370'
+emotion: joy
+language: en
+original_goemotions_label: relief
+preprocessing:
+  emoji_demojized: true
+  original_length: 60
+  processed_length: 60
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01247
+source: go_emotions
+text: My god, what is WRONG with people? So glad you’re okay, OP!!

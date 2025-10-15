@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.307513'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 124
+  processed_length: 124
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00513
+source: go_emotions
+text: Read divorce busting and kill all marriage counselors. As much as it sucks...youve
+  been given a gift by him giving you time.

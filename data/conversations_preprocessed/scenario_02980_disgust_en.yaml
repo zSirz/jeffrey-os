@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.940021'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 147
+  processed_length: 147
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02980
+source: go_emotions
+text: Minor league team names are often embarrassing...Biscuits, Rumble Ponies, Sand
+  Gnats. Baby Cakes is particularly awful though, I’ll grant you that.

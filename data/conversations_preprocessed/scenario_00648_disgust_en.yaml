@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.338831'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 88
+  processed_length: 88
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00648
+source: go_emotions
+text: Vans are ugly as hell. You just cant make a Minivan look mean. Also why are
+  they trying?

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.173344'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 127
+  processed_length: 127
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03800
+source: go_emotions
+text: I would be impressed if [NAME] ate 15% of his weight every day I wish I lived
+  in a state where the contest was valid. Stupid NY

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.373281'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 112
+  processed_length: 112
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00795
+source: go_emotions
+text: You are so right. Reddit response of reading only the first few words. It's
+  been a long damn week. My apologies.

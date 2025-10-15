@@ -1,0 +1,8 @@
+datasets==4.2.0
+emoji==2.15.0
+joblib==1.5.2
+numpy==1.26.4
+scikit-learn==1.7.2
+sentence-transformers==5.1.1
+torch==2.7.0
+tqdm==4.67.1

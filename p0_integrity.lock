@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-09-25T20:07:47.708894",
+  "version": "2.0.0",
+  "modules": {
+    "dream_engine": {
+      "hash": "24375ac0d4da2398668a5a4d03124f1fb506cb78f38efcc230fff85e8ada4f82",
+      "size": 43024,
+      "path": "src/jeffrey/core/consciousness/dream_engine.py"
+    },
+    "self_awareness_tracker": {
+      "hash": "ce61d9ad8230152c302eba756bdecd2f6b21deed5e74ac5bcb3d6ac72c1ffa58",
+      "size": 20140,
+      "path": "src/jeffrey/core/consciousness/self_awareness_tracker.py"
+    },
+    "cognitive_synthesis": {
+      "hash": "b96b3e5ed9c7e4d0a34263fc30164c81c94a7d59cc87c19aa1e3880beec82484",
+      "size": 28417,
+      "path": "src/jeffrey/core/consciousness/cognitive_synthesis.py"
+    },
+    "cortex_memoriel": {
+      "hash": "03ecb4d09175541106cc4e27149e06065dfca42ecb2e2c72887ca45dc6530875",
+      "size": 19102,
+      "path": "src/jeffrey/core/memory/cortex_memoriel.py"
+    }
+  }
+}

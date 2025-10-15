@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.858702'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 96
+  processed_length: 113
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02651
+source: go_emotions
+text: 'Ya shitty. But people cheat. I dont know what to tell you :upside-down_face:
+  the world sucks. Just live your life'

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.842652'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 64
+  processed_length: 243
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02582
+source: go_emotions
+text: 'FUCK YOU CHAD, WE ARE COOL GAMERS RISE UP:smiling_face_with_sunglasses::smiling_face_with_sunglasses::smiling_face_with_sunglasses::hundred_points::hundred_points::hundred_points::hundred_points::hundred_points::fire::fire::tongue:
+  BOTTOM TEXT'

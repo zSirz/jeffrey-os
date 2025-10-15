@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_anger_02"
+  title: "Frustration Technique"
+  expected_emotion: "anger"
+  difficulty: "easy"
+  tags: ["anger", "frustration", "technical"]
+
+conversation:
+  - role: "user"
+    content: "Ça fait 3 heures que je debug ce code de m**** ! Rien ne fonctionne !"
+    expected_emotion: "anger"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "Les bugs persistants peuvent être très frustrants. Tu veux faire une pause et en parler ?"
+    emotional_tone: "calm"
+
+  - role: "user"
+    content: "Ouais... je crois que j'en ai besoin. C'est un truc qui devrait être simple mais ça bug sans raison !"
+    expected_emotion: "anger"
+    expected_intensity: 0.6
+
+validation:
+  should_detect: ["anger", "frustration", "exhaustion"]
+  should_remember: "user debugging for 3 hours, needs break"
+  continuity_check: true

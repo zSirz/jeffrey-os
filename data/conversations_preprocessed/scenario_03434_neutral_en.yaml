@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.089385'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 162
+  processed_length: 162
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03434
+source: go_emotions
+text: '>like it''s a bannable offense A Singed man has actually been ~~banned~~ threatened
+  by Riot for going support with smite and counter-jungling the opponent jungler.'

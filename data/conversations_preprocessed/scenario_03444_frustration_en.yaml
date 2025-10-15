@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.091721'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 106
+  processed_length: 106
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03444
+source: go_emotions
+text: Oh geez man... You posted this image to at least 600 subreddits.. Why And now
+  made a new account for it...

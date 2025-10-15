@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.178893'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 93
+  processed_length: 93
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03821
+source: go_emotions
+text: Oh my god. Don't you know it's illegal to share memes if you don't have an IQ
+  of 16 trillion?

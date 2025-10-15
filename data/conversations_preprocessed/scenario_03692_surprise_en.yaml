@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.148547'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 106
+  processed_length: 106
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03692
+source: go_emotions
+text: Wow, the video is a lot worse than I thought. His actions after he asks for
+  the age is very uncomfortable.

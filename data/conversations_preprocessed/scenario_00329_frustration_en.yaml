@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.264745'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 62
+  processed_length: 62
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00329
+source: go_emotions
+text: It’s not so much the heat, it’s the humidity that’ll kill you.

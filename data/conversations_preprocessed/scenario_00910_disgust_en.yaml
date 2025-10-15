@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.399329'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 145
+  processed_length: 145
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00910
+source: go_emotions
+text: It's weird because sometimes I care and sometimes I don't. Although I wouldn't
+  call myself an asexual I could be leaning more towards demisexual.

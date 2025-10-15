@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.259173'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 33
+  processed_length: 33
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00305
+source: go_emotions
+text: Stop giving this idiot attention.

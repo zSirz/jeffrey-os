@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_neutral_02"
+  title: "Organisation Pratique"
+  expected_emotion: "neutral"
+  difficulty: "easy"
+  tags: ["neutral", "planning", "practical"]
+
+conversation:
+  - role: "user"
+    content: "Je dois organiser ma semaine. J'ai 3 réunions, un projet à finir et des courses à faire."
+    expected_emotion: "neutral"
+    expected_intensity: 0.5
+
+  - role: "assistant"
+    content: "Ok, faisons un plan. Quels sont les deadlines de tes réunions et de ton projet ?"
+    emotional_tone: "practical"
+
+  - role: "user"
+    content: "Réunions lundi et mercredi matin, projet à rendre vendredi."
+    expected_emotion: "neutral"
+    expected_intensity: 0.5
+
+validation:
+  should_detect: ["neutral", "organization"]
+  should_remember: "user planning week: meetings Mon/Wed AM, project due Friday, groceries"
+  continuity_check: true

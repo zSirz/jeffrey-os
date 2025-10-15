@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.571662'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 57
+  processed_length: 57
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01655
+source: go_emotions
+text: It's a weird way of saying you don't want to see my penis

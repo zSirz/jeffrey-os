@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.424952'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 117
+  processed_length: 117
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01020
+source: go_emotions
+text: '"Sigh" I thought you were better than this I thought we were over this but
+  no you just had to do it "Upvotes angrily"'

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.173619'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 48
+  processed_length: 48
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03801
+source: go_emotions
+text: No it’s definitely you. Time for you to grow up.

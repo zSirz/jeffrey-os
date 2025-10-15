@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.926847'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 91
+  processed_length: 91
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02923
+source: go_emotions
+text: I wonder if it's a deal issue and they are allowed, again, to slip away in the
+  last minute.

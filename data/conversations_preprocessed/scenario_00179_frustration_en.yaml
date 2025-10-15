@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.229611'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 114
+  processed_length: 114
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00179
+source: go_emotions
+text: That's what is so stupid about this. My dog gets dreads on its ass sometimes
+  when it poops. Is that appropriation?

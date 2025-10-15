@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.378324'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 139
+  processed_length: 139
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00817
+source: go_emotions
+text: now imagine its some drunk 20 year old sitting near you screaming things every
+  couple of minutes because thats whats its like in the stands

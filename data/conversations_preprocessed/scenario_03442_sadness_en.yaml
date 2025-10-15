@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.091270'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 61
+  processed_length: 90
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03442
+source: go_emotions
+text: 'Can''t relate because the sadness and loneliness is constant :smiling_face_with_sunglasses:'

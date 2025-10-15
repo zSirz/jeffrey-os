@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.101285'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 94
+  processed_length: 99
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03486
+source: go_emotions
+text: Expert peep fan here! I’m not going to attack or defend I just want to say that
+  kids a little Bitch

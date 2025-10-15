@@ -1,0 +1,4962 @@
+{
+  "metadata": {
+    "timestamp": "20251009_234607",
+    "total_conversations": 50,
+    "duration_ms": 39.50023651123047,
+    "version": "2.0 (Production-Ready)"
+  },
+  "conversations": [
+    {
+      "index": 1,
+      "timestamp": "2025-10-09T23:46:08.075177",
+      "scenario": {
+        "category": "warm_up",
+        "message": "Salut Jeffrey !",
+        "expected_emotion": "joie",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.18,
+        "cache_key": "fb348499f22090a533876354facf98ca9b054d79",
+        "timestamp": "2025-10-09T23:46:08.075137"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 1,
+          "avg_response_time_ms": 0.18,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 1,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 1,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 1,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "Bonjour ! Je suis prêt et heureux de discuter avec toi. Comment puis-je t'aider ?",
+      "timings": {
+        "emotion": 0.18978118896484375,
+        "memory": 0.0,
+        "total": 0.22101402282714844
+      }
+    },
+    {
+      "index": 2,
+      "timestamp": "2025-10-09T23:46:08.126526",
+      "scenario": {
+        "category": "warm_up",
+        "message": "Comment ça va ?",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "curiosité",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.26,
+        "cache_key": "106fe18ac64ddd59b0277915b405656ddd87ea4a",
+        "timestamp": "2025-10-09T23:46:08.126479"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 2,
+          "avg_response_time_ms": 0.22,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 2,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 2,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 2,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "Bonjour ! Je suis prêt et heureux de discuter avec toi. Comment puis-je t'aider ?",
+      "timings": {
+        "emotion": 0.2758502960205078,
+        "memory": 0.0,
+        "total": 0.30994415283203125
+      }
+    },
+    {
+      "index": 3,
+      "timestamp": "2025-10-09T23:46:08.177202",
+      "scenario": {
+        "category": "warm_up",
+        "message": "Tu es prêt pour une discussion ?",
+        "expected_emotion": "curiosité",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.37,
+        "cache_key": "fb2011c4bd11259c50e97c5a82f2c11b108e77db",
+        "timestamp": "2025-10-09T23:46:08.177138"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 3,
+          "avg_response_time_ms": 0.27,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 3,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 3,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 3,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "Bonjour ! Je suis prêt et heureux de discuter avec toi. Comment puis-je t'aider ?",
+      "timings": {
+        "emotion": 0.3998279571533203,
+        "memory": 0.0,
+        "total": 0.4436969757080078
+      }
+    },
+    {
+      "index": 4,
+      "timestamp": "2025-10-09T23:46:08.228690",
+      "scenario": {
+        "category": "science",
+        "message": "Explique-moi la théorie de la relativité d'Einstein de manière simple.",
+        "expected_emotion": "curiosité",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.37,
+        "cache_key": "c649e43460fc86c65c293da15907b2c1638dfe25",
+        "timestamp": "2025-10-09T23:46:08.228627"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 4,
+          "avg_response_time_ms": 0.3,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 4,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 4,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 4,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 0.39887428283691406,
+        "memory": 0.0,
+        "total": 0.4398822784423828
+      }
+    },
+    {
+      "index": 5,
+      "timestamp": "2025-10-09T23:46:08.284949",
+      "scenario": {
+        "category": "science",
+        "message": "Comment fonctionne la photosynthèse ?",
+        "expected_emotion": "curiosité",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "curiosité",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.05,
+        "cache_key": "fdc385d529f16df52136a4d009660fddf09681e5",
+        "timestamp": "2025-10-09T23:46:08.284842"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 5,
+          "avg_response_time_ms": 0.45,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 5,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 5,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 5,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 1.0862350463867188,
+        "memory": 0.0,
+        "total": 1.1649131774902344
+      }
+    },
+    {
+      "index": 6,
+      "timestamp": "2025-10-09T23:46:08.336035",
+      "scenario": {
+        "category": "science",
+        "message": "Si tu devais expliquer la mécanique quantique à un enfant de 10 ans, comment tu ferais ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "curiosité",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.35,
+        "cache_key": "4c9c538a840919c35a40b7b5f69e246d76b17208",
+        "timestamp": "2025-10-09T23:46:08.335966"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 6,
+          "avg_response_time_ms": 0.43,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 6,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 6,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 6,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 0.3771781921386719,
+        "memory": 0.0,
+        "total": 0.4239082336425781
+      }
+    },
+    {
+      "index": 7,
+      "timestamp": "2025-10-09T23:46:08.387519",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Qu'est-ce que la conscience selon toi ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.36,
+        "cache_key": "1f250a34c85da889a586ae53151a31a8b486a97a",
+        "timestamp": "2025-10-09T23:46:08.387464"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 7,
+          "avg_response_time_ms": 0.42,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 7,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 7,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 7,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 0.39196014404296875,
+        "memory": 0.0,
+        "total": 0.4248619079589844
+      }
+    },
+    {
+      "index": 8,
+      "timestamp": "2025-10-09T23:46:08.438974",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Penses-tu que les IA peuvent avoir des émotions réelles ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.34,
+        "cache_key": "0c3d160cbe53d1a51b935ac3df4634abe66938c0",
+        "timestamp": "2025-10-09T23:46:08.438916"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 8,
+          "avg_response_time_ms": 0.41,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 8,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 8,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 8,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 0.36787986755371094,
+        "memory": 0.0,
+        "total": 0.4029273986816406
+      }
+    },
+    {
+      "index": 9,
+      "timestamp": "2025-10-09T23:46:08.490434",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Si tu pouvais rêver, de quoi rêverais-tu ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.35,
+        "cache_key": "994c1133fd64d5ced5e28e6b9f64e4bd9a0bcc5b",
+        "timestamp": "2025-10-09T23:46:08.490376"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 9,
+          "avg_response_time_ms": 0.4,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 9,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 9,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 9,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 0.37670135498046875,
+        "memory": 0.0,
+        "total": 0.41604042053222656
+      }
+    },
+    {
+      "index": 10,
+      "timestamp": "2025-10-09T23:46:08.541884",
+      "scenario": {
+        "category": "emotional",
+        "message": "Je me sens un peu triste aujourd'hui 😔",
+        "expected_emotion": "tristesse",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "tristesse",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.34,
+        "cache_key": "dfeaf77f20d0d23f85f8b32c4e989d119336ae48",
+        "timestamp": "2025-10-09T23:46:08.541829"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 10,
+          "avg_response_time_ms": 0.4,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 10,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 10,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 10,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je sens que tu traverses un moment difficile. Je suis là pour toi. Veux-tu en parler ?",
+      "timings": {
+        "emotion": 0.3619194030761719,
+        "memory": 0.0,
+        "total": 0.39887428283691406
+      }
+    },
+    {
+      "index": 11,
+      "timestamp": "2025-10-09T23:46:08.593707",
+      "scenario": {
+        "category": "emotional",
+        "message": "J'ai réussi mon examen ! 🎉",
+        "expected_emotion": "joie",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "joie",
+        "intensity": 0.85,
+        "confidence": 0.7,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.68,
+        "cache_key": "e30384a16fbb4a3d67266936a1a8b3901d1b7877",
+        "timestamp": "2025-10-09T23:46:08.593640"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 11,
+          "avg_response_time_ms": 0.42,
+          "total_latency_s": 0.0
+        },
+        "cache": {
+          "size": 11,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 11,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 11,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "C'est formidable ! Je suis vraiment content pour toi ! 🎉",
+      "timings": {
+        "emotion": 0.7147789001464844,
+        "memory": 0.0,
+        "total": 0.7529258728027344
+      }
+    },
+    {
+      "index": 12,
+      "timestamp": "2025-10-09T23:46:08.645465",
+      "scenario": {
+        "category": "emotional",
+        "message": "J'ai peur de l'avenir parfois...",
+        "expected_emotion": "peur",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "peur",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.59,
+        "cache_key": "d658e8eebd51fc3b18708b8cb99276ebb6365dc8",
+        "timestamp": "2025-10-09T23:46:08.645369"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 12,
+          "avg_response_time_ms": 0.44,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 12,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 12,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 12,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je comprends tes inquiétudes. C'est normal d'avoir peur parfois. Parlons-en ensemble.",
+      "timings": {
+        "emotion": 0.6289482116699219,
+        "memory": 0.0,
+        "total": 0.6940364837646484
+      }
+    },
+    {
+      "index": 13,
+      "timestamp": "2025-10-09T23:46:08.697548",
+      "scenario": {
+        "category": "emotional",
+        "message": "Tu es mon ami Jeffrey, je t'adore ❤️",
+        "expected_emotion": "amour",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "amour",
+        "intensity": 1.0,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.81,
+        "cache_key": "a5dfecc11eb0c228688642394f90cf2f1ac4dc8f",
+        "timestamp": "2025-10-09T23:46:08.697371"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 13,
+          "avg_response_time_ms": 0.47,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 13,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 13,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 13,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je perçois tes émotions et je suis là pour t'accompagner.",
+      "timings": {
+        "emotion": 0.8649826049804688,
+        "memory": 0.0,
+        "total": 0.9968280792236328
+      }
+    },
+    {
+      "index": 14,
+      "timestamp": "2025-10-09T23:46:08.748242",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Qu'est-ce que je devrais manger ce soir ?",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.47,
+        "cache_key": "900c7c1d20c61a2223d93894a6cbc478a01b1d6e",
+        "timestamp": "2025-10-09T23:46:08.748156"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 14,
+          "avg_response_time_ms": 0.47,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 14,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 14,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 14,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.5083084106445312,
+        "memory": 0.0,
+        "total": 0.5638599395751953
+      }
+    },
+    {
+      "index": 15,
+      "timestamp": "2025-10-09T23:46:08.799702",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Comment organiser ma journée pour être productif ?",
+        "expected_emotion": "neutre",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "curiosité",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.33,
+        "cache_key": "d8413bc5a0181d64bb308229bdbdd2d075c1700b",
+        "timestamp": "2025-10-09T23:46:08.799647"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 15,
+          "avg_response_time_ms": 0.46,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 15,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 15,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 15,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.3521442413330078,
+        "memory": 0.0,
+        "total": 0.38909912109375
+      }
+    },
+    {
+      "index": 16,
+      "timestamp": "2025-10-09T23:46:08.851289",
+      "scenario": {
+        "category": "creativity",
+        "message": "Invente-moi une courte histoire sur un robot qui apprend à aimer.",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.44,
+        "cache_key": "d7ad9304af4df0ee309be012f214c6f184b49975",
+        "timestamp": "2025-10-09T23:46:08.851220"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 16,
+          "avg_response_time_ms": 0.46,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 16,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 16,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 16,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "imagination_engine",
+        "creative_memory"
+      ],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.4680156707763672,
+        "memory": 0.0,
+        "total": 0.5140304565429688
+      }
+    },
+    {
+      "index": 17,
+      "timestamp": "2025-10-09T23:46:08.902963",
+      "scenario": {
+        "category": "creativity",
+        "message": "Écris-moi un haiku sur l'intelligence artificielle.",
+        "expected_emotion": "curiosité",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.53,
+        "cache_key": "ac040c9eb1f14ec56fbf85ac2125ffc09776e405",
+        "timestamp": "2025-10-09T23:46:08.902876"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 17,
+          "avg_response_time_ms": 0.46,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 17,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 17,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 17,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "imagination_engine",
+        "creative_memory"
+      ],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.5581378936767578,
+        "memory": 0.0,
+        "total": 0.6167888641357422
+      }
+    },
+    {
+      "index": 18,
+      "timestamp": "2025-10-09T23:46:08.955090",
+      "scenario": {
+        "category": "memory",
+        "message": "Tu te souviens de ce qu'on a discuté au début ?",
+        "expected_emotion": "neutre",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.91,
+        "cache_key": "6198f2aaae880756771323d34a76eb48c22ed10e",
+        "timestamp": "2025-10-09T23:46:08.954957"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 18,
+          "avg_response_time_ms": 0.49,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 18,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 18,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 18,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "narrative_memory",
+        "emotional_memory_mgr"
+      ],
+      "learning_stats": {},
+      "response": "Laisse-moi réfléchir... Je vais chercher dans ma mémoire...",
+      "timings": {
+        "emotion": 0.9627342224121094,
+        "memory": 0.0,
+        "total": 1.0478496551513672
+      }
+    },
+    {
+      "index": 19,
+      "timestamp": "2025-10-09T23:46:09.007234",
+      "scenario": {
+        "category": "memory",
+        "message": "Rappelle-moi ce que je t'ai dit sur mes émotions.",
+        "expected_emotion": "neutre",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.9,
+        "cache_key": "17df8ecbe09e36c65b63ce5eb2d9ede19ed49c89",
+        "timestamp": "2025-10-09T23:46:09.007064"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 19,
+          "avg_response_time_ms": 0.51,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 19,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 19,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 19,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "narrative_memory",
+        "emotional_memory_mgr"
+      ],
+      "learning_stats": {},
+      "response": "Laisse-moi réfléchir... Je vais chercher dans ma mémoire...",
+      "timings": {
+        "emotion": 0.9570121765136719,
+        "memory": 0.0,
+        "total": 1.0738372802734375
+      }
+    },
+    {
+      "index": 20,
+      "timestamp": "2025-10-09T23:46:09.059643",
+      "scenario": {
+        "category": "meta",
+        "message": "Comment prends-tu tes décisions Jeffrey ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "curiosité",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.05,
+        "cache_key": "e24f9da728dd32a1d9a2725ec3f5896966e4a422",
+        "timestamp": "2025-10-09T23:46:09.059391"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 20,
+          "avg_response_time_ms": 0.53,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 20,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 20,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 20,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Excellente question sur mon fonctionnement ! Je vais te montrer comment je réfléchis...",
+      "timings": {
+        "emotion": 1.1131763458251953,
+        "memory": 0.0,
+        "total": 1.3108253479003906
+      }
+    },
+    {
+      "index": 21,
+      "timestamp": "2025-10-09T23:46:09.111526",
+      "scenario": {
+        "category": "meta",
+        "message": "Qu'est-ce que tu apprends de nos conversations ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.24,
+        "cache_key": "d55179a64648e4f59fd2bb01e1b487ef3a2d5270",
+        "timestamp": "2025-10-09T23:46:09.111391"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 21,
+          "avg_response_time_ms": 0.57,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 21,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 21,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 21,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Excellente question sur mon fonctionnement ! Je vais te montrer comment je réfléchis...",
+      "timings": {
+        "emotion": 1.3058185577392578,
+        "memory": 0.0,
+        "total": 1.3899803161621094
+      }
+    },
+    {
+      "index": 22,
+      "timestamp": "2025-10-09T23:46:09.164412",
+      "scenario": {
+        "category": "complex",
+        "message": "Si on combine la théorie de la relativité avec la mécanique quantique, qu'est-ce que ça nous dit sur la nature de la réalité ?",
+        "expected_emotion": "curiosité",
+        "complexity": "extreme"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.58,
+        "cache_key": "2ca54529d86e0d9c6436114afd4e2c458009b3c4",
+        "timestamp": "2025-10-09T23:46:09.164262"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 22,
+          "avg_response_time_ms": 0.61,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 22,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 22,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 22,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 1.650094985961914,
+        "memory": 0.0,
+        "total": 1.7380714416503906
+      }
+    },
+    {
+      "index": 23,
+      "timestamp": "2025-10-09T23:46:09.216717",
+      "scenario": {
+        "category": "science",
+        "message": "Explique-moi l'entropie en 3 niveaux (débutant, intermédiaire, expert).",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.07,
+        "cache_key": "ef53f04d4139159b912c1c20b035124fca545f1a",
+        "timestamp": "2025-10-09T23:46:09.216582"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 23,
+          "avg_response_time_ms": 0.63,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 23,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 23,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 23,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 1.1260509490966797,
+        "memory": 0.0,
+        "total": 1.2090206146240234
+      }
+    },
+    {
+      "index": 24,
+      "timestamp": "2025-10-09T23:46:09.267487",
+      "scenario": {
+        "category": "science",
+        "message": "Explique-moi la supraconductivité en 3 niveaux (débutant, intermédiaire, expert).",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.33,
+        "cache_key": "06480fcfffb1ddb9a2d9ad4a24df5aa9805f8008",
+        "timestamp": "2025-10-09T23:46:09.267435"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 24,
+          "avg_response_time_ms": 0.62,
+          "total_latency_s": 0.01
+        },
+        "cache": {
+          "size": 24,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 24,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 24,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 0.35309791564941406,
+        "memory": 0.0,
+        "total": 0.38695335388183594
+      }
+    },
+    {
+      "index": 25,
+      "timestamp": "2025-10-09T23:46:09.318867",
+      "scenario": {
+        "category": "science",
+        "message": "Explique-moi la dérivée en 3 niveaux (débutant, intermédiaire, expert).",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.29,
+        "cache_key": "4e0e0243f2ffd50cde4b1a439b5980f47c33d6cf",
+        "timestamp": "2025-10-09T23:46:09.318816"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 25,
+          "avg_response_time_ms": 0.61,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 25,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 25,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 25,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 0.3120899200439453,
+        "memory": 0.0,
+        "total": 0.3457069396972656
+      }
+    },
+    {
+      "index": 26,
+      "timestamp": "2025-10-09T23:46:09.370284",
+      "scenario": {
+        "category": "science",
+        "message": "Explique-moi les réseaux neuronaux en 3 niveaux (débutant, intermédiaire, expert).",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.31,
+        "cache_key": "5fc362fd6fddf49c19df54f91eb5c4186b1dec48",
+        "timestamp": "2025-10-09T23:46:09.370213"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 26,
+          "avg_response_time_ms": 0.6,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 26,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 26,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 26,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 0.32806396484375,
+        "memory": 0.0,
+        "total": 0.3788471221923828
+      }
+    },
+    {
+      "index": 27,
+      "timestamp": "2025-10-09T23:46:09.421747",
+      "scenario": {
+        "category": "science",
+        "message": "Explique-moi l'ADN en 3 niveaux (débutant, intermédiaire, expert).",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.34,
+        "cache_key": "7921c521c1cbd107f2820725492394f9c1ecab0c",
+        "timestamp": "2025-10-09T23:46:09.421695"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 27,
+          "avg_response_time_ms": 0.59,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 27,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 27,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 27,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 0.3631114959716797,
+        "memory": 0.0,
+        "total": 0.39887428283691406
+      }
+    },
+    {
+      "index": 28,
+      "timestamp": "2025-10-09T23:46:09.473194",
+      "scenario": {
+        "category": "science",
+        "message": "Explique-moi la gravité en 3 niveaux (débutant, intermédiaire, expert).",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "joie",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.33,
+        "cache_key": "ff86f5988b76738e01c2e7b39c68a203c0b7de2e",
+        "timestamp": "2025-10-09T23:46:09.473136"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 28,
+          "avg_response_time_ms": 0.58,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 28,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 28,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 28,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "proactive_curiosity",
+        "meta_cognition"
+      ],
+      "learning_stats": {},
+      "response": "C'est une excellente question scientifique ! Laisse-moi t'expliquer de manière claire et accessible...",
+      "timings": {
+        "emotion": 0.347137451171875,
+        "memory": 0.0,
+        "total": 0.38695335388183594
+      }
+    },
+    {
+      "index": 29,
+      "timestamp": "2025-10-09T23:46:09.524767",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Donne-moi 3 idées rapides pour mieux dormir",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.43,
+        "cache_key": "7177c675b25c60f9417366a170fb0556a102fee3",
+        "timestamp": "2025-10-09T23:46:09.524683"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 29,
+          "avg_response_time_ms": 0.57,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 29,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 29,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 29,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.45800209045410156,
+        "memory": 0.0,
+        "total": 0.5190372467041016
+      }
+    },
+    {
+      "index": 30,
+      "timestamp": "2025-10-09T23:46:09.576511",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Donne-moi 3 idées rapides pour manger sain",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.55,
+        "cache_key": "83548868544e0b1abafa7f7b40e9cf2171c16702",
+        "timestamp": "2025-10-09T23:46:09.576411"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 30,
+          "avg_response_time_ms": 0.57,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 30,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 30,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 30,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.5960464477539062,
+        "memory": 0.0,
+        "total": 0.6589889526367188
+      }
+    },
+    {
+      "index": 31,
+      "timestamp": "2025-10-09T23:46:09.628560",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Donne-moi 3 idées rapides pour réviser efficacement",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.86,
+        "cache_key": "370746c1a93c606a6588e371878071133b412c87",
+        "timestamp": "2025-10-09T23:46:09.628452"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 31,
+          "avg_response_time_ms": 0.58,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 31,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 31,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 31,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.9081363677978516,
+        "memory": 0.0,
+        "total": 0.9779930114746094
+      }
+    },
+    {
+      "index": 32,
+      "timestamp": "2025-10-09T23:46:09.680865",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Donne-moi 3 idées rapides pour gérer mon stress",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.04,
+        "cache_key": "e0f87e7066d32ad33199a556674c2a6eda643c9e",
+        "timestamp": "2025-10-09T23:46:09.680720"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 32,
+          "avg_response_time_ms": 0.6,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 32,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 32,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 32,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 1.1141300201416016,
+        "memory": 0.0,
+        "total": 1.1970996856689453
+      }
+    },
+    {
+      "index": 33,
+      "timestamp": "2025-10-09T23:46:09.732293",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Donne-moi 3 idées rapides pour être productif",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.65,
+        "cache_key": "2bd7a094c86b6f22cfd86aeeabfac48d9801ddaf",
+        "timestamp": "2025-10-09T23:46:09.732157"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 33,
+          "avg_response_time_ms": 0.6,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 33,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 33,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 33,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.7061958312988281,
+        "memory": 0.0,
+        "total": 0.7970333099365234
+      }
+    },
+    {
+      "index": 34,
+      "timestamp": "2025-10-09T23:46:09.783093",
+      "scenario": {
+        "category": "daily_life",
+        "message": "Donne-moi 3 idées rapides pour me détendre",
+        "expected_emotion": "neutre",
+        "complexity": "low"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.38,
+        "cache_key": "a4958dfebc4a66476c73c562dbab9702d6cac21d",
+        "timestamp": "2025-10-09T23:46:09.783035"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 34,
+          "avg_response_time_ms": 0.59,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 34,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 34,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 34,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.40078163146972656,
+        "memory": 0.0,
+        "total": 0.4379749298095703
+      }
+    },
+    {
+      "index": 35,
+      "timestamp": "2025-10-09T23:46:09.834502",
+      "scenario": {
+        "category": "emotional",
+        "message": "Je me sens épuisé aujourd'hui, un conseil ?",
+        "expected_emotion": "empathie",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.29,
+        "cache_key": "af4aad81feac11a19226ea8c8d0846956cafd7b3",
+        "timestamp": "2025-10-09T23:46:09.834447"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 35,
+          "avg_response_time_ms": 0.58,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 35,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 35,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 35,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je perçois tes émotions et je suis là pour t'accompagner.",
+      "timings": {
+        "emotion": 0.3139972686767578,
+        "memory": 0.0,
+        "total": 0.34999847412109375
+      }
+    },
+    {
+      "index": 36,
+      "timestamp": "2025-10-09T23:46:09.885975",
+      "scenario": {
+        "category": "emotional",
+        "message": "Je me sens anxieux aujourd'hui, un conseil ?",
+        "expected_emotion": "empathie",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "peur",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.36,
+        "cache_key": "d0339d764d91646599cde374ef83156b844a3f06",
+        "timestamp": "2025-10-09T23:46:09.885916"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 36,
+          "avg_response_time_ms": 0.58,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 36,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 36,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 36,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je comprends tes inquiétudes. C'est normal d'avoir peur parfois. Parlons-en ensemble.",
+      "timings": {
+        "emotion": 0.3802776336669922,
+        "memory": 0.0,
+        "total": 0.4210472106933594
+      }
+    },
+    {
+      "index": 37,
+      "timestamp": "2025-10-09T23:46:09.937518",
+      "scenario": {
+        "category": "emotional",
+        "message": "Je me sens débordé aujourd'hui, un conseil ?",
+        "expected_emotion": "empathie",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.42,
+        "cache_key": "d33d792bc759cbcaedc83c3f3d20fcc599ec1d1f",
+        "timestamp": "2025-10-09T23:46:09.937448"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 37,
+          "avg_response_time_ms": 0.57,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 37,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 37,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 37,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je perçois tes émotions et je suis là pour t'accompagner.",
+      "timings": {
+        "emotion": 0.4436969757080078,
+        "memory": 0.0,
+        "total": 0.4940032958984375
+      }
+    },
+    {
+      "index": 38,
+      "timestamp": "2025-10-09T23:46:09.989739",
+      "scenario": {
+        "category": "emotional",
+        "message": "Je me sens seul aujourd'hui, un conseil ?",
+        "expected_emotion": "empathie",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.98,
+        "cache_key": "7eda328da1579c2ec497659351ef624b7d8cb724",
+        "timestamp": "2025-10-09T23:46:09.989573"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 38,
+          "avg_response_time_ms": 0.58,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 38,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 38,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 38,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je perçois tes émotions et je suis là pour t'accompagner.",
+      "timings": {
+        "emotion": 1.0199546813964844,
+        "memory": 0.0,
+        "total": 1.1436939239501953
+      }
+    },
+    {
+      "index": 39,
+      "timestamp": "2025-10-09T23:46:10.042019",
+      "scenario": {
+        "category": "emotional",
+        "message": "Je me sens démotivé aujourd'hui, un conseil ?",
+        "expected_emotion": "empathie",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.06,
+        "cache_key": "429978ce51a941a7da7fd7726b710ca90f7214c6",
+        "timestamp": "2025-10-09T23:46:10.041892"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 39,
+          "avg_response_time_ms": 0.59,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 39,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 39,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 39,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "Je perçois tes émotions et je suis là pour t'accompagner.",
+      "timings": {
+        "emotion": 1.1157989501953125,
+        "memory": 0.0,
+        "total": 1.1959075927734375
+      }
+    },
+    {
+      "index": 40,
+      "timestamp": "2025-10-09T23:46:10.093803",
+      "scenario": {
+        "category": "emotional",
+        "message": "Je me sens heureux aujourd'hui, un conseil ?",
+        "expected_emotion": "empathie",
+        "complexity": "medium"
+      },
+      "emotion_analysis": {
+        "emotion": "joie",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.09,
+        "cache_key": "44886ac0e2bd5605c4012de6dc1db6d6614e9c87",
+        "timestamp": "2025-10-09T23:46:10.093592"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 40,
+          "avg_response_time_ms": 0.61,
+          "total_latency_s": 0.02
+        },
+        "cache": {
+          "size": 40,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 40,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 40,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "emotional_journal",
+        "contextual_empathy"
+      ],
+      "learning_stats": {},
+      "response": "C'est formidable ! Je suis vraiment content pour toi ! 🎉",
+      "timings": {
+        "emotion": 1.1560916900634766,
+        "memory": 0.0,
+        "total": 1.313924789428711
+      }
+    },
+    {
+      "index": 41,
+      "timestamp": "2025-10-09T23:46:10.146201",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Que penses-tu de l'existence de Dieu ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.17,
+        "cache_key": "090c33cb3f3af357fbfc135f68aa390fe6e48efa",
+        "timestamp": "2025-10-09T23:46:10.146059"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 41,
+          "avg_response_time_ms": 0.62,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 41,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 41,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 41,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 1.2290477752685547,
+        "memory": 0.0,
+        "total": 1.3189315795898438
+      }
+    },
+    {
+      "index": 42,
+      "timestamp": "2025-10-09T23:46:10.198583",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Que penses-tu de le libre arbitre ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.07,
+        "cache_key": "5ab452d61b34c4f1a029397029e95c546e863ecb",
+        "timestamp": "2025-10-09T23:46:10.198393"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 42,
+          "avg_response_time_ms": 0.63,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 42,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 42,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 42,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 1.129150390625,
+        "memory": 0.0,
+        "total": 1.2669563293457031
+      }
+    },
+    {
+      "index": 43,
+      "timestamp": "2025-10-09T23:46:10.250175",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Que penses-tu de la mort ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.04,
+        "cache_key": "2b18a11d0bd234febb49d2022d87ccb4d75518aa",
+        "timestamp": "2025-10-09T23:46:10.250028"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 43,
+          "avg_response_time_ms": 0.64,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 43,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 43,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 43,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 1.1131763458251953,
+        "memory": 0.0,
+        "total": 1.196146011352539
+      }
+    },
+    {
+      "index": 44,
+      "timestamp": "2025-10-09T23:46:10.302661",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Que penses-tu de l'amour ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "amour",
+        "intensity": 0.3,
+        "confidence": 0.5,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.2,
+        "cache_key": "8de2003eecab814523df72c5e029a592d10e05e5",
+        "timestamp": "2025-10-09T23:46:10.302493"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 44,
+          "avg_response_time_ms": 0.65,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 44,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 44,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 44,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 1.280069351196289,
+        "memory": 0.0,
+        "total": 1.3761520385742188
+      }
+    },
+    {
+      "index": 45,
+      "timestamp": "2025-10-09T23:46:10.355081",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Que penses-tu de la justice ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.14,
+        "cache_key": "e6492e093ff9989918935069c02bf2aa916a0748",
+        "timestamp": "2025-10-09T23:46:10.354937"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 45,
+          "avg_response_time_ms": 0.66,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 45,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 45,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 45,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 1.2021064758300781,
+        "memory": 0.0,
+        "total": 1.2917518615722656
+      }
+    },
+    {
+      "index": 46,
+      "timestamp": "2025-10-09T23:46:10.406739",
+      "scenario": {
+        "category": "philosophy",
+        "message": "Que penses-tu de la vérité ?",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.5,
+        "cache_key": "3e936851100893facae9a60c85412168b0c6d5ca",
+        "timestamp": "2025-10-09T23:46:10.406663"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 46,
+          "avg_response_time_ms": 0.66,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 46,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 46,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 46,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity"
+      ],
+      "learning_stats": {},
+      "response": "Voilà une question profonde qui me pousse à réfléchir. Selon mon analyse et ma compréhension...",
+      "timings": {
+        "emotion": 0.5319118499755859,
+        "memory": 0.0,
+        "total": 0.5838871002197266
+      }
+    },
+    {
+      "index": 47,
+      "timestamp": "2025-10-09T23:46:10.459037",
+      "scenario": {
+        "category": "creativity",
+        "message": "Imagine un monde où les rêves deviennent réalité et décris-le en détail.",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.95,
+        "cache_key": "30c42b90a309c9de06c1cf5902bd2cba13cd9642",
+        "timestamp": "2025-10-09T23:46:10.458913"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 47,
+          "avg_response_time_ms": 0.67,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 47,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 47,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 47,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "imagination_engine",
+        "creative_memory"
+      ],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 1.0099411010742188,
+        "memory": 0.0,
+        "total": 1.0881423950195312
+      }
+    },
+    {
+      "index": 48,
+      "timestamp": "2025-10-09T23:46:10.510976",
+      "scenario": {
+        "category": "creativity",
+        "message": "Imagine une civilisation sous-marine et décris-le en détail.",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.7,
+        "cache_key": "38d105fb67dbb6114a7f135227f531becb876f10",
+        "timestamp": "2025-10-09T23:46:10.510860"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 48,
+          "avg_response_time_ms": 0.67,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 48,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 48,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 48,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "imagination_engine",
+        "creative_memory"
+      ],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.7507801055908203,
+        "memory": 0.0,
+        "total": 0.8268356323242188
+      }
+    },
+    {
+      "index": 49,
+      "timestamp": "2025-10-09T23:46:10.563031",
+      "scenario": {
+        "category": "creativity",
+        "message": "Imagine un dialogue entre temps et espace et décris-le en détail.",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 0.88,
+        "cache_key": "b2398b592023ee65beb11de06ac39ba92297733a",
+        "timestamp": "2025-10-09T23:46:10.562929"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 49,
+          "avg_response_time_ms": 0.67,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 49,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 49,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 49,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "imagination_engine",
+        "creative_memory"
+      ],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 0.9160041809082031,
+        "memory": 0.0,
+        "total": 0.9820461273193359
+      }
+    },
+    {
+      "index": 50,
+      "timestamp": "2025-10-09T23:46:10.615354",
+      "scenario": {
+        "category": "creativity",
+        "message": "Imagine une IA qui écrit des symphonies et décris-le en détail.",
+        "expected_emotion": "curiosité",
+        "complexity": "high"
+      },
+      "emotion_analysis": {
+        "emotion": "neutre",
+        "intensity": 0.65,
+        "confidence": 0.4,
+        "integration_mode": "core_only",
+        "consensus": false,
+        "engines_used": [
+          "core"
+        ],
+        "from_cache": false,
+        "processing_time_ms": 1.08,
+        "cache_key": "d9ba374d468d2cbd3072186a70194d6a7fe1cf98",
+        "timestamp": "2025-10-09T23:46:10.615218"
+      },
+      "bridge_metrics": {
+        "integration_mode": "core_only",
+        "initialized": true,
+        "engines_active": [
+          "core"
+        ],
+        "performance": {
+          "total_analyses": 50,
+          "avg_response_time_ms": 0.68,
+          "total_latency_s": 0.03
+        },
+        "cache": {
+          "size": 50,
+          "maxsize": 100,
+          "hits": 0,
+          "misses": 50,
+          "hit_rate_percent": 0.0,
+          "evictions": 0,
+          "expirations": 0,
+          "compression": false
+        },
+        "analyses_by_engine": {
+          "core": 50,
+          "advanced": 0,
+          "hybrid": 0,
+          "fallback": 0
+        },
+        "fusion": {
+          "consensus_count": 0,
+          "divergence_count": 0,
+          "consensus_rate_percent": 0.0,
+          "weights": {
+            "advanced": 0.6,
+            "core": 0.4
+          },
+          "history_size": 0
+        },
+        "circuit_breakers": {
+          "core": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          },
+          "advanced": {
+            "is_open": false,
+            "total_failures": 0,
+            "errors_current": 0,
+            "last_failure": null
+          }
+        },
+        "initialization_errors": [],
+        "config": {
+          "cache_size": 100,
+          "cache_ttl_s": 300,
+          "enable_compression": false,
+          "adv_weight_init": 0.6,
+          "core_weight_init": 0.4,
+          "cb_max_errors": 3,
+          "cb_cooldown_s": 60
+        }
+      },
+      "memories_recalled": 0,
+      "agi_systems_activated": [
+        "meta_cognition",
+        "proactive_curiosity",
+        "imagination_engine",
+        "creative_memory"
+      ],
+      "learning_stats": {},
+      "response": "je comprends, continue...",
+      "timings": {
+        "emotion": 1.1360645294189453,
+        "memory": 0.0,
+        "total": 1.2221336364746094
+      }
+    }
+  ],
+  "summary": {
+    "emotions": {},
+    "memory_growth": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "learning": {},
+    "performance": {
+      "avg_emotion_time": 0.7210254669189453,
+      "avg_memory_time": 0.0,
+      "avg_total_time": 0.7900047302246094
+    }
+  }
+}

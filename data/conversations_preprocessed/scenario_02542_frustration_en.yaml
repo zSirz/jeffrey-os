@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.830835'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 49
+  processed_length: 49
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02542
+source: go_emotions
+text: The new movie doesnt even look very good honestly

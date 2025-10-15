@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.193930'
+emotion: neutral
+language: en
+original_goemotions_label: curiosity
+preprocessing:
+  emoji_demojized: true
+  original_length: 81
+  processed_length: 81
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00037
+source: go_emotions
+text: If it's an unregistered payg sim then how exactly are they going to catch anyone?

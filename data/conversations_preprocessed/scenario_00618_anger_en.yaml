@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.331761'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 89
+  processed_length: 89
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00618
+source: go_emotions
+text: Man, fuck that shit. He lost us the Sonics, he has no business running for public
+  office.

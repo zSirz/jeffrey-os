@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.255969'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 124
+  processed_length: 124
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03962
+source: go_emotions
+text: It's probably more like when the only tool you have is a hammer, everything
+  looks like a nail. I'm so sick of this paranoia.

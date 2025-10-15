@@ -1,0 +1,77 @@
+{
+  "bundle1_recommendations": {
+    "modules": [
+      {
+        "name": "emotion_engine_bridge",
+        "path": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+        "brain_region": "emotion",
+        "gfc": "emotion",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "self_awareness_tracker",
+        "path": "src/jeffrey/core/consciousness/self_awareness_tracker.py",
+        "brain_region": "conscience",
+        "gfc": "conscience",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "input_parser",
+        "path": "src/jeffrey/core/input/input_parser.py",
+        "brain_region": "perception",
+        "gfc": "perception",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "sqlite_store",
+        "path": "src/jeffrey/bundle2/memory/sqlite_store.py",
+        "brain_region": "memory",
+        "gfc": "memory",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "broca_wernicke",
+        "path": "src/jeffrey/bundle2/language/broca_wernicke.py",
+        "brain_region": "language",
+        "gfc": "language",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "emotion_engine_bridge",
+        "path": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+        "brain_region": "executive",
+        "gfc": "executive",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "response_generator",
+        "path": "src/jeffrey/core/generation/response_generator.py",
+        "brain_region": "motor",
+        "gfc": "motor",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "triple_memory",
+        "path": "src/jeffrey/core/memory/triple_memory.py",
+        "brain_region": "integration",
+        "gfc": "integration",
+        "type": "real",
+        "priority": 1
+      }
+    ]
+  },
+  "configuration": {
+    "parallel_processing": true,
+    "cache_enabled": true,
+    "max_latency_ms": 50,
+    "profiling_enabled": true,
+    "target_regions": 8
+  }
+}

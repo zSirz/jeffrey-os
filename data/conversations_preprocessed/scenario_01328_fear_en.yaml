@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.496006'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 73
+  processed_length: 73
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01328
+source: go_emotions
+text: 2. I hate to say it but it’s the same thing I do and I hate myself for it

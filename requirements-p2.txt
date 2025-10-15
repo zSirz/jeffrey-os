@@ -1,0 +1,62 @@
+# === CORE DEPENDENCIES ===
+# Async & Events
+nats-py==2.7.0          # NATS client
+uvloop==0.19.0          # Performance async
+
+# Actors & Concurrency
+pykka==4.0.2            # Actor model
+
+# === DATA & VALIDATION ===
+pydantic==2.5.0
+pydantic-settings==2.1.0
+redis==5.0.1
+msgpack==1.0.7          # Serialization rapide
+
+# === SECURITY ===
+cryptography==41.0.7    # AES-256-GCM
+argon2-cffi==23.1.0     # Password hashing
+PyJWT==2.8.0
+python-dotenv==1.0.0
+
+# === OBSERVABILITY ===
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-instrumentation==0.42b0
+opentelemetry-exporter-jaeger==1.21.0
+opentelemetry-exporter-prometheus==0.42b0
+prometheus-client==0.19.0
+structlog==24.1.0
+
+# === TESTING ===
+pytest==7.4.4
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-timeout==2.2.0
+pytest-xdist==3.5.0     # Parallel tests
+pytest-benchmark==4.0.0
+# locust==2.20.0          # Load testing - À INSTALLER PLUS TARD (nécessite compilateur C)
+
+# === QUALITY ===
+black==23.12.1
+isort==5.13.2
+flake8==7.0.0
+mypy==1.8.0
+types-redis==4.6.0
+bandit==1.7.5           # Security linting
+safety>=3.2.0,<4.0      # Dependency scanning
+ruff>=0.4.10,<0.5.0     # Linting et auto-fix avancé
+
+# === UTILS ===
+tenacity==8.2.3         # Retry logic
+circuitbreaker==2.0.0  # Circuit breakers
+cachetools==5.3.2       # Cache utilities
+
+# === DEV TOOLS ===
+pre-commit==3.6.0
+ipython==8.19.0
+rich==13.7.0            # Beautiful terminal output
+docker==7.0.0           # Docker client for tests
+
+# === DOCUMENTATION ===
+mkdocs==1.5.3
+mkdocs-material==9.5.3

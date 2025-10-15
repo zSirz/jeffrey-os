@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.084545'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 85
+  processed_length: 85
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03414
+source: go_emotions
+text: Oh look a player breaking out of a slump against Dallas. Haven't seen this one
+  before

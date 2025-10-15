@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.266356'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 29
+  processed_length: 29
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00336
+source: go_emotions
+text: Can’t be worse than last week

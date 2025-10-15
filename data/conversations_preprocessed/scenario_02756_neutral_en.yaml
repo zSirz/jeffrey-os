@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.887784'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 131
+  processed_length: 131
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02756
+source: go_emotions
+text: Dude, calm down. Even a freshly arrived transplant can share in mourning the
+  loss of a business that’s been there multiple decades.

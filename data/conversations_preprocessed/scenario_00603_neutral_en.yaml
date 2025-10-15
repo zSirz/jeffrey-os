@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.328412'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 124
+  processed_length: 124
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00603
+source: go_emotions
+text: Why not hit him up, maybe you can eat some chicken fingers (the good kind, 8
+  bucks) and then go bang behind the muffler shop

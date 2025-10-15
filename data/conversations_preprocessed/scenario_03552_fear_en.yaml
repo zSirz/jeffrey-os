@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.116698'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 119
+  processed_length: 119
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03552
+source: go_emotions
+text: Aaaand I'm still here. I don't have a alt account but whoever you reported I"m
+  sure is alive and well. You're terrible.

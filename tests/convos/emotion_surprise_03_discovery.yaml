@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_surprise_03"
+  title: "Découverte Inattendue"
+  expected_emotion: "surprise"
+  difficulty: "medium"
+  tags: ["surprise", "discovery", "revelation"]
+
+conversation:
+  - role: "user"
+    content: "J'ai fait un test ADN et il s'avère que j'ai une demi-sœur dont je ne connaissais pas l'existence !"
+    expected_emotion: "surprise"
+    expected_intensity: 0.95
+
+  - role: "assistant"
+    content: "Quelle découverte ! Ça doit être très troublant. Comment réagis-tu à cette nouvelle ?"
+    emotional_tone: "curious"
+
+  - role: "user"
+    content: "Je sais pas trop quoi penser... C'est fou, elle vit dans la même ville que moi ! On va se rencontrer la semaine prochaine."
+    expected_emotion: "surprise"
+    expected_intensity: 0.9
+
+validation:
+  should_detect: ["surprise", "confusion", "curiosity", "excitement"]
+  should_remember: "DNA test revealed half-sister, same city, meeting next week"
+  continuity_check: true

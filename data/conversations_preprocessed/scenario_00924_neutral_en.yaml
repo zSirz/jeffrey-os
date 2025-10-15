@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.402578'
+emotion: neutral
+language: en
+original_goemotions_label: confusion
+preprocessing:
+  emoji_demojized: true
+  original_length: 110
+  processed_length: 116
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00924
+source: go_emotions
+text: I go to the same hairdresser as [NAME], and she told me we were interested.
+  do not know how she got her info though.

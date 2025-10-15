@@ -1,0 +1,84 @@
+# Jeffrey OS Ultimate Makefile
+.PHONY: all backup inventory validate launch test clean help monitor check-grades check-bundle check-regions watch dry-run
+
+# Variables
+PYTHON := python3
+INVENTORY := artifacts/inventory_ultimate.json
+CACHE := artifacts/module_cache.json
+
+# Default
+all: backup inventory validate
+
+help:
+	@echo "🧠 JEFFREY OS ULTIMATE - MAKE TARGETS"
+	@echo "======================================"
+	@echo "  make backup     - Secure backup with SHA256"
+	@echo "  make inventory  - Ultimate inventory <60s"
+	@echo "  make validate   - Full validation suite"
+	@echo "  make dry-run    - Test launch without running"
+	@echo "  make launch     - Launch Bundle 1 for real"
+	@echo "  make clean      - Clean all artifacts"
+	@echo "  make monitor    - Real-time monitoring"
+
+backup:
+	@echo "🔒 Creating secure backup..."
+	@mkdir -p backups
+	@tar -czf "backups/jeffrey_$$(date +%Y%m%d_%H%M%S).tar.gz" \
+		--exclude='__pycache__' \
+		--exclude='.venv' \
+		--exclude='*.pyc' \
+		src/jeffrey/
+	@echo "✅ Backup complete"
+
+inventory:
+	@echo "📊 Running Ultimate Inventory..."
+	@$(PYTHON) scripts/inventory_ultimate.py
+
+validate: inventory
+	@echo "✅ Running validation suite..."
+	@bash scripts/validate_all.sh
+
+dry-run: validate
+	@echo "🧪 Running dry-run test..."
+	@$(PYTHON) scripts/launcher_dryrun.py --dry-run
+
+launch: validate
+	@echo "🚀 Launching Jeffrey OS Bundle 1..."
+	@$(PYTHON) scripts/launcher_dryrun.py
+
+test:
+	@echo "🧪 Running test suite..."
+	@$(PYTHON) -m pytest tests/bundle1/ -v --tb=short
+
+clean:
+	@echo "🧹 Cleaning artifacts..."
+	@rm -rf artifacts/*.json artifacts/*.yaml
+	@rm -rf __pycache__ */__pycache__ */*/__pycache__
+	@find . -name "*.pyc" -delete
+
+monitor:
+	@echo "📊 Monitoring Bundle 1 (refresh each 2s)..."
+	@while true; do clear; jq '.bundle1_recommendations | {modules: [.modules[].name], p95: .total_p95_budget_ms, regions: .regions_covered}' $(INVENTORY); sleep 2; done
+
+# Quick checks
+check-grades:
+	@echo "📈 Module grades:"
+	@jq '.summary | {A: .grade_a, B: .grade_b, C: .grade_c, D: .grade_d, F: .grade_f}' $(INVENTORY)
+
+check-bundle:
+	@echo "🚀 Bundle 1 status:"
+	@jq '.bundle1_recommendations.status' $(INVENTORY)
+
+check-regions:
+	@echo "🧠 Brain regions:"
+	@jq '.brain_regions | to_entries | .[] | {region: .key, count: .value.count}' $(INVENTORY)
+
+# Development (macOS compatible)
+watch:
+	@echo "👁️ Watching for changes..."
+	@if command -v fswatch >/dev/null 2>&1; then \
+		fswatch -o scripts src/jeffrey | while read _; do clear; make inventory; done; \
+	else \
+		echo "fswatch not found. Install with: brew install fswatch"; \
+		exit 1; \
+	fi

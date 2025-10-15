@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.721662'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 93
+  processed_length: 93
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02296
+source: go_emotions
+text: Ehhh I don’t know, I still find it kind of cringey with the “[NAME]” talk and
+  all that stuff.

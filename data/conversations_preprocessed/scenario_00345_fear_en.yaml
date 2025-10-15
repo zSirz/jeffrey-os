@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.268656'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 119
+  processed_length: 119
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00345
+source: go_emotions
+text: I got second hand embarrassment so hard my face is still red after few minutes
+  of glancing at one of those google docs.

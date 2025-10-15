@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.497898'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 89
+  processed_length: 89
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01336
+source: go_emotions
+text: So you then took that lie and began aggressively cheating on him? Your post
+  history. Wow.

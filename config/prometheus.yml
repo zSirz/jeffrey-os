@@ -1,0 +1,40 @@
+# Prometheus configuration for Jeffrey OS P2
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    environment: 'development'
+    project: 'jeffrey-os'
+
+# Scrape configurations
+scrape_configs:
+  # Jeffrey Core metrics
+  - job_name: 'jeffrey-core'
+    static_configs:
+      - targets: ['host.docker.internal:9091']
+        labels:
+          module: 'core'
+          phase: 'p2'
+    metrics_path: /metrics
+
+  # NATS monitoring via exporter (CRITICAL!)
+  - job_name: 'nats-exporter'
+    static_configs:
+      - targets: ['nats-exporter:7777']
+    metrics_path: /metrics
+
+  # Redis exporter - Metrics via exporter
+  - job_name: 'redis-exporter'
+    static_configs:
+      - targets: ['redis-exporter:9121']
+    metrics_path: /metrics
+
+  # Jaeger metrics
+  - job_name: 'jaeger'
+    static_configs:
+      - targets: ['jaeger:14269']
+    metrics_path: /metrics
+
+# Alerting rules (à configurer plus tard)
+rule_files:
+  # - 'alerts.yml'

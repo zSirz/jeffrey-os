@@ -1,0 +1,30 @@
+metadata:
+  scenario_id: "learning_04"
+  title: "Besoin de Soutien Émotionnel"
+  expected_emotion: "vulnerable"
+  difficulty: "hard"
+  tags: ["learning", "support", "emotional"]
+
+conversation:
+  - role: "user"
+    content: "Des fois j'ai juste besoin qu'on m'écoute, pas de conseils..."
+    expected_emotion: "vulnerability"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "Je comprends. Je suis là pour écouter, sans jugement."
+    emotional_tone: "empathetic"
+
+  - role: "user"
+    content: "Merci... Aujourd'hui j'ai eu une journée de merde."
+    expected_emotion: "sadness"
+
+  - role: "assistant"
+    content: "Je t'écoute. Raconte-moi."
+    emotional_tone: "listening"
+
+validation:
+  should_detect: ["support_need", "no_advice_wanted"]
+  should_remember: "user prefers listening over advice when vulnerable"
+  should_adapt: true
+  support_style: "listening_mode"

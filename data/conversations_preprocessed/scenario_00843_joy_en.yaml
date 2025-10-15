@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.384103'
+emotion: joy
+language: en
+original_goemotions_label: love
+preprocessing:
+  emoji_demojized: true
+  original_length: 89
+  processed_length: 89
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00843
+source: go_emotions
+text: I love it! Guy in front can steer, can't propel. Guy in back can propel, but
+  can't steer.

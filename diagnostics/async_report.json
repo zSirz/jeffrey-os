@@ -1,0 +1,627 @@
+{
+  "total_issues": 56,
+  "by_category": {
+    "event_loop_problems": 2,
+    "blocking_calls": 31,
+    "missing_await": 23,
+    "sync_in_async": 0,
+    "entry_points_without_run": 0
+  },
+  "high_priority": [
+    {
+      "file": "src/jeffrey/utilities/guardian_communication.py",
+      "line": 198,
+      "call": "asyncio.create_task",
+      "function": "publish_async"
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_communication.py",
+      "line": 198,
+      "call": "self._safe_async_call",
+      "function": "publish_async"
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 193,
+      "call": "asyncio.create_task",
+      "function": "start"
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 194,
+      "call": "asyncio.create_task",
+      "function": "start"
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 195,
+      "call": "asyncio.create_task",
+      "function": "start"
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 196,
+      "call": "asyncio.create_task",
+      "function": "start"
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 197,
+      "call": "asyncio.create_task",
+      "function": "start"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 525,
+      "call": "asyncio.create_task",
+      "function": "start_scaling"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 90,
+      "call": "aiofiles.open",
+      "function": "log_event"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 145,
+      "call": "aiofiles.open",
+      "function": "_compress_log"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 151,
+      "call": "aiofiles.open",
+      "function": "_compress_log"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 228,
+      "call": "aiofiles.open",
+      "function": "get_logs_between"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 232,
+      "call": "aiofiles.open",
+      "function": "get_logs_between"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 308,
+      "call": "asyncio.create_task",
+      "function": "start"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 311,
+      "call": "asyncio.create_task",
+      "function": "start"
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 455,
+      "call": "asyncio.create_task",
+      "function": "start_monitoring"
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+      "line": 125,
+      "call": "aiohttp.ClientSession",
+      "function": "_ensure_session"
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 412,
+      "call": "aiohttp.ClientSession",
+      "function": "_test_v3_availability"
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 901,
+      "call": "aiohttp.ClientSession",
+      "function": "_call_v3_tts_api_with_config"
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 1038,
+      "call": "aiohttp.ClientSession",
+      "function": "_call_v3_tts_api"
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 153,
+      "call": "asyncio.create_task",
+      "function": "convert_audio_streaming"
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 156,
+      "call": "asyncio.create_task",
+      "function": "convert_audio_streaming"
+    },
+    {
+      "file": "src/jeffrey/interfaces/api/websocket/websocket_handler.py",
+      "line": 318,
+      "call": "asyncio.create_task",
+      "function": "start_server"
+    },
+    {
+      "file": "src/jeffrey/core/emotions/core/mood_tracker.py",
+      "issue": "get_event_loop() without asyncio.run()"
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+      "issue": "get_event_loop() without asyncio.run()"
+    }
+  ],
+  "medium_priority": [
+    {
+      "file": "src/jeffrey/core/memory/memory_health_check.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 413
+    },
+    {
+      "file": "src/jeffrey/core/memory/memory_health_check.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 704
+    },
+    {
+      "file": "src/jeffrey/core/memory/memory_health_check.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 933
+    },
+    {
+      "file": "src/jeffrey/core/memory/memory_health_check.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 978
+    },
+    {
+      "file": "src/jeffrey/core/memory/living/living_memory.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 197
+    },
+    {
+      "file": "src/jeffrey/core/memory/living/living_memory.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 974
+    },
+    {
+      "file": "src/jeffrey/core/memory/living/living_memory.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 989
+    },
+    {
+      "file": "src/jeffrey/core/orchestration/multi_model_orchestrator.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 103
+    },
+    {
+      "file": "src/jeffrey/core/orchestration/multi_model_orchestrator.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 123
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_communication.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 266
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 135
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 148
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 837
+    },
+    {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 842
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 441
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 446
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 571
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 90
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 145
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 151
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 228
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 232
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 161
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 171
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 210
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 232
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 371
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 376
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 403
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 439
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "issue": "sync open instead of aiofiles",
+      "line": 442
+    }
+  ],
+  "low_priority": [],
+  "details": {
+    "event_loop_problems": [
+      {
+        "file": "src/jeffrey/core/emotions/core/mood_tracker.py",
+        "issue": "get_event_loop() without asyncio.run()"
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+        "issue": "get_event_loop() without asyncio.run()"
+      }
+    ],
+    "blocking_calls": [
+      {
+        "file": "src/jeffrey/core/memory/memory_health_check.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 413
+      },
+      {
+        "file": "src/jeffrey/core/memory/memory_health_check.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 704
+      },
+      {
+        "file": "src/jeffrey/core/memory/memory_health_check.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 933
+      },
+      {
+        "file": "src/jeffrey/core/memory/memory_health_check.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 978
+      },
+      {
+        "file": "src/jeffrey/core/memory/living/living_memory.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 197
+      },
+      {
+        "file": "src/jeffrey/core/memory/living/living_memory.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 974
+      },
+      {
+        "file": "src/jeffrey/core/memory/living/living_memory.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 989
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/multi_model_orchestrator.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 103
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/multi_model_orchestrator.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 123
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_communication.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 266
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 135
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 148
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 837
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 842
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 441
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 446
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 571
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 90
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 145
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 151
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 228
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 232
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 161
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 171
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 210
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 232
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 371
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 376
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 403
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 439
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+        "issue": "sync open instead of aiofiles",
+        "line": 442
+      }
+    ],
+    "missing_await": [
+      {
+        "file": "src/jeffrey/utilities/guardian_communication.py",
+        "line": 198,
+        "call": "asyncio.create_task",
+        "function": "publish_async"
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_communication.py",
+        "line": 198,
+        "call": "self._safe_async_call",
+        "function": "publish_async"
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "line": 193,
+        "call": "asyncio.create_task",
+        "function": "start"
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "line": 194,
+        "call": "asyncio.create_task",
+        "function": "start"
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "line": 195,
+        "call": "asyncio.create_task",
+        "function": "start"
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "line": 196,
+        "call": "asyncio.create_task",
+        "function": "start"
+      },
+      {
+        "file": "src/jeffrey/utilities/guardian_symphony.py",
+        "line": 197,
+        "call": "asyncio.create_task",
+        "function": "start"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+        "line": 525,
+        "call": "asyncio.create_task",
+        "function": "start_scaling"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "line": 90,
+        "call": "aiofiles.open",
+        "function": "log_event"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "line": 145,
+        "call": "aiofiles.open",
+        "function": "_compress_log"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "line": 151,
+        "call": "aiofiles.open",
+        "function": "_compress_log"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "line": 228,
+        "call": "aiofiles.open",
+        "function": "get_logs_between"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "line": 232,
+        "call": "aiofiles.open",
+        "function": "get_logs_between"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "line": 308,
+        "call": "asyncio.create_task",
+        "function": "start"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+        "line": 311,
+        "call": "asyncio.create_task",
+        "function": "start"
+      },
+      {
+        "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+        "line": 455,
+        "call": "asyncio.create_task",
+        "function": "start_monitoring"
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+        "line": 125,
+        "call": "aiohttp.ClientSession",
+        "function": "_ensure_session"
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+        "line": 412,
+        "call": "aiohttp.ClientSession",
+        "function": "_test_v3_availability"
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+        "line": 901,
+        "call": "aiohttp.ClientSession",
+        "function": "_call_v3_tts_api_with_config"
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+        "line": 1038,
+        "call": "aiohttp.ClientSession",
+        "function": "_call_v3_tts_api"
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+        "line": 153,
+        "call": "asyncio.create_task",
+        "function": "convert_audio_streaming"
+      },
+      {
+        "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+        "line": 156,
+        "call": "asyncio.create_task",
+        "function": "convert_audio_streaming"
+      },
+      {
+        "file": "src/jeffrey/interfaces/api/websocket/websocket_handler.py",
+        "line": 318,
+        "call": "asyncio.create_task",
+        "function": "start_server"
+      }
+    ],
+    "sync_in_async": [],
+    "entry_points_without_run": []
+  }
+}

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.357098'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 84
+  processed_length: 84
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00726
+source: go_emotions
+text: Sorry but this is too rad to be cringe for me. This is like if [NAME] was a
+  general.

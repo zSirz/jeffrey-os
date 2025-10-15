@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.234488'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 83
+  processed_length: 83
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00200
+source: go_emotions
+text: I could go, but honestly, it is the worst place on earth. I have 0 desire to
+  do it.

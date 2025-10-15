@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.068299'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 124
+  processed_length: 124
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03344
+source: go_emotions
+text: Youre not wrong, but that applies to every ad. People are generally getting
+  upset with the message more than anything though

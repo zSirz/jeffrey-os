@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.102457'
+emotion: joy
+language: en
+original_goemotions_label: admiration
+preprocessing:
+  emoji_demojized: true
+  original_length: 84
+  processed_length: 84
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03491
+source: go_emotions
+text: I imagined this whole scene in my head with you played by a young [NAME]. Brilliant.

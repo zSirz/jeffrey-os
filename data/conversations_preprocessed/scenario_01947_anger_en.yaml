@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.641243'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 118
+  processed_length: 118
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01947
+source: go_emotions
+text: Yes but iy also makes complete sense that morty woild want it gone too, so i
+  hate how he instantly assumes it was rick

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.425423'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 161
+  processed_length: 161
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01022
+source: go_emotions
+text: I will be surprised if this actually has an impact. Just a few statements about
+  the importance of the commitment to defeat ISIS and the withdrawal will continue.

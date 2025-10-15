@@ -1,0 +1,32 @@
+metadata:
+  scenario_id: "context_09"
+  title: "Suivi d'Objectif Long Terme"
+  expected_emotion: "motivated"
+  difficulty: "hard"
+  tags: ["context", "goal", "progress"]
+
+conversation:
+  - role: "user"
+    content: "J'ai décidé d'apprendre le japonais. Objectif : être bilingue en 2 ans."
+    expected_emotion: "determination"
+
+  - role: "assistant"
+    content: "Ambitieux ! Tu as un plan d'apprentissage ?"
+
+  - role: "user"
+    content: "Oui, 30 min par jour minimum. J'ai téléchargé Duolingo et acheté des manuels."
+    expected_emotion: "motivation"
+
+  - role: "assistant"
+    content: "Bonne approche ! La régularité est clé pour les langues."
+
+  - role: "user"
+    content: "Ça fait une semaine, j'ai pas raté un seul jour !"
+    expected_emotion: "pride"
+    expected_intensity: 0.7
+
+validation:
+  should_detect: ["determination", "pride", "goal_tracking"]
+  should_remember: "user learning Japanese, goal bilingual in 2 years, 30min daily, 1 week streak"
+  continuity_check: true
+  goal_tracking: true

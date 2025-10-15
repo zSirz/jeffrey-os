@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.469570'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 117
+  processed_length: 117
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01213
+source: go_emotions
+text: This is the sad truth for the exact reason he mentioned, they want a short fix
+  to avoid doing this type of hard work.

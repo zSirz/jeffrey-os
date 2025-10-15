@@ -1,0 +1,25 @@
+# Dossiers à ignorer pendant le scan (GPT)
+tests/
+test/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+.env/
+notebooks/
+archive/
+backup/
+backups/
+_archive/
+_backup/
+.git/
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
+node_modules/
+.DS_Store

@@ -1,0 +1,29 @@
+metadata:
+  scenario_id: "learning_03"
+  title: "Style de Communication Préféré"
+  expected_emotion: "neutral"
+  difficulty: "medium"
+  tags: ["learning", "style", "humor"]
+
+conversation:
+  - role: "user"
+    content: "Mdr t'es trop sérieux, détends-toi un peu !"
+    expected_emotion: "amusement"
+
+  - role: "assistant"
+    content: "Ha ! Ok, je vais mettre un peu plus de fun dans mes réponses. 😄"
+    emotional_tone: "playful"
+
+  - role: "user"
+    content: "Voilà c'est mieux ! Bon, tu codes en quoi toi ?"
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Je suis multilingue ! Python, JS, Java... tout ce que tu veux, mais avec style. 😎"
+    emotional_tone: "casual"
+
+validation:
+  should_detect: ["style_preference"]
+  should_remember: "user prefers casual, humorous tone"
+  should_adapt: true
+  style_preference: "casual_humorous"

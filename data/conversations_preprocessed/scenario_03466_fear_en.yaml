@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.096722'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 119
+  processed_length: 119
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03466
+source: go_emotions
+text: Maybe check the song title one more time chief. Love the song tho. Also today’s
+  a Scared of the Dark kind of day for me

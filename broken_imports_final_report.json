@@ -1,0 +1,99 @@
+{
+  "timestamp": "2025-10-05T18:43:23.437505",
+  "total_broken": 14,
+  "unique_modules": 13,
+  "top_30": [
+    {
+      "module": "jeffrey.core.jeffrey_emotional_core",
+      "count": 2,
+      "files": [
+        "src/jeffrey/core/consciousness/jeffrey_chat_integration.py",
+        "src/jeffrey/core/orchestration/jeffrey_continuel.py"
+      ]
+    },
+    {
+      "module": "jeffrey.neuralbus.core",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/consciousness_loop.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.io_manager",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/memory/advanced/emotional_memory.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.ia_services.export_learning",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/learning/auto_learner.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.emotions.emotional_sync",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/personality/conversation_personality.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.personality.emotion_phrase_generator",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/personality/conversation_personality.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.personality.style_affectif_adapter",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/personality/conversation_personality.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.dialogue.style_manager",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/orchestration/jeffrey_continuel.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.memory.highlight_detector",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/orchestration/jeffrey_continuel.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.memory.textual_affective_memory",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/orchestration/jeffrey_continuel.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.orchestration.fusion_engine",
+      "count": 1,
+      "files": [
+        "src/jeffrey/core/orchestration/enhanced_orchestrator.py"
+      ]
+    },
+    {
+      "module": "jeffrey.core.emotions.emotional_affective_touch",
+      "count": 1,
+      "files": [
+        "src/jeffrey/services/voice/adapters/voice_emotion_adapter.py"
+      ]
+    },
+    {
+      "module": "jeffrey.modules.config.secrets_manager",
+      "count": 1,
+      "files": [
+        "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py"
+      ]
+    }
+  ]
+}

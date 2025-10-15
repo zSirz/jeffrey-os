@@ -1,0 +1,9 @@
+created_at: '2025-10-13T12:40:31.112083'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+quality: public_dataset_single_label
+scenario_id: goemo_01340
+source: go_emotions
+text: Listen carefully and watch me wink as I speak. The guy I'm really looking for,
+  *wink*, is Mr. [NAME], *wink wink*.

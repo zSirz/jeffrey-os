@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.512489'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 129
+  processed_length: 129
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01400
+source: go_emotions
+text: You're a normie in loner's clothing. If you think that most of us haven't tried
+  all of the above already, you're sorely mistaken.

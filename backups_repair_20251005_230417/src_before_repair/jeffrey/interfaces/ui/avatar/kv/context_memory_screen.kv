@@ -1,0 +1,43 @@
+<ContextMemoryScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(15)
+
+        Label:
+            text: "🧠 Mémoire contextuelle de Jeffrey"
+            font_size: '24sp'
+            bold: True
+            size_hint_y: None
+            height: self.texture_size[1] + dp(10)
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
+
+        BoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            spacing: dp(10)
+
+            TextInput:
+                id: filter_input
+                hint_text: "🔍 Filtrer par mot-clé..."
+                multiline: False
+                on_text_validate: app.root.get_screen('context_memory').apply_filter(self.text)
+
+            Button:
+                text: "Effacer"
+                size_hint_x: None
+                width: dp(100)
+                on_release:
+                    filter_input.text = ''
+                    app.root.get_screen('context_memory').apply_filter('')
+
+        ScrollView:
+            GridLayout:
+                id: memory_log
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(10)
+                padding: dp(10)

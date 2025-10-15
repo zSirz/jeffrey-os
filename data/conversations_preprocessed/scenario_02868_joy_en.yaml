@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.913791'
+emotion: joy
+language: en
+original_goemotions_label: amusement
+preprocessing:
+  emoji_demojized: true
+  original_length: 62
+  processed_length: 62
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02868
+source: go_emotions
+text: Yeah I meant it has a cork in it. Sorry for the confusion haha

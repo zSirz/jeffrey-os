@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.896924'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 125
+  processed_length: 125
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02795
+source: go_emotions
+text: They'd probably just use it to buy up armies and navies for tyrants who oppress
+  and reign with blood and horror or some shit.

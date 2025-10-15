@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.295896'
+emotion: neutral
+language: en
+original_goemotions_label: confusion
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00463
+source: go_emotions
+text: I'm not sure honestly. I think there's a fanmade audiobook but I've heard it's
+  pretty bad. Sorry.

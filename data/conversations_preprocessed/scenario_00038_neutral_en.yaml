@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.194168'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 103
+  processed_length: 103
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00038
+source: go_emotions
+text: Everybody is talking about [NAME], but what about that ball control and through
+  ball from his teammate?

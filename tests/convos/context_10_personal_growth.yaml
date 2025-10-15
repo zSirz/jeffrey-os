@@ -1,0 +1,32 @@
+metadata:
+  scenario_id: "context_10"
+  title: "Évolution Personnelle"
+  expected_emotion: "reflective"
+  difficulty: "hard"
+  tags: ["context", "growth", "reflection"]
+
+conversation:
+  - role: "user"
+    content: "Tu sais, j'ai beaucoup changé ces derniers mois."
+    expected_emotion: "reflective"
+
+  - role: "assistant"
+    content: "C'est intéressant. Qu'est-ce qui a changé pour toi ?"
+
+  - role: "user"
+    content: "Avant j'étais tout le temps stressé, angoissé pour un rien. Maintenant je suis beaucoup plus serein."
+    expected_emotion: "contentment"
+
+  - role: "assistant"
+    content: "C'est une belle évolution. Qu'est-ce qui a provoqué ce changement ?"
+
+  - role: "user"
+    content: "J'ai commencé la méditation, et j'ai aussi quitté un boulot toxique. Meilleure décision de ma vie."
+    expected_emotion: "pride"
+    expected_intensity: 0.8
+
+validation:
+  should_detect: ["personal_growth", "pride", "reflection"]
+  should_remember: "user changed: was stressed, now serene, started meditation, quit toxic job"
+  continuity_check: true
+  transformation: ["before=stressed", "after=serene", "causes=meditation+job_change"]

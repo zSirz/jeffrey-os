@@ -1,0 +1,9 @@
+created_at: '2025-10-13T12:40:31.103596'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+quality: public_dataset_single_label
+scenario_id: goemo_01306
+source: go_emotions
+text: You like [NAME] but dislike [NAME]? That is weird considering that they both
+  are on the same low level of intelligence.

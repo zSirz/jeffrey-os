@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.690838'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 109
+  processed_length: 109
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02163
+source: go_emotions
+text: Unless you have an established career and are a high earner then sorry but you
+  _are_ the shared housing type.

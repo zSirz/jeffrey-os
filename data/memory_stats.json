@@ -1,0 +1,40 @@
+{
+  "runtime": {
+    "total_stored": 2,
+    "total_retrieved": 0,
+    "cache_hits": 0,
+    "cache_misses": 0,
+    "write_queue_overflows": 0,
+    "sanitization_blocks": 0,
+    "consolidations": 0,
+    "errors": 0,
+    "cache_stats": {
+      "size": 1002,
+      "maxsize": 5000,
+      "ttl": 3600,
+      "hits": 0,
+      "misses": 0,
+      "evictions": 0,
+      "hit_rate": 0.0,
+      "miss_rate": 0.0
+    },
+    "queue_size": 0,
+    "context_size": 2,
+    "emotional_traces": 2,
+    "relationships": 0,
+    "memory_types": {},
+    "tasks_running": {
+      "writer": false,
+      "consolidator": false,
+      "pruner": false
+    }
+  },
+  "backend": {
+    "memory_count": 27165,
+    "total_writes": 4,
+    "total_reads": 2,
+    "avg_write_ms": 13.149531005183235,
+    "avg_read_ms": 2.06789598450996
+  },
+  "timestamp": "2025-09-29T14:40:34.279335"
+}

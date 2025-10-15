@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.725328'
+emotion: fear
+language: en
+original_goemotions_label: nervousness
+preprocessing:
+  emoji_demojized: true
+  original_length: 90
+  processed_length: 90
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02312
+source: go_emotions
+text: Intentionally frightening the Queen is an indictable offence. (Max 14 years)
+  Criminal Code

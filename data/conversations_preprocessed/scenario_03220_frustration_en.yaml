@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.038739'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 41
+  processed_length: 41
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03220
+source: go_emotions
+text: I'm only saying it because I'm jealous :(

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.403287'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 130
+  processed_length: 130
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00927
+source: go_emotions
+text: Got a bit tipsy in my room alone, dancing in my underwear to some cheesy music
+  for the whole night, and then cried myself to sleep

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.185332'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 18
+  processed_length: 18
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03848
+source: go_emotions
+text: Calm down, [NAME].

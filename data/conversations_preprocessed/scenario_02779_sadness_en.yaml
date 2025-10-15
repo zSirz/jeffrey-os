@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.893203'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 54
+  processed_length: 56
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02779
+source: go_emotions
+text: Imagine thinking like this. I feel kind of bad for them.

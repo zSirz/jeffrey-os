@@ -1,0 +1,82 @@
+
+
+#:kivy 2.0.0
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import hex kivy.utils.get_color_from_hex
+
+<AnimatedLabel@Label>:
+    text: ''
+    text_full: ''
+    interval: 0.05
+    on_kv_post:
+        self.text = ''
+        Clock.schedule_interval(self._reveal_text, self.interval)
+    function _reveal_text(self, dt):
+        if len(self.text) < len(self.text_full):
+            self.text += self.text_full[len(self.text)]
+        else:
+            return False
+
+<SurprisePopup>:
+    size_hint: None, None
+    size: 500, 400
+    auto_dismiss: False
+    title: ""
+    background: "atlas://data/images/defaulttheme/popup_background"
+    separator_height: 0
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 0.95
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [30]
+
+        Image:
+            id: glow
+            source: "assets/glow_effect.png"
+            size_hint: None, None
+            size: 300, 300
+            pos_hint: {"center_x": 0.5, "center_y": 0.65}
+            opacity: 0.8
+
+        Image:
+            id: gift_image
+            source: root.image_path
+            size_hint: None, None
+            size: 200, 200
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            allow_stretch: True
+
+        Image:
+            source: "assets/halo_particles.gif"
+            size_hint: None, None
+            size: 220, 220
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            opacity: 0.5
+
+        AnimatedLabel:
+            id: surprise_label
+            text_full: root.message_text
+            font_size: '20sp'
+            color: 0.1, 0.1, 0.1, 1
+            bold: True
+            halign: "center"
+            valign: "middle"
+            size_hint: None, None
+            size: 460, 120
+            pos_hint: {"center_x": 0.5, "center_y": 0.25}
+            text_size: self.size
+
+        Button:
+            text: "✨ Merci Jeffrey"
+            font_size: '16sp'
+            size_hint: None, None
+            size: 160, 40
+            pos_hint: {"center_x": 0.5, "y": 0.05}
+            background_color: 0.7, 0.9, 1, 1
+            background_normal: ''
+            background_down: ''
+            on_release: root.dismiss()

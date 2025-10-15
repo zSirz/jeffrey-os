@@ -1,0 +1,147 @@
+# Jeffrey P2 - Observability Stack (Version corrigée et testée)
+
+x-healthcheck: &healthcheck
+  interval: 10s
+  timeout: 5s
+  retries: 5
+  start_period: 20s
+
+services:
+  # ========================================
+  # NATS Exporter
+  # ========================================
+  nats-exporter:
+    image: natsio/prometheus-nats-exporter:0.14.0
+    container_name: jeffrey-nats-exporter
+    profiles: ["observe", "all"]
+    command:
+      - "-varz"
+      - "-connz"
+      - "-routez"
+      - "-subz"
+      - "-jsz=all"
+      - "http://nats-p2:8222"
+    ports:
+      - "127.0.0.1:7777:7777"
+    networks:
+      - jeffrey-net
+    restart: unless-stopped
+    mem_limit: 128m
+    cpus: "0.25"
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:7777/metrics"]
+
+  # ========================================
+  # Redis Exporter (avec authentication)
+  # ========================================
+  redis-exporter:
+    image: oliver006/redis_exporter:v1.62.0
+    container_name: jeffrey-redis-exporter
+    profiles: ["observe", "all"]
+    env_file:
+      - .env.observe
+    environment:
+      REDIS_ADDR: redis://:${REDIS_PASSWORD}@redis-p2:6379
+    command: ["/redis_exporter"]
+    ports:
+      - "127.0.0.1:9121:9121"
+    networks:
+      - jeffrey-net
+    restart: unless-stopped
+    mem_limit: 64m
+    cpus: "0.25"
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:9121/metrics"]
+
+  # ========================================
+  # PostgreSQL Exporter (avec authentication)
+  # ========================================
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.15.0
+    container_name: jeffrey-postgres-exporter
+    profiles: ["observe", "all"]
+    env_file:
+      - .env.observe
+    environment:
+      DATA_SOURCE_NAME: "postgresql://jeffrey:${POSTGRES_PASSWORD}@postgres-p2:5432/jeffrey_p2?sslmode=disable"
+    ports:
+      - "127.0.0.1:9187:9187"
+    networks:
+      - jeffrey-net
+    restart: unless-stopped
+    mem_limit: 64m
+    cpus: "0.25"
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:9187/metrics"]
+
+  # ========================================
+  # Prometheus
+  # ========================================
+  prometheus-p2:
+    image: prom/prometheus:v2.54.1
+    container_name: prometheus-p2
+    profiles: ["observe", "all"]
+    ports:
+      - "127.0.0.1:9090:9090"
+    volumes:
+      - ../../configs/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=7d'
+      - '--web.enable-lifecycle'
+      - '--web.enable-admin-api'
+    networks:
+      - jeffrey-net
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: "0.5"
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:9090/-/healthy"]
+
+  # ========================================
+  # Grafana 9.5.18 (Apache 2.0, pas AGPL!)
+  # ========================================
+  grafana-p2:
+    image: grafana/grafana:9.5.18
+    container_name: jeffrey-grafana-p2
+    profiles: ["observe", "all"]
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana_password
+      GF_INSTALL_PLUGINS: redis-datasource
+      GF_METRICS_ENABLED: "false"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ../../configs/grafana/provisioning:/etc/grafana/provisioning:ro
+      - /Users/davidproz/Desktop/Jeffrey_OS/docker/secrets/grafana_password:/run/secrets/grafana_password:ro
+    networks:
+      - jeffrey-net
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: "0.5"
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:3000/api/health"]
+
+networks:
+  jeffrey-net:
+    external: true
+    name: jeffrey-network-p2
+
+volumes:
+  prometheus-data:
+  grafana-data:

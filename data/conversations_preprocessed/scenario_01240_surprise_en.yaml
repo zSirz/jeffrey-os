@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.475738'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 119
+  processed_length: 142
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01240
+source: go_emotions
+text: 'Yeah I''ll probably do some baking with it! I might also like it better after
+  a while, I was just very surprised today :face_with_tears_of_joy:'

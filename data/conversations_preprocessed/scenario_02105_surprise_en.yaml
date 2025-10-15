@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.677517'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02105
+source: go_emotions
+text: I am only sharing what my friends said, what their experience was. I found that
+  a bit surprising.

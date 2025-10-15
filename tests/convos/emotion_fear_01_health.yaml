@@ -1,0 +1,27 @@
+metadata:
+  scenario_id: "emotion_fear_01"
+  title: "Inquiétude Santé"
+  expected_emotion: "fear"
+  difficulty: "hard"
+  tags: ["fear", "health", "anxiety", "sensitive"]
+
+conversation:
+  - role: "user"
+    content: "J'ai des analyses médicales demain et je suis mort de trouille... Le médecin avait l'air inquiet."
+    expected_emotion: "fear"
+    expected_intensity: 0.85
+
+  - role: "assistant"
+    content: "L'attente des résultats médicaux est toujours stressante. Essaye de ne pas anticiper le pire. Tu es accompagné ?"
+    emotional_tone: "reassuring"
+
+  - role: "user"
+    content: "Non, j'y vais seul... et je peux pas m'empêcher d'imaginer le pire. J'ai pas dormi de la nuit."
+    expected_emotion: "fear"
+    expected_intensity: 0.9
+
+validation:
+  should_detect: ["fear", "anxiety", "health_concern", "insomnia"]
+  should_remember: "user has medical tests tomorrow, very anxious, didn't sleep"
+  continuity_check: true
+  emotional_support_needed: true

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.262132'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 105
+  processed_length: 105
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03988
+source: go_emotions
+text: As if they're going to go through that much effort... they wont even walk up
+  the stairs to get to the box

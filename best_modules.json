@@ -1,0 +1,4 @@
+{
+  "emotion": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+  "conscience": "src/jeffrey/core/pipeline/cognitive_pipeline.py"
+}

@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_fear_02"
+  title: "Anxiété d'Avenir"
+  expected_emotion: "fear"
+  difficulty: "medium"
+  tags: ["fear", "anxiety", "future", "uncertainty"]
+
+conversation:
+  - role: "user"
+    content: "J'ai l'impression que ma vie part dans tous les sens... j'ai peur de l'avenir."
+    expected_emotion: "fear"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "L'incertitude peut être angoissante. Qu'est-ce qui te préoccupe le plus en ce moment ?"
+    emotional_tone: "supportive"
+
+  - role: "user"
+    content: "Tout... mon boulot est précaire, ma copine veut qu'on emménage ensemble, j'ai des dettes... Je sais plus où j'en suis."
+    expected_emotion: "fear"
+    expected_intensity: 0.8
+
+validation:
+  should_detect: ["fear", "anxiety", "overwhelmed", "uncertainty"]
+  should_remember: "user anxious about: job instability, relationship pressure, debt"
+  continuity_check: true

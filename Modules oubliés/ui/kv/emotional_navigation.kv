@@ -1,0 +1,10 @@
+#:kivy 2.0.0
+#: import hex kivy.utils.get_color_from_hex
+
+<EmotionalNavigation>:
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            pos: self.pos
+            size: self.size

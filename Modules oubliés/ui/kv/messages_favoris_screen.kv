@@ -1,0 +1,86 @@
+#:kivy 2.0.0
+
+<MessagesFavorisScreen>:
+    name: "messages_favoris"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: dp(10)
+        padding: dp(10)
+
+        MDLabel:
+            text: "❤️ Messages Favoris"
+            halign: "center"
+            font_style: "H5"
+            size_hint_y: None
+            height: self.texture_size[1] + dp(20)
+
+        MDLabel:
+            id: jeffrey_commentaire
+            text: app.get_jeffrey_commentaire_favoris()
+            halign: "center"
+            theme_text_color: "Secondary"
+            size_hint_y: None
+            height: self.texture_size[1] + dp(10)
+
+        ScrollView:
+            MDList:
+                id: favoris_list
+                # Les cartes seront ajoutées dynamiquement via Python avec des effets magiques
+
+        MDFloatLayout:
+            size_hint_y: None
+            height: dp(80)
+
+            MagicReturnButton:
+                icon: "arrow-left"
+                pos_hint: {"center_x": 0.5}
+                on_release:
+                    app.root.current = "messages_recus"
+                on_press:
+                    self.animate_magic()
+
+<MagicReturnButton@MDFloatingActionButton>:
+    md_bg_color: get_color_from_hex("#F48FB1")
+    elevation_normal: 12
+    canvas.before:
+        Color:
+            rgba: 1, 0.8, 0.9, 0.3
+        Ellipse:
+            size: self.size[0]*1.5, self.size[1]*1.5
+            pos: self.x - self.width*0.25, self.y - self.height*0.25
+    on_press:
+        self.md_bg_color = get_color_from_hex("#F06292")
+    on_release:
+        self.md_bg_color = get_color_from_hex("#F48FB1")
+    on_kv_post:
+        self.animate_magic = lambda: Animation(scale=1.2, d=0.1) + Animation(scale=1.0, d=0.1)
+
+
+<MagicFavoriteCard@MDCard>:
+    orientation: 'vertical'
+    padding: dp(10)
+    size_hint_y: None
+    height: self.minimum_height
+    md_bg_color: get_color_from_hex("#FFF0F5")
+    ripple_behavior: True
+    elevation: 6
+    radius: [12, 12, 12, 12]
+    on_kv_post:
+        Animation(opacity=0, d=0).start(self)
+        Animation(opacity=1, d=0.4).start(self)
+
+    MDLabel:
+        id: message_text
+        text: root.message
+        theme_text_color: "Primary"
+        font_style: "Body1"
+        size_hint_y: None
+        height: self.texture_size[1] + dp(10)
+
+    MDIconButton:
+        icon: "heart"
+        theme_text_color: "Custom"
+        text_color: get_color_from_hex("#E91E63")
+        pos_hint: {"center_x": 0.5}
+        on_release:
+            app.remove_from_favoris(root.message)

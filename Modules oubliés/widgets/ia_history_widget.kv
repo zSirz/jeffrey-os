@@ -1,0 +1,128 @@
+<IAHistoryWidget>:
+    orientation: 'vertical'
+    spacing: dp(10)
+    padding: dp(20)
+    size_hint_y: None
+    height: self.minimum_height
+
+    MDLabel:
+        text: "🧠 Historique des tâches IA"
+        font_style: 'H5'
+        halign: 'center'
+        size_hint_y: None
+        height: self.texture_size[1] + dp(10)
+        color: 0.8, 0.9, 1, 1
+
+    Spinner:
+        id: model_filter
+        text: "Filtrer par IA"
+        values: ["Toutes", "gpt-4", "claude-3-sonnet", "grok"]
+        size_hint_y: None
+        height: dp(40)
+        on_text: root.filter_by_model(self.text if self.text != "Toutes" else None)
+
+    Spinner:
+        id: time_filter
+        text: "Filtrer par période"
+        values: ["Toutes", "Aujourd’hui", "Cette semaine", "Ce mois-ci"]
+        size_hint_y: None
+        height: dp(40)
+        on_text: root.filter_by_period(self.text)
+
+    MDLabel:
+        id: cost_label
+        text: "💰 Coût total estimé : 0.00 $"
+        halign: "center"
+        font_style: "Caption"
+        size_hint_y: None
+        height: self.texture_size[1] + dp(10)
+        color: 0.9, 0.9, 0.9, 1
+
+    MDBoxLayout:
+        orientation: "horizontal"
+        spacing: dp(10)
+        size_hint_y: None
+        height: dp(40)
+        pos_hint: {"center_x": 0.5}
+
+        MDRaisedButton:
+            id: export_csv_button
+            text: "📤 Exporter CSV (avec date)"
+            on_release: root.export_to_csv()
+            disabled_color: 0.6, 0.6, 0.6, 1
+
+        MDSpinner:
+            id: spinner_csv
+            size_hint: None, None
+            size: dp(24), dp(24)
+            active: False
+            opacity: 0
+
+        MDIcon:
+            id: check_csv
+            icon: "check-circle-outline"
+            size_hint: None, None
+            size: dp(24), dp(24)
+            theme_text_color: "Custom"
+            text_color: 0.2, 1, 0.2, 1
+            opacity: 0
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    angle: self.angle if hasattr(self, 'angle') else 0
+                    origin: self.center
+            canvas.after:
+                PopMatrix
+
+    MDBoxLayout:
+        orientation: "horizontal"
+        spacing: dp(10)
+        size_hint_y: None
+        height: dp(40)
+        pos_hint: {"center_x": 0.5}
+
+        MDRaisedButton:
+            id: export_pdf_button
+            text: "🧾 Exporter PDF (avec date)"
+            on_release: root.export_to_pdf()
+            disabled_color: 0.6, 0.6, 0.6, 1
+
+        MDSpinner:
+            id: spinner_pdf
+            size_hint: None, None
+            size: dp(24), dp(24)
+            active: False
+            opacity: 0
+
+        MDIcon:
+            id: check_pdf
+            icon: "check-circle-outline"
+            size_hint: None, None
+            size: dp(24), dp(24)
+            theme_text_color: "Custom"
+            text_color: 0.2, 1, 0.2, 1
+            opacity: 0
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    angle: self.angle if hasattr(self, 'angle') else 0
+                    origin: self.center
+            canvas.after:
+                PopMatrix
+
+    MDRaisedButton:
+        text: "📂 Ouvrir dossier des exports"
+        pos_hint: {"center_x": 0.5}
+        size_hint_y: None
+        height: dp(40)
+        on_release: root.open_export_folder()
+
+    MDScrollView:
+        size_hint: (1, None)
+        height: dp(420)
+        bar_width: 6
+        bar_color: 0.4, 0.6, 1, 0.8
+
+        MDList:
+            id: history_list
+            spacing: dp(5)

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.136680'
+emotion: joy
+language: en
+original_goemotions_label: admiration
+preprocessing:
+  emoji_demojized: true
+  original_length: 122
+  processed_length: 122
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03640
+source: go_emotions
+text: One of the podcasts I listen to, pump talks, bought one from [NAME] for a girls
+  birthday and apparently it was very sweet!

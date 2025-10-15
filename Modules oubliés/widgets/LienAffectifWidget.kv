@@ -1,0 +1,44 @@
+
+
+
+<LienAffectifWidget@BoxLayout>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+    size_hint_y: None
+    height: self.minimum_height
+
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.1, 0.1, 0.8
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [10]
+
+    Label:
+        text: "💞 Niveau de lien avec Jeffrey"
+        font_size: '18sp'
+        bold: True
+        size_hint_y: None
+        height: self.texture_size[1] + 10
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.width, None
+
+    ProgressBar:
+        id: lien_bar
+        max: 1.0
+        value: root.lien_value
+        height: 20
+        size_hint_y: None
+
+    Label:
+        id: lien_state
+        text: root.lien_description
+        font_size: '14sp'
+        size_hint_y: None
+        height: self.texture_size[1] + 5
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.width, None

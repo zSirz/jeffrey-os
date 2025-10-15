@@ -1,0 +1,18 @@
+{
+  "overall": {
+    "macro_f1": 0.4079,
+    "macro_f1_std": 0.0,
+    "coverage": 1.0,
+    "ece": 0.2959,
+    "accuracy": 0.4505,
+    "latency_p95": 0.0
+  },
+  "hyperparams": {
+    "temperature": 0.06,
+    "min_confidence": 0.18,
+    "min_margin": 0.06,
+    "k_prototypes": 1
+  },
+  "timestamp": "2025-10-11 19:09:16",
+  "folds": []
+}

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.957953'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 91
+  processed_length: 91
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03059
+source: go_emotions
+text: Same here, after she initiated the divorce and acussed me of not doing anything
+  to stop it.

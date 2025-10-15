@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.365569'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 32
+  processed_length: 32
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00762
+source: go_emotions
+text: '*10 minutes of awkward roleplay*'

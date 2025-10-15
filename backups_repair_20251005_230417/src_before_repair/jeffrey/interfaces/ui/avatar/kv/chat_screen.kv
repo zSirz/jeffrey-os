@@ -1,0 +1,165 @@
+#:kivy 2.0.0
+
+<MessageBubble@Label>:
+    font_size: '16sp'
+    color: 1, 1, 1, 1
+    size_hint_y: None
+    height: self.texture_size[1] + 20
+    opacity: 0
+    on_kv_post:
+        Animation(opacity=1, duration=0.6).start(self)
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.6, 1, 0.25
+        Ellipse:
+            pos: self.center_x - 20, self.center_y - 20
+            size: (40, 40)
+        Color:
+            rgba: 0.7, 0.5, 0.9, 0.2
+        RoundedRectangle:
+            pos: self.x - 5, self.y - 5
+            size: self.width + 10, self.height + 10
+            radius: [8]
+
+<ChatScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+
+        canvas.before:
+            Color:
+                rgba: 0.1, 0.1, 0.15, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "🌟 Bienvenue dans ton espace magique avec Jeffrey 🌟"
+            font_size: '20sp'
+            color: 1, 0.8, 0.9, 1
+            bold: True
+            size_hint_y: None
+            height: self.texture_size[1]
+            halign: 'center'
+            valign: 'middle'
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.2, 0.4, 0.3
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]
+
+        Label:
+            text: root.get_emotion_emoji() + " " + root.get_emotion_phrase()
+            font_size: '16sp'
+            color: 1, 0.8, 1, 1
+            size_hint_y: None
+            height: self.texture_size[1] + 10
+            halign: 'center'
+            valign: 'middle'
+
+        Label:
+            id: mini_emotion_display
+            text: root.get_emotion_emoji() + " " + root.get_emotion_phrase()
+            font_size: '16sp'
+            color: 1, 0.85, 1, 1
+            bold: True
+            size_hint_y: None
+            height: self.texture_size[1] + 10
+            halign: 'center'
+            valign: 'middle'
+            on_text:
+                Animation(opacity=0.5, duration=0.2) + Animation(opacity=1, duration=0.4).start(self)
+            canvas.before:
+                PushMatrix
+                Translate:
+                    y: 2 * sin(self.opacity * 3.14)
+                PopMatrix
+                Color:
+                    rgba: 0.7, 0.5, 1, 0.2
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]
+
+        ScrollView:
+            id: scroll_view
+            do_scroll_x: False
+            do_scroll_y: True
+
+            GridLayout:
+                id: messages_box
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 10
+                padding: [10, 10]
+                canvas.before:
+                    Color:
+                        rgba: 0.2, 0.1, 0.3, 0.15
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_children:
+                    for child in self.children: Animation(opacity=1, duration=0.4).start(child)
+
+                MessageBubble:
+                    text: "Exemple de message magique ✨"
+
+        BoxLayout:
+            size_hint_y: None
+            height: 60
+            spacing: 10
+
+            TextInput:
+                id: message_input
+                hint_text: "Écris à Jeffrey..."
+                multiline: False
+                size_hint_x: 0.7
+                background_color: (0.3, 0.2, 0.4, 0.4)
+                foreground_color: (1, 1, 1, 1)
+                cursor_color: (1, 1, 1, 1)
+                hint_text_color: (0.7, 0.7, 0.7, 1)
+                on_focus:
+                    if self.focus:
+                        Animation(scale=1.03, duration=0.6) + Animation(scale=1.0, duration=0.6).repeat = True
+                        root.animate_textinput(self)
+                    else:
+                        root.stop_animation(self)
+                on_text_validate:
+                    app.play_typing_sound()
+                canvas.before:
+                    PushMatrix
+                    Scale:
+                        origin: self.center
+                        x: 1.02 if self.focus else 1
+                        y: 1.02 if self.focus else 1
+                    PopMatrix
+                    Color:
+                        rgba: (0.6, 0.4, 0.8, 0.2) if self.focus else (0, 0, 0, 0)
+                    RoundedRectangle:
+                        pos: self.x - 5, self.y - 5
+                        size: self.width + 10, self.height + 10
+                        radius: [8]
+
+            BoxLayout:
+                size_hint_x: 0.3
+                spacing: 10
+
+                Button:
+                    text: "Envoyer"
+                    size_hint_x: 0.7
+                    background_color: (0.7, 0.4, 1, 1)
+                    on_press:
+                        root.send_message()
+                        app.play_send_sound()
+
+                Button:
+                    text: "💗"
+                    size_hint_x: 0.3
+                    background_color: (1, 0.6, 0.8, 1)
+                    on_press: root.send_heart_reaction()
+
+# Effets magiques ajoutés : halo autour des messages, pulsation champ texte, animation émotion douce

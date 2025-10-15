@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.941649'
+emotion: neutral
+language: en
+original_goemotions_label: curiosity
+preprocessing:
+  emoji_demojized: true
+  original_length: 95
+  processed_length: 95
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02987
+source: go_emotions
+text: How are they gatekeeping here? There's zero claims being made. They're just
+  standing by a sign.

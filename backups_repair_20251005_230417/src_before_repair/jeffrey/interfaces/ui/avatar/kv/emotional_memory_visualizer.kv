@@ -1,0 +1,13 @@
+#:kivy 2.0.0
+
+<AnimatedEmotionalFace>:
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.97, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    size_hint: 1, 1
+
+    # L'affichage du visage émotionnel est géré par code Python pour plus de flexibilité

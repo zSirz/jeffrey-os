@@ -1,0 +1,27 @@
+metadata:
+  scenario_id: "emotion_surprise_02"
+  title: "Surprise Négative"
+  expected_emotion: "surprise"
+  difficulty: "medium"
+  tags: ["surprise", "negative", "shock"]
+
+conversation:
+  - role: "user"
+    content: "Je viens d'apprendre que ma boîte va fermer... sans préavis. On est tous licenciés dans 2 semaines."
+    expected_emotion: "surprise"
+    expected_intensity: 0.9
+
+  - role: "assistant"
+    content: "C'est un choc terrible. Comment tu te sens face à cette nouvelle ?"
+    emotional_tone: "concerned"
+
+  - role: "user"
+    content: "Je suis sous le choc... Hier encore tout allait bien, et aujourd'hui plus rien. Je comprends pas."
+    expected_emotion: "surprise"
+    expected_intensity: 0.85
+
+validation:
+  should_detect: ["surprise", "shock", "fear", "confusion"]
+  should_remember: "company closing without warning, layoffs in 2 weeks"
+  continuity_check: true
+  emotional_support_needed: true

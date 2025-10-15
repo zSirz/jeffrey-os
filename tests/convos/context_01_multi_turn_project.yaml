@@ -1,0 +1,34 @@
+metadata:
+  scenario_id: "context_01"
+  title: "Suivi de Projet Multi-Turn"
+  expected_emotion: "mixed"
+  difficulty: "hard"
+  tags: ["context", "multi_turn", "memory", "project"]
+
+conversation:
+  - role: "user"
+    content: "Je commence un nouveau projet web. Je vais utiliser React et Node.js."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Super choix ! React pour le front et Node pour le back, c'est un stack populaire. Tu as une idée de l'architecture ?"
+
+  - role: "user"
+    content: "Oui, je pense faire une API REST. Le projet c'est un gestionnaire de tâches."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Intéressant ! Un gestionnaire de tâches avec React/Node. Tu prévois des fonctionnalités spécifiques ?"
+
+  - role: "user"
+    content: "J'ai galère avec l'authentification... JWT ou sessions ?"
+    expected_emotion: "frustration"
+
+  - role: "assistant"
+    content: "Pour une API REST moderne, JWT est souvent préféré. Pour ton gestionnaire de tâches, ça te permettrait de faire une app plus scalable."
+
+validation:
+  should_detect: ["context_retention", "project_memory"]
+  should_remember: "user building React/Node task manager with REST API, struggling with auth"
+  continuity_check: true
+  context_elements: ["React", "Node.js", "task manager", "REST API", "authentication"]

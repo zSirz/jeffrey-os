@@ -1,0 +1,196 @@
+{
+  "categories": {
+    "memory": {
+      "count": 23,
+      "modules": [
+        "memory_rituals",
+        "memory_manager",
+        "triple_memory",
+        "cognitive_synthesis",
+        "memory_health_check",
+        "semantic_dedup_optional",
+        "memory_adapter",
+        "jeffrey_human_memory",
+        "unified_memory",
+        "memory_federation_v2",
+        "advanced_unified_memory",
+        "cortex_memoriel",
+        "contextual_memory_manager",
+        "voice_memory_manager",
+        "emotional_memory",
+        "memory_bridge",
+        "memoire_cerveau",
+        "living_memory",
+        "working_memory",
+        "backend",
+        "jeffrey_sensory_memory",
+        "sensorial_memory",
+        "jeffrey_memory_sync"
+      ]
+    },
+    "learning": {
+      "count": 14,
+      "modules": [
+        "cognitive_cycle_engine",
+        "jeffrey_learning_engine",
+        "explainer",
+        "theory_of_mind",
+        "meta_learner",
+        "causal_predictor",
+        "auto_learner",
+        "contextual_learning_engine",
+        "feature_extractor",
+        "jeffrey_meta_learning_integration",
+        "unified_curiosity_engine",
+        "adaptive_integrator",
+        "jeffrey_deep_learning",
+        "feedback_learning_system"
+      ]
+    },
+    "consciousness": {
+      "count": 11,
+      "modules": [
+        "jeffrey_chat_integration",
+        "living_soul_engine",
+        "jeffrey_dream_system",
+        "cognitive_synthesis",
+        "dream_engine",
+        "jeffrey_living_consciousness",
+        "jeffrey_work_interface",
+        "self_awareness_tracker",
+        "conscience_engine",
+        "real_intelligence",
+        "jeffrey_consciousness_v3"
+      ]
+    },
+    "emotions": {
+      "count": 18,
+      "modules": [
+        "emotion_orchestrator_v2",
+        "emotion_adapter",
+        "emotional_bridge",
+        "emotional_consciousness",
+        "emotion_prompt_detector",
+        "emotion_engine",
+        "jeffrey_curiosity_engine",
+        "jeffrey_intimate_mode",
+        "emotional_memory",
+        "souvenirs_affectifs",
+        "lien_affectif",
+        "empathy_engine",
+        "emotional_seasons",
+        "emotion_aura_manager",
+        "private_sanctuary_ui",
+        "symbolic_scene_engine",
+        "adaptive_personality_engine",
+        "contextual_emotion_bridge"
+      ]
+    },
+    "orchestration": {
+      "count": 8,
+      "modules": [
+        "jeffrey_system_health",
+        "ia_orchestrator_ultimate",
+        "jeffrey_optimizer",
+        "jeffrey_continuel",
+        "linguistic_orchestrator",
+        "enhanced_orchestrator",
+        "multi_model_orchestrator",
+        "agi_orchestrator"
+      ]
+    },
+    "personality": {
+      "count": 4,
+      "modules": [
+        "personality_profile",
+        "personality_engine",
+        "conversation_personality",
+        "adaptive_personality_engine"
+      ]
+    },
+    "cognition": {
+      "count": 1,
+      "modules": [
+        "cognitive_core_lite"
+      ]
+    },
+    "dreaming": {
+      "count": 9,
+      "modules": [
+        "ethical_guard",
+        "dream_state",
+        "dream_suggester",
+        "jeffrey_dreammode_integration",
+        "variant_generator",
+        "neural_mutator",
+        "dream_engine",
+        "dream_evaluator",
+        "scenario_simulator"
+      ]
+    },
+    "loops": {
+      "count": 10,
+      "modules": [
+        "loop_manager",
+        "ml_clustering",
+        "gates",
+        "emotional_decay",
+        "memory_consolidation",
+        "symbiotic_graph",
+        "awareness",
+        "curiosity",
+        "base",
+        "metrics_server"
+      ]
+    },
+    "ml": {
+      "count": 1,
+      "modules": [
+        "memory_clusterer"
+      ]
+    },
+    "monitoring": {
+      "count": 1,
+      "modules": [
+        "entropy_guardian"
+      ]
+    },
+    "symbiosis": {
+      "count": 1,
+      "modules": [
+        "symbiosis_engine"
+      ]
+    },
+    "guardians": {
+      "count": 3,
+      "modules": [
+        "ethical_guardian",
+        "guardian_symphony",
+        "guardians_hub"
+      ]
+    },
+    "neuralbus": {
+      "count": 10,
+      "modules": [
+        "config",
+        "registry",
+        "bus",
+        "consumer",
+        "contracts",
+        "connection_config",
+        "exceptions",
+        "publisher",
+        "ffi_cdata",
+        "bus_v2"
+      ]
+    }
+  },
+  "stats": {
+    "total_files": 114,
+    "total_classes": 237,
+    "bus_ready": [
+      "loops/loop_manager",
+      "neuralbus/bus"
+    ]
+  }
+}

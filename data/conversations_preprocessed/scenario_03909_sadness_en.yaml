@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.240138'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 129
+  processed_length: 129
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03909
+source: go_emotions
+text: How about breaking into tears whenever one of your friends tells you they trust
+  you because you never understood what trust meant

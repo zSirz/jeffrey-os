@@ -1,0 +1,174 @@
+version: '3.9'
+
+services:
+  # NATS JetStream - Système nerveux central
+  nats:
+    image: nats:2.10-alpine
+    container_name: jeffrey-nats
+    ports:
+      - "4222:4222"   # Client connections
+      - "8222:8222"   # HTTP monitoring
+      - "6222:6222"   # Cluster
+    command: [
+      "-js",                         # Enable JetStream
+      "-sd", "/data",               # Storage directory
+      "-m", "8222",                 # Enable monitoring
+      "--user", "${NATS_USER:-jeffrey}",
+      "--pass", "${NATS_PASSWORD:-jeffrey2024}",
+      "--max_payload", "10MB",
+      "--max_connections", "10000"
+    ]
+    volumes:
+      - nats-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 4222 || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+
+  # NATS Exporter - Metrics pour Prometheus (CRITICAL!)
+  nats-exporter:
+    image: natsio/prometheus-nats-exporter:0.15.0
+    container_name: jeffrey-nats-exporter
+    command: [
+      "-varz", "http://${NATS_USER:-jeffrey}:${NATS_PASSWORD:-jeffrey2024}@nats:8222",
+      "-listen", ":7777"
+    ]
+    ports:
+      - "7777:7777"
+    depends_on:
+      - nats
+    networks:
+      - jeffrey-net
+    restart: unless-stopped
+
+  # Redis - Cache L1/L2 et state
+  redis:
+    image: redis:7-alpine
+    container_name: jeffrey-redis
+    ports:
+      - "6379:6379"
+    command: [
+      "redis-server",
+      "--maxmemory", "2gb",
+      "--maxmemory-policy", "allkeys-lru",
+      "--appendonly", "yes",
+      "--requirepass", "${REDIS_PASSWORD:-jeffrey2024}"
+    ]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-jeffrey2024}", "PING"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+
+  # Redis Exporter - Metrics pour Prometheus (CRITICAL!)
+  redis-exporter:
+    image: oliver006/redis_exporter:v1.58.0
+    container_name: jeffrey-redis-exporter
+    command: ["--redis.addr=redis://:${REDIS_PASSWORD:-jeffrey2024}@redis:6379"]
+    ports:
+      - "9121:9121"
+    depends_on:
+      - redis
+    networks:
+      - jeffrey-net
+    restart: unless-stopped
+
+  # Jaeger - Tracing distribué
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jeffrey-jaeger
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+      SPAN_STORAGE_TYPE: badger
+      BADGER_EPHEMERAL: "false"
+      BADGER_DIRECTORY_VALUE: /badger/data
+      BADGER_DIRECTORY_KEY: /badger/key
+    ports:
+      - "14268:14268"  # Jaeger collector HTTP
+      - "16686:16686"  # Jaeger UI
+      - "4317:4317"    # OTLP gRPC
+      - "4318:4318"    # OTLP HTTP
+    volumes:
+      - jaeger-data:/badger
+    networks:
+      - jeffrey-net
+
+  # Prometheus - Métriques
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: jeffrey-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+
+  # Grafana - Dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: jeffrey-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-jeffrey2024}
+      GF_INSTALL_PLUGINS: redis-datasource
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./config/grafana/provisioning:/etc/grafana/provisioning
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+
+  # === FUTURE P3 SERVICES (Commented) ===
+
+  # Neo4j - Knowledge Graph (Uncomment for P3)
+  # neo4j:
+  #   image: neo4j:5-community
+  #   container_name: jeffrey-neo4j
+  #   ports:
+  #     - "7474:7474"  # HTTP
+  #     - "7687:7687"  # Bolt
+  #   environment:
+  #     NEO4J_AUTH: ${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-jeffrey2024}
+  #     NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
+  #     NEO4J_dbms_memory_pagecache_size: 1G
+  #     NEO4J_dbms_memory_heap_max__size: 1G
+  #   volumes:
+  #     - neo4j-data:/data
+  #     - neo4j-logs:/logs
+  #   networks:
+  #     - jeffrey-net
+  #   restart: unless-stopped
+
+networks:
+  jeffrey-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  nats-data:
+  redis-data:
+  jaeger-data:
+  prometheus-data:
+  grafana-data:
+  # neo4j-data:  # Uncomment for P3
+  # neo4j-logs:  # Uncomment for P3

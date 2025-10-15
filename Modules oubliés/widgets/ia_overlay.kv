@@ -1,0 +1,106 @@
+<IAOverlay>:
+    opacity: 0
+    on_parent:
+        Animation(opacity=1, d=0.3, t='out_quad').start(self)
+    orientation: 'vertical'
+    padding: dp(25)
+    spacing: dp(20)
+    size_hint: None, None
+    size: min(root.width, dp(680)), min(root.height, dp(700))
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    canvas.before:
+        Color:
+            rgba: 0.07, 0.07, 0.1, 0.98
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [24]
+
+    ScrollView:
+        size_hint_y: 0.85
+        bar_width: 6
+        bar_color: 0.4, 0.4, 0.9, 0.8
+        GridLayout:
+            id: content_box
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: dp(18)
+            padding: dp(10)
+
+            # Dynamique (rempli via Python)
+            on_parent:
+                root.populate_overlay()
+
+
+    Label:
+        text: "Coût estimé total : {:.3f} $".format(root.total_estimated_cost)
+        font_size: '16sp'
+        color: 0.8, 0.9, 1, 1
+        bold: True
+        size_hint_y: None
+        height: dp(30)
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.size
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(30)
+        spacing: dp(10)
+        padding: dp(10), 0
+        Label:
+            text: "Afficher le détail des coûts"
+            font_size: '14sp'
+            color: 0.6, 0.8, 1, 1
+            halign: 'left'
+            valign: 'middle'
+            text_size: self.size
+        Button:
+            text: "🛈"
+            size_hint_x: None
+            width: dp(40)
+            background_normal: ''
+            background_color: 0.2, 0.2, 0.4, 1
+            on_release: root.toggle_detailed_costs()
+
+    BoxLayout:
+        id: cost_details_box
+        orientation: 'vertical'
+        size_hint_y: None
+        height: 0
+        opacity: 0
+        spacing: dp(5)
+        padding: dp(10), 0
+        canvas.before:
+            Color:
+                rgba: 0.2, 0.2, 0.3, 0.6
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [10]
+
+    BoxLayout:
+        size_hint_y: 0.15
+        spacing: dp(20)
+        padding: dp(10), dp(5)
+        Button:
+            text: "✅ Valider"
+            font_size: '18sp'
+            bold: True
+            background_color: 0.2, 0.7, 0.2, 1
+            background_normal: ''
+            size_hint: 0.5, 1
+            on_release:
+                Animation(x: self.x - 3, d=0.05, t='linear') + Animation(x: self.x + 6, d=0.05, t='linear') + Animation(x: self.x - 3, d=0.05, t='linear') + Animation(x: self.x, d=0.1, t='out_quad')
+                root.save_state_and_close()
+
+        Button:
+            text: "❌ Annuler"
+            font_size: '18sp'
+            background_color: 0.5, 0.1, 0.1, 1
+            background_normal: ''
+            size_hint: 0.5, 1
+            on_release:
+                Animation(x: self.x - 3, d=0.05, t='linear') + Animation(x: self.x + 6, d=0.05, t='linear') + Animation(x: self.x - 3, d=0.05, t='linear') + Animation(x: self.x, d=0.1, t='out_quad')
+                root.dismiss_overlay()

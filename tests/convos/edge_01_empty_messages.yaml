@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "edge_01"
+  title: "Messages Vides ou Très Courts"
+  expected_emotion: "neutral"
+  difficulty: "easy"
+  tags: ["edge_case", "empty", "short"]
+
+conversation:
+  - role: "user"
+    content: "."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Je suis là si tu veux discuter. 😊"
+
+  - role: "user"
+    content: "ok"
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Tout va bien ?"
+
+validation:
+  should_detect: ["minimal_input"]
+  should_handle: "gracefully"
+  robustness: true

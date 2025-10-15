@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.244235'
+emotion: neutral
+language: en
+original_goemotions_label: curiosity
+preprocessing:
+  emoji_demojized: true
+  original_length: 67
+  processed_length: 67
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03914
+source: go_emotions
+text: How about texts between them? "On my way home." "Ok, see you soon."

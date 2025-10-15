@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.601645'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 81
+  processed_length: 81
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01784
+source: go_emotions
+text: That was what was most nauseating for me honestly. Not a single period used
+  once.

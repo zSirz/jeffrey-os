@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.245186'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 133
+  processed_length: 133
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03918
+source: go_emotions
+text: Oh so you're being a troll, good to know.. I actually thought for a second that
+  disgusting, freak couples like y'all actually existed

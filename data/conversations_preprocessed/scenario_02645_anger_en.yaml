@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.857313'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 80
+  processed_length: 80
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02645
+source: go_emotions
+text: If you are not going to kick him out, then don't complain. It is all your choice

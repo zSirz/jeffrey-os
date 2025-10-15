@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.649652'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 131
+  processed_length: 131
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01984
+source: go_emotions
+text: correct me if i’m wrong but when [NAME] eliminates [NAME], she technically has
+  a better track record than [NAME]?? i’ll fucking cry

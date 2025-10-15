@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.061690'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 83
+  processed_length: 83
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03317
+source: go_emotions
+text: Hey fuck-o I've broken plenty of rules I just have the decency to be ashamed
+  of it.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.202360'
+emotion: neutral
+language: en
+original_goemotions_label: realization
+preprocessing:
+  emoji_demojized: true
+  original_length: 117
+  processed_length: 117
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00066
+source: go_emotions
+text: When I was maybe 8 I discovered that I liked hot dog buns with just ketchup.
+  I shortly discovered what heartburn was.

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.679185'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 27
+  processed_length: 114
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02112
+source: go_emotions
+text: 'That glo up though. Omg :smiling_face_with_heart-eyes::smiling_face_with_heart-eyes::smiling_face_with_heart-eyes:'

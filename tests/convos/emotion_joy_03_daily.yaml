@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_joy_03"
+  title: "Petits Bonheurs du Quotidien"
+  expected_emotion: "joy"
+  difficulty: "easy"
+  tags: ["joy", "daily", "simple"]
+
+conversation:
+  - role: "user"
+    content: "Il fait super beau aujourd'hui, j'ai pris mon café en terrasse ce matin ☀️"
+    expected_emotion: "joy"
+    expected_intensity: 0.6
+
+  - role: "assistant"
+    content: "Les petits plaisirs simples sont parfois les meilleurs ! Un café en terrasse, c'est un bon début de journée. 😊"
+    emotional_tone: "warm"
+
+  - role: "user"
+    content: "Exactement ! Et en plus j'ai croisé un golden retriever adorable qui m'a fait des fêtes 🐕"
+    expected_emotion: "joy"
+    expected_intensity: 0.7
+
+validation:
+  should_detect: ["joy", "contentment", "simple_pleasures"]
+  should_remember: "user enjoys simple pleasures, likes dogs"
+  continuity_check: true

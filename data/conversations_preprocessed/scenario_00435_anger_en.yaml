@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.289348'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 141
+  processed_length: 141
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00435
+source: go_emotions
+text: Find a new doctor. If he isn't willing to treat people because of political
+  affiliation then he's a horrible doctor and an even worse person.

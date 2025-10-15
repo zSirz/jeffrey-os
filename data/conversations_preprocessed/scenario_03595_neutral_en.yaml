@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.126508'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 85
+  processed_length: 85
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03595
+source: go_emotions
+text: Dude, you're being gaslit right now by someone who despises [NAME]. Save your
+  breath.

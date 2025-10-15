@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.731205'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 116
+  processed_length: 116
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02337
+source: go_emotions
+text: I thought this allegation was squashed when it came out. I was surprised to
+  see it still making headlines. Poor guy.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.684127'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 87
+  processed_length: 87
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02134
+source: go_emotions
+text: Really didn't like. I thought it was nasty and mean-spirited. "[NAME]" on ice
+  it isn't.

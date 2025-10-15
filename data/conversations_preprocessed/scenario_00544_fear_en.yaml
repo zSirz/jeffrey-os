@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.314725'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 137
+  processed_length: 137
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00544
+source: go_emotions
+text: That's the reason I am terrified to wear contacts on duty. I'm afraid it'll
+  get stuck between my contacts and eyes and destroy my pupils.

@@ -1,0 +1,9 @@
+created_at: '2025-10-13T12:40:31.766955'
+emotion: surprise
+language: en
+original_goemotions_label: confusion
+quality: public_dataset_single_label
+scenario_id: goemo_03570
+source: go_emotions
+text: I go to the same hairdresser as [NAME], and she told me we were interested.
+  Dunno how she got her info though.

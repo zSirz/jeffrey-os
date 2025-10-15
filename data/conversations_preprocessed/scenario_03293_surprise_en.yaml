@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.056174'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 141
+  processed_length: 141
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03293
+source: go_emotions
+text: That's true, but I was surprised to find absolutely ZERO information about a
+  person who , presumably, has quite a bit of power and influence.

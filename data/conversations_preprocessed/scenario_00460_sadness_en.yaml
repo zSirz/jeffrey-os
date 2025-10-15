@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.295192'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 123
+  processed_length: 123
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00460
+source: go_emotions
+text: It worries me that there are people that miss the meaning of a subject by so
+  much. Your critical thinking skills sadden me.

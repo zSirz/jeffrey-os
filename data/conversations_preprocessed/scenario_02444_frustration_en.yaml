@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.756819'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 135
+  processed_length: 135
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02444
+source: go_emotions
+text: If this was some weird publicity stunt to announce the [NAME] is coming back
+  I will die. In reality, it makes me think he's coming back

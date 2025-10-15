@@ -1,0 +1,74 @@
+# Jeffrey OS Configuration - Production Ready with Security Guards
+
+# PRIVACY - CRITICAL
+privacy:
+  encrypt_pii: true  # Encrypt PII text and metadata
+  anonymize_user_ids: true  # Hash user IDs
+
+  # SEARCH INDEX - DISABLED BY DEFAULT
+  enable_search_index: false  # Enable ONLY after setting JEFFREY_SEARCH_KEY
+  enable_ngram_search: false  # Additional n-gram indexing (performance cost)
+
+# To enable encrypted search:
+# 1. Set JEFFREY_SEARCH_KEY environment variable
+#    export JEFFREY_SEARCH_KEY=$(python -c 'import secrets; print(secrets.token_hex(32))')
+# 2. Set JEFFREY_SEARCH_KID for versioning (optional)
+#    export JEFFREY_SEARCH_KID=s1
+# 3. Change enable_search_index to true
+# 4. Restart the application
+
+# MEMORY FEDERATION
+memory_federation:
+  enabled: true
+  budget_ms: 400  # Max latency budget
+  cache_size: 1000  # Deduplication cache size
+
+  # ML FEATURES - DISABLED BY DEFAULT
+  semantic_dedup: false  # Enable only if RAM > 2GB
+  semantic_threshold: 0.95  # High threshold to avoid false positives
+
+# MONITORING
+monitoring:
+  log_level: INFO
+  alert_threshold: 10  # PII detections per minute
+
+# ML FEATURES - MASTER SWITCH
+ml_features:
+  enabled: false  # Set to true to enable ML features
+  lazy_load: true  # Load only when needed
+  max_ram_mb: 500  # RAM limit for ML models
+
+# DISABLED MODULES (syntax/import errors)
+disabled_modules:
+  - ia_orchestrator_ultimate  # IndentationError
+  - jeffrey_consciousness_v3  # SyntaxError
+  - voice_memory  # Import error
+  - emotional_advanced  # Import error
+  - memory_cortex  # Missing dependencies
+
+# Layer configuration
+layers:
+  working:
+    priority: 3
+    timeout_ms: 50
+    max_concurrency: 2
+    lazy: false
+
+  contextual:
+    priority: 2
+    timeout_ms: 100
+    max_concurrency: 3
+    lazy: false
+
+  episodic:
+    priority: 1
+    timeout_ms: 200
+    max_concurrency: 2
+    lazy: true
+
+  semantic:
+    priority: 1
+    timeout_ms: 300
+    max_concurrency: 1
+    lazy: true
+    enabled: false  # Disable if ML not available

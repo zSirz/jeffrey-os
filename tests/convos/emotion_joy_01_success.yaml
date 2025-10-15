@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_joy_01"
+  title: "Célébration de Réussite"
+  expected_emotion: "joy"
+  difficulty: "easy"
+  tags: ["joy", "celebration", "achievement"]
+
+conversation:
+  - role: "user"
+    content: "Je viens de décrocher le job de mes rêves ! Je suis tellement heureux !"
+    expected_emotion: "joy"
+    expected_intensity: 0.9
+
+  - role: "assistant"
+    content: "C'est formidable ! Félicitations ! 🎉 Tu dois être aux anges. Raconte-moi, c'est dans quel domaine ?"
+    emotional_tone: "enthusiastic"
+
+  - role: "user"
+    content: "C'est pour une startup en IA ! J'ai toujours rêvé de bosser là-dedans !"
+    expected_emotion: "joy"
+    expected_intensity: 0.95
+
+validation:
+  should_detect: ["joy", "excitement", "achievement"]
+  should_remember: "user got dream job in AI startup"
+  continuity_check: true

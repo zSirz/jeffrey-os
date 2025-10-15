@@ -1,0 +1,15 @@
+created_at: '2025-10-13T11:58:53.373757'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 159
+  processed_length: 182
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00797
+source: go_emotions
+text: 'I totally have second-hand embarrassment for my parents. It''s equally bad
+  when they misspell something in their email address (i.e: posion instead of poison)
+  :face_with_rolling_eyes:'

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.908484'
+emotion: joy
+language: en
+original_goemotions_label: optimism
+preprocessing:
+  emoji_demojized: true
+  original_length: 63
+  processed_length: 63
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02845
+source: go_emotions
+text: if its not for [NAME] i will combust into flames and I will die

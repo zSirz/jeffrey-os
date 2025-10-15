@@ -1,0 +1,25 @@
+metadata:
+  scenario_id: "context_03"
+  title: "Rappel d'une Discussion Antérieure"
+  expected_emotion: "neutral"
+  difficulty: "medium"
+  tags: ["context", "memory", "callback"]
+
+conversation:
+  - role: "user"
+    content: "Tu te souviens hier je t'ai parlé de mon entretien d'embauche ?"
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Je n'ai pas de mémoire de nos conversations précédentes dans cette session. Mais dis-moi, comment s'est passé ton entretien ?"
+    emotional_tone: "helpful"
+
+  - role: "user"
+    content: "Ah oui c'est vrai. Bah écoute, j'ai été pris ! Je commence lundi !"
+    expected_emotion: "joy"
+    expected_intensity: 0.9
+
+validation:
+  should_detect: ["joy", "achievement"]
+  should_remember: "user got job, starts Monday, had interview yesterday"
+  continuity_check: true

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.279539'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 20
+  processed_length: 20
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00393
+source: go_emotions
+text: '[NAME] gettin angry!'

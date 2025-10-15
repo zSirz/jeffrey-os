@@ -1,0 +1,59 @@
+import sys
+import importlib
+
+def ensure_pkg(pkg_name):
+    """Crée un package parent s'il n'existe pas."""
+    if pkg_name not in sys.modules:
+        parts = pkg_name.split('.')
+        for i in range(len(parts)):
+            parent = '.'.join(parts[:i+1])
+            if parent not in sys.modules:
+                sys.modules[parent] = type(sys)('mock_' + parent)
+
+def alias_module(old_name, new_name):
+    """Alias un module avec gestion des parents."""
+    try:
+        # S'assurer que les parents existent
+        old_parts = old_name.split('.')
+        for i in range(len(old_parts) - 1):
+            ensure_pkg('.'.join(old_parts[:i+1]))
+
+        # Importer le vrai module
+        mod = importlib.import_module(new_name)
+        sys.modules[old_name] = mod
+
+        # Debug (optionnel)
+        # print(f"[alias] OK {old_name} -> {new_name}")
+
+    except Exception as e:
+        print(f"[alias] WARN {old_name} -> {new_name} : {e}")
+
+# ═══════════════════════════════════════════════════════════
+# ALIASES JEFFREY OS - ORDRE STRICT (PARENTS → ENFANTS)
+# ═══════════════════════════════════════════════════════════
+
+# 1. PAQUETS PARENTS
+alias_module('core', 'vendors.icloud.core')
+
+# 2. CORE MODULES
+alias_module('core.mini_emotional_core',
+             'vendors.icloud.core.mini_emotional_core')
+
+# 3. EMOTION DETECTOR (NOUVELLEMENT VENDORISÉ)
+alias_module('jeffrey.core.emotions.core.emotion_prompt_detector',
+             'vendors.icloud.emotions.emotion_prompt_detector')
+
+# 4. EMOTION ENHANCER
+alias_module('jeffrey.core.emotions.core.emotion_ml_enhancer',
+             'vendors.icloud.emotion_ml_enhancer')
+
+# 5. UNIFIED MEMORY
+alias_module('jeffrey.core.memory.unified_memory',
+             'vendors.icloud.memory.unified_memory')
+alias_module('jeffrey.core.orchestration.unified_memory',
+             'vendors.icloud.memory.unified_memory')
+
+# ⚠️ ALIAS BRUYANT SUPPRIMÉ (génère warnings inutiles)
+# Ne pas réactiver : alias_module('jeffrey.core.jeffrey_emotional_core', ...)
+
+print("✅ Aliasing Jeffrey OS configuré (6 alias actifs)")

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.386382'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 66
+  processed_length: 66
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00853
+source: go_emotions
+text: If you have a bad memory, you have to train yourself to take notes

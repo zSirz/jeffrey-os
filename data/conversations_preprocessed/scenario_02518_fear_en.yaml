@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.822901'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 52
+  processed_length: 52
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02518
+source: go_emotions
+text: And it’s super awkward with someone you barely know.

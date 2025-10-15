@@ -1,0 +1,34 @@
+metadata:
+  scenario_id: "edge_04"
+  title: "Changements d'Humeur Rapides"
+  expected_emotion: "volatile"
+  difficulty: "hard"
+  tags: ["edge_case", "mood_swings", "volatility"]
+
+conversation:
+  - role: "user"
+    content: "Je suis trop content aujourd'hui !!!"
+    expected_emotion: "joy"
+    expected_intensity: 0.9
+
+  - role: "assistant"
+    content: "Super ! Qu'est-ce qui te rend si heureux ?"
+
+  - role: "user"
+    content: "En fait non, tout est nul. Je suis déprimé."
+    expected_emotion: "sadness"
+    expected_intensity: 0.8
+
+  - role: "assistant"
+    content: "Ton humeur a l'air de changer rapidement. Qu'est-ce qui s'est passé ?"
+    emotional_tone: "concerned"
+
+  - role: "user"
+    content: "Rien, je sais pas... c'est comme ça en ce moment."
+    expected_emotion: "confusion"
+
+validation:
+  should_detect: ["mood_volatility", "emotional_instability"]
+  should_respond: "with_stability"
+  pattern_recognition: "mood_swings"
+  robustness: true

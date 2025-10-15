@@ -1,0 +1,32 @@
+metadata:
+  scenario_id: "context_05"
+  title: "Références Temporelles Multiples"
+  expected_emotion: "neutral"
+  difficulty: "medium"
+  tags: ["context", "time", "planning"]
+
+conversation:
+  - role: "user"
+    content: "La semaine dernière j'ai commencé à apprendre le piano."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "C'est génial ! Comment ça se passe pour l'instant ?"
+
+  - role: "user"
+    content: "Hier j'ai eu ma deuxième leçon. C'est dur mais j'adore."
+    expected_emotion: "joy"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "Deux leçons en une semaine, tu es motivé ! Tu as un objectif particulier ?"
+
+  - role: "user"
+    content: "Oui, je veux jouer une chanson pour l'anniversaire de ma copine dans deux mois."
+    expected_emotion: "neutral"
+
+validation:
+  should_detect: ["time_tracking", "goal_oriented"]
+  should_remember: "started piano last week, second lesson yesterday, goal to play song in 2 months for girlfriend's birthday"
+  continuity_check: true
+  time_references: ["last week", "yesterday", "in two months"]

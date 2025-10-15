@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.761141'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 59
+  processed_length: 59
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02462
+source: go_emotions
+text: After all that i expected it to not look terrible. Oh well.

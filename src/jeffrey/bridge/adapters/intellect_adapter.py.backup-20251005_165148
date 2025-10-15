@@ -1,0 +1,23 @@
+"""Intellect Adapter - Interface pour fonctions intellectuelles avancées"""
+
+from jeffrey.core.orchestration.agi_orchestrator import AGIOrchestrator
+
+
+class IntellectAdapter:
+    """Adaptateur pour les capacités intellectuelles de Jeffrey"""
+
+    def __init__(self):
+        self.orchestrator = AGIOrchestrator()
+
+    def process(self, data):
+        """Traite les données via l'orchestrateur AGI"""
+        return self.orchestrator.process_user_input(data)
+
+    def analyze(self, content):
+        """Analyse intellectuelle du contenu"""
+        # Utilise l'orchestrateur pour l'analyse
+        return self.orchestrator.process_user_input(f"Analyser: {content}")
+
+    def reason(self, problem):
+        """Raisonnement sur un problème donné"""
+        return self.orchestrator.process_user_input(f"Raisonner sur: {problem}")

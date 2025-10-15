@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.963440'
+emotion: joy
+language: en
+original_goemotions_label: gratitude
+preprocessing:
+  emoji_demojized: true
+  original_length: 56
+  processed_length: 56
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03083
+source: go_emotions
+text: Different region of same hellscape. Congrats, good luck!

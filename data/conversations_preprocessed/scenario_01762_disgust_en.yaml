@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.596624'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 145
+  processed_length: 145
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01762
+source: go_emotions
+text: Right before that he called [NAME] for getting barged in the back and nearly
+  kicked in the face. Weird performance. Didn't change the result mind

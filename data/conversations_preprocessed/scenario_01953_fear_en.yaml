@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.642583'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 154
+  processed_length: 154
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01953
+source: go_emotions
+text: I mean it makes sense, they're into [NAME] because they totally dig the horribly
+  socially stunted types so they love [NAME] for horribly traumatizing her.

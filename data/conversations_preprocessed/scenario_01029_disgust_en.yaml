@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.427064'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 73
+  processed_length: 73
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01029
+source: go_emotions
+text: He has the maturity of a 2 year old and you are right...ugly in his soul.

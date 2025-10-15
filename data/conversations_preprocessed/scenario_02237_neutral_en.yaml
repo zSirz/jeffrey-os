@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.708197'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02237
+source: go_emotions
+text: It won't make them worse off. GDP is simply irrelevant. Rent and job conditions
+  are what matters.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.236841'
+emotion: neutral
+language: en
+original_goemotions_label: confusion
+preprocessing:
+  emoji_demojized: true
+  original_length: 111
+  processed_length: 111
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00210
+source: go_emotions
+text: I tried the pilot and it just felt very "meh" to me. Does it get better or is
+  it just not to my sense of humor?

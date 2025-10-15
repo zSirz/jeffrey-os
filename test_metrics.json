@@ -1,0 +1,92 @@
+[
+  {
+    "awareness": {
+      "cycles": 0,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.0
+    },
+    "emotional_decay": {
+      "cycles": 2,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.1039999770000577
+    },
+    "memory_consolidation": {
+      "cycles": 0,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.0
+    },
+    "curiosity": {
+      "cycles": 0,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.0
+    },
+    "system": {
+      "symbiosis_score": 0.6444444444444445
+    },
+    "timestamp": 1759054965.4343302
+  },
+  {
+    "awareness": {
+      "cycles": 2,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.12079195585101843
+    },
+    "emotional_decay": {
+      "cycles": 4,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.16537500778213143
+    },
+    "memory_consolidation": {
+      "cycles": 0,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.0
+    },
+    "curiosity": {
+      "cycles": 0,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.0
+    },
+    "system": {
+      "symbiosis_score": 0.6444444444444445
+    },
+    "timestamp": 1759054975.436602
+  },
+  {
+    "awareness": {
+      "cycles": 3,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.1259580021724105
+    },
+    "emotional_decay": {
+      "cycles": 6,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.16537500778213143
+    },
+    "memory_consolidation": {
+      "cycles": 0,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 0.0
+    },
+    "curiosity": {
+      "cycles": 1,
+      "errors": 0,
+      "error_rate": 0.0,
+      "p95_latency_ms": 35.660042020026594
+    },
+    "system": {
+      "symbiosis_score": 0.670945883980106
+    },
+    "timestamp": 1759054985.4369862
+  }
+]

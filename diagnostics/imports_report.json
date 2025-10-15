@@ -1,0 +1,667 @@
+{
+  "total_issues": 161,
+  "orphan_count": 127,
+  "missing_critical": 2,
+  "legacy_count": 24,
+  "details": {
+    "legacy_imports": [
+      {
+        "file": "src/jeffrey/core/learning/auto_learner.py",
+        "line": 15,
+        "import": "from Orchestrateur_IA.core.api_security import secure_api_method"
+      },
+      {
+        "file": "src/jeffrey/core/learning/auto_learner.py",
+        "line": 16,
+        "import": "from Orchestrateur_IA.core.ia_pricing import estimate_cost, estimate_tokens"
+      },
+      {
+        "file": "src/jeffrey/core/learning/auto_learner.py",
+        "line": 442,
+        "import": "from Orchestrateur_IA.core.ia_services.export_learning import ("
+      },
+      {
+        "file": "src/jeffrey/core/personality/conversation_personality.py",
+        "line": 16,
+        "import": "from Orchestrateur_IA.core.emotions.emotional_sync import EmotionalSync"
+      },
+      {
+        "file": "src/jeffrey/core/consciousness/jeffrey_chat_integration.py",
+        "line": 24,
+        "import": "from Orchestrateur_IA.core.jeffrey_emotional_core import JeffreyEmotionalCore"
+      },
+      {
+        "file": "src/jeffrey/core/consciousness/jeffrey_chat_integration.py",
+        "line": 25,
+        "import": "from Orchestrateur_IA.core.emotions.emotion_prompt_detector import EmotionPromptDetector"
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/jeffrey_continuel.py",
+        "line": 26,
+        "import": "from Orchestrateur_IA.core.memory.textual_affective_memory import TextualAffectiveMemory"
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/jeffrey_continuel.py",
+        "line": 27,
+        "import": "from Orchestrateur_IA.core.dialogue.style_manager import StyleManager"
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/jeffrey_continuel.py",
+        "line": 28,
+        "import": "from Orchestrateur_IA.core.memory.highlight_detector import HighlightDetector"
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/jeffrey_continuel.py",
+        "line": 353,
+        "import": "from Orchestrateur_IA.core.jeffrey_emotional_core import JeffreyEmotionalCore"
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/enhanced_orchestrator.py",
+        "line": 14,
+        "import": "from Orchestrateur_IA.core.orchestration.multi_model_orchestrator import MultiModelOrchestrator"
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/enhanced_orchestrator.py",
+        "line": 15,
+        "import": "from Orchestrateur_IA.core.emotions.emotion_ml_enhancer import EmotionMLEnhancer"
+      },
+      {
+        "file": "src/jeffrey/core/orchestration/enhanced_orchestrator.py",
+        "line": 215,
+        "import": "from Orchestrateur_IA.core.orchestration.fusion_engine import fuse_responses"
+      },
+      {
+        "file": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+        "line": 13,
+        "import": "from Orchestrateur_IA.core.emotions.emotion_prompt_detector import EmotionPromptDetector"
+      },
+      {
+        "file": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+        "line": 15,
+        "import": "from Orchestrateur_IA.core.emotions.emotion_prompt_detector import EmotionPromptDetector"
+      },
+      {
+        "file": "src/jeffrey/services/voice/adapters/voice_emotion_adapter.py",
+        "line": 68,
+        "import": "from Orchestrateur_IA.core.emotions.emotional_affective_touch import get_emotional_affective_touch"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/chat/chat_screen.py",
+        "line": 7,
+        "import": "from Orchestrateur_IA.core.jeffrey_emotional_core import JeffreyEmotionalCore"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/chat/chat_screen.py",
+        "line": 8,
+        "import": "from Orchestrateur_IA.core.personality.conversation_personality import ConversationPersonality"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/chat/chat_screen.py",
+        "line": 9,
+        "import": "from Orchestrateur_IA.core.personality.relation_tracker_manager import enregistrer_interaction"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/chat/chat_screen.py",
+        "line": 12,
+        "import": "from Orchestrateur_IA.core.conversation_tracker import ConversationTracker"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/chat/chat_screen.py",
+        "line": 154,
+        "import": "from Orchestrateur_IA.core.utils.audio import SoundLoader"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/chat/chat_screen.py",
+        "line": 161,
+        "import": "from Orchestrateur_IA.core.utils.audio import SoundLoader"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/widgets/LienAffectifWidget.py",
+        "line": 7,
+        "import": "from Orchestrateur_IA.core.personality.relation_tracker_manager import get_relation_tracker, get_niveau_relation"
+      },
+      {
+        "file": "src/jeffrey/interfaces/ui/widgets/LienAffectifWidget.py",
+        "line": 11,
+        "import": "from Orchestrateur_IA.core.emotions.emotional_affective_touch import get_emotional_affective_touch, obtenir_lien"
+      }
+    ],
+    "missing_modules": [
+      {
+        "module": "jeffrey.api.audit_logger_enhanced",
+        "critical": true,
+        "expected_path": "src/jeffrey/api/audit_logger_enhanced.py"
+      },
+      {
+        "module": "jeffrey.core.sandbox_manager_enhanced",
+        "critical": true,
+        "expected_path": "src/jeffrey/core/sandbox_manager_enhanced.py"
+      }
+    ],
+    "orphan_modules": [
+      {
+        "module": "jeffrey.core.memory.sync.jeffrey_memory_sync",
+        "path": "src/jeffrey/core/memory/sync/jeffrey_memory_sync.py"
+      },
+      {
+        "module": "jeffrey.core.learning.theory_of_mind",
+        "path": "src/jeffrey/core/learning/theory_of_mind.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_living_memory",
+        "path": "src/jeffrey/core/consciousness/jeffrey_living_memory.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.enhanced_orchestrator",
+        "path": "src/jeffrey/core/orchestration/enhanced_orchestrator.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.emotion_engine",
+        "path": "src/jeffrey/core/emotions/core/emotion_engine.py"
+      },
+      {
+        "module": "jeffrey.interfaces.ui.console.console_ui",
+        "path": "src/jeffrey/interfaces/ui/console/console_ui.py"
+      },
+      {
+        "module": "jeffrey.services.providers.provider_manager",
+        "path": "src/jeffrey/services/providers/provider_manager.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_living_expressions",
+        "path": "src/jeffrey/core/consciousness/jeffrey_living_expressions.py"
+      },
+      {
+        "module": "jeffrey.services.voice.engine.jeffrey_voice_system",
+        "path": "src/jeffrey/services/voice/engine/jeffrey_voice_system.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.visuals.emotion_aura_manager",
+        "path": "src/jeffrey/core/emotions/visuals/emotion_aura_manager.py"
+      },
+      {
+        "module": "jeffrey.core.learning.jeffrey_meta_learning_integration",
+        "path": "src/jeffrey/core/learning/jeffrey_meta_learning_integration.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.humeur_detector",
+        "path": "src/jeffrey/core/emotions/core/humeur_detector.py"
+      },
+      {
+        "module": "jeffrey.services.credits.credit_manager",
+        "path": "src/jeffrey/services/credits/credit_manager.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.surprises.surprises_emotionnelles",
+        "path": "src/jeffrey/core/emotions/surprises/surprises_emotionnelles.py"
+      },
+      {
+        "module": "jeffrey.services.sync.face_sync_manager",
+        "path": "src/jeffrey/services/sync/face_sync_manager.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.auth_service_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/auth_service_adapter.py"
+      },
+      {
+        "module": "jeffrey.core.learning.cognitive_cycle_engine",
+        "path": "src/jeffrey/core/learning/cognitive_cycle_engine.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.self_awareness_tracker",
+        "path": "src/jeffrey/core/consciousness/self_awareness_tracker.py"
+      },
+      {
+        "module": "jeffrey.core.memory.memory_health_check",
+        "path": "src/jeffrey/core/memory/memory_health_check.py"
+      },
+      {
+        "module": "jeffrey.services.voice.engine.voice_recognition_error_recovery",
+        "path": "src/jeffrey/services/voice/engine/voice_recognition_error_recovery.py"
+      },
+      {
+        "module": "jeffrey.core.personality.adaptive_personality_engine",
+        "path": "src/jeffrey/core/personality/adaptive_personality_engine.py"
+      },
+      {
+        "module": "jeffrey.core.learning.adaptive_integrator",
+        "path": "src/jeffrey/core/learning/adaptive_integrator.py"
+      },
+      {
+        "module": "jeffrey.utilities.guardian_integration",
+        "path": "src/jeffrey/utilities/guardian_integration.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_chat_integration",
+        "path": "src/jeffrey/core/consciousness/jeffrey_chat_integration.py"
+      },
+      {
+        "module": "jeffrey.services.sync.interpersonal_rhythm_synchronizer",
+        "path": "src/jeffrey/services/sync/interpersonal_rhythm_synchronizer.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.benchmarking.collectors.latency_collector",
+        "path": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/latency_collector.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.multi_model_orchestrator",
+        "path": "src/jeffrey/core/orchestration/multi_model_orchestrator.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.profiles.adaptive_personality_engine",
+        "path": "src/jeffrey/core/emotions/profiles/adaptive_personality_engine.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.benchmarking.metrics",
+        "path": "src/jeffrey/infrastructure/monitoring/benchmarking/metrics.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.transitions.contextual_emotion_bridge",
+        "path": "src/jeffrey/core/emotions/transitions/contextual_emotion_bridge.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.jeffrey_optimizer",
+        "path": "src/jeffrey/core/orchestration/jeffrey_optimizer.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.benchmarking.collectors.stability_collector",
+        "path": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/stability_collector.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.curiosity_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/curiosity_adapter.py"
+      },
+      {
+        "module": "jeffrey.core.learning.contextual_learning_engine",
+        "path": "src/jeffrey/core/learning/contextual_learning_engine.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.ia_orchestrator_ultimate",
+        "path": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py"
+      },
+      {
+        "module": "jeffrey.core.memory.working.working_memory",
+        "path": "src/jeffrey/core/memory/working/working_memory.py"
+      },
+      {
+        "module": "jeffrey.services.voice.engine.streaming_audio_pipeline",
+        "path": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py"
+      },
+      {
+        "module": "jeffrey.services.voice.engine.elevenlabs_v3_engine",
+        "path": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.rate_limiter_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/rate_limiter_adapter.py"
+      },
+      {
+        "module": "jeffrey.utilities.guardian_symphony",
+        "path": "src/jeffrey/utilities/guardian_symphony.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.auto_scaler",
+        "path": "src/jeffrey/infrastructure/monitoring/auto_scaler.py"
+      },
+      {
+        "module": "jeffrey.core.memory.cortex.memoire_cerveau",
+        "path": "src/jeffrey/core/memory/cortex/memoire_cerveau.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.jeffrey_system_health",
+        "path": "src/jeffrey/core/orchestration/jeffrey_system_health.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.conscience_engine",
+        "path": "src/jeffrey/core/consciousness/conscience_engine.py"
+      },
+      {
+        "module": "jeffrey.services.voice.engine.jeffrey_voice_dna",
+        "path": "src/jeffrey/services/voice/engine/jeffrey_voice_dna.py"
+      },
+      {
+        "module": "jeffrey.services.voice.engine.elevenlabs_client",
+        "path": "src/jeffrey/services/voice/engine/elevenlabs_client.py"
+      },
+      {
+        "module": "jeffrey.core.memory.advanced.memory_manager",
+        "path": "src/jeffrey/core/memory/advanced/memory_manager.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.baseline_tracker",
+        "path": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py"
+      },
+      {
+        "module": "jeffrey.services.voice.engine.voice_engine",
+        "path": "src/jeffrey/services/voice/engine/voice_engine.py"
+      },
+      {
+        "module": "jeffrey.interfaces.api.websocket.websocket_handler",
+        "path": "src/jeffrey/interfaces/api/websocket/websocket_handler.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.cellular_architecture_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/cellular_architecture_adapter.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.metrics_dashboard",
+        "path": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.visuals.symbolic_scene_engine",
+        "path": "src/jeffrey/core/emotions/visuals/symbolic_scene_engine.py"
+      },
+      {
+        "module": "jeffrey.services.voice.adapters.voice_emotion_adapter",
+        "path": "src/jeffrey/services/voice/adapters/voice_emotion_adapter.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.transitions.emotional_bridge",
+        "path": "src/jeffrey/core/emotions/transitions/emotional_bridge.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.emotion_prompt_detector",
+        "path": "src/jeffrey/core/emotions/core/emotion_prompt_detector.py"
+      },
+      {
+        "module": "jeffrey.core.memory.advanced.voice_memory_manager",
+        "path": "src/jeffrey/core/memory/advanced/voice_memory_manager.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_living_consciousness",
+        "path": "src/jeffrey/core/consciousness/jeffrey_living_consciousness.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.emotion_ml_enhancer",
+        "path": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.security.encryption_manager",
+        "path": "src/jeffrey/infrastructure/security/encryption_manager.py"
+      },
+      {
+        "module": "jeffrey.services.voice.adapters.voice_emotion_renderer",
+        "path": "src/jeffrey/services/voice/adapters/voice_emotion_renderer.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.speech_synthesis_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/speech_synthesis_adapter.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.empathy.empathy_engine",
+        "path": "src/jeffrey/core/emotions/empathy/empathy_engine.py"
+      },
+      {
+        "module": "jeffrey.interfaces.ui.widgets.TouchFloatingMenu",
+        "path": "src/jeffrey/interfaces/ui/widgets/TouchFloatingMenu.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.memory.emotional_memory",
+        "path": "src/jeffrey/core/emotions/memory/emotional_memory.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.circuit_breaker",
+        "path": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.nlp_engine_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/nlp_engine_adapter.py"
+      },
+      {
+        "module": "jeffrey.core.learning.unified_curiosity_engine",
+        "path": "src/jeffrey/core/learning/unified_curiosity_engine.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.emotional_consciousness",
+        "path": "src/jeffrey/core/emotions/core/emotional_consciousness.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.seasons.emotional_seasons",
+        "path": "src/jeffrey/core/emotions/seasons/emotional_seasons.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.jeffrey_continuel",
+        "path": "src/jeffrey/core/orchestration/jeffrey_continuel.py"
+      },
+      {
+        "module": "jeffrey.services.voice.effects.voice_effects",
+        "path": "src/jeffrey/services/voice/effects/voice_effects.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.jeffrey_orchestrator",
+        "path": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py"
+      },
+      {
+        "module": "jeffrey.services.voice.controllers.voice_controller_v3",
+        "path": "src/jeffrey/services/voice/controllers/voice_controller_v3.py"
+      },
+      {
+        "module": "jeffrey.core.memory.advanced.emotional_memory",
+        "path": "src/jeffrey/core/memory/advanced/emotional_memory.py"
+      },
+      {
+        "module": "jeffrey.core.memory.living.living_memory",
+        "path": "src/jeffrey/core/memory/living/living_memory.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.health_checker",
+        "path": "src/jeffrey/infrastructure/monitoring/health_checker.py"
+      },
+      {
+        "module": "jeffrey.interfaces.ui.widgets.JournalEntryCard",
+        "path": "src/jeffrey/interfaces/ui/widgets/JournalEntryCard.py"
+      },
+      {
+        "module": "jeffrey.core.memory.sensory.sensorial_memory",
+        "path": "src/jeffrey/core/memory/sensory/sensorial_memory.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.jeffrey_curiosity_engine",
+        "path": "src/jeffrey/core/emotions/core/jeffrey_curiosity_engine.py"
+      },
+      {
+        "module": "jeffrey.core.learning.auto_learner",
+        "path": "src/jeffrey/core/learning/auto_learner.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.event_logger",
+        "path": "src/jeffrey/infrastructure/monitoring/event_logger.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.bonds.lien_affectif",
+        "path": "src/jeffrey/core/emotions/bonds/lien_affectif.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.database.database_manager",
+        "path": "src/jeffrey/infrastructure/database/database_manager.py"
+      },
+      {
+        "module": "jeffrey.core.memory.jeffrey_human_memory",
+        "path": "src/jeffrey/core/memory/jeffrey_human_memory.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.jeffrey_auditor",
+        "path": "src/jeffrey/infrastructure/monitoring/jeffrey_auditor.py"
+      },
+      {
+        "module": "jeffrey.core.learning.jeffrey_deep_learning",
+        "path": "src/jeffrey/core/learning/jeffrey_deep_learning.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.security.secrets_manager",
+        "path": "src/jeffrey/infrastructure/security/secrets_manager.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.benchmarking.collectors.cost_collector",
+        "path": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/cost_collector.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.profiles.emotional_profile_manager",
+        "path": "src/jeffrey/core/emotions/profiles/emotional_profile_manager.py"
+      },
+      {
+        "module": "jeffrey.core.personality.personality_engine",
+        "path": "src/jeffrey/core/personality/personality_engine.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.mood_tracker",
+        "path": "src/jeffrey/core/emotions/core/mood_tracker.py"
+      },
+      {
+        "module": "jeffrey.core.memory.memory_manager",
+        "path": "src/jeffrey/core/memory/memory_manager.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_work_interface",
+        "path": "src/jeffrey/core/consciousness/jeffrey_work_interface.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.webhook_handler_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/webhook_handler_adapter.py"
+      },
+      {
+        "module": "jeffrey.interfaces.ui.dashboard.dashboard",
+        "path": "src/jeffrey/interfaces/ui/dashboard/dashboard.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.cache_manager_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/cache_manager_adapter.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_consciousness_v3",
+        "path": "src/jeffrey/core/consciousness/jeffrey_consciousness_v3.py"
+      },
+      {
+        "module": "jeffrey.interfaces.ui.chat.chat_screen",
+        "path": "src/jeffrey/interfaces/ui/chat/chat_screen.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.security.key_manager",
+        "path": "src/jeffrey/infrastructure/security/key_manager.py"
+      },
+      {
+        "module": "jeffrey.interfaces.ui.dashboard.dashboard_premium",
+        "path": "src/jeffrey/interfaces/ui/dashboard/dashboard_premium.py"
+      },
+      {
+        "module": "jeffrey.core.memory.memory_rituals",
+        "path": "src/jeffrey/core/memory/memory_rituals.py"
+      },
+      {
+        "module": "jeffrey.core.memory.cortex.cortex_memoriel",
+        "path": "src/jeffrey/core/memory/cortex/cortex_memoriel.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.benchmarking.benchmark_manager",
+        "path": "src/jeffrey/infrastructure/monitoring/benchmarking/benchmark_manager.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.monitoring.benchmarking.collectors.quality_collector",
+        "path": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/quality_collector.py"
+      },
+      {
+        "module": "jeffrey.services.sync.emotional_prosody_synchronizer",
+        "path": "src/jeffrey/services/sync/emotional_prosody_synchronizer.py"
+      },
+      {
+        "module": "jeffrey.services.voice.adapters.multilingual_voice_adapter",
+        "path": "src/jeffrey/services/voice/adapters/multilingual_voice_adapter.py"
+      },
+      {
+        "module": "jeffrey.interfaces.bridge.adapters.ocr_service_adapter",
+        "path": "src/jeffrey/interfaces/bridge/adapters/ocr_service_adapter.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.jeffrey_intimate_mode",
+        "path": "src/jeffrey/core/emotions/core/jeffrey_intimate_mode.py"
+      },
+      {
+        "module": "jeffrey.core.memory.cortex.memory_bridge",
+        "path": "src/jeffrey/core/memory/cortex/memory_bridge.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.visuals.private_sanctuary_ui",
+        "path": "src/jeffrey/core/emotions/visuals/private_sanctuary_ui.py"
+      },
+      {
+        "module": "jeffrey.interfaces.ui.widgets.LienAffectifWidget",
+        "path": "src/jeffrey/interfaces/ui/widgets/LienAffectifWidget.py"
+      },
+      {
+        "module": "jeffrey.core.personality.conversation_personality",
+        "path": "src/jeffrey/core/personality/conversation_personality.py"
+      },
+      {
+        "module": "jeffrey.utilities.guardian_communication",
+        "path": "src/jeffrey/utilities/guardian_communication.py"
+      },
+      {
+        "module": "jeffrey.core.orchestration.linguistic_orchestrator",
+        "path": "src/jeffrey/core/orchestration/linguistic_orchestrator.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.visuals.jeffrey_emotional_display",
+        "path": "src/jeffrey/core/emotions/visuals/jeffrey_emotional_display.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_dream_system",
+        "path": "src/jeffrey/core/consciousness/jeffrey_dream_system.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.memory.souvenirs_affectifs",
+        "path": "src/jeffrey/core/emotions/memory/souvenirs_affectifs.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.core.jeffrey_emotional_core",
+        "path": "src/jeffrey/core/emotions/core/jeffrey_emotional_core.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.security.security_validator",
+        "path": "src/jeffrey/infrastructure/security/security_validator.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.jeffrey_secret_diary",
+        "path": "src/jeffrey/core/consciousness/jeffrey_secret_diary.py"
+      },
+      {
+        "module": "jeffrey.core.memory.advanced.contextual_memory_manager",
+        "path": "src/jeffrey/core/memory/advanced/contextual_memory_manager.py"
+      },
+      {
+        "module": "jeffrey.core.emotions.visuals.jeffrey_visual_emotions",
+        "path": "src/jeffrey/core/emotions/visuals/jeffrey_visual_emotions.py"
+      },
+      {
+        "module": "jeffrey.core.personality.personality_profile",
+        "path": "src/jeffrey/core/personality/personality_profile.py"
+      },
+      {
+        "module": "jeffrey.core.memory.sensory.jeffrey_sensory_memory",
+        "path": "src/jeffrey/core/memory/sensory/jeffrey_sensory_memory.py"
+      },
+      {
+        "module": "jeffrey.core.consciousness.cortex_monitor",
+        "path": "src/jeffrey/core/consciousness/cortex_monitor.py"
+      },
+      {
+        "module": "jeffrey.infrastructure.security.rate_limiter",
+        "path": "src/jeffrey/infrastructure/security/rate_limiter.py"
+      }
+    ],
+    "missing_init_files": [
+      "src/jeffrey/utilities",
+      "src/jeffrey/api",
+      "src/jeffrey/core/diagnostics",
+      "src/jeffrey/core/memory/advanced",
+      "src/jeffrey/infrastructure/monitoring/benchmarking",
+      "src/jeffrey/infrastructure/monitoring/benchmarking/collectors",
+      "src/jeffrey/services/providers",
+      "src/jeffrey/services/credits"
+    ],
+    "import_graph": {
+      "jeffrey.utilities.guardian_symphony": "{'jeffrey_auditor'}",
+      "jeffrey.utilities.guardian_integration": "{'jeffrey_auditor'}",
+      "jeffrey.services.voice.engine.elevenlabs_v3_engine": "{'jeffrey.modules.config.secrets_manager'}"
+    }
+  }
+}

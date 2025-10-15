@@ -1,0 +1,818 @@
+# Bootstrap Seed Phase 1 - OPTIMISÉ (200 exemples, 25/classe)
+# Hard negatives pour couples confus : joy↔neutral, anger↔frustration, fear↔sadness
+
+# ========== ANGER (25 exemples) ==========
+- id: seed_anger_01
+  text: "Je suis furieux de cette situation inacceptable"
+  emotion: "anger"
+
+- id: seed_anger_02
+  text: "C'est complètement scandaleux et révoltant"
+  emotion: "anger"
+
+- id: seed_anger_03
+  text: "Je ne peux plus supporter cette injustice"
+  emotion: "anger"
+
+- id: seed_anger_04
+  text: "Ça me met hors de moi, c'est inadmissible"
+  emotion: "anger"
+
+- id: seed_anger_05
+  text: "Je suis énervé au plus haut point"
+  emotion: "anger"
+
+- id: seed_anger_06
+  text: "Cette décision me rend fou de colère"
+  emotion: "anger"
+
+- id: seed_anger_07
+  text: "Je n'en peux plus de cette incompétence"
+  emotion: "anger"
+
+- id: seed_anger_08
+  text: "Ils m'ont poussé à bout, je suis enragé"
+  emotion: "anger"
+
+- id: seed_anger_09
+  text: "C'est intolérable, je ne vais pas me calmer"
+  emotion: "anger"
+
+- id: seed_anger_10
+  text: "Cette attitude me met dans une rage folle"
+  emotion: "anger"
+
+# Hard negatives anger (vs frustration)
+- id: seed_anger_11
+  text: "Je suis vraiment en colère contre cette personne"
+  emotion: "anger"
+
+- id: seed_anger_12
+  text: "Ça me met dans un état de fureur intense"
+  emotion: "anger"
+
+- id: seed_anger_13
+  text: "Je bouillonne de rage face à cette injustice"
+  emotion: "anger"
+
+- id: seed_anger_14
+  text: "C'est une honte, je suis ulcéré"
+  emotion: "anger"
+
+- id: seed_anger_15
+  text: "Je suis exaspéré par leur comportement odieux"
+  emotion: "anger"
+
+- id: seed_anger_16
+  text: "Cette trahison me met hors de moi"
+  emotion: "anger"
+
+- id: seed_anger_17
+  text: "Je suis outré par ces mensonges"
+  emotion: "anger"
+
+- id: seed_anger_18
+  text: "Leur arrogance me met dans une colère noire"
+  emotion: "anger"
+
+- id: seed_anger_19
+  text: "Je ne tolère pas qu'on me manque de respect ainsi"
+  emotion: "anger"
+
+- id: seed_anger_20
+  text: "Cette situation abusive me révolte profondément"
+  emotion: "anger"
+
+- id: seed_anger_21
+  text: "Je suis indigné par cette injustice flagrante"
+  emotion: "anger"
+
+- id: seed_anger_22
+  text: "Leur mépris me met dans un état de rage"
+  emotion: "anger"
+
+- id: seed_anger_23
+  text: "Je fulmine contre cette décision arbitraire"
+  emotion: "anger"
+
+- id: seed_anger_24
+  text: "Cette provocation me rend furieux"
+  emotion: "anger"
+
+- id: seed_anger_25
+  text: "Je suis ivre de colère face à tant de cynisme"
+  emotion: "anger"
+
+# ========== JOY (25 exemples) ==========
+- id: seed_joy_01
+  text: "Je suis vraiment content de cette nouvelle"
+  emotion: "joy"
+
+- id: seed_joy_02
+  text: "C'est une excellente surprise, je suis ravi"
+  emotion: "joy"
+
+- id: seed_joy_03
+  text: "Quelle belle journée, je me sens bien"
+  emotion: "joy"
+
+- id: seed_joy_04
+  text: "Je suis aux anges, tout va bien"
+  emotion: "joy"
+
+- id: seed_joy_05
+  text: "C'est parfait, je suis très heureux"
+  emotion: "joy"
+
+- id: seed_joy_06
+  text: "Je déborde de joie aujourd'hui"
+  emotion: "joy"
+
+- id: seed_joy_07
+  text: "C'est merveilleux, je suis enchanté"
+  emotion: "joy"
+
+- id: seed_joy_08
+  text: "Je suis si content que je pourrais sauter de joie"
+  emotion: "joy"
+
+- id: seed_joy_09
+  text: "Quel bonheur, je suis comblé"
+  emotion: "joy"
+
+- id: seed_joy_10
+  text: "Je rayonne de bonheur en ce moment"
+  emotion: "joy"
+
+# Hard negatives joy (vs neutral)
+- id: seed_joy_11
+  text: "C'est une bonne nouvelle qui me réjouit"
+  emotion: "joy"
+
+- id: seed_joy_12
+  text: "Je suis enthousiaste à cette idée"
+  emotion: "joy"
+
+- id: seed_joy_13
+  text: "Ça me fait plaisir de vous voir"
+  emotion: "joy"
+
+- id: seed_joy_14
+  text: "Je suis satisfait du résultat obtenu"
+  emotion: "joy"
+
+- id: seed_joy_15
+  text: "C'est agréable, je me sens bien"
+  emotion: "joy"
+
+- id: seed_joy_16
+  text: "Je suis fier de ce que nous avons accompli"
+  emotion: "joy"
+
+- id: seed_joy_17
+  text: "Cette réussite me remplit de fierté"
+  emotion: "joy"
+
+- id: seed_joy_18
+  text: "Je suis heureux d'avoir pris cette décision"
+  emotion: "joy"
+
+- id: seed_joy_19
+  text: "Ça me fait du bien de voir ça"
+  emotion: "joy"
+
+- id: seed_joy_20
+  text: "Je suis ravi de cette opportunité"
+  emotion: "joy"
+
+- id: seed_joy_21
+  text: "C'est encourageant, je me sens motivé"
+  emotion: "joy"
+
+- id: seed_joy_22
+  text: "Je suis épanoui dans cette situation"
+  emotion: "joy"
+
+- id: seed_joy_23
+  text: "Ça me procure beaucoup de satisfaction"
+  emotion: "joy"
+
+- id: seed_joy_24
+  text: "Je suis optimiste pour la suite"
+  emotion: "joy"
+
+- id: seed_joy_25
+  text: "Cette victoire me remplit de joie"
+  emotion: "joy"
+
+# ========== SADNESS (25 exemples) ==========
+- id: seed_sadness_01
+  text: "Je suis vraiment triste de cette situation"
+  emotion: "sadness"
+
+- id: seed_sadness_02
+  text: "Ça me fait beaucoup de peine"
+  emotion: "sadness"
+
+- id: seed_sadness_03
+  text: "Je me sens abattu et découragé"
+  emotion: "sadness"
+
+- id: seed_sadness_04
+  text: "C'est démoralisant, je suis déprimé"
+  emotion: "sadness"
+
+- id: seed_sadness_05
+  text: "Je n'ai plus le moral, tout me rend triste"
+  emotion: "sadness"
+
+- id: seed_sadness_06
+  text: "Je suis accablé par cette mauvaise nouvelle"
+  emotion: "sadness"
+
+- id: seed_sadness_07
+  text: "Je me sens mélancolique et nostalgique"
+  emotion: "sadness"
+
+- id: seed_sadness_08
+  text: "C'est dur, je suis vraiment chagriné"
+  emotion: "sadness"
+
+- id: seed_sadness_09
+  text: "Je broie du noir depuis quelques jours"
+  emotion: "sadness"
+
+- id: seed_sadness_10
+  text: "Cette perte me rend profondément triste"
+  emotion: "sadness"
+
+# Hard negatives sadness (vs fear)
+- id: seed_sadness_11
+  text: "Je me sens seul et abandonné"
+  emotion: "sadness"
+
+- id: seed_sadness_12
+  text: "Je suis désespéré par cette situation"
+  emotion: "sadness"
+
+- id: seed_sadness_13
+  text: "Ça me désole de voir ça"
+  emotion: "sadness"
+
+- id: seed_sadness_14
+  text: "Je suis malheureux depuis longtemps"
+  emotion: "sadness"
+
+- id: seed_sadness_15
+  text: "Cette séparation me brise le cœur"
+  emotion: "sadness"
+
+- id: seed_sadness_16
+  text: "Je suis affligé par cette perte"
+  emotion: "sadness"
+
+- id: seed_sadness_17
+  text: "Ça me peine de devoir renoncer"
+  emotion: "sadness"
+
+- id: seed_sadness_18
+  text: "Je me sens vide et sans espoir"
+  emotion: "sadness"
+
+- id: seed_sadness_19
+  text: "Cette déception m'attriste énormément"
+  emotion: "sadness"
+
+- id: seed_sadness_20
+  text: "Je suis rongé par le chagrin"
+  emotion: "sadness"
+
+- id: seed_sadness_21
+  text: "Je me sens complètement démuni"
+  emotion: "sadness"
+
+- id: seed_sadness_22
+  text: "Cette souffrance me consume"
+  emotion: "sadness"
+
+- id: seed_sadness_23
+  text: "Je pleure souvent ces derniers temps"
+  emotion: "sadness"
+
+- id: seed_sadness_24
+  text: "Je me sens brisé intérieurement"
+  emotion: "sadness"
+
+- id: seed_sadness_25
+  text: "Cette tristesse ne me quitte plus"
+  emotion: "sadness"
+
+# ========== FEAR (25 exemples) ==========
+- id: seed_fear_01
+  text: "J'ai vraiment peur de ce qui va arriver"
+  emotion: "fear"
+
+- id: seed_fear_02
+  text: "Je suis angoissé par cette situation"
+  emotion: "fear"
+
+- id: seed_fear_03
+  text: "Ça me terrifie, je suis mort de peur"
+  emotion: "fear"
+
+- id: seed_fear_04
+  text: "Je suis inquiet et stressé à l'idée de"
+  emotion: "fear"
+
+- id: seed_fear_05
+  text: "J'ai une peur panique de l'échec"
+  emotion: "fear"
+
+- id: seed_fear_06
+  text: "Je suis terrifié par ce qui pourrait se passer"
+  emotion: "fear"
+
+- id: seed_fear_07
+  text: "Cette incertitude me fait vraiment peur"
+  emotion: "fear"
+
+- id: seed_fear_08
+  text: "Je suis paralysé par l'angoisse"
+  emotion: "fear"
+
+- id: seed_fear_09
+  text: "J'appréhende énormément ce moment"
+  emotion: "fear"
+
+- id: seed_fear_10
+  text: "Je tremble de peur rien que d'y penser"
+  emotion: "fear"
+
+# Hard negatives fear (vs sadness)
+- id: seed_fear_11
+  text: "Je suis anxieux face à l'avenir"
+  emotion: "fear"
+
+- id: seed_fear_12
+  text: "Ça me stresse énormément"
+  emotion: "fear"
+
+- id: seed_fear_13
+  text: "Je suis préoccupé par les conséquences"
+  emotion: "fear"
+
+- id: seed_fear_14
+  text: "J'ai des sueurs froides à cette idée"
+  emotion: "fear"
+
+- id: seed_fear_15
+  text: "Je redoute ce qui m'attend"
+  emotion: "fear"
+
+- id: seed_fear_16
+  text: "Cette situation me met dans tous mes états"
+  emotion: "fear"
+
+- id: seed_fear_17
+  text: "Je suis nerveux et tendu"
+  emotion: "fear"
+
+- id: seed_fear_18
+  text: "J'ai peur de ne pas y arriver"
+  emotion: "fear"
+
+- id: seed_fear_19
+  text: "Cette menace m'effraie"
+  emotion: "fear"
+
+- id: seed_fear_20
+  text: "Je suis paniqué à l'approche de"
+  emotion: "fear"
+
+- id: seed_fear_21
+  text: "Ça me rend très nerveux"
+  emotion: "fear"
+
+- id: seed_fear_22
+  text: "Je crains le pire"
+  emotion: "fear"
+
+- id: seed_fear_23
+  text: "Cette perspective m'angoisse"
+  emotion: "fear"
+
+- id: seed_fear_24
+  text: "Je me sens menacé et vulnérable"
+  emotion: "fear"
+
+- id: seed_fear_25
+  text: "J'ai peur de perdre tout ce que j'ai"
+  emotion: "fear"
+
+# ========== DISGUST (25 exemples) ==========
+- id: seed_disgust_01
+  text: "C'est vraiment dégoûtant, j'ai la nausée"
+  emotion: "disgust"
+
+- id: seed_disgust_02
+  text: "Je suis écœuré par ce comportement"
+  emotion: "disgust"
+
+- id: seed_disgust_03
+  text: "C'est répugnant, je ne supporte pas"
+  emotion: "disgust"
+
+- id: seed_disgust_04
+  text: "Cette attitude me dégoûte profondément"
+  emotion: "disgust"
+
+- id: seed_disgust_05
+  text: "Je trouve ça immonde et révoltant"
+  emotion: "disgust"
+
+- id: seed_disgust_06
+  text: "C'est vraiment déplaisant, j'en ai la chair de poule"
+  emotion: "disgust"
+
+- id: seed_disgust_07
+  text: "Je suis dégouté par cette situation"
+  emotion: "disgust"
+
+- id: seed_disgust_08
+  text: "C'est abject, je ne peux pas en voir plus"
+  emotion: "disgust"
+
+- id: seed_disgust_09
+  text: "Cette histoire me soulève le cœur"
+  emotion: "disgust"
+
+- id: seed_disgust_10
+  text: "Je trouve ça vraiment répugnant"
+  emotion: "disgust"
+
+- id: seed_disgust_11
+  text: "C'est ignoble, ça me répugne"
+  emotion: "disgust"
+
+- id: seed_disgust_12
+  text: "Je suis révulsé par cette vision"
+  emotion: "disgust"
+
+- id: seed_disgust_13
+  text: "Cette odeur me dégoûte totalement"
+  emotion: "disgust"
+
+- id: seed_disgust_14
+  text: "C'est nauséabond, je ne peux pas rester"
+  emotion: "disgust"
+
+- id: seed_disgust_15
+  text: "Je trouve ce comportement méprisable"
+  emotion: "disgust"
+
+- id: seed_disgust_16
+  text: "C'est d'une vulgarité qui me dégoûte"
+  emotion: "disgust"
+
+- id: seed_disgust_17
+  text: "Je suis écœuré par tant d'hypocrisie"
+  emotion: "disgust"
+
+- id: seed_disgust_18
+  text: "Cette bassesse me répugne"
+  emotion: "disgust"
+
+- id: seed_disgust_19
+  text: "C'est sordide, ça me dégoûte"
+  emotion: "disgust"
+
+- id: seed_disgust_20
+  text: "Je trouve ça dégueulasse et répugnant"
+  emotion: "disgust"
+
+- id: seed_disgust_21
+  text: "Cette lâcheté me répugne au plus haut point"
+  emotion: "disgust"
+
+- id: seed_disgust_22
+  text: "C'est d'une médiocrité qui me dégoûte"
+  emotion: "disgust"
+
+- id: seed_disgust_23
+  text: "Je suis révulsé par cette cruauté"
+  emotion: "disgust"
+
+- id: seed_disgust_24
+  text: "Cette manipulation me dégoûte"
+  emotion: "disgust"
+
+- id: seed_disgust_25
+  text: "C'est tellement vil que ça me répugne"
+  emotion: "disgust"
+
+# ========== SURPRISE (25 exemples) ==========
+- id: seed_surprise_01
+  text: "Quelle surprise, je ne m'attendais pas à ça"
+  emotion: "surprise"
+
+- id: seed_surprise_02
+  text: "Je suis étonné par cette nouvelle"
+  emotion: "surprise"
+
+- id: seed_surprise_03
+  text: "C'est incroyable, je suis stupéfait"
+  emotion: "surprise"
+
+- id: seed_surprise_04
+  text: "Je n'en reviens pas, quelle surprise"
+  emotion: "surprise"
+
+- id: seed_surprise_05
+  text: "Je suis complètement surpris par cet événement"
+  emotion: "surprise"
+
+- id: seed_surprise_06
+  text: "C'est une révélation inattendue"
+  emotion: "surprise"
+
+- id: seed_surprise_07
+  text: "Je suis abasourdi par cette annonce"
+  emotion: "surprise"
+
+- id: seed_surprise_08
+  text: "Quelle drôle de surprise, je ne m'y attendais vraiment pas"
+  emotion: "surprise"
+
+- id: seed_surprise_09
+  text: "Je suis sidéré par ce retournement"
+  emotion: "surprise"
+
+- id: seed_surprise_10
+  text: "C'est une surprise totale, je suis bouche bée"
+  emotion: "surprise"
+
+- id: seed_surprise_11
+  text: "Je suis ébahi par cette découverte"
+  emotion: "surprise"
+
+- id: seed_surprise_12
+  text: "C'est ahurissant, je n'aurais jamais imaginé"
+  emotion: "surprise"
+
+- id: seed_surprise_13
+  text: "Je suis estomaqué par cette révélation"
+  emotion: "surprise"
+
+- id: seed_surprise_14
+  text: "Quelle stupeur, je reste sans voix"
+  emotion: "surprise"
+
+- id: seed_surprise_15
+  text: "Je suis déconcerté par ce changement"
+  emotion: "surprise"
+
+- id: seed_surprise_16
+  text: "C'est renversant, je n'en crois pas mes yeux"
+  emotion: "surprise"
+
+- id: seed_surprise_17
+  text: "Je suis médusé par cette tournure"
+  emotion: "surprise"
+
+- id: seed_surprise_18
+  text: "Quelle surprise incroyable et inattendue"
+  emotion: "surprise"
+
+- id: seed_surprise_19
+  text: "Je suis interloqué par cette décision"
+  emotion: "surprise"
+
+- id: seed_surprise_20
+  text: "C'est stupéfiant, je ne m'y attendais absolument pas"
+  emotion: "surprise"
+
+- id: seed_surprise_21
+  text: "Je suis désarçonné par cette information"
+  emotion: "surprise"
+
+- id: seed_surprise_22
+  text: "Quelle révélation surprenante"
+  emotion: "surprise"
+
+- id: seed_surprise_23
+  text: "Je suis pantois devant ce spectacle"
+  emotion: "surprise"
+
+- id: seed_surprise_24
+  text: "C'est étonnant, je ne l'aurais pas cru"
+  emotion: "surprise"
+
+- id: seed_surprise_25
+  text: "Je suis bluffé par cette performance"
+  emotion: "surprise"
+
+# ========== NEUTRAL (25 exemples) ==========
+- id: seed_neutral_01
+  text: "C'est une journée normale, rien de spécial"
+  emotion: "neutral"
+
+- id: seed_neutral_02
+  text: "Je vais bien, tout se passe comme d'habitude"
+  emotion: "neutral"
+
+- id: seed_neutral_03
+  text: "C'est correct, ni bien ni mal"
+  emotion: "neutral"
+
+- id: seed_neutral_04
+  text: "Je suis d'accord avec cette décision"
+  emotion: "neutral"
+
+- id: seed_neutral_05
+  text: "Voici les informations demandées"
+  emotion: "neutral"
+
+- id: seed_neutral_06
+  text: "C'est une situation ordinaire"
+  emotion: "neutral"
+
+- id: seed_neutral_07
+  text: "Je comprends ce que vous dites"
+  emotion: "neutral"
+
+- id: seed_neutral_08
+  text: "La réunion est prévue pour demain"
+  emotion: "neutral"
+
+- id: seed_neutral_09
+  text: "C'est noté, je vais faire le nécessaire"
+  emotion: "neutral"
+
+- id: seed_neutral_10
+  text: "Voilà, c'est fait"
+  emotion: "neutral"
+
+# Hard negatives neutral (vs joy)
+- id: seed_neutral_11
+  text: "Le document est disponible sur le serveur"
+  emotion: "neutral"
+
+- id: seed_neutral_12
+  text: "J'ai pris connaissance de votre message"
+  emotion: "neutral"
+
+- id: seed_neutral_13
+  text: "Le projet avance selon le planning"
+  emotion: "neutral"
+
+- id: seed_neutral_14
+  text: "Les données sont à jour"
+  emotion: "neutral"
+
+- id: seed_neutral_15
+  text: "Je vous confirme la réception"
+  emotion: "neutral"
+
+- id: seed_neutral_16
+  text: "C'est conforme aux attentes"
+  emotion: "neutral"
+
+- id: seed_neutral_17
+  text: "La procédure est standard"
+  emotion: "neutral"
+
+- id: seed_neutral_18
+  text: "Je transmets l'information"
+  emotion: "neutral"
+
+- id: seed_neutral_19
+  text: "Le rapport est terminé"
+  emotion: "neutral"
+
+- id: seed_neutral_20
+  text: "C'est dans les normes habituelles"
+  emotion: "neutral"
+
+- id: seed_neutral_21
+  text: "Je prends note de votre remarque"
+  emotion: "neutral"
+
+- id: seed_neutral_22
+  text: "Les résultats sont présentés dans le tableau"
+  emotion: "neutral"
+
+- id: seed_neutral_23
+  text: "La situation est stable"
+  emotion: "neutral"
+
+- id: seed_neutral_24
+  text: "Je vous envoie le fichier"
+  emotion: "neutral"
+
+- id: seed_neutral_25
+  text: "C'est prévu pour la semaine prochaine"
+  emotion: "neutral"
+
+# ========== FRUSTRATION (25 exemples) ==========
+- id: seed_frustration_01
+  text: "C'est frustrant, ça ne marche toujours pas"
+  emotion: "frustration"
+
+- id: seed_frustration_02
+  text: "Je suis agacé par ces problèmes répétés"
+  emotion: "frustration"
+
+- id: seed_frustration_03
+  text: "C'est exaspérant, je n'arrive à rien"
+  emotion: "frustration"
+
+- id: seed_frustration_04
+  text: "Je suis à bout, rien ne fonctionne comme prévu"
+  emotion: "frustration"
+
+- id: seed_frustration_05
+  text: "C'est irritant, je perds patience"
+  emotion: "frustration"
+
+- id: seed_frustration_06
+  text: "Je suis frustré par ce manque de résultats"
+  emotion: "frustration"
+
+- id: seed_frustration_07
+  text: "C'est décourageant, j'en ai marre"
+  emotion: "frustration"
+
+- id: seed_frustration_08
+  text: "Je suis contrarié par ces obstacles"
+  emotion: "frustration"
+
+- id: seed_frustration_09
+  text: "C'est énervant, je n'avance pas"
+  emotion: "frustration"
+
+- id: seed_frustration_10
+  text: "Je me sens impuissant face à cette situation"
+  emotion: "frustration"
+
+# Hard negatives frustration (vs anger)
+- id: seed_frustration_11
+  text: "Ça m'ennuie que ça ne fonctionne pas"
+  emotion: "frustration"
+
+- id: seed_frustration_12
+  text: "Je suis lassé de ces complications"
+  emotion: "frustration"
+
+- id: seed_frustration_13
+  text: "C'est pénible, ça prend trop de temps"
+  emotion: "frustration"
+
+- id: seed_frustration_14
+  text: "Je suis démotivé par ces échecs successifs"
+  emotion: "frustration"
+
+- id: seed_frustration_15
+  text: "Ça me fatigue de toujours recommencer"
+  emotion: "frustration"
+
+- id: seed_frustration_16
+  text: "Je suis las de ces difficultés"
+  emotion: "frustration"
+
+- id: seed_frustration_17
+  text: "C'est épuisant de se battre contre ça"
+  emotion: "frustration"
+
+- id: seed_frustration_18
+  text: "Je suis agacé par ce manque d'efficacité"
+  emotion: "frustration"
+
+- id: seed_frustration_19
+  text: "Ça me contrarie de ne pas aboutir"
+  emotion: "frustration"
+
+- id: seed_frustration_20
+  text: "Je suis exaspéré par ces lenteurs"
+  emotion: "frustration"
+
+- id: seed_frustration_21
+  text: "C'est ennuyeux, ça ne progresse pas"
+  emotion: "frustration"
+
+- id: seed_frustration_22
+  text: "Je suis impatient que ça se règle"
+  emotion: "frustration"
+
+- id: seed_frustration_23
+  text: "Ça me dérange que ce soit si compliqué"
+  emotion: "frustration"
+
+- id: seed_frustration_24
+  text: "Je suis désappointé par le résultat"
+  emotion: "frustration"
+
+- id: seed_frustration_25
+  text: "C'est agaçant de devoir réexpliquer"
+  emotion: "frustration"
+
+# Total : 200 exemples (25 frustration + 25×7 autres = 200)

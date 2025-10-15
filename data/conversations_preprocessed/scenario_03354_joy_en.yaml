@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.070638'
+emotion: joy
+language: en
+original_goemotions_label: caring
+preprocessing:
+  emoji_demojized: true
+  original_length: 95
+  processed_length: 95
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03354
+source: go_emotions
+text: If your partner is so consumed by his addiction that he chose it over you, you
+  know what to do.

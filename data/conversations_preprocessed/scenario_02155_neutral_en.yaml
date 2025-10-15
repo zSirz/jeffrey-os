@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.688949'
+emotion: neutral
+language: en
+original_goemotions_label: confusion
+preprocessing:
+  emoji_demojized: true
+  original_length: 56
+  processed_length: 71
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02155
+source: go_emotions
+text: just go google search, but some are real some are unreal laugh out loud

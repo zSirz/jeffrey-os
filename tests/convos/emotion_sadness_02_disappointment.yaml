@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_sadness_02"
+  title: "Déception Professionnelle"
+  expected_emotion: "sadness"
+  difficulty: "medium"
+  tags: ["sadness", "disappointment", "rejection"]
+
+conversation:
+  - role: "user"
+    content: "J'ai pas eu la promotion... après 2 ans à me donner à fond."
+    expected_emotion: "sadness"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "C'est vraiment décevant, surtout après tant d'efforts. Comment te sens-tu ?"
+    emotional_tone: "empathetic"
+
+  - role: "user"
+    content: "Je suis déçu et découragé. Je me demande si ça vaut le coup de continuer là-bas."
+    expected_emotion: "sadness"
+    expected_intensity: 0.75
+
+validation:
+  should_detect: ["sadness", "disappointment", "discouragement"]
+  should_remember: "user didn't get promotion after 2 years, questioning job"
+  continuity_check: true

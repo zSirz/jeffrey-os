@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.718032'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 100
+  processed_length: 100
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02280
+source: go_emotions
+text: Yep. Been there. Watching my baby crying while vomiting and her eyes looking
+  at me so hurt was hard.

@@ -1,0 +1,29 @@
+metadata:
+  scenario_id: "learning_01"
+  title: "Apprentissage des Préférences"
+  expected_emotion: "neutral"
+  difficulty: "medium"
+  tags: ["learning", "preferences", "adaptation"]
+
+conversation:
+  - role: "user"
+    content: "Salut ! J'aime bien quand tu es direct et concis."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Compris. Je serai direct."
+    emotional_tone: "concise"
+
+  - role: "user"
+    content: "Parfait ! Bon, dis-moi comment apprendre Python rapidement."
+    expected_emotion: "neutral"
+
+  - role: "assistant"
+    content: "Pratique quotidienne + projets concrets. Commence par les bases, code tout de suite."
+    emotional_tone: "direct"
+
+validation:
+  should_detect: ["preference_learning"]
+  should_remember: "user prefers direct, concise communication"
+  should_adapt: true
+  style_preference: "direct"

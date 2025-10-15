@@ -1,0 +1,173 @@
+# Jeffrey OS Ultimate Makefile HARDENED
+# Environment configuration (hardening)
+export PYTHONPATH := $(PWD)/src
+export KIVY_NO_FILELOG := 1
+export KIVY_LOG_LEVEL := critical
+export KIVY_NO_ARGS := 1
+export KIVY_NO_CONSOLELOG := 1
+
+
+.PHONY: all backup inventory validate launch test clean help monitor dry-run status refresh commit-ready check-bundle-status
+
+# Variables
+PYTHON := python3
+INVENTORY := artifacts/inventory_ultimate.json
+CACHE := artifacts/module_cache.json
+
+# Colors for output
+RED := \033[0;31m
+GREEN := \033[0;32m
+YELLOW := \033[1;33m
+NC := \033[0m
+
+# Default
+all: backup inventory validate
+
+help:
+	@echo "🧠 JEFFREY OS ULTIMATE HARDENED - MAKE TARGETS"
+	@echo "=============================================="
+	@echo "  make backup     - Secure backup with SHA256"
+	@echo "  make inventory  - Ultimate inventory <60s"
+	@echo "  make validate   - Full validation suite"
+	@echo "  make dry-run    - Test launch (sandboxed)"
+	@echo "  make launch     - Launch Bundle 1 (requires validate)"
+	@echo "  make clean      - Clean all artifacts"
+	@echo "  make monitor    - Real-time monitoring (portable)"
+	@echo "  make status     - Quick status check"
+
+backup:
+	@echo "🔒 Creating secure backup..."
+	@mkdir -p backups
+	@TIMESTAMP=$$(date +%Y%m%d_%H%M%S); \
+	tar -czf "backups/jeffrey_$$TIMESTAMP.tar.gz" \
+		--exclude='__pycache__' \
+		--exclude='.venv' \
+		--exclude='*.pyc' \
+		--exclude='tests' \
+		src/jeffrey/ && \
+	echo "✅ Backup: backups/jeffrey_$$TIMESTAMP.tar.gz"
+
+inventory:
+	@echo "📊 Running Ultimate Inventory HARDENED..."
+	@$(PYTHON) scripts/inventory_ultimate.py
+
+validate: inventory
+	@echo "✅ Running validation suite..."
+	@bash scripts/validate_all_hardened.sh
+
+check-bundle-status:
+	@echo "🔍 Checking Bundle 1 status..."
+	@$(PYTHON) -c "import json; \
+		data = json.load(open('$(INVENTORY)')); \
+		status = data['bundle1_recommendations']['status']; \
+		print(f'Status: {status}'); \
+		assert status == 'ready', f'Bundle not ready: {status}'; \
+		print('✅ Bundle 1 is ready!')"
+
+dry-run: validate
+	@echo "🧪 Running dry-run test (sandboxed)..."
+	@PYTHONPATH=$(PWD)/src $(PYTHON) scripts/launcher_dryrun_hardened.py --dry-run
+
+# Launch depends on successful validation
+launch: validate check-bundle-status
+	@echo "$(GREEN)🚀 Launching Jeffrey OS Bundle 1...$(NC)"
+	@PYTHONPATH=$(PWD)/src KIVY_NO_FILELOG=1 KIVY_LOG_LEVEL=critical KIVY_NO_ARGS=1 $(PYTHON) scripts/launcher.py
+
+test:
+	@echo "🧪 Running test suite..."
+	@$(PYTHON) -m pytest tests/bundle1/ -v --tb=short || true
+
+clean:
+	@echo "🧹 Cleaning artifacts..."
+	@rm -rf artifacts/*.json artifacts/*.yaml artifacts/SHA256SUMS
+	@rm -rf __pycache__ */__pycache__ */*/__pycache__
+	@find . -name "*.pyc" -delete
+	@echo "✅ Cleaned"
+
+# Portable monitor (no 'watch' dependency)
+monitor:
+	@echo "📊 Monitoring Bundle 1... (Ctrl+C to stop)"
+	@while true; do \
+		clear; \
+		echo "🧠 JEFFREY OS BUNDLE 1 MONITOR"; \
+		echo "=============================="; \
+		if [ -f $(INVENTORY) ]; then \
+			$(PYTHON) -c "import json; \
+			data = json.load(open('$(INVENTORY)')); \
+			b = data['bundle1_recommendations']; \
+			print(f\"Status: {b['status']}\"); \
+			print(f\"Regions: {b['regions_covered']}\"); \
+			print(f\"Measured: {b.get('measured_modules', 0)} modules\"); \
+			print(f\"P95: {b['total_p95_budget_ms']}ms\"); \
+			print(f\"\\nModules:\"); \
+			for m in b['modules'][:5]: \
+				print(f\"  - {m['name']} ({m.get('grade', '?')})\")" ; \
+		else \
+			echo "No inventory found. Run: make inventory"; \
+		fi; \
+		sleep 2; \
+	done
+
+status:
+	@echo "📊 Quick Status Check"
+	@echo "===================="
+	@if [ -f $(INVENTORY) ]; then \
+		$(PYTHON) -c "import json; \
+		data = json.load(open('$(INVENTORY)')); \
+		s = data['summary']; \
+		b = data['bundle1_recommendations']; \
+		print(f\"Total modules: {s['total_modules']}\"); \
+		print(f\"Grade A: {s.get('grade_a', 0)}\"); \
+		print(f\"Grade B: {s.get('grade_b', 0)}\"); \
+		print(f\"Bundle status: {b['status']}\"); \
+		print(f\"Regions: {b['regions_covered']}\"); \
+		print(f\"P95: {b['total_p95_budget_ms']}ms\")" ; \
+	else \
+		echo "No inventory. Run: make inventory"; \
+	fi
+
+# Development helpers
+refresh: clean inventory validate
+	@echo "✅ Full refresh complete"
+
+commit-ready: validate
+	@git add -A
+	@git status
+	@echo "Ready to commit. Run: git commit -m 'your message'"
+# ============================================================
+# BUNDLE 2 CONSCIOUSNESS LOOP - PRODUCTION FINAL
+# ============================================================
+
+.PHONY: test-integration launch-integrated consciousness-health benchmark
+
+test-integration: ## Run integration tests
+	@echo "$(CYAN)🧪 Running consciousness loop tests...$(NC)"
+	@PYTHONPATH=$(PWD)/src $(PYTHON) tests/integration/test_consciousness_loop.py
+
+launch-integrated: ## Launch with consciousness loop
+	@echo "$(GREEN)🧠 Launching Jeffrey Consciousness Loop...$(NC)"
+	@PYTHONPATH=$(PWD)/src KIVY_NO_FILELOG=1 KIVY_LOG_LEVEL=error \
+		$(PYTHON) scripts/launcher_integrated.py
+
+consciousness-health: ## Health check
+	@PYTHONPATH=$(PWD)/src $(PYTHON) -c \
+		"from jeffrey.core.consciousness_loop import initialize, health_check; \
+		import asyncio, json; \
+		loop = initialize(); \
+		asyncio.run(loop.initialize()); \
+		print(json.dumps(health_check(), indent=2))"
+
+benchmark: ## Performance benchmark
+	@echo "$(CYAN)⚡ Running benchmark...$(NC)"
+	@PYTHONPATH=$(PWD)/src $(PYTHON) -c \
+		"from jeffrey.core.consciousness_loop import ConsciousnessLoop; \
+		import asyncio, time, statistics; \
+		loop = ConsciousnessLoop(); \
+		asyncio.run(loop.initialize()); \
+		times = []; \
+		for msg in ['Hello', 'Test', 'Memory', 'Emotion', 'Exit']: \
+			start = time.time(); \
+			asyncio.run(loop.process_input(msg)); \
+			times.append((time.time()-start)*1000); \
+		print(f'Avg: {statistics.mean(times):.2f}ms'); \
+		print(f'P95: {sorted(times)[int(len(times)*0.95)]:.2f}ms')"

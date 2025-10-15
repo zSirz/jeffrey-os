@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.204416'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 138
+  processed_length: 138
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03891
+source: go_emotions
+text: I'm using mine on the Consumer Cellular customers that come in mad at me because
+  they have to set up an Apple Account to use their IPhone.

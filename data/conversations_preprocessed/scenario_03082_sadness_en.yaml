@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.963195'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 120
+  processed_length: 120
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03082
+source: go_emotions
+text: Death treats are for immature people, I'm sorry you received them. Comparing
+  you to flat earthers is not far off though.

@@ -1,0 +1,281 @@
+"""
+Jeffrey OS - sitecustomize.py (Version Ultime Blindée)
+
+PRINCIPES CRITIQUES :
+1. Privilégier TOUJOURS les vrais packages sur disque
+2. JAMAIS mocker jeffrey, jeffrey.bridge, ou jeffrey.*
+3. Traçabilité via flag debug JEFFREY_DEBUG_MOCKS
+4. Idempotence et robustesse absolues
+"""
+
+import importlib
+import os
+import sys
+from types import ModuleType
+
+# Flag debug (activation via export JEFFREY_DEBUG_MOCKS=1)
+DEBUG_MOCKS = os.environ.get("JEFFREY_DEBUG_MOCKS", "0") == "1"
+
+
+def debug_log(msg: str) -> None:
+    """Log conditionnel pour debugging."""
+    if DEBUG_MOCKS:
+        print(f"[sitecustomize] {msg}")
+
+
+def ensure_pkg(pkg: str) -> None:
+    """
+    Crée les parents si nécessaire en privilégiant les VRAIS paquets sur disque.
+
+    RÈGLE CRITIQUE : JAMAIS mocker jeffrey, jeffrey.bridge, ou jeffrey.*
+
+    Args:
+        pkg: Nom du package à assurer (ex: 'jeffrey.bridge')
+    """
+    if pkg in sys.modules:
+        debug_log(f"Package déjà chargé : {pkg}")
+        return
+
+    # BLINDAGE : Interdire explicitement mocks pour jeffrey.*
+    if pkg == "jeffrey" or pkg.startswith("jeffrey."):
+        debug_log(f"Tentative import RÉEL obligatoire : {pkg}")
+        try:
+            mod = importlib.import_module(pkg)
+            sys.modules[pkg] = mod
+            debug_log(f"✅ Package RÉEL chargé : {pkg}")
+            return
+        except Exception as e:
+            debug_log(f"❌ ÉCHEC import réel {pkg} : {e}")
+            # Ne PAS créer de mock pour jeffrey.*
+            raise ImportError(f"Package réel requis mais introuvable : {pkg}")
+
+    # Pour autres packages : tentative import réel d'abord
+    try:
+        mod = importlib.import_module(pkg)
+        sys.modules[pkg] = mod
+        debug_log(f"✅ Package réel chargé : {pkg}")
+        return
+    except Exception:
+        # Seulement si vraiment inexistant : créer mock léger
+        debug_log(f"⚠️ Création mock pour : {pkg}")
+        m = ModuleType(pkg)
+        m.__path__ = []
+        sys.modules[pkg] = m
+
+
+def alias_module(old: str, new: str) -> None:
+    """
+    Alias robuste sans écraser les parents réels s'ils existent.
+
+    Args:
+        old: Chemin d'import attendu (ex: jeffrey.utils.logger)
+        new: Chemin vendorisé réel (ex: vendors.icloud.utils.logger)
+    """
+    debug_log(f"Configuration alias : {old} → {new}")
+
+    try:
+        parts = old.split(".")
+        # Assurer parents existent (vrais ou mocks si besoin)
+        for i in range(len(parts) - 1):
+            ensure_pkg(".".join(parts[: i + 1]))
+
+        # Import module cible
+        target_mod = importlib.import_module(new)
+        sys.modules[old] = target_mod
+
+        debug_log(f"✅ Alias OK : {old}")
+
+    except Exception as e:
+        print(f"[alias] WARN {old} -> {new}: {e}")
+
+
+# ═══════════════════════════════════════════════════════════════════
+# CONFIGURATION ALIASES (VENDORISÉS UNIQUEMENT)
+# ═══════════════════════════════════════════════════════════════════
+
+debug_log("Début configuration aliases...")
+
+# ============================================================================
+# SECTION 1 : BULK ALIAS AUTOMATIQUE core.* -> jeffrey.core.*
+# ============================================================================
+# Crée automatiquement tous les alias core.* → jeffrey.core.*
+# uniquement si le fichier cible existe réellement
+# CORRECTION GPT : BASE au lieu de BASE / "src" pour le chemin relatif
+
+if DEBUG_MOCKS:
+    print("[sitecustomize] Démarrage du bulk alias automatique...")
+
+import importlib
+from pathlib import Path
+
+try:
+    # BASE est le dossier "src" (où se trouve ce fichier)
+    BASE = Path(__file__).resolve().parent
+    JEFFREY_CORE = BASE / "jeffrey" / "core"
+
+    bulk_alias_count = 0
+    bulk_alias_failed = 0
+
+    # DÉSACTIVÉ temporairement pour éviter les crashes
+    # À réactiver après avoir résolu les problèmes de dépendances
+    BULK_ALIAS_ENABLED = False
+
+    if BULK_ALIAS_ENABLED and JEFFREY_CORE.exists():
+        # Scanner tous les fichiers .py dans jeffrey/core/
+        for py_file in JEFFREY_CORE.rglob("*.py"):
+            # Ignorer __init__.py et les backups
+            if py_file.name == "__init__.py":
+                continue
+            if "backup" in str(py_file) or py_file.name.startswith("."):
+                continue
+
+            try:
+                # Calculer le chemin relatif depuis jeffrey/core/
+                rel_path = py_file.relative_to(JEFFREY_CORE).with_suffix("")
+
+                # Construire les noms de modules
+                target_module = "jeffrey.core." + ".".join(rel_path.parts)
+                source_module = "core." + ".".join(rel_path.parts)
+
+                # Test prudent sans charger le module
+                try:
+                    spec = importlib.util.find_spec(target_module)
+                    if spec is not None and spec.origin and Path(spec.origin).exists():
+                        # Alias direct sans importation pour éviter les dépendances cassées
+                        parts = source_module.split(".")
+                        for i in range(len(parts) - 1):
+                            ensure_pkg(".".join(parts[: i + 1]))
+
+                        # Créer l'alias avec import différé
+                        # NOTE: On utilise une version simplifiée d'alias_module
+                        try:
+                            # Import du module cible seulement si on peut
+                            target_mod = importlib.import_module(target_module)
+                            sys.modules[source_module] = target_mod
+                            if DEBUG_MOCKS:
+                                print(f"[bulk] ✅ {source_module} → {target_module}")
+                            bulk_alias_count += 1
+                        except Exception as alias_err:
+                            if DEBUG_MOCKS:
+                                print(f"[bulk] SKIP {source_module}: import failed - {alias_err}")
+                            bulk_alias_failed += 1
+                    else:
+                        bulk_alias_failed += 1
+                        if DEBUG_MOCKS:
+                            print(f"[bulk] SKIP {source_module}: spec not found or file missing")
+                except Exception as import_err:
+                    bulk_alias_failed += 1
+                    if DEBUG_MOCKS:
+                        print(f"[bulk] SKIP {source_module}: {import_err}")
+
+            except Exception as e:
+                if DEBUG_MOCKS:
+                    print(f"[bulk] ERROR processing {py_file}: {e}")
+
+    if DEBUG_MOCKS:
+        print(f"[bulk] ✅ {bulk_alias_count} alias créés automatiquement")
+        print(f"[bulk] ⚠️  {bulk_alias_failed} modules non importables ignorés")
+
+except Exception as e:
+    if DEBUG_MOCKS:
+        print(f"[bulk] ERREUR: {e}")
+
+# ⚠️ NE JAMAIS aliaser 'jeffrey' ni 'jeffrey.bridge'
+# (ils existent réellement sur disque)
+
+# Emotion system
+alias_module(
+    "jeffrey.core.emotions.core.emotion_prompt_detector",
+    "vendors.icloud.emotions.emotion_prompt_detector",
+)
+alias_module("jeffrey.core.emotions.core.emotion_ml_enhancer", "vendors.icloud.emotion_ml_enhancer")
+
+# Memory system (double alias pour compatibilité)
+alias_module("jeffrey.core.memory.unified_memory", "vendors.icloud.memory.unified_memory")
+alias_module("jeffrey.core.orchestration.unified_memory", "vendors.icloud.memory.unified_memory")
+
+# Top 3 modules vendorisés
+alias_module("jeffrey.utils.logger", "vendors.icloud.utils.logger")
+alias_module("jeffrey.core.neural_envelope", "vendors.icloud.core.neural_envelope")
+alias_module("jeffrey.core.cognitive.base_module", "vendors.icloud.core.cognitive.base_module")
+
+# Core mini (compatibilité)
+alias_module("core.mini_emotional_core", "vendors.icloud.core.mini_emotional_core")
+
+# Jeffrey Emotional Core (missing alias)
+alias_module("jeffrey.core.jeffrey_emotional_core", "vendors.icloud.jeffrey_emotional_core")
+
+# === Alias racine (CRITIQUE) pour anciens chemins "core.*" ===
+# Sécurisé : ne pas écraser un vrai package "core" externe s'il existe
+try:
+    import importlib.util
+    spec = importlib.util.find_spec("core")
+    if spec is None:
+        alias_module("core", "jeffrey.core")
+except Exception:
+    alias_module("core", "jeffrey.core")
+
+# Chemin hérité bizarre souvent vu : core.emotions.core.*
+alias_module("core.emotions.core", "jeffrey.core.emotions")
+
+# Héritage direct du module vendorisé (variantes)
+alias_module("core.jeffrey_emotional_core", "vendors.icloud.jeffrey_emotional_core")
+alias_module("jeffrey.core.jeffrey_emotional_core", "vendors.icloud.jeffrey_emotional_core")
+
+# === PLAN A : Mapping anciens chemins → nouveaux (zéro-invention) ===
+
+# 1. Dépendance émotionnelle
+alias_module("core.emotional_memory", "jeffrey.core.memory.advanced.emotional_memory")
+
+# 2. Adapter renommé
+alias_module("jeffrey.core.personality.style_affectif_adapter", "jeffrey.core.personality.conversation_personality")
+
+# 3. Détecteur d'émotions vendorisé
+alias_module("jeffrey.core.emotions.emotion_prompt_detector", "vendors.icloud.emotions.emotion_prompt_detector")
+
+# 4. Secrets manager relocalisé
+alias_module("jeffrey.modules.config.secrets_manager", "jeffrey.infrastructure.security.secrets_manager")
+
+# ============================================================================
+# SECTION 5 : TOP 5 FAIL - ALIAS CIBLÉS (VÉRIFIÉS MANUELLEMENT)
+# ============================================================================
+# ⚠️ ATTENTION : Vérifie que chaque cible existe AVANT d'activer l'alias
+# Commande pour vérifier : find src/jeffrey -iname "*<module>*.py"
+
+# 1. AGI Orchestrator - TROUVÉ : src/jeffrey/core/orchestration/agi_orchestrator.py
+alias_module("core.agi_fusion.agi_orchestrator",
+             "jeffrey.core.orchestration.agi_orchestrator")
+
+# 2. API Security - PAS TROUVÉ, garder commenté
+# alias_module("core.api_security",
+#              "jeffrey.infrastructure.security.api_security")
+
+# 3. Config - TROUVÉ : src/jeffrey/core/neuralbus/config.py (et shared/config)
+alias_module("core.config",
+             "jeffrey.core.neuralbus.config")
+
+# 4. Consciousness V3 - TROUVÉ : src/jeffrey/core/consciousness/jeffrey_consciousness_v3.py
+alias_module("core.consciousness.jeffrey_consciousness_v3",
+             "jeffrey.core.consciousness.jeffrey_consciousness_v3")
+
+# 5. Conversation Memory - PAS DE MEMORY, mais conversation_personality trouvé
+# alias_module("core.conversation.conversation_memory",
+#              "jeffrey.core.memory.conversation_memory")
+
+# ============================================================================
+# SECTION 6 : ALIAS SUPPLÉMENTAIRES POUR MODULES FRÉQUENTS
+# ============================================================================
+
+# Modules conversation (core.conversation.* vers directory réel)
+alias_module("core.conversation",
+             "jeffrey.core.personality")
+
+# Modules emotional_memory disponibles
+alias_module("core.emotional_memory",
+             "jeffrey.core.memory.advanced.emotional_memory")
+
+# NOTE : Décommente les alias ci-dessus APRÈS avoir vérifié les chemins avec find
+
+debug_log("Configuration aliases terminée")
+if DEBUG_MOCKS:
+    print("✅ Jeffrey OS aliasing (vrais packages prioritaires, debug actif)")

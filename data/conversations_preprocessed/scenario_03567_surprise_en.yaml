@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.120136'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 87
+  processed_length: 98
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03567
+source: go_emotions
+text: 'Oh nice I was wondering if you could mix flavours. I''ll still stick to mint
+  though :man_shrugging:'

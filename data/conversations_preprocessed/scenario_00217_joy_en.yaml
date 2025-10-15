@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.238458'
+emotion: joy
+language: en
+original_goemotions_label: admiration
+preprocessing:
+  emoji_demojized: true
+  original_length: 82
+  processed_length: 82
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00217
+source: go_emotions
+text: I think it's kind of cute. Someone give her a megaphone, she's a gift for the
+  GOP.

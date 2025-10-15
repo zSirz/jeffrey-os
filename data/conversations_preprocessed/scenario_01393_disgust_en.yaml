@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.510873'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 86
+  processed_length: 86
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01393
+source: go_emotions
+text: Sex is gross and gross things are immoral to conservatives unless they are doing
+  them.

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.167833'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 75
+  processed_length: 75
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03776
+source: go_emotions
+text: Tkachuk - Pageau - Stone is going to be our second line. Absolutely filthy.

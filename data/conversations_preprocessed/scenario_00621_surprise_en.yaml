@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.332489'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 129
+  processed_length: 129
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00621
+source: go_emotions
+text: Checked my EBT balance yesterday. "You will not be receiving benefits for February.".
+  I wonder when the riots are going to start.

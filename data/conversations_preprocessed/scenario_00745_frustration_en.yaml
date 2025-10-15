@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.361591'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 84
+  processed_length: 84
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00745
+source: go_emotions
+text: I'll think about prime, just heard a lot of negative about them that spooks
+  me some.

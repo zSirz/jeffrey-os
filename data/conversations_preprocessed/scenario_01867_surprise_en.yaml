@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.620884'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 97
+  processed_length: 97
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01867
+source: go_emotions
+text: There are so many posts from [NAME] on here it makes me wonder what people think
+  wholesome means.

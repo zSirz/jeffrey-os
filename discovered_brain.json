@@ -1,0 +1,1530 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "generated_at": "2025-09-22T14:56:22.732163",
+    "discovery_mode": "dry_run"
+  },
+  "summary": {
+    "total_discovered": 83,
+    "plugin_count": 0,
+    "legacy_count": 83,
+    "scan_stats": {
+      "total": 83,
+      "plugin": 0,
+      "legacy": 83,
+      "skipped": 72,
+      "by_category": {
+        "core": 76,
+        "emotions": 1,
+        "memory": 2,
+        "perception": 1,
+        "cognition": 1,
+        "tissues": 2
+      }
+    }
+  },
+  "graph_metrics": {
+    "node_count": 83,
+    "edge_count": 0,
+    "avg_fitness": 0.5,
+    "total_connections": 0,
+    "pruned_count": 0,
+    "avg_strength": 0.5
+  },
+  "modules": {
+    "cognition.global_workspace": {
+      "display_name": "global_workspace",
+      "type": "legacy",
+      "path": "src/jeffrey/cognition/global_workspace.py",
+      "category": "cognition",
+      "complexity": 5,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.conscience_engine": {
+      "display_name": "conscience_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/conscience_engine.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.cortex_monitor": {
+      "display_name": "cortex_monitor",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/cortex_monitor.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_chat_integration": {
+      "display_name": "jeffrey_chat_integration",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_chat_integration.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_consciousness_v3": {
+      "display_name": "jeffrey_consciousness_v3",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_consciousness_v3.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_dream_system": {
+      "display_name": "jeffrey_dream_system",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_dream_system.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_living_consciousness": {
+      "display_name": "jeffrey_living_consciousness",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_living_consciousness.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_living_expressions": {
+      "display_name": "jeffrey_living_expressions",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_living_expressions.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_living_memory": {
+      "display_name": "jeffrey_living_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_living_memory.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_secret_diary": {
+      "display_name": "jeffrey_secret_diary",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_secret_diary.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.jeffrey_work_interface": {
+      "display_name": "jeffrey_work_interface",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/jeffrey_work_interface.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.consciousness.self_awareness_tracker": {
+      "display_name": "self_awareness_tracker",
+      "type": "legacy",
+      "path": "src/jeffrey/core/consciousness/self_awareness_tracker.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.bonds.lien_affectif": {
+      "display_name": "lien_affectif",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/bonds/lien_affectif.py",
+      "category": "core",
+      "complexity": 14,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.emotion_engine": {
+      "display_name": "emotion_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/emotion_engine.py",
+      "category": "core",
+      "complexity": 10,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.emotion_ml_enhancer": {
+      "display_name": "emotion_ml_enhancer",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.emotion_prompt_detector": {
+      "display_name": "emotion_prompt_detector",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/emotion_prompt_detector.py",
+      "category": "core",
+      "complexity": 11,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.emotional_consciousness": {
+      "display_name": "emotional_consciousness",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/emotional_consciousness.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.humeur_detector": {
+      "display_name": "humeur_detector",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/humeur_detector.py",
+      "category": "core",
+      "complexity": 11,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.jeffrey_curiosity_engine": {
+      "display_name": "jeffrey_curiosity_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/jeffrey_curiosity_engine.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.jeffrey_emotional_core": {
+      "display_name": "jeffrey_emotional_core",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/jeffrey_emotional_core.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.jeffrey_intimate_mode": {
+      "display_name": "jeffrey_intimate_mode",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/jeffrey_intimate_mode.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.core.mood_tracker": {
+      "display_name": "mood_tracker",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/core/mood_tracker.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.empathy.empathy_engine": {
+      "display_name": "empathy_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/empathy/empathy_engine.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.memory.emotional_memory": {
+      "display_name": "emotional_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/memory/emotional_memory.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.memory.souvenirs_affectifs": {
+      "display_name": "souvenirs_affectifs",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/memory/souvenirs_affectifs.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.profiles.adaptive_personality_engine": {
+      "display_name": "adaptive_personality_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/profiles/adaptive_personality_engine.py",
+      "category": "core",
+      "complexity": 6,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.profiles.emotional_profile_manager": {
+      "display_name": "emotional_profile_manager",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/profiles/emotional_profile_manager.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.seasons.emotional_seasons": {
+      "display_name": "emotional_seasons",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/seasons/emotional_seasons.py",
+      "category": "core",
+      "complexity": 5,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.surprises.surprises_emotionnelles": {
+      "display_name": "surprises_emotionnelles",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/surprises/surprises_emotionnelles.py",
+      "category": "core",
+      "complexity": 3,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.transitions.contextual_emotion_bridge": {
+      "display_name": "contextual_emotion_bridge",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/transitions/contextual_emotion_bridge.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.transitions.emotional_bridge": {
+      "display_name": "emotional_bridge",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/transitions/emotional_bridge.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.visuals.emotion_aura_manager": {
+      "display_name": "emotion_aura_manager",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/visuals/emotion_aura_manager.py",
+      "category": "core",
+      "complexity": 1,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.visuals.jeffrey_emotional_display": {
+      "display_name": "jeffrey_emotional_display",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/visuals/jeffrey_emotional_display.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.visuals.jeffrey_visual_emotions": {
+      "display_name": "jeffrey_visual_emotions",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/visuals/jeffrey_visual_emotions.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.visuals.private_sanctuary_ui": {
+      "display_name": "private_sanctuary_ui",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/visuals/private_sanctuary_ui.py",
+      "category": "core",
+      "complexity": 1,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.emotions.visuals.symbolic_scene_engine": {
+      "display_name": "symbolic_scene_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/emotions/visuals/symbolic_scene_engine.py",
+      "category": "core",
+      "complexity": 1,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.errors": {
+      "display_name": "errors",
+      "type": "legacy",
+      "path": "src/jeffrey/core/errors.py",
+      "category": "core",
+      "complexity": 1,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.adaptive_integrator": {
+      "display_name": "adaptive_integrator",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/adaptive_integrator.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.auto_learner": {
+      "display_name": "auto_learner",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/auto_learner.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.cognitive_cycle_engine": {
+      "display_name": "cognitive_cycle_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/cognitive_cycle_engine.py",
+      "category": "core",
+      "complexity": 17,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.contextual_learning_engine": {
+      "display_name": "contextual_learning_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/contextual_learning_engine.py",
+      "category": "core",
+      "complexity": 8,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.jeffrey_deep_learning": {
+      "display_name": "jeffrey_deep_learning",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/jeffrey_deep_learning.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.jeffrey_meta_learning_integration": {
+      "display_name": "jeffrey_meta_learning_integration",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/jeffrey_meta_learning_integration.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.theory_of_mind": {
+      "display_name": "theory_of_mind",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/theory_of_mind.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.learning.unified_curiosity_engine": {
+      "display_name": "unified_curiosity_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/learning/unified_curiosity_engine.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.advanced.contextual_memory_manager": {
+      "display_name": "contextual_memory_manager",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/advanced/contextual_memory_manager.py",
+      "category": "core",
+      "complexity": 14,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.advanced.emotional_memory": {
+      "display_name": "emotional_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/advanced/emotional_memory.py",
+      "category": "core",
+      "complexity": 2,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.advanced.memory_manager": {
+      "display_name": "memory_manager",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/advanced/memory_manager.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.advanced.voice_memory_manager": {
+      "display_name": "voice_memory_manager",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/advanced/voice_memory_manager.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.cortex.cortex_memoriel": {
+      "display_name": "cortex_memoriel",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/cortex/cortex_memoriel.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.cortex.memoire_cerveau": {
+      "display_name": "memoire_cerveau",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/cortex/memoire_cerveau.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.cortex.memory_bridge": {
+      "display_name": "memory_bridge",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/cortex/memory_bridge.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.jeffrey_human_memory": {
+      "display_name": "jeffrey_human_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/jeffrey_human_memory.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.living.living_memory": {
+      "display_name": "living_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/living/living_memory.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.memory_health_check": {
+      "display_name": "memory_health_check",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/memory_health_check.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.memory_manager": {
+      "display_name": "memory_manager",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/memory_manager.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.memory_rituals": {
+      "display_name": "memory_rituals",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/memory_rituals.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.sensory.jeffrey_sensory_memory": {
+      "display_name": "jeffrey_sensory_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/sensory/jeffrey_sensory_memory.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.sensory.sensorial_memory": {
+      "display_name": "sensorial_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/sensory/sensorial_memory.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.sync.jeffrey_memory_sync": {
+      "display_name": "jeffrey_memory_sync",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/sync/jeffrey_memory_sync.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.memory.working.working_memory": {
+      "display_name": "working_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/core/memory/working/working_memory.py",
+      "category": "core",
+      "complexity": 10,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.neural_bus": {
+      "display_name": "neural_bus",
+      "type": "legacy",
+      "path": "src/jeffrey/core/neural_bus.py",
+      "category": "core",
+      "complexity": 17,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.neural_envelope": {
+      "display_name": "neural_envelope",
+      "type": "legacy",
+      "path": "src/jeffrey/core/neural_envelope.py",
+      "category": "core",
+      "complexity": 1,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.enhanced_orchestrator": {
+      "display_name": "enhanced_orchestrator",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/enhanced_orchestrator.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.ia_orchestrator_ultimate": {
+      "display_name": "ia_orchestrator_ultimate",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.jeffrey_continuel": {
+      "display_name": "jeffrey_continuel",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/jeffrey_continuel.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.jeffrey_optimizer": {
+      "display_name": "jeffrey_optimizer",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/jeffrey_optimizer.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.jeffrey_orchestrator": {
+      "display_name": "jeffrey_orchestrator",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.jeffrey_system_health": {
+      "display_name": "jeffrey_system_health",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/jeffrey_system_health.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.linguistic_orchestrator": {
+      "display_name": "linguistic_orchestrator",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/linguistic_orchestrator.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.orchestration.multi_model_orchestrator": {
+      "display_name": "multi_model_orchestrator",
+      "type": "legacy",
+      "path": "src/jeffrey/core/orchestration/multi_model_orchestrator.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.personality.adaptive_personality_engine": {
+      "display_name": "adaptive_personality_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/personality/adaptive_personality_engine.py",
+      "category": "core",
+      "complexity": 6,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.personality.conversation_personality": {
+      "display_name": "conversation_personality",
+      "type": "legacy",
+      "path": "src/jeffrey/core/personality/conversation_personality.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.personality.personality_engine": {
+      "display_name": "personality_engine",
+      "type": "legacy",
+      "path": "src/jeffrey/core/personality/personality_engine.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.personality.personality_profile": {
+      "display_name": "personality_profile",
+      "type": "legacy",
+      "path": "src/jeffrey/core/personality/personality_profile.py",
+      "category": "core",
+      "complexity": 20,
+      "security_passed": false,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.sandbox_manager_enhanced": {
+      "display_name": "sandbox_manager_enhanced",
+      "type": "legacy",
+      "path": "src/jeffrey/core/sandbox_manager_enhanced.py",
+      "category": "core",
+      "complexity": 18,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "core.service_registry": {
+      "display_name": "service_registry",
+      "type": "legacy",
+      "path": "src/jeffrey/core/service_registry.py",
+      "category": "core",
+      "complexity": 4,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "emotions.limbic_glue": {
+      "display_name": "limbic_glue",
+      "type": "legacy",
+      "path": "src/jeffrey/emotions/limbic_glue.py",
+      "category": "emotions",
+      "complexity": 10,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "memory.memory_glue": {
+      "display_name": "memory_glue",
+      "type": "legacy",
+      "path": "src/jeffrey/memory/memory_glue.py",
+      "category": "memory",
+      "complexity": 5,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "memory.working_memory": {
+      "display_name": "working_memory",
+      "type": "legacy",
+      "path": "src/jeffrey/memory/working_memory.py",
+      "category": "memory",
+      "complexity": 8,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "perception.thalamic_gateway": {
+      "display_name": "thalamic_gateway",
+      "type": "legacy",
+      "path": "src/jeffrey/perception/thalamic_gateway.py",
+      "category": "perception",
+      "complexity": 10,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "tissues.console_motor": {
+      "display_name": "console_motor",
+      "type": "legacy",
+      "path": "src/jeffrey/tissues/console_motor.py",
+      "category": "tissues",
+      "complexity": 5,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    },
+    "tissues.orchestrator_glue": {
+      "display_name": "orchestrator_glue",
+      "type": "legacy",
+      "path": "src/jeffrey/tissues/orchestrator_glue.py",
+      "category": "tissues",
+      "complexity": 9,
+      "security_passed": true,
+      "connection": {
+        "status": "boot",
+        "method": "direct_boot"
+      },
+      "contract": {
+        "topics_in": [],
+        "topics_out": [],
+        "handler": "process",
+        "dependencies": []
+      }
+    }
+  }
+}

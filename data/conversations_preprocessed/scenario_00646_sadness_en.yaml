@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.338344'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 144
+  processed_length: 144
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00646
+source: go_emotions
+text: I feel a tad lost without it now that my drive for football has vanished and
+  basketball and hockey simmer one. The show's every night after all.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.356331'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 93
+  processed_length: 93
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00723
+source: go_emotions
+text: Saw a guy a few months ago in Paris wearing a PSG shirt with [NAME] name on
+  the back. Legend.

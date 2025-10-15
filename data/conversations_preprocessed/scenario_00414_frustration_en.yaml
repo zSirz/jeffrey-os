@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.284380'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 76
+  processed_length: 76
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00414
+source: go_emotions
+text: Omg this made me hurt! You better of gotten a damn good back rub after that.

@@ -1,0 +1,29 @@
+import sys, importlib
+from types import ModuleType
+
+def ensure_pkg(n):
+    if n not in sys.modules:
+        for i in range(len(n.split('.'))):
+            p = '.'.join(n.split('.')[:i+1])
+            if p not in sys.modules:
+                m = ModuleType(f'mock_{p}')
+                m.__path__ = []
+                sys.modules[p] = m
+
+def alias_module(o, n):
+    try:
+        for i in range(len(o.split('.')) - 1): ensure_pkg('.'.join(o.split('.')[:i+1]))
+        sys.modules[o] = importlib.import_module(n)
+    except Exception as e: print(f"[alias] WARN {o}: {e}")
+
+alias_module('core', 'vendors.icloud.core')
+alias_module('core.mini_emotional_core', 'vendors.icloud.core.mini_emotional_core')
+alias_module('jeffrey.core.emotions.core.emotion_prompt_detector', 'vendors.icloud.emotions.emotion_prompt_detector')
+alias_module('jeffrey.core.emotions.core.emotion_ml_enhancer', 'vendors.icloud.emotion_ml_enhancer')
+alias_module('jeffrey.core.memory.unified_memory', 'vendors.icloud.memory.unified_memory')
+alias_module('jeffrey.core.orchestration.unified_memory', 'vendors.icloud.memory.unified_memory')
+print("✅ Jeffrey OS aliasing (6 alias)")
+
+alias_module('jeffrey.utils.logger', 'vendors.icloud.utils.logger')
+alias_module('jeffrey.core.neural_envelope', 'vendors.icloud.core.neural_envelope')
+alias_module('jeffrey.core.cognitive.base_module', 'vendors.icloud.core.cognitive.base_module')

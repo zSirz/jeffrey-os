@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-10-04T10:17:39.876435",
+  "summary": {
+    "ok": 10,
+    "warn": 0,
+    "err": 0
+  },
+  "performance": {
+    "total_import_ms": 2858.003854751587,
+    "total_health_ms": 0.1442432403564453,
+    "total_boot_ms": 2858.1480979919434
+  },
+  "modules": [
+    {
+      "module": "kernel_adapter",
+      "status": "ok",
+      "times": {
+        "import": 30.33590316772461,
+        "health": 0.015735626220703125
+      }
+    },
+    {
+      "module": "input_parser",
+      "status": "ok",
+      "times": {
+        "import": 0.5340576171875,
+        "health": 0.016689300537109375
+      }
+    },
+    {
+      "module": "unified_memory",
+      "status": "ok",
+      "times": {
+        "import": 16.192913055419922,
+        "health": 0.015020370483398438
+      }
+    },
+    {
+      "module": "guardian_integration",
+      "status": "ok",
+      "times": {
+        "import": 4.490852355957031,
+        "health": 0.016927719116210938
+      }
+    },
+    {
+      "module": "ia_orchestrator_ultimate",
+      "status": "ok",
+      "times": {
+        "import": 2245.6891536712646,
+        "health": 0.007867813110351562
+      }
+    },
+    {
+      "module": "adaptive_rotator",
+      "status": "ok",
+      "times": {
+        "import": 140.72799682617188,
+        "health": 0.016927719116210938
+      }
+    },
+    {
+      "module": "mtls_bridge",
+      "status": "ok",
+      "times": {
+        "import": 0.3769397735595703,
+        "health": 0.0171661376953125
+      }
+    },
+    {
+      "module": "loop_manager",
+      "status": "ok",
+      "times": {
+        "import": 270.0169086456299,
+        "health": 0.016927719116210938
+      }
+    },
+    {
+      "module": "provider_manager",
+      "status": "ok",
+      "times": {
+        "import": 132.66706466674805,
+        "health": 0.015974044799804688
+      }
+    },
+    {
+      "module": "jeffrey_ui_bridge",
+      "status": "ok",
+      "times": {
+        "import": 16.972064971923828,
+        "health": 0.0050067901611328125
+      }
+    }
+  ]
+}

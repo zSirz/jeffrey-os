@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.257743'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 98
+  processed_length: 98
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00299
+source: go_emotions
+text: In this day and age I’m actually surprised at how many hotels haven’t sorted
+  plugs by the beds yet

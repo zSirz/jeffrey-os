@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.363745'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 78
+  processed_length: 78
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00754
+source: go_emotions
+text: Oh man, sorry to hear you’re feeling so alone. I’m feeling the same right now.

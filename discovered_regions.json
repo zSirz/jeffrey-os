@@ -1,0 +1,8 @@
+{
+  "perception": "src/jeffrey/core/input/input_parser.py",
+  "memory": "src/jeffrey/core/memory/working_memory.py",
+  "language": "src/jeffrey/core/llm/autonomous_language_system.py",
+  "executive": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+  "motor": "src/jeffrey/core/generation/response_generator.py",
+  "integration": "src/jeffrey/core/orchestration/emotion_engine_bridge.py"
+}

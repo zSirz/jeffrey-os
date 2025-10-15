@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.114293'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 76
+  processed_length: 76
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03542
+source: go_emotions
+text: Damn you, [NAME]. I’m a woman and yours are bigger than mine. It’s not fair!

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.313325'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 106
+  processed_length: 107
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00538
+source: go_emotions
+text: Yeah I'm actually pretty surprised that's not a thing yet, there's got to be
+  a lot of people working on it.

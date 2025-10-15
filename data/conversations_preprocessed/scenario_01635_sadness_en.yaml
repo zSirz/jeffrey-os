@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.566870'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 136
+  processed_length: 136
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01635
+source: go_emotions
+text: sadly it would take wayyyyyy more than this to ever change custody agreements.
+  documenting it for her own sanity is a good idea, though.

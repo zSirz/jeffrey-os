@@ -1,0 +1,179 @@
+{
+  "total_tests": 24,
+  "passed": 23,
+  "failed": 1,
+  "warnings": 0,
+  "start_time": "2025-10-09T20:11:44.924188",
+  "tests": [
+    {
+      "name": "Initialisation AGI Orchestrator",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Orchestrator créé",
+      "timestamp": "2025-10-09T20:11:44.925990"
+    },
+    {
+      "name": "Module d'apprentissage",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Learning module chargé",
+      "timestamp": "2025-10-09T20:11:44.926032"
+    },
+    {
+      "name": "Memory V2.0",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Memory V2.0 activée",
+      "timestamp": "2025-10-09T20:11:44.926038"
+    },
+    {
+      "name": "Systèmes AGI",
+      "status": "✅",
+      "success": true,
+      "details": "✅ 15 systèmes AGI actifs",
+      "timestamp": "2025-10-09T20:11:44.926040"
+    },
+    {
+      "name": "Détection: Emojis de joie",
+      "status": "✅",
+      "success": true,
+      "details": "Détecté: neutre (50%)",
+      "timestamp": "2025-10-09T20:11:44.927062"
+    },
+    {
+      "name": "Détection: Emojis de tristesse",
+      "status": "✅",
+      "success": true,
+      "details": "Détecté: neutre (50%)",
+      "timestamp": "2025-10-09T20:11:45.429748"
+    },
+    {
+      "name": "Détection: Mots-clés de peur",
+      "status": "✅",
+      "success": true,
+      "details": "Détecté: neutre (50%)",
+      "timestamp": "2025-10-09T20:11:45.932090"
+    },
+    {
+      "name": "Détection: Question + emoji",
+      "status": "✅",
+      "success": true,
+      "details": "Détecté: neutre (50%)",
+      "timestamp": "2025-10-09T20:11:46.435097"
+    },
+    {
+      "name": "Détection: Mots d'amour + emojis",
+      "status": "✅",
+      "success": true,
+      "details": "Détecté: neutre (50%)",
+      "timestamp": "2025-10-09T20:11:46.938960"
+    },
+    {
+      "name": "Détection: Question sans emoji",
+      "status": "✅",
+      "success": true,
+      "details": "Détecté: neutre (50%)",
+      "timestamp": "2025-10-09T20:11:47.442906"
+    },
+    {
+      "name": "Détection: Ponctuation seule",
+      "status": "✅",
+      "success": true,
+      "details": "Détecté: neutre (50%)",
+      "timestamp": "2025-10-09T20:11:47.944909"
+    },
+    {
+      "name": "Apprentissage: Patterns créés",
+      "status": "✅",
+      "success": true,
+      "details": "Patterns: 0 → 0",
+      "timestamp": "2025-10-09T20:11:51.474497"
+    },
+    {
+      "name": "Apprentissage: Interactions enregistrées",
+      "status": "❌",
+      "success": false,
+      "details": "Interactions: 0 → 0",
+      "timestamp": "2025-10-09T20:11:51.474530"
+    },
+    {
+      "name": "Apprentissage: Qualité mesurable",
+      "status": "✅",
+      "success": true,
+      "details": "Qualité: 0.0%",
+      "timestamp": "2025-10-09T20:11:51.474536"
+    },
+    {
+      "name": "Mémoire: Quel est mon prénom ?",
+      "status": "✅",
+      "success": true,
+      "details": "Contexte présent",
+      "timestamp": "2025-10-09T20:11:52.991284"
+    },
+    {
+      "name": "Mémoire: Qu'est-ce que j'aime ?",
+      "status": "✅",
+      "success": true,
+      "details": "Contexte présent",
+      "timestamp": "2025-10-09T20:11:53.495669"
+    },
+    {
+      "name": "Mémoire: Sur quoi je travaille ?",
+      "status": "✅",
+      "success": true,
+      "details": "Contexte présent",
+      "timestamp": "2025-10-09T20:11:53.999973"
+    },
+    {
+      "name": "Prédictions: Séquence complète",
+      "status": "✅",
+      "success": true,
+      "details": "Trajectoire émotionnelle testée",
+      "timestamp": "2025-10-09T20:11:56.018461"
+    },
+    {
+      "name": "AGI: circadian_rhythm",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T20:11:56.019515"
+    },
+    {
+      "name": "AGI: creative_memory",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T20:11:56.019672"
+    },
+    {
+      "name": "AGI: dream_engine",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T20:11:56.019683"
+    },
+    {
+      "name": "AGI: emotional_journal",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T20:11:56.019686"
+    },
+    {
+      "name": "Performance: Temps de réponse",
+      "status": "✅",
+      "success": true,
+      "details": "0.002s (seuil: < 5s)",
+      "timestamp": "2025-10-09T20:11:56.032806"
+    },
+    {
+      "name": "Performance: Requêtes traitées",
+      "status": "✅",
+      "success": true,
+      "details": "26 requêtes",
+      "timestamp": "2025-10-09T20:11:56.032859"
+    }
+  ],
+  "end_time": "2025-10-09T20:11:56.033665",
+  "duration": "0:00:11.109477"
+}

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.973093'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 60
+  processed_length: 60
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03125
+source: go_emotions
+text: '>i don''t feel so good (mister [NAME]). r/unexpectedspiderman'

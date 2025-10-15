@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.264882'
+emotion: joy
+language: en
+original_goemotions_label: caring
+preprocessing:
+  emoji_demojized: true
+  original_length: 72
+  processed_length: 72
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_04000
+source: go_emotions
+text: You choose a bad time, no one is fessing up anything during an election.

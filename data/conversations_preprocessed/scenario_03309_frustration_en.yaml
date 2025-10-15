@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.059864'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 74
+  processed_length: 74
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03309
+source: go_emotions
+text: I want to make friends too :( but I feel like I have nothing good to offer

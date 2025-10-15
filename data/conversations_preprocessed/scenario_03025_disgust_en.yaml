@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.950147'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 111
+  processed_length: 111
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03025
+source: go_emotions
+text: I just housed a transgender person for a few months after she came out to her
+  parrents. So people are so cruel.

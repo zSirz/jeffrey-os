@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.451175'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 120
+  processed_length: 120
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01133
+source: go_emotions
+text: '[NAME] absolutely embarassed Milksmith in the game we''ve lost against the
+  Griz. It never would''ve happened if we had AD.'

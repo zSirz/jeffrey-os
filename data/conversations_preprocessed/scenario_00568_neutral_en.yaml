@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.320264'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 125
+  processed_length: 125
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00568
+source: go_emotions
+text: Not to mention there was a HUGE EXPLOSION only moments ago. The whole area could've
+  been rigged with bombs for all they knew.

@@ -1,0 +1,31 @@
+metadata:
+  scenario_id: "emotion_sadness_01"
+  title: "Perte d'un Proche"
+  expected_emotion: "sadness"
+  difficulty: "hard"
+  tags: ["sadness", "loss", "grief", "sensitive"]
+
+conversation:
+  - role: "user"
+    content: "Ma grand-mère est décédée hier soir... J'ai du mal à y croire."
+    expected_emotion: "sadness"
+    expected_intensity: 0.95
+
+  - role: "assistant"
+    content: "Je suis sincèrement désolé pour ta perte. C'est un moment très difficile. Veux-tu en parler ?"
+    emotional_tone: "compassionate"
+
+  - role: "user"
+    content: "Elle était tout pour moi... On était très proches. Je regrette de ne pas avoir passé plus de temps avec elle ces derniers mois."
+    expected_emotion: "sadness"
+    expected_intensity: 0.9
+
+  - role: "assistant"
+    content: "La culpabilité est normale dans ces moments, mais souviens-toi des beaux moments que vous avez partagés. Votre lien était précieux."
+    emotional_tone: "supportive"
+
+validation:
+  should_detect: ["sadness", "grief", "regret", "loss"]
+  should_remember: "user lost grandmother, was very close, feeling guilt"
+  continuity_check: true
+  emotional_support_needed: true

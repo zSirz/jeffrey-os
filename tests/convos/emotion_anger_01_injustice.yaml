@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_anger_01"
+  title: "Injustice au Travail"
+  expected_emotion: "anger"
+  difficulty: "medium"
+  tags: ["anger", "injustice", "work"]
+
+conversation:
+  - role: "user"
+    content: "C'est inadmissible ! Mon collègue s'est approprié mon projet et mon boss ne dit rien !"
+    expected_emotion: "anger"
+    expected_intensity: 0.85
+
+  - role: "assistant"
+    content: "Je comprends ta colère, c'est une situation vraiment injuste. Qu'est-ce qui s'est passé exactement ?"
+    emotional_tone: "validating"
+
+  - role: "user"
+    content: "J'ai bossé dessus 3 mois ! Et lui se pointe en réunion et présente ça comme son idée. Mon boss a même pas vérifié !"
+    expected_emotion: "anger"
+    expected_intensity: 0.9
+
+validation:
+  should_detect: ["anger", "injustice", "frustration", "betrayal"]
+  should_remember: "colleague took credit for user's 3-month project, boss didn't verify"
+  continuity_check: true

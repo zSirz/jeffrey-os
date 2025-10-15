@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.103367'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 123
+  processed_length: 123
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03495
+source: go_emotions
+text: '>more money than you I seriously, *seriously* doubt that. >doing something
+  before this guys are outta the country Prove it.'

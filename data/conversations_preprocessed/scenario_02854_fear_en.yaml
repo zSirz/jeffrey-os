@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.910576'
+emotion: fear
+language: en
+original_goemotions_label: nervousness
+preprocessing:
+  emoji_demojized: true
+  original_length: 103
+  processed_length: 103
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02854
+source: go_emotions
+text: I am. He's the easy pick. Would be perfect for this franchise. I'm worried that
+  he won't make it to us.

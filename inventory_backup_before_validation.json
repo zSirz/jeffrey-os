@@ -1,0 +1,130 @@
+{
+  "bundle1_recommendations": {
+    "modules": [
+      {
+        "name": "emotional_core",
+        "path": "src/jeffrey/core/orchestration/emotional_core.py",
+        "brain_region": "emotion",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "cognitive_synthesis",
+        "path": "src/jeffrey/core/consciousness/cognitive_synthesis.py",
+        "brain_region": "conscience",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "cognitive_pipeline",
+        "path": "src/jeffrey/core/pipeline/cognitive_pipeline.py",
+        "brain_region": "prefrontal",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "curiosity_engine",
+        "path": "src/jeffrey/core/cognitive/curiosity_engine.py",
+        "brain_region": "hippocampus",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "theory_of_mind",
+        "path": "src/jeffrey/core/cognitive/theory_of_mind.py",
+        "brain_region": "temporal",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "input_parser",
+        "path": "src/jeffrey/core/input/input_parser.py",
+        "brain_region": "perception",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "working_memory",
+        "path": "src/jeffrey/core/memory/working_memory.py",
+        "brain_region": "memory",
+        "type": "real",
+        "priority": 1
+      },
+      {
+        "name": "provider_manager",
+        "path": "src/jeffrey/services/providers/provider_manager.py",
+        "brain_region": "language",
+        "type": "real",
+        "priority": 1,
+        "score": 260,
+        "classes": [
+          "AIProvider",
+          "for",
+          "GPTProvider"
+        ],
+        "key_methods": [
+          "\u2705 generate",
+          "\u2705 generate",
+          "\u2705 generate"
+        ]
+      },
+      {
+        "name": "explainer",
+        "path": "src/jeffrey/core/learning/explainer.py",
+        "brain_region": "executive",
+        "type": "real",
+        "priority": 1,
+        "score": 160,
+        "classes": [
+          "from",
+          "class",
+          "ExplainerModule"
+        ],
+        "key_methods": []
+      },
+      {
+        "name": "provider_manager",
+        "path": "src/jeffrey/services/providers/provider_manager.py",
+        "brain_region": "motor",
+        "type": "real",
+        "priority": 1,
+        "score": 360,
+        "classes": [
+          "AIProvider",
+          "for",
+          "GPTProvider"
+        ],
+        "key_methods": [
+          "\u2705 generate",
+          "\u2705 generate",
+          "\u2705 generate"
+        ]
+      },
+      {
+        "name": "agi_orchestrator",
+        "path": "src/jeffrey/core/orchestration/agi_orchestrator.py",
+        "brain_region": "integration",
+        "type": "real",
+        "priority": 1,
+        "score": 190,
+        "classes": [
+          "SynthesisModule",
+          "EmotionalJournal",
+          "ContextualEmpathy"
+        ],
+        "key_methods": [
+          "\u2705 synthesize",
+          "\u2705 process",
+          "\u2705 process"
+        ]
+      }
+    ]
+  },
+  "configuration": {
+    "parallel_processing": true,
+    "cache_enabled": true,
+    "max_latency_ms": 50,
+    "profiling_enabled": true,
+    "target_regions": 8
+  }
+}

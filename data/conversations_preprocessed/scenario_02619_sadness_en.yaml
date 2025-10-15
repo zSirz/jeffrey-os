@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.851350'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 132
+  processed_length: 132
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02619
+source: go_emotions
+text: I can't remember a time during my early childhood where I didn't dress up like
+  my mom and almost break my little ankles in her heels

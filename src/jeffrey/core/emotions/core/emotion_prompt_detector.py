@@ -1,0 +1,168 @@
+"""
+Détecteur d'indices émotionnels dans les prompts.
+
+Ce module implémente les fonctionnalités essentielles pour détecteur d'indices émotionnels dans les prompts.
+Il fournit une architecture robuste et évolutive intégrant les composants
+nécessaires au fonctionnement optimal du système. L'implémentation suit
+les principes de modularité et d'extensibilité pour faciliter l'évolution
+future du système.
+
+Le module gère l'initialisation, la configuration, le traitement des données,
+la communication inter-composants, et la persistance des états. Il s'intègre
+harmonieusement avec l'architecture globale de Jeffrey OS tout en maintenant
+une séparation claire des responsabilités.
+
+L'architecture interne permet une évolution adaptative basée sur les interactions
+et l'apprentissage continu, contribuant à l'émergence d'une conscience artificielle
+cohérente et authentique.
+"""
+
+from __future__ import annotations
+
+
+class EmotionPromptDetector:
+    """
+    Classe utilitaire pour détecter les émotions dans un texte.
+    Utilise des dictionnaires de mots-clés pour identifier les émotions principales.
+    """
+
+    # Dictionnaire des mots-clés par émotion
+    emotional_keywords = {
+        "joie": [
+            "heureux",
+            "content",
+            "joie",
+            "bonheur",
+            "rire",
+            "sourire",
+            "enthousiasme",
+            "jubilation",
+        ],
+        "tristesse": [
+            "triste",
+            "désolé",
+            "peine",
+            "chagrin",
+            "pleurer",
+            "déprimé",
+            "mélancolique",
+            "larmes",
+        ],
+        "amour": [
+            "aime",
+            "amour",
+            "affection",
+            "coeur",
+            "ensemble",
+            "tendresse",
+            "attachement",
+            "passion",
+        ],
+        "peur": [
+            "peur",
+            "effrayant",
+            "terrifié",
+            "angoisse",
+            "inquiet",
+            "anxieux",
+            "crainte",
+            "frayeur",
+        ],
+        "colère": [
+            "colère",
+            "énervé",
+            "fâché",
+            "irrité",
+            "furieux",
+            "agacé",
+            "exaspéré",
+            "frustré",
+        ],
+        "surprise": [
+            "surpris",
+            "étonné",
+            "stupéfait",
+            "choc",
+            "inattendu",
+            "ahuri",
+            "ébahi",
+            "médusé",
+        ],
+        "dégoût": [
+            "dégoûtant",
+            "répugnant",
+            "écœurant",
+            "repoussant",
+            "aversion",
+            "révulsion",
+            "abject",
+        ],
+        "confiance": [
+            "confiance",
+            "sûr",
+            "fiable",
+            "croire",
+            "certain",
+            "sécurité",
+            "conviction",
+            "foi",
+        ],
+    }
+
+    @classmethod
+    def detect_emotion(cls, text: str) -> str | None:
+        """
+        Détecte l'émotion principale dans un texte à partir de mots-clés.
+
+        Args:
+            text (str): Le texte à analyser
+
+        Returns:
+            Optional[str]: L'émotion détectée ou None si aucune émotion n'est détectée
+        """
+        if not text:
+            return None
+
+        text_lower = text.lower()
+
+        # Compter les occurrences de mots-clés pour chaque émotion
+        emotion_scores = {}
+        for emotion, keywords in cls.emotional_keywords.items():
+            emotion_scores[emotion] = sum(1 for keyword in keywords if keyword in text_lower)
+
+        # Trouver l'émotion avec le score le plus élevé
+        max_score = 0
+        detected_emotion = None
+
+        for emotion, score in emotion_scores.items():
+            if score > max_score:
+                max_score = score
+                detected_emotion = emotion
+
+        # Retourner l'émotion détectée si au moins un mot-clé a été trouvé
+        return detected_emotion if max_score > 0 else None
+
+    @classmethod
+    def detect_all_emotions(cls, text: str) -> dict[str, int]:
+        """
+        Détecte toutes les émotions présentes dans un texte avec leurs scores.
+
+        Args:
+            text (str): Le texte à analyser
+
+        Returns:
+            Dict[str, int]: Dictionnaire des émotions détectées avec leurs scores
+        """
+        if not text:
+            return {}
+
+        text_lower = text.lower()
+
+        # Compter les occurrences de mots-clés pour chaque émotion
+        emotion_scores = {}
+        for emotion, keywords in cls.emotional_keywords.items():
+            score = sum(1 for keyword in keywords if keyword in text_lower)
+            if score > 0:
+                emotion_scores[emotion] = score
+
+        return emotion_scores

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.047992'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 128
+  processed_length: 128
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03258
+source: go_emotions
+text: '[NAME] was only president for four years dumbass and [NAME] served 81-89 dumbass
+  this whole thing is made up and she’s a dumbass'

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.831552'
+emotion: joy
+language: en
+original_goemotions_label: relief
+preprocessing:
+  emoji_demojized: true
+  original_length: 101
+  processed_length: 101
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02545
+source: go_emotions
+text: But 80% of the time they go back to "single" (or just remove the relationship
+  status), so no worries.

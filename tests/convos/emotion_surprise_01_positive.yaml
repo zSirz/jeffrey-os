@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_surprise_01"
+  title: "Surprise Positive Inattendue"
+  expected_emotion: "surprise"
+  difficulty: "easy"
+  tags: ["surprise", "positive", "unexpected"]
+
+conversation:
+  - role: "user"
+    content: "Je viens de recevoir un chèque de 5000€ de ma tante ! Je savais même pas qu'elle pensait à moi !"
+    expected_emotion: "surprise"
+    expected_intensity: 0.9
+
+  - role: "assistant"
+    content: "Quelle belle surprise ! C'est un geste très généreux de sa part. Tu vas en faire quoi ?"
+    emotional_tone: "enthusiastic"
+
+  - role: "user"
+    content: "Aucune idée, je suis encore sous le choc ! Elle a écrit que c'était pour me remercier de m'être occupé d'elle l'année dernière."
+    expected_emotion: "surprise"
+    expected_intensity: 0.85
+
+validation:
+  should_detect: ["surprise", "gratitude", "joy"]
+  should_remember: "aunt sent 5000€ as thanks for care, user shocked"
+  continuity_check: true

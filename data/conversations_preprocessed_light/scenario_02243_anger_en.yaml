@@ -1,0 +1,9 @@
+created_at: '2025-10-13T12:40:31.324068'
+emotion: anger
+language: en
+original_goemotions_label: disapproval
+quality: public_dataset_single_label
+scenario_id: goemo_02243
+source: go_emotions
+text: You don’t have to hate players just for being on a different team. I hate that
+  [NAME] is an [NAME]. I don’t hate [NAME]

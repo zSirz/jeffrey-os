@@ -1,0 +1,179 @@
+{
+  "total_tests": 24,
+  "passed": 11,
+  "failed": 12,
+  "warnings": 1,
+  "start_time": "2025-10-09T16:45:09.697234",
+  "tests": [
+    {
+      "name": "Initialisation AGI Orchestrator",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Orchestrator créé",
+      "timestamp": "2025-10-09T16:45:09.698327"
+    },
+    {
+      "name": "Module d'apprentissage",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Learning module chargé",
+      "timestamp": "2025-10-09T16:45:09.698366"
+    },
+    {
+      "name": "Memory V2.0",
+      "status": "⚠️",
+      "success": false,
+      "details": "⚠️  Memory V2.0 non disponible",
+      "timestamp": "2025-10-09T16:45:09.698372"
+    },
+    {
+      "name": "Systèmes AGI",
+      "status": "✅",
+      "success": true,
+      "details": "✅ 15 systèmes AGI actifs",
+      "timestamp": "2025-10-09T16:45:09.698374"
+    },
+    {
+      "name": "Détection: Emojis de joie",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698397"
+    },
+    {
+      "name": "Détection: Emojis de tristesse",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698407"
+    },
+    {
+      "name": "Détection: Mots-clés de peur",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698415"
+    },
+    {
+      "name": "Détection: Question + emoji",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698424"
+    },
+    {
+      "name": "Détection: Mots d'amour + emojis",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698432"
+    },
+    {
+      "name": "Détection: Question sans emoji",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698439"
+    },
+    {
+      "name": "Détection: Ponctuation seule",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698446"
+    },
+    {
+      "name": "Apprentissage: Patterns créés",
+      "status": "✅",
+      "success": true,
+      "details": "Patterns: 0 → 0",
+      "timestamp": "2025-10-09T16:45:09.698512"
+    },
+    {
+      "name": "Apprentissage: Interactions enregistrées",
+      "status": "❌",
+      "success": false,
+      "details": "Interactions: 0 → 0",
+      "timestamp": "2025-10-09T16:45:09.698514"
+    },
+    {
+      "name": "Apprentissage: Qualité mesurable",
+      "status": "✅",
+      "success": true,
+      "details": "Qualité: 0.0%",
+      "timestamp": "2025-10-09T16:45:09.698515"
+    },
+    {
+      "name": "Mémoire: Quel est mon prénom ?",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698543"
+    },
+    {
+      "name": "Mémoire: Qu'est-ce que j'aime ?",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698549"
+    },
+    {
+      "name": "Mémoire: Sur quoi je travaille ?",
+      "status": "❌",
+      "success": false,
+      "details": "❌ Erreur: UnifiedMemory.get_context_summary() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-10-09T16:45:09.698555"
+    },
+    {
+      "name": "Prédictions: Séquence complète",
+      "status": "✅",
+      "success": true,
+      "details": "Trajectoire émotionnelle testée",
+      "timestamp": "2025-10-09T16:45:09.698577"
+    },
+    {
+      "name": "AGI: circadian_rhythm",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T16:45:09.698608"
+    },
+    {
+      "name": "AGI: creative_memory",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T16:45:09.698609"
+    },
+    {
+      "name": "AGI: dream_engine",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T16:45:09.698610"
+    },
+    {
+      "name": "AGI: emotional_journal",
+      "status": "✅",
+      "success": true,
+      "details": "✅ Actif",
+      "timestamp": "2025-10-09T16:45:09.698611"
+    },
+    {
+      "name": "Performance: Temps de réponse",
+      "status": "✅",
+      "success": true,
+      "details": "0.000s (seuil: < 5s)",
+      "timestamp": "2025-10-09T16:45:09.698625"
+    },
+    {
+      "name": "Performance: Requêtes traitées",
+      "status": "❌",
+      "success": false,
+      "details": "0 requêtes",
+      "timestamp": "2025-10-09T16:45:09.698627"
+    }
+  ],
+  "end_time": "2025-10-09T16:45:09.698704",
+  "duration": "0:00:00.001470"
+}

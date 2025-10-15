@@ -1,0 +1,233 @@
+OK: 40
+FAIL: 76
+Taux: 34%
+
+FAIL détaillé:
+
+core.jeffrey_emotional_core (usage: 9)
+  → No module named 'core.jeffrey_emotional_core'
+
+core.personality.relation_tracker_manager (usage: 7)
+  → No module named 'core.personality'
+
+core.emotions.emotional_learning (usage: 5)
+  → No module named 'core.emotions'
+
+jeffrey_agi_synthesis (usage: 5)
+  → No module named 'jeffrey_agi_synthesis'
+
+core.emotions.emotional_engine (usage: 4)
+  → No module named 'core.emotions'
+
+core.personality.conversation_personality (usage: 4)
+  → No module named 'core.personality'
+
+core.ia.recommendation_engine (usage: 3)
+  → No module named 'core.ia'
+
+core.visual.visual_emotion_renderer (usage: 3)
+  → No module named 'core.visual'
+
+core.consciousness.jeffrey_consciousness_v3 (usage: 2)
+  → No module named 'core.consciousness'
+
+core.emotional_effects_engine (usage: 2)
+  → No module named 'core.emotional_effects_engine'
+
+core.emotions.core.emotion_engine (usage: 2)
+  → No module named 'core.emotions'
+
+core.ia_pricing (usage: 2)
+  → No module named 'core.ia_pricing'
+
+core.memoire_sensorielle (usage: 2)
+  → No module named 'core.memoire_sensorielle'
+
+core.memory.memory_manager (usage: 2)
+  → No module named 'core.memory'
+
+core.orchestration.ia_orchestrator_ultimate (usage: 2)
+  → No module named 'core.orchestration'
+
+core.voice_engine_enhanced (usage: 2)
+  → No module named 'core.voice_engine_enhanced'
+
+jeffrey.core.emotions.core.emotion_ml_enhancer (usage: 2)
+  → unexpected indent (emotion_ml_enhancer.py, line 76)
+
+jeffrey.core.jeffrey_emotional_core (usage: 2)
+  → No module named 'jeffrey.core.jeffrey_emotional_core'
+
+core.agi_fusion.agi_orchestrator (usage: 1)
+  → No module named 'core.agi_fusion'
+
+core.api_security (usage: 1)
+  → No module named 'core.api_security'
+
+core.config (usage: 1)
+  → No module named 'core.config'
+
+core.conversation.conversation_memory (usage: 1)
+  → No module named 'core.conversation'
+
+core.conversation_tracker (usage: 1)
+  → No module named 'core.conversation_tracker'
+
+core.emotional_memory (usage: 1)
+  → No module named 'core.emotional_memory'
+
+core.emotions.affective_profile (usage: 1)
+  → No module named 'core.emotions'
+
+core.emotions.dynamic_emotion_renderer (usage: 1)
+  → No module named 'core.emotions'
+
+core.emotions.emotion_visual_engine (usage: 1)
+  → No module named 'core.emotions'
+
+core.emotions.emotional_affective_touch (usage: 1)
+  → No module named 'core.emotions'
+
+core.emotions.emotional_journal (usage: 1)
+  → No module named 'core.emotions'
+
+core.emotions.emotional_memory (usage: 1)
+  → No module named 'core.emotions'
+
+core.emotions.jeffrey_emotional_traits (usage: 1)
+  → No module named 'core.emotions'
+
+core.io_manager (usage: 1)
+  → No module named 'core.io_manager'
+
+core.jeffrey_emotional_journal (usage: 1)
+  → No module named 'core.jeffrey_emotional_journal'
+
+core.jeffrey_notifications (usage: 1)
+  → No module named 'core.jeffrey_notifications'
+
+core.jeffrey_voice (usage: 1)
+  → No module named 'core.jeffrey_voice'
+
+core.lien_affectif (usage: 1)
+  → No module named 'core.lien_affectif'
+
+core.memory.linguistic_memory_manager (usage: 1)
+  → No module named 'core.memory'
+
+core.memory.souvenir (usage: 1)
+  → No module named 'core.memory'
+
+core.memory_interface (usage: 1)
+  → No module named 'core.memory_interface'
+
+core.memory_systems (usage: 1)
+  → No module named 'core.memory_systems'
+
+core.message_manager (usage: 1)
+  → No module named 'core.message_manager'
+
+core.messages_manager (usage: 1)
+  → No module named 'core.messages_manager'
+
+core.orchestration.clients_factory (usage: 1)
+  → No module named 'core.orchestration'
+
+core.orchestration.fusion_engine (usage: 1)
+  → No module named 'core.orchestration'
+
+core.orchestration.prompt_manager (usage: 1)
+  → No module named 'core.orchestration'
+
+core.personality.personality_state (usage: 1)
+  → No module named 'core.personality'
+
+core.router_ia (usage: 1)
+  → No module named 'core.router_ia'
+
+core.security.ethical_filter (usage: 1)
+  → No module named 'core.security'
+
+core.sound_effects_engine (usage: 1)
+  → No module named 'core.sound_effects_engine'
+
+core.souvenirs_affectifs (usage: 1)
+  → No module named 'core.souvenirs_affectifs'
+
+core.user_profile (usage: 1)
+  → No module named 'core.user_profile'
+
+core.voice.jeffrey_voice_emotion_controller (usage: 1)
+  → No module named 'core.voice'
+
+core.voice.voice_linguistic_integration (usage: 1)
+  → No module named 'core.voice'
+
+core.voice_engine (usage: 1)
+  → No module named 'core.voice_engine'
+
+core_client (usage: 1)
+  → No module named 'core_client'
+
+jeffrey.core.consciousness.cognitive_synthesis (usage: 1)
+  → No module named 'dream_engine'
+
+jeffrey.core.consciousness.dream_engine (usage: 1)
+  → No module named 'jeffrey.core.consciousness.data_augmenter'
+
+jeffrey.core.consciousness.jeffrey_living_memory (usage: 1)
+  → invalid syntax (jeffrey_living_memory.py, line 22)
+
+jeffrey.core.dialogue.style_manager (usage: 1)
+  → No module named 'jeffrey.core.dialogue.style_manager'
+
+jeffrey.core.emotions.emotion_prompt_detector (usage: 1)
+  → No module named 'jeffrey.core.emotions.emotion_prompt_detector'
+
+jeffrey.core.emotions.emotional_affective_touch (usage: 1)
+  → No module named 'jeffrey.core.emotions.emotional_affective_touch'
+
+jeffrey.core.emotions.emotional_sync (usage: 1)
+  → No module named 'jeffrey.core.emotions.emotional_sync'
+
+jeffrey.core.ia_services.export_learning (usage: 1)
+  → No module named 'jeffrey.core.ia_services'
+
+jeffrey.core.io_manager (usage: 1)
+  → No module named 'jeffrey.core.io_manager'
+
+jeffrey.core.memory.highlight_detector (usage: 1)
+  → No module named 'jeffrey.core.memory.highlight_detector'
+
+jeffrey.core.memory.textual_affective_memory (usage: 1)
+  → No module named 'jeffrey.core.memory.textual_affective_memory'
+
+jeffrey.core.orchestration.agi_orchestrator (usage: 1)
+  → No module named 'jeffrey.core.orchestration.unified_memory'
+
+jeffrey.core.orchestration.fusion_engine (usage: 1)
+  → No module named 'jeffrey.core.orchestration.fusion_engine'
+
+jeffrey.core.orchestration.multi_model_orchestrator (usage: 1)
+  → No module named 'core.conversation'
+
+jeffrey.core.personality.emotion_phrase_generator (usage: 1)
+  → No module named 'jeffrey.core.personality.emotion_phrase_generator'
+
+jeffrey.core.personality.style_affectif_adapter (usage: 1)
+  → No module named 'jeffrey.core.personality.style_affectif_adapter'
+
+jeffrey.modules.config.secrets_manager (usage: 1)
+  → No module named 'jeffrey.modules.config'
+
+jeffrey.neuralbus.core (usage: 1)
+  → No module named 'jeffrey.neuralbus'
+
+jeffrey.services.voice.engine.elevenlabs_v3_engine (usage: 1)
+  → cannot import name 'ElevenLabsAdapter' from 'jeffrey.bridge.adapters' (/Users/davidproz/Desktop/Jeffrey_OS/src/jeffrey/bridge/adapters/__init__.py)
+
+jeffrey_consciousness_evolution (usage: 1)
+  → No module named 'jeffrey_consciousness_evolution'
+
+jeffrey_ui_bridge (usage: 1)
+  → No module named 'jeffrey_ui_bridge'

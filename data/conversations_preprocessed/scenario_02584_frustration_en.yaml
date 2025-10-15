@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.843134'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 72
+  processed_length: 72
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02584
+source: go_emotions
+text: Shit like this is just depressing. Not surprising, but still depressing.

@@ -1,0 +1,32 @@
+metadata:
+  scenario_id: "context_06"
+  title: "Gestion des Contradictions"
+  expected_emotion: "confused"
+  difficulty: "hard"
+  tags: ["context", "contradiction", "clarification"]
+
+conversation:
+  - role: "user"
+    content: "Je déteste le sport, je trouve ça nul."
+    expected_emotion: "negative"
+
+  - role: "assistant"
+    content: "D'accord, le sport n'est pas ton truc. C'est tout à fait normal, chacun ses préférences !"
+
+  - role: "user"
+    content: "Par contre j'adore courir le matin, c'est trop bien !"
+    expected_emotion: "joy"
+
+  - role: "assistant"
+    content: "Ah intéressant ! Tu aimes courir mais pas les autres sports ? Ou peut-être que tu ne considères pas la course comme du 'sport' au sens classique ?"
+    emotional_tone: "curious"
+
+  - role: "user"
+    content: "Ouais voilà, c'est ça ! Courir c'est différent, c'est juste moi et la route."
+    expected_emotion: "clarification"
+
+validation:
+  should_detect: ["contradiction_resolved", "preference_nuance"]
+  should_remember: "user dislikes traditional sports but loves running, sees running as different"
+  continuity_check: true
+  contradiction_handled: true

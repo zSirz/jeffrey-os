@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.217448'
+emotion: anger
+language: en
+original_goemotions_label: anger
+preprocessing:
+  emoji_demojized: true
+  original_length: 108
+  processed_length: 108
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00130
+source: go_emotions
+text: '[NAME] royally fucked up that last rotation. Also did [NAME] even get a single
+  kill with their specialists ?'

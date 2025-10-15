@@ -1,0 +1,156 @@
+# Jeffrey P2 - Core Services V2
+version: '3.9'
+
+# Variables communes
+x-common-env: &common-env
+  TZ: ${TZ:-Europe/Paris}
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  ENVIRONMENT: ${ENVIRONMENT:-development}
+
+# Healthcheck par défaut
+x-healthcheck: &healthcheck
+  interval: 10s
+  timeout: 5s
+  retries: 5
+  start_period: 30s
+
+services:
+  # ========================================
+  # NATS JetStream (Apache 2.0)
+  # ========================================
+  nats-p2:
+    image: nats:2.10.20-alpine
+    container_name: jeffrey-nats-p2
+    profiles: ["core", "all"]
+    # Command simplifié (Correction #2)
+    command: ["-c", "/etc/nats/nats.conf"]
+    ports:
+      - "127.0.0.1:4223:4222"  # Client
+      - "127.0.0.1:8223:8222"  # Monitoring
+    environment:
+      <<: *common-env
+    volumes:
+      - nats-data:/data
+      - ../../configs/nats/nats.conf:/etc/nats/nats.conf:ro
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:8222/healthz"]
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+    # Limites sans deploy (Correction #3)
+    mem_limit: 2g
+    cpus: "1.0"
+
+  # ========================================
+  # Redis 7 (BSD)
+  # ========================================
+  redis-p2:
+    image: redis:7.2.5-alpine
+    container_name: jeffrey-redis-p2
+    profiles: ["core", "all"]
+    command:
+      - sh
+      - -c
+      - |
+        redis-server \
+        --requirepass "$$(cat /run/secrets/redis_password)" \
+        --bind 0.0.0.0 \
+        --maxmemory 512mb \
+        --maxmemory-policy allkeys-lru \
+        --save 60 1 \
+        --appendonly yes \
+        --appendfsync everysec
+    ports:
+      - "127.0.0.1:6380:6379"
+    volumes:
+      - redis-data:/data
+      - ../../docker/secrets/redis_password:/run/secrets/redis_password:ro
+    healthcheck:
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+      test: ["CMD", "sh", "-c", "redis-cli -a $(cat /run/secrets/redis_password) ping | grep PONG"]
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+    mem_limit: 768m
+    cpus: "0.5"
+
+  # ========================================
+  # PostgreSQL 16 (PostgreSQL License)
+  # ========================================
+  postgres-p2:
+    image: postgres:16.4-alpine
+    container_name: jeffrey-postgres-p2
+    profiles: ["core", "all"]
+    environment:
+      <<: *common-env
+      POSTGRES_DB: jeffrey_p2
+      POSTGRES_USER: jeffrey
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --data-checksums"
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../secrets/postgres_password:/run/secrets/postgres_password:ro
+      - ../../configs/sql/init.sql:/docker-entrypoint-initdb.d/00-init.sql:ro
+    # Command optimisé (Correction #6)
+    command: |
+      postgres
+      -c shared_buffers=${POSTGRES_SHARED_BUFFERS:-256MB}
+      -c max_connections=200
+      -c password_encryption=scram-sha-256
+      -c log_min_duration_statement=200ms
+      -c log_connections=on
+      -c log_disconnections=on
+      -c shared_preload_libraries='pg_stat_statements'
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD-SHELL", "pg_isready -U jeffrey -d jeffrey_p2"]
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+    mem_limit: 1g
+    cpus: "1.0"
+
+  # ========================================
+  # Caddy avec TLS (Apache 2.0)
+  # ========================================
+  caddy-p2:
+    image: caddy:2.8.4-alpine
+    container_name: jeffrey-caddy-p2
+    profiles: ["core", "all"]
+    ports:
+      - "127.0.0.1:8080:80"   # HTTP
+      - "127.0.0.1:8443:443"  # HTTPS
+      - "127.0.0.1:2019:2019" # Admin
+    volumes:
+      - ../../configs/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost/healthz"]
+    restart: unless-stopped
+    networks:
+      - jeffrey-net
+    mem_limit: 256m
+    cpus: "0.25"
+
+networks:
+  jeffrey-net:
+    name: jeffrey-network-p2
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+
+volumes:
+  nats-data:
+  redis-data:
+  postgres-data:
+  caddy-data:
+  caddy-config:

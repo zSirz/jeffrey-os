@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.239894'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 64
+  processed_length: 64
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00223
+source: go_emotions
+text: Seeing that knife on this subreddit put the fear of [NAME] in me

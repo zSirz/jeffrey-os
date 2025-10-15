@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.710257'
+emotion: neutral
+language: en
+original_goemotions_label: confusion
+preprocessing:
+  emoji_demojized: true
+  original_length: 130
+  processed_length: 130
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02246
+source: go_emotions
+text: I think in any state it is permissible to record if you let the other party
+  know that you are recording. I could be wrong, though.

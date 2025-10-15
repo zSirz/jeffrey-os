@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.148101'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 103
+  processed_length: 103
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03690
+source: go_emotions
+text: Oh no that's so awkward, I don't understand how people don't understand how
+  weird things like that are!

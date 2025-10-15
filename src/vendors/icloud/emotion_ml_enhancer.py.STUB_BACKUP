@@ -1,0 +1,43 @@
+"""
+EmotionMLEnhancer - Version minimale fonctionnelle
+"""
+from typing import Dict, Any, Optional
+
+class EmotionMLEnhancer:
+    """Version minimale fonctionnelle de EmotionMLEnhancer"""
+
+    def __init__(self, history_size: int = 50, history_file: Optional[str] = None):
+        self.history_size = history_size
+        self.history_file = history_file
+        self.history = []
+
+    def detect_emotion_enhanced(self, text: str, user_id: str = "default") -> Dict[str, Any]:
+        """Détection d'émotion simple"""
+        return {
+            "emotion": "neutral",
+            "scores": {"neutral": 1.0},
+            "confidence": 0.5,
+            "intensity": 1.0,
+            "context": {
+                "temporal_influence": {},
+                "predicted_next": None,
+                "user_patterns": {},
+            }
+        }
+
+    def enhance_detection(self, text: str, base_detection: Dict[str, Any]) -> Dict[str, Any]:
+        """Amélioration de la détection existante"""
+        return base_detection
+
+    def learn_from_feedback(self, text: str, emotions: Dict[str, Any], feedback: Dict[str, Any]):
+        """Apprentissage depuis le feedback"""
+        pass
+
+    def get_emotional_insights(self) -> Dict[str, Any]:
+        """Insights émotionnels"""
+        return {
+            "trajectory": "neutral",
+            "dominant_emotion": None,
+            "volatility": 0.0,
+            "recommendations": ["Module EmotionMLEnhancer en mode minimal"]
+        }

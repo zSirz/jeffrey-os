@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.716471'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 82
+  processed_length: 85
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02273
+source: go_emotions
+text: This game is actually worse than I was anticipating and I knew it was going
+  to be bad

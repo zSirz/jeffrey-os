@@ -1,0 +1,317 @@
+{
+  "total_files": 41,
+  "by_type": {
+    "indentation": 37,
+    "syntax": 4
+  },
+  "critical_errors": [
+    {
+      "file": "src/jeffrey/core/learning/auto_learner.py",
+      "error": "SyntaxError: unterminated string literal (detected at line 53)",
+      "line": 53,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/core/orchestration/jeffrey_system_health.py",
+      "error": "SyntaxError: invalid syntax",
+      "line": 27,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+      "error": "SyntaxError: invalid syntax",
+      "line": 14,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/interfaces/ui/widgets/LienAffectifWidget.py",
+      "error": "SyntaxError: invalid syntax",
+      "line": 14,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/core/memory/jeffrey_human_memory.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 108 (jeffrey_human_memory.py, line 109)",
+      "line": 108,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/advanced/contextual_memory_manager.py",
+      "error": "Sorry: IndentationError: unexpected indent (contextual_memory_manager.py, line 30)",
+      "line": 30,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/sensory/jeffrey_sensory_memory.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 137 (jeffrey_sensory_memory.py, line 138)",
+      "line": 137,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/sensory/sensorial_memory.py",
+      "error": "Sorry: IndentationError: unexpected indent (sensorial_memory.py, line 26)",
+      "line": 26,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/sync/jeffrey_memory_sync.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 63 (jeffrey_memory_sync.py, line 64)",
+      "line": 63,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/learning/contextual_learning_engine.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 18 (contextual_learning_engine.py, line 20)",
+      "line": 18,
+      "priority": 2
+    }
+  ],
+  "all_errors": [
+    {
+      "file": "src/jeffrey/core/learning/auto_learner.py",
+      "error": "SyntaxError: unterminated string literal (detected at line 53)",
+      "line": 53,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/core/orchestration/jeffrey_system_health.py",
+      "error": "SyntaxError: invalid syntax",
+      "line": 27,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+      "error": "SyntaxError: invalid syntax",
+      "line": 14,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/interfaces/ui/widgets/LienAffectifWidget.py",
+      "error": "SyntaxError: invalid syntax",
+      "line": 14,
+      "priority": 1
+    },
+    {
+      "file": "src/jeffrey/core/memory/jeffrey_human_memory.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 108 (jeffrey_human_memory.py, line 109)",
+      "line": 108,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/advanced/contextual_memory_manager.py",
+      "error": "Sorry: IndentationError: unexpected indent (contextual_memory_manager.py, line 30)",
+      "line": 30,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/sensory/jeffrey_sensory_memory.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 137 (jeffrey_sensory_memory.py, line 138)",
+      "line": 137,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/sensory/sensorial_memory.py",
+      "error": "Sorry: IndentationError: unexpected indent (sensorial_memory.py, line 26)",
+      "line": 26,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/memory/sync/jeffrey_memory_sync.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 63 (jeffrey_memory_sync.py, line 64)",
+      "line": 63,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/learning/contextual_learning_engine.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 18 (contextual_learning_engine.py, line 20)",
+      "line": 18,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/learning/jeffrey_deep_learning.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 50 (jeffrey_deep_learning.py, line 51)",
+      "line": 50,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/personality/personality_profile.py",
+      "error": "Sorry: IndentationError: unexpected indent (personality_profile.py, line 82)",
+      "line": 82,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/personality/conversation_personality.py",
+      "error": "Sorry: IndentationError: unexpected indent (conversation_personality.py, line 46)",
+      "line": 46,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/personality/adaptive_personality_engine.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 18 (adaptive_personality_engine.py, line 19)",
+      "line": 18,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/consciousness/jeffrey_chat_integration.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_chat_integration.py, line 71)",
+      "line": 71,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/consciousness/jeffrey_dream_system.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 133 (jeffrey_dream_system.py, line 134)",
+      "line": 133,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/consciousness/jeffrey_living_consciousness.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_living_consciousness.py, line 34)",
+      "line": 34,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/consciousness/jeffrey_work_interface.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_work_interface.py, line 39)",
+      "line": 39,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/consciousness/jeffrey_living_memory.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_living_memory.py, line 71)",
+      "line": 71,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/consciousness/jeffrey_secret_diary.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 172 (jeffrey_secret_diary.py, line 173)",
+      "line": 172,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/consciousness/jeffrey_living_expressions.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_living_expressions.py, line 73)",
+      "line": 73,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/orchestration/jeffrey_optimizer.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 31 (jeffrey_optimizer.py, line 32)",
+      "line": 31,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/orchestration/jeffrey_continuel.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_continuel.py, line 72)",
+      "line": 72,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/orchestration/enhanced_orchestrator.py",
+      "error": "Sorry: IndentationError: expected an indented block after class definition on line 30 (enhanced_orchestrator.py, line 31)",
+      "line": 30,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/emotions/core/jeffrey_curiosity_engine.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 192 (jeffrey_curiosity_engine.py, line 193)",
+      "line": 192,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/emotions/core/jeffrey_intimate_mode.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_intimate_mode.py, line 34)",
+      "line": 34,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/emotions/visuals/jeffrey_emotional_display.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 429 (jeffrey_emotional_display.py, line 430)",
+      "line": 429,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/core/emotions/visuals/jeffrey_visual_emotions.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 153 (jeffrey_visual_emotions.py, line 154)",
+      "line": 153,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/stability_collector.py",
+      "error": "Sorry: IndentationError: unexpected indent (stability_collector.py, line 29)",
+      "line": 29,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/services/voice/adapters/voice_emotion_adapter.py",
+      "error": "Sorry: IndentationError: unexpected indent (voice_emotion_adapter.py, line 30)",
+      "line": 30,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/services/voice/effects/voice_effects.py",
+      "error": "Sorry: IndentationError: unexpected indent (voice_effects.py, line 78)",
+      "line": 78,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/voice_recognition_error_recovery.py",
+      "error": "Sorry: IndentationError: unexpected indent (voice_recognition_error_recovery.py, line 54)",
+      "line": 54,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_system.py",
+      "error": "Sorry: IndentationError: unexpected indent (jeffrey_voice_system.py, line 70)",
+      "line": 70,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/services/sync/emotional_prosody_synchronizer.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 26 (emotional_prosody_synchronizer.py, line 27)",
+      "line": 26,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/services/sync/face_sync_manager.py",
+      "error": "Sorry: IndentationError: unexpected indent (face_sync_manager.py, line 111)",
+      "line": 111,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/services/sync/interpersonal_rhythm_synchronizer.py",
+      "error": "Sorry: IndentationError: unexpected indent (interpersonal_rhythm_synchronizer.py, line 93)",
+      "line": 93,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/interfaces/ui/chat/chat_screen.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 30 (chat_screen.py, line 31)",
+      "line": 30,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/interfaces/ui/dashboard/dashboard.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 25 (dashboard.py, line 26)",
+      "line": 25,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/interfaces/ui/dashboard/dashboard_premium.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 28 (dashboard_premium.py, line 29)",
+      "line": 28,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/interfaces/ui/widgets/JournalEntryCard.py",
+      "error": "Sorry: IndentationError: expected an indented block after function definition on line 34 (JournalEntryCard.py, line 35)",
+      "line": 34,
+      "priority": 2
+    },
+    {
+      "file": "src/jeffrey/interfaces/ui/console/console_ui.py",
+      "error": "Sorry: IndentationError: expected an indented block after class definition on line 29 (console_ui.py, line 30)",
+      "line": 29,
+      "priority": 2
+    }
+  ]
+}

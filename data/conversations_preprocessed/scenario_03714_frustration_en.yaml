@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.153544'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 86
+  processed_length: 86
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03714
+source: go_emotions
+text: I wouldn't ever make a broad generalization like that. Typical honkies, assuming
+  stuff

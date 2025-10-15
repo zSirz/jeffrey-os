@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.126269'
+emotion: joy
+language: en
+original_goemotions_label: joy
+preprocessing:
+  emoji_demojized: true
+  original_length: 119
+  processed_length: 119
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03594
+source: go_emotions
+text: I visited NYC 2 summers ago and I have the same exact feeling as you do. Glad
+  you liked the city just as much as I did!

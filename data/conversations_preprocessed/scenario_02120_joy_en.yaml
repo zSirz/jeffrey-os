@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.681016'
+emotion: joy
+language: en
+original_goemotions_label: excitement
+preprocessing:
+  emoji_demojized: true
+  original_length: 46
+  processed_length: 70
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02120
+source: go_emotions
+text: 'So excited!! Probably going to be my new main :crossed_swords::shield:'

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.427734'
+emotion: joy
+language: en
+original_goemotions_label: excitement
+preprocessing:
+  emoji_demojized: true
+  original_length: 73
+  processed_length: 73
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01032
+source: go_emotions
+text: Good on ya my man. I too am excited for some game time this weekend. TGIF

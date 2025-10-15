@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.197365'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 128
+  processed_length: 129
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03872
+source: go_emotions
+text: Right now it sucks ass I got to squat in snow in the freezing cold in the back
+  yard of my apartment complex holding a little bong

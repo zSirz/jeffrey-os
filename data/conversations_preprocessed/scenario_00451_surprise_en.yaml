@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.292969'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 72
+  processed_length: 72
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00451
+source: go_emotions
+text: I thought you only get to be a wizard after you're 30yo and still virgin

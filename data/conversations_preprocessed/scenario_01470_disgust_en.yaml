@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.528538'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 68
+  processed_length: 68
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01470
+source: go_emotions
+text: It feels oddly comforting and familiar that we suck at hockey again.

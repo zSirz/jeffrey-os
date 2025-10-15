@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.609900'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 137
+  processed_length: 140
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01820
+source: go_emotions
+text: Disgusting of you [NAME] you filthy who're you pedophilic scum trying to beguile
+  our children it's not going to work I got [NAME] castorated

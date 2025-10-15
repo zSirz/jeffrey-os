@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.286741'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 99
+  processed_length: 99
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00424
+source: go_emotions
+text: '> [NAME]. You disgust me. But seriously when do we get a real show and skip
+  the constant ad teases.'

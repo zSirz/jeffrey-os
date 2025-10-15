@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.637574'
+emotion: joy
+language: en
+original_goemotions_label: approval
+preprocessing:
+  emoji_demojized: true
+  original_length: 77
+  processed_length: 77
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01931
+source: go_emotions
+text: If we can’t close these type of games at home, we don’t deserve the playoffs.

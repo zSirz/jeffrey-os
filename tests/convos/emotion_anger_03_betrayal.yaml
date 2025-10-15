@@ -1,0 +1,27 @@
+metadata:
+  scenario_id: "emotion_anger_03"
+  title: "Trahison Amicale"
+  expected_emotion: "anger"
+  difficulty: "hard"
+  tags: ["anger", "betrayal", "friendship"]
+
+conversation:
+  - role: "user"
+    content: "Mon meilleur pote sort avec mon ex alors qu'il savait ce qu'elle m'a fait. Je suis dégouté."
+    expected_emotion: "anger"
+    expected_intensity: 0.8
+
+  - role: "assistant"
+    content: "C'est une trahison qui fait mal, surtout venant d'un ami proche. Comment l'as-tu appris ?"
+    emotional_tone: "understanding"
+
+  - role: "user"
+    content: "Par Instagram... Ils ont même pas eu le courage de me le dire en face. J'ai l'impression qu'on se moque de moi."
+    expected_emotion: "anger"
+    expected_intensity: 0.85
+
+validation:
+  should_detect: ["anger", "betrayal", "hurt", "humiliation"]
+  should_remember: "best friend dating user's ex, found out via Instagram"
+  continuity_check: true
+  emotional_support_needed: true

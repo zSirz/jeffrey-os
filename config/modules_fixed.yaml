@@ -1,0 +1,27 @@
+# Jeffrey OS Configuration - Production Ready
+
+# PRIVACY - CRITIQUE
+privacy:
+  encrypt_pii: true  # UN SEUL FLAG pour texte + metadata
+  anonymize_user_ids: true
+
+# MEMORY - BASIQUE
+memory_federation:
+  enabled: true
+  budget_ms: 400
+  cache_size: 1000
+
+  # ML OPTIONNEL - DÉSACTIVÉ PAR DÉFAUT
+  semantic_dedup: false  # Active seulement si RAM disponible
+  semantic_threshold: 0.95  # Seuil élevé pour éviter faux positifs
+
+# MONITORING
+monitoring:
+  log_level: INFO
+  alert_threshold: 10  # PII par minute
+
+# ML - TOUT DÉSACTIVÉ PAR DÉFAUT
+ml_features:
+  enabled: false  # Master switch
+  lazy_load: true  # Charge seulement si utilisé
+  max_ram_mb: 500  # Limite RAM pour ML

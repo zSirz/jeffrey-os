@@ -1,0 +1,165 @@
+# NeuralBus Service Registry
+# Configuration centralisée des services Jeffrey OS
+
+version: "2.0"
+updated: "2024-01-15"
+
+services:
+  # Core Security Services
+  cache_guardian:
+    name: "Cache Guardian"
+    type: "security"
+    endpoint: "internal://cache-guardian"
+    priority: "critical"
+    health_check: "/status"
+    dependencies: []
+    config:
+      rate_limit: 100
+      window: 60
+      ml_enabled: false
+
+  anti_replay:
+    name: "Anti-Replay System"
+    type: "security"
+    endpoint: "internal://anti-replay"
+    priority: "critical"
+    health_check: "/status"
+    dependencies:
+      - redis
+    config:
+      nonce_ttl: 120
+      timestamp_tolerance: 60
+
+  mtls_bridge:
+    name: "mTLS Bridge"
+    type: "security"
+    endpoint: "internal://mtls-bridge"
+    priority: "high"
+    health_check: "/status"
+    dependencies: []
+    config:
+      require_client_cert: false
+      min_tls_version: "1.2"
+
+  # Guardian Services
+  guardian_symphony:
+    name: "Guardian Symphony"
+    type: "guardian"
+    endpoint: "internal://guardian-symphony"
+    priority: "high"
+    health_check: "/dashboard"
+    dependencies: []
+    config:
+      orchestration_mode: "adaptive"
+      sync_interval: 30
+
+  ethical_guardian:
+    name: "Ethical Guardian"
+    type: "guardian"
+    endpoint: "internal://ethical-guardian"
+    priority: "critical"
+    health_check: "/status"
+    dependencies: []
+    config:
+      decision_threshold: 0.8
+      audit_enabled: true
+
+  # FFI Bridge
+  ffi_bridge:
+    name: "Zero-Copy FFI Bridge"
+    type: "integration"
+    endpoint: "internal://ffi-bridge"
+    priority: "medium"
+    health_check: "/status"
+    dependencies: []
+    config:
+      mode: "stub"
+      arrow_enabled: true
+
+  # Control Plane
+  control_plane:
+    name: "Control Plane API"
+    type: "management"
+    endpoint: "http://127.0.0.1:8000"
+    priority: "critical"
+    health_check: "/health"
+    dependencies:
+      - cache_guardian
+      - anti_replay
+    config:
+      port: 8000
+      workers: 4
+
+# Event Types Registry
+events:
+  security:
+    - type: "security.auth.failed"
+      severity: "high"
+      retention: "30d"
+    - type: "security.replay.detected"
+      severity: "critical"
+      retention: "90d"
+    - type: "security.rate.exceeded"
+      severity: "medium"
+      retention: "7d"
+
+  guardian:
+    - type: "guardian.ethical.violation"
+      severity: "critical"
+      retention: "永久"
+    - type: "guardian.symphony.sync"
+      severity: "low"
+      retention: "1d"
+
+  system:
+    - type: "system.health.degraded"
+      severity: "high"
+      retention: "30d"
+    - type: "system.startup.complete"
+      severity: "info"
+      retention: "1d"
+
+# Routing Rules
+routing:
+  default_timeout: 30000  # ms
+  retry_policy:
+    max_attempts: 3
+    backoff: "exponential"
+    base_delay: 100  # ms
+
+  rules:
+    - pattern: "security.*"
+      targets:
+        - anti_replay
+        - cache_guardian
+      priority: "express"
+
+    - pattern: "guardian.*"
+      targets:
+        - ethical_guardian
+        - guardian_symphony
+      priority: "normal"
+
+    - pattern: "metrics.*"
+      targets:
+        - control_plane
+      priority: "batch"
+
+# Security Policies
+security:
+  encryption:
+    at_rest: "AES-256-GCM"
+    in_transit: "TLS 1.3"
+    key_rotation: "30d"
+
+  authentication:
+    methods:
+      - "mTLS"
+      - "EdDSA"
+      - "PQ-STUB"
+    session_timeout: 3600
+
+  compliance:
+    - "GDPR"
+    - "CCPA"
+    - "Jeffrey-Ethics-v2"

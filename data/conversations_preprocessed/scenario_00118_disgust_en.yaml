@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.214587'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 103
+  processed_length: 103
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00118
+source: go_emotions
+text: It doesn’t surprise me given that this is the kind of establishment where staff
+  rape the coma patients.

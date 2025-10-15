@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.945063'
+emotion: neutral
+language: en
+original_goemotions_label: curiosity
+preprocessing:
+  emoji_demojized: true
+  original_length: 112
+  processed_length: 112
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03002
+source: go_emotions
+text: Do you not feel that there are numerous legitimate complaints about the CCP
+  as well as quality of life in China?

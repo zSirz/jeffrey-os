@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.083200'
+emotion: joy
+language: en
+original_goemotions_label: joy
+preprocessing:
+  emoji_demojized: true
+  original_length: 117
+  processed_length: 117
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03408
+source: go_emotions
+text: '"A lion never stretches before it hunts." ... Glad to see he''s already on
+  board with Green Bays injury first mindset.'

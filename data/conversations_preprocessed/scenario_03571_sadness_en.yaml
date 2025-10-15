@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.121046'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 38
+  processed_length: 38
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03571
+source: go_emotions
+text: I'm sorry [NAME]. I won't do it again.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:54.081751'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 135
+  processed_length: 135
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03402
+source: go_emotions
+text: 2 is washed out, 6 and 10 are too dark. Also imgur showed me a bald naked chimpanzee
+  right after your last picture and I nearly choked.

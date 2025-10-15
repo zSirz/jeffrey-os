@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.156587'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 51
+  processed_length: 74
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03727
+source: go_emotions
+text: 'People tremble in fear of the name Rupple Poopels :face_with_tears_of_joy:'

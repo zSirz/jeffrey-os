@@ -1,0 +1,89 @@
+# Configuration des modules Jeffrey OS - Phase 2.1 Ultimate
+# Version avec boucles autonomes et intégration maximale
+
+modules:
+  # Guardians (optionnels mais recommandés)
+  - name: guardians_hub
+    import: "src.jeffrey.core.guardians.guardians_hub:GuardiansHub"
+    enabled: true
+    critical: false
+
+  # Core cognitif lite
+  - name: cognitive_core
+    import: "src.jeffrey.core.cognition.cognitive_core_lite:CognitiveCoreLite"
+    enabled: true
+    critical: true
+
+  # Memory Federation (pour les boucles)
+  - name: memory_federation
+    import: "src.jeffrey.core.memory.memory_federation_v2:MemoryFederationV2"
+    enabled: true
+    critical: false
+
+  # Emotion Orchestrator (pour les boucles)
+  - name: emotion_orchestrator
+    import: "src.jeffrey.core.emotions.emotion_orchestrator_v2:EmotionOrchestratorV2"
+    enabled: true
+    critical: false
+
+# Configuration des boucles autonomes
+loops:
+  auto_start: true
+  enabled:
+    - awareness
+    - emotional_decay
+    - memory_consolidation
+    - curiosity
+
+  # Budgets et performance
+  jitter_s: 0.3
+  hard_timeout_s: 2.0
+
+  # Configuration par boucle
+  awareness:
+    cycle_interval: 10
+    deep_thinking_threshold: 0.7
+    decay_rate: 0.01
+
+  emotional_decay:
+    cycle_interval: 5
+    equilibrium:
+      pleasure: 0.5
+      arousal: 0.3  # Plus calme
+      dominance: 0.5
+    decay_rates:
+      pleasure: 0.02
+      arousal: 0.03  # Plus rapide
+      dominance: 0.015
+
+  memory_consolidation:
+    cycle_interval: 60
+    short_term_threshold: 300
+    long_term_threshold: 3600
+    use_ml_clustering: false  # Active si sklearn installé
+
+  curiosity:
+    cycle_interval: 30
+    exploration_threshold: 0.6
+    max_questions: 10
+    diversify_interests: true
+
+  # Symbiose
+  symbiosis:
+    monitoring_interval: 30
+    low_threshold: 0.3
+    veto_enabled: true
+    high_threshold: 0.8
+
+# Configuration des gates de ressources
+resource_management:
+  cpu_threshold: 80  # % CPU max avant throttling
+  memory_threshold: 85  # % RAM max avant throttling
+  enable_psutil: false  # Nécessite psutil installé
+
+# Configuration privacy/GDPR
+privacy:
+  enable_pii_detection: true
+  enable_hmac_hashing: true
+  sanitize_events: true
+  redact_sensitive_keys: true

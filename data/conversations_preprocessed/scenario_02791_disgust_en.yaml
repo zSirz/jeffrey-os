@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.895988'
+emotion: disgust
+language: en
+original_goemotions_label: disgust
+preprocessing:
+  emoji_demojized: true
+  original_length: 76
+  processed_length: 76
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02791
+source: go_emotions
+text: If you are as ugly as you say you are, you're already a statistical outlier.

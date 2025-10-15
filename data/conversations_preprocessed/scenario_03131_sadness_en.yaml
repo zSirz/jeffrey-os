@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.974564'
+emotion: sadness
+language: en
+original_goemotions_label: remorse
+preprocessing:
+  emoji_demojized: true
+  original_length: 93
+  processed_length: 93
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03131
+source: go_emotions
+text: No I didn't take it that way. My apologies if my comment appeared to be taking
+  a shot at you.

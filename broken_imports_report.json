@@ -1,0 +1,47 @@
+{
+  "total_files": 498,
+  "total_broken": 93,
+  "unique_modules": 57,
+  "top_10": [
+    {
+      "module": "jeffrey.utils.logger",
+      "count": 13
+    },
+    {
+      "module": "jeffrey.core.neural_envelope",
+      "count": 9
+    },
+    {
+      "module": "jeffrey.core.cognitive.base_module",
+      "count": 4
+    },
+    {
+      "module": "jeffrey.bridge.adapters",
+      "count": 3
+    },
+    {
+      "module": "jeffrey.core.bus.neurobus_adapter",
+      "count": 2
+    },
+    {
+      "module": "jeffrey.core.loops.loop_manager",
+      "count": 2
+    },
+    {
+      "module": "jeffrey.core.neuralbus.bus_v2",
+      "count": 2
+    },
+    {
+      "module": "jeffrey.core.learning.jeffrey_meta_learning_integration",
+      "count": 2
+    },
+    {
+      "module": "jeffrey.bundle2.language.broca_wernicke",
+      "count": 2
+    },
+    {
+      "module": "jeffrey.core.llm.apertus_client",
+      "count": 2
+    }
+  ]
+}

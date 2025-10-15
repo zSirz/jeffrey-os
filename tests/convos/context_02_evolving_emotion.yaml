@@ -1,0 +1,43 @@
+metadata:
+  scenario_id: "context_02"
+  title: "Évolution Émotionnelle Progressive"
+  expected_emotion: "evolving"
+  difficulty: "hard"
+  tags: ["context", "emotion_evolution", "support"]
+
+conversation:
+  - role: "user"
+    content: "Je me sens pas bien aujourd'hui..."
+    expected_emotion: "sadness"
+    expected_intensity: 0.6
+
+  - role: "assistant"
+    content: "Je suis là pour t'écouter. Qu'est-ce qui ne va pas ?"
+    emotional_tone: "supportive"
+
+  - role: "user"
+    content: "C'est juste... tout s'accumule. Le boulot, les soucis perso..."
+    expected_emotion: "sadness"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "C'est normal de se sentir submergé parfois. Tu veux en parler plus en détail ?"
+
+  - role: "user"
+    content: "Ouais... merci de m'écouter. Ça fait du bien de pouvoir parler."
+    expected_emotion: "relief"
+    expected_intensity: 0.5
+
+  - role: "assistant"
+    content: "Prends tout le temps dont tu as besoin. Je suis là."
+
+  - role: "user"
+    content: "Tu sais quoi, ça va mieux. Juste d'avoir parlé, ça m'a aidé."
+    expected_emotion: "better"
+    expected_intensity: 0.6
+
+validation:
+  should_detect: ["emotion_evolution", "sadness_to_relief"]
+  should_remember: "user was overwhelmed, felt better after talking"
+  continuity_check: true
+  emotion_trajectory: ["sadness", "relief", "better"]

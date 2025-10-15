@@ -1,0 +1,105 @@
+#:kivy 2.0.0
+#:import hex kivy.utils.get_color_from_hex
+
+<HistoryScreen>:
+    name: "history_screen"
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(15)
+
+        canvas.before:
+            Color:
+                rgba: hex("#1C1C1C")
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        canvas.after:
+            Color:
+                rgba: hex("#444444")
+            Rectangle:
+                size: self.width, dp(1)
+                pos: self.x, self.y
+
+        # Animated header (subtle fade-in or shimmer can be added in Python)
+        Label:
+            text: "Historique des échanges"
+            font_name: "Cinzel"
+            font_size: "28sp"
+            size_hint_y: None
+            height: self.texture_size[1]
+            color: hex("#F0E6D2")
+            bold: True
+            halign: "center"
+            valign: "middle"
+            text_size: self.width, None
+
+        ScrollView:
+            do_scroll_x: False
+            GridLayout:
+                id: history_container
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(10)
+                padding: [0, dp(10)]
+
+<HistoryCard@BoxLayout>:
+    orientation: "vertical"
+    size_hint_y: None
+    height: self.minimum_height
+    padding: dp(12)
+    spacing: dp(6)
+    canvas.before:
+        PushMatrix
+        Color:
+            rgba: hex("#3C3C3CAA")
+        RoundedRectangle:
+            pos: self.x - 5, self.y - 5
+            size: self.width + 10, self.height + 10
+            radius: [16]
+        PopMatrix
+        Color:
+            rgba: hex("#292929")
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [12]
+
+    Label:
+        id: speaker
+        text: root.speaker
+        font_size: "16sp"
+        font_name: "Cinzel"
+        bold: True
+        color: hex("#EADBC8")
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    Label:
+        id: message
+        text: root.message
+        font_size: "15sp"
+        font_name: "Roboto"
+        color: hex("#DADADA")
+        text_size: self.width, None
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    Label:
+        id: timestamp
+        text: root.timestamp
+        font_size: "12sp"
+        color: hex("#999999")
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    opacity: 0
+    on_parent:
+        Animation(opacity=1, d=0.4).start(self)
+        app.play_message_sound()
+
+    on_touch_down:
+        if self.collide_point(*args[1].pos): self.canvas.opacity = 0.95
+    on_touch_up:
+        self.canvas.opacity = 1

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.239373'
+emotion: neutral
+language: en
+original_goemotions_label: neutral
+preprocessing:
+  emoji_demojized: true
+  original_length: 87
+  processed_length: 87
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00221
+source: go_emotions
+text: It shows that the factors are so stacked against it that it must have been intentional.

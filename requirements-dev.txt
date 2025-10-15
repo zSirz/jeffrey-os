@@ -1,0 +1,61 @@
+# ============================================================
+# JEFFREY OS - Development Requirements
+# Includes all production requirements + dev tools
+# ============================================================
+
+# Include production requirements
+-r requirements.txt
+
+# ------------------------------------------------------------
+# TESTING
+# ------------------------------------------------------------
+
+pytest==8.3.4
+pytest-asyncio==0.25.2
+pytest-cov==6.0.0
+pytest-mock==3.14.0
+pytest-timeout==2.3.1
+hypothesis==6.124.2
+
+# ------------------------------------------------------------
+# LINTING & FORMATTING
+# ------------------------------------------------------------
+
+black==24.10.0
+flake8==7.1.1
+isort==5.13.2
+ruff==0.8.5  # Fast Python linter
+
+# ------------------------------------------------------------
+# TYPE CHECKING
+# ------------------------------------------------------------
+
+mypy==1.13.0
+types-redis==4.6.0.20240903
+types-cachetools==5.5.0.20240820
+types-pyyaml==6.0.12.20240917
+types-requests==2.32.0.20241016
+
+# ------------------------------------------------------------
+# DEBUGGING & PROFILING
+# ------------------------------------------------------------
+
+ipdb==0.13.13
+ipython==8.30.0
+line-profiler==4.1.3
+memory-profiler==0.61.0
+
+# ------------------------------------------------------------
+# CODE QUALITY
+# ------------------------------------------------------------
+
+bandit==1.8.0  # Security linter
+safety==3.2.11  # Check dependencies for vulnerabilities
+pre-commit==4.0.1
+
+# ------------------------------------------------------------
+# DEVELOPMENT UTILITIES
+# ------------------------------------------------------------
+
+watchdog==6.0.0  # File system monitoring
+rich==13.9.4  # Pretty printing for debugging

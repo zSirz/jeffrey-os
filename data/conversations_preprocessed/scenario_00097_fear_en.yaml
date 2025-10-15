@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.209762'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 81
+  processed_length: 81
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00097
+source: go_emotions
+text: I use one every time I park and you just replied to me. so this is a bit awkward.

@@ -1,0 +1,156 @@
+"""
+Jeffrey OS - sitecustomize.py (Version Ultime Blindée)
+
+PRINCIPES CRITIQUES :
+1. Privilégier TOUJOURS les vrais packages sur disque
+2. JAMAIS mocker jeffrey, jeffrey.bridge, ou jeffrey.*
+3. Traçabilité via flag debug JEFFREY_DEBUG_MOCKS
+4. Idempotence et robustesse absolues
+"""
+
+import importlib
+import os
+import sys
+from types import ModuleType
+
+# Flag debug (activation via export JEFFREY_DEBUG_MOCKS=1)
+DEBUG_MOCKS = os.environ.get("JEFFREY_DEBUG_MOCKS", "0") == "1"
+
+
+def debug_log(msg: str) -> None:
+    """Log conditionnel pour debugging."""
+    if DEBUG_MOCKS:
+        print(f"[sitecustomize] {msg}")
+
+
+def ensure_pkg(pkg: str) -> None:
+    """
+    Crée les parents si nécessaire en privilégiant les VRAIS paquets sur disque.
+
+    RÈGLE CRITIQUE : JAMAIS mocker jeffrey, jeffrey.bridge, ou jeffrey.*
+
+    Args:
+        pkg: Nom du package à assurer (ex: 'jeffrey.bridge')
+    """
+    if pkg in sys.modules:
+        debug_log(f"Package déjà chargé : {pkg}")
+        return
+
+    # BLINDAGE : Interdire explicitement mocks pour jeffrey.*
+    if pkg == "jeffrey" or pkg.startswith("jeffrey."):
+        debug_log(f"Tentative import RÉEL obligatoire : {pkg}")
+        try:
+            mod = importlib.import_module(pkg)
+            sys.modules[pkg] = mod
+            debug_log(f"✅ Package RÉEL chargé : {pkg}")
+            return
+        except Exception as e:
+            debug_log(f"❌ ÉCHEC import réel {pkg} : {e}")
+            # Ne PAS créer de mock pour jeffrey.*
+            raise ImportError(f"Package réel requis mais introuvable : {pkg}")
+
+    # Pour autres packages : tentative import réel d'abord
+    try:
+        mod = importlib.import_module(pkg)
+        sys.modules[pkg] = mod
+        debug_log(f"✅ Package réel chargé : {pkg}")
+        return
+    except Exception:
+        # Seulement si vraiment inexistant : créer mock léger
+        debug_log(f"⚠️ Création mock pour : {pkg}")
+        m = ModuleType(pkg)
+        m.__path__ = []
+        sys.modules[pkg] = m
+
+
+def alias_module(old: str, new: str) -> None:
+    """
+    Alias robuste sans écraser les parents réels s'ils existent.
+
+    Args:
+        old: Chemin d'import attendu (ex: jeffrey.utils.logger)
+        new: Chemin vendorisé réel (ex: vendors.icloud.utils.logger)
+    """
+    debug_log(f"Configuration alias : {old} → {new}")
+
+    try:
+        parts = old.split(".")
+        # Assurer parents existent (vrais ou mocks si besoin)
+        for i in range(len(parts) - 1):
+            ensure_pkg(".".join(parts[: i + 1]))
+
+        # Import module cible
+        target_mod = importlib.import_module(new)
+        sys.modules[old] = target_mod
+
+        debug_log(f"✅ Alias OK : {old}")
+
+    except Exception as e:
+        print(f"[alias] WARN {old} -> {new}: {e}")
+
+
+# ═══════════════════════════════════════════════════════════════════
+# CONFIGURATION ALIASES (VENDORISÉS UNIQUEMENT)
+# ═══════════════════════════════════════════════════════════════════
+
+debug_log("Début configuration aliases...")
+
+# ⚠️ NE JAMAIS aliaser 'jeffrey' ni 'jeffrey.bridge'
+# (ils existent réellement sur disque)
+
+# Emotion system
+alias_module(
+    "jeffrey.core.emotions.core.emotion_prompt_detector",
+    "vendors.icloud.emotions.emotion_prompt_detector",
+)
+alias_module("jeffrey.core.emotions.core.emotion_ml_enhancer", "vendors.icloud.emotion_ml_enhancer")
+
+# Memory system (double alias pour compatibilité)
+alias_module("jeffrey.core.memory.unified_memory", "vendors.icloud.memory.unified_memory")
+alias_module("jeffrey.core.orchestration.unified_memory", "vendors.icloud.memory.unified_memory")
+
+# Top 3 modules vendorisés
+alias_module("jeffrey.utils.logger", "vendors.icloud.utils.logger")
+alias_module("jeffrey.core.neural_envelope", "vendors.icloud.core.neural_envelope")
+alias_module("jeffrey.core.cognitive.base_module", "vendors.icloud.core.cognitive.base_module")
+
+# Core mini (compatibilité)
+alias_module("core.mini_emotional_core", "vendors.icloud.core.mini_emotional_core")
+
+# Jeffrey Emotional Core (missing alias)
+alias_module("jeffrey.core.jeffrey_emotional_core", "vendors.icloud.jeffrey_emotional_core")
+
+# === Alias racine (CRITIQUE) pour anciens chemins "core.*" ===
+# Sécurisé : ne pas écraser un vrai package "core" externe s'il existe
+try:
+    import importlib.util
+    spec = importlib.util.find_spec("core")
+    if spec is None:
+        alias_module("core", "jeffrey.core")
+except Exception:
+    alias_module("core", "jeffrey.core")
+
+# Chemin hérité bizarre souvent vu : core.emotions.core.*
+alias_module("core.emotions.core", "jeffrey.core.emotions")
+
+# Héritage direct du module vendorisé (variantes)
+alias_module("core.jeffrey_emotional_core", "vendors.icloud.jeffrey_emotional_core")
+alias_module("jeffrey.core.jeffrey_emotional_core", "vendors.icloud.jeffrey_emotional_core")
+
+# === PLAN A : Mapping anciens chemins → nouveaux (zéro-invention) ===
+
+# 1. Dépendance émotionnelle
+alias_module("core.emotional_memory", "jeffrey.core.memory.advanced.emotional_memory")
+
+# 2. Adapter renommé
+alias_module("jeffrey.core.personality.style_affectif_adapter", "jeffrey.core.personality.conversation_personality")
+
+# 3. Détecteur d'émotions vendorisé
+alias_module("jeffrey.core.emotions.emotion_prompt_detector", "vendors.icloud.emotions.emotion_prompt_detector")
+
+# 4. Secrets manager relocalisé
+alias_module("jeffrey.modules.config.secrets_manager", "jeffrey.infrastructure.security.secrets_manager")
+
+debug_log("Configuration aliases terminée")
+if DEBUG_MOCKS:
+    print("✅ Jeffrey OS aliasing (vrais packages prioritaires, debug actif)")

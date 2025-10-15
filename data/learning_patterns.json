@@ -1,0 +1,329 @@
+{
+  "expression_emotion_5921": {
+    "pattern_id": "expression_emotion_5921",
+    "input_type": "expression_emotion",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Génial ! Je suis super heureux ! 🎉✨"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:45.360117",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "expression_emotion_4069": {
+    "pattern_id": "expression_emotion_4069",
+    "input_type": "expression_emotion",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Ça doit être dur..."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:45.865331",
+    "effectiveness_score": 0.4000000000000001
+  },
+  "question_2918": {
+    "pattern_id": "question_2918",
+    "input_type": "question",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Tu es en sécurité ici."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:46.369563",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "question_7828": {
+    "pattern_id": "question_7828",
+    "input_type": "question",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "C'est fascinant comme sujet !"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:46.874294",
+    "effectiveness_score": 0.42000000000000004
+  },
+  "expression_preference_5882": {
+    "pattern_id": "expression_preference_5882",
+    "input_type": "expression_preference",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Je t'écoute attentivement."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:47.379835",
+    "effectiveness_score": 0.6
+  },
+  "question_4193": {
+    "pattern_id": "question_4193",
+    "input_type": "question",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Explorons ça ensemble... 🤔"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:47.887875",
+    "effectiveness_score": 0.4000000000000001
+  },
+  "conversation_generale_5384": {
+    "pattern_id": "conversation_generale_5384",
+    "input_type": "conversation_generale",
+    "successful_responses": [
+      "Hmm, je vois ce que tu veux dire..."
+    ],
+    "failure_responses": [
+      "analyse_en_cours"
+    ],
+    "confidence": 0.5,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:48.397358",
+    "effectiveness_score": 0.62
+  },
+  "salutation_7536": {
+    "pattern_id": "salutation_7536",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Super ! 😊 Bonjour Jeffrey ! (test 1)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:48.901477",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "salutation_6625": {
+    "pattern_id": "salutation_6625",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Génial ! Bonjour Jeffrey ! (test 2)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:49.206332",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "salutation_6985": {
+    "pattern_id": "salutation_6985",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Génial ! Bonjour Jeffrey ! (test 3)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:49.512901",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "salutation_196": {
+    "pattern_id": "salutation_196",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Génial ! Bonjour Jeffrey ! (test 4)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:49.824920",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "salutation_3991": {
+    "pattern_id": "salutation_3991",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Génial ! Bonjour Jeffrey ! (test 5)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:50.131031",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "salutation_2256": {
+    "pattern_id": "salutation_2256",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "C'est fantastique ! ✨"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:50.436511",
+    "effectiveness_score": 0.42000000000000004
+  },
+  "salutation_7665": {
+    "pattern_id": "salutation_7665",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Super ! 😊 Bonjour Jeffrey ! (test 7)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:50.742053",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "salutation_6529": {
+    "pattern_id": "salutation_6529",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "C'est fantastique ! ✨"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:51.044445",
+    "effectiveness_score": 0.42000000000000004
+  },
+  "salutation_9622": {
+    "pattern_id": "salutation_9622",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Génial ! Bonjour Jeffrey ! (test 9)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:51.352728",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "salutation_7193": {
+    "pattern_id": "salutation_7193",
+    "input_type": "salutation",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Super ! 😊 Bonjour Jeffrey ! (test 10)"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:51.660194",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "conversation_generale_4448": {
+    "pattern_id": "conversation_generale_4448",
+    "input_type": "conversation_generale",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Dis-m'en plus..."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:51.976743",
+    "effectiveness_score": 0.6
+  },
+  "expression_preference_5836": {
+    "pattern_id": "expression_preference_5836",
+    "input_type": "expression_preference",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Dis-m'en plus..."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:52.485233",
+    "effectiveness_score": 0.6
+  },
+  "conversation_generale_3052": {
+    "pattern_id": "conversation_generale_3052",
+    "input_type": "conversation_generale",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "C'est intéressant ce que tu dis..."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:52.997281",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "question_2952": {
+    "pattern_id": "question_2952",
+    "input_type": "question",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Bonne question ! 🤔"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:53.520860",
+    "effectiveness_score": 0.4000000000000001
+  },
+  "question_2131": {
+    "pattern_id": "question_2131",
+    "input_type": "question",
+    "successful_responses": [
+      "C'est intéressant ce que tu dis..."
+    ],
+    "failure_responses": [
+      "analyse_en_cours"
+    ],
+    "confidence": 0.5,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:54.030922",
+    "effectiveness_score": 0.62
+  },
+  "question_generale_6441": {
+    "pattern_id": "question_generale_6441",
+    "input_type": "question_generale",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Hmm, je vois ce que tu veux dire..."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:54.541676",
+    "effectiveness_score": 0.44000000000000006
+  },
+  "expression_emotion_3892": {
+    "pattern_id": "expression_emotion_3892",
+    "input_type": "expression_emotion",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Je suis là pour toi 💙"
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:55.054905",
+    "effectiveness_score": 0.42000000000000004
+  },
+  "expression_emotion_9183": {
+    "pattern_id": "expression_emotion_9183",
+    "input_type": "expression_emotion",
+    "successful_responses": [],
+    "failure_responses": [
+      "analyse_en_cours",
+      "Je t'écoute attentivement."
+    ],
+    "confidence": 0.0,
+    "usage_count": 2,
+    "last_updated": "2025-10-09T23:20:55.565289",
+    "effectiveness_score": 0.6
+  }
+}

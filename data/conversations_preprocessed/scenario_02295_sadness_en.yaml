@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.721412'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 146
+  processed_length: 146
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02295
+source: go_emotions
+text: You think that hearing deathcries is **funny** ? Personally, hearing cries of
+  pain and dispair don't cause me enjoyment, but I guess I'm a weirdo.

@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.364655'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 80
+  processed_length: 80
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_00758
+source: go_emotions
+text: I don't just cringe, I feel literal embarrassment for anyone who has watched
+  it.

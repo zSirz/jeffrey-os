@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.647351'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 112
+  processed_length: 112
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01974
+source: go_emotions
+text: Can you imagine being taken to court over a flushing loo? I can’t believe the
+  courts are even entertaining this.

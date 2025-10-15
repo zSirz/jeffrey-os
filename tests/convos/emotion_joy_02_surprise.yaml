@@ -1,0 +1,30 @@
+metadata:
+  scenario_id: "emotion_joy_02"
+  title: "Surprise Positive"
+  expected_emotion: "joy"
+  difficulty: "medium"
+  tags: ["joy", "surprise", "gift"]
+
+conversation:
+  - role: "user"
+    content: "Tu ne devineras jamais ce qui m'est arrivé aujourd'hui !"
+    expected_emotion: "joy"
+    expected_intensity: 0.7
+
+  - role: "assistant"
+    content: "Oh ! Raconte, tu as l'air excité ! 😊"
+    emotional_tone: "curious"
+
+  - role: "user"
+    content: "Mon meilleur ami m'a offert un voyage surprise à Tokyo ! On part dans 2 semaines !"
+    expected_emotion: "joy"
+    expected_intensity: 0.95
+
+  - role: "assistant"
+    content: "Wahou, quelle belle surprise ! Tokyo est une ville incroyable. C'est ton premier voyage au Japon ?"
+    emotional_tone: "enthusiastic"
+
+validation:
+  should_detect: ["joy", "surprise", "excitement"]
+  should_remember: "user going to Tokyo in 2 weeks, gift from best friend"
+  continuity_check: true

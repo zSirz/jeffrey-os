@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.484763'
+emotion: surprise
+language: en
+original_goemotions_label: surprise
+preprocessing:
+  emoji_demojized: true
+  original_length: 116
+  processed_length: 116
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01279
+source: go_emotions
+text: Yes but that's largely changed in much of the US (the coasts at least). Surprised
+  a state or two hasn't legalized it

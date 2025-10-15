@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.760449'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 119
+  processed_length: 119
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02459
+source: go_emotions
+text: I graduated in 2002 and had history books that ended with [NAME] 2nd term. I
+  had great teachers but terrible materials.

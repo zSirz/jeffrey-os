@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.521732'
+emotion: fear
+language: en
+original_goemotions_label: embarrassment
+preprocessing:
+  emoji_demojized: true
+  original_length: 133
+  processed_length: 133
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01440
+source: go_emotions
+text: Wanting America to be better does not mean hating America. We can do better
+  than [NAME]. He’s an embarrassment to the entire country.

@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:54.250166'
+emotion: joy
+language: en
+original_goemotions_label: excitement
+preprocessing:
+  emoji_demojized: true
+  original_length: 62
+  processed_length: 62
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_03938
+source: go_emotions
+text: '*Hey just noticed..* it''s your **4th Cakeday** notasci! ^(hug)'

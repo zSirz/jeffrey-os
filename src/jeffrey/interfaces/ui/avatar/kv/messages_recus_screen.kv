@@ -1,0 +1,188 @@
+#:kivy 2.0.0
+#:import hex kivy.utils.get_color_from_hex
+
+<StyledMessage@BoxLayout>:
+    message_text: ""
+    message_time: ""
+    is_postit: False
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 0.05)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+        Color:
+            rgba: (1, 0.85, 0.95, 0.8) if hasattr(root, "is_postit") and root.is_postit else get_color_from_hex("#FFDDEE")
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [16]
+
+        Color:
+            rgba: (1, 1, 1, 0.2) if hasattr(root, "is_postit") and root.is_postit else (1, 1, 1, 0.15)
+        Rectangle:
+            pos: self.x + 3, self.y - 3
+            size: self.width, self.height
+    size_hint_y: None
+    height: self.minimum_height
+    orientation: 'vertical'
+    padding: dp(10)
+    spacing: dp(5)
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 0.05
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+        Color:
+            rgba: get_color_from_hex("#FFDDEE")
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [16]
+
+        Color:
+            rgba: 1, 1, 1, 0.15
+        Rectangle:
+            pos: self.x + 3, self.y - 3
+            size: self.width, self.height
+
+    Label:
+        id: message_text
+        text: root.message_text
+        color: get_color_from_hex("#2C3E50")
+        font_name: "Cinzel"
+        font_size: '17sp'
+        text_size: self.width, None
+        halign: 'left'
+        valign: 'top'
+        size_hint_y: None
+        height: self.texture_size[1]
+        canvas.after:
+            PushMatrix
+            Rotate:
+                angle: -2 if hasattr(root, "is_postit") and root.is_postit else 0
+                origin: self.center
+            PopMatrix
+
+    # Section visuelle animée subtile pour l’émotion
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: dp(12)
+        canvas.before:
+            Color:
+                rgba: 1, 0.5, 0.6, 0.25  # Légère aura
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [6]
+
+    # Affichage de l’émotion de Jeffrey
+    Label:
+        text: "💖 Douceur" if root.is_postit else "💬 Message"
+        color: get_color_from_hex("#C71585")
+        font_size: '14sp'
+        font_name: "Cinzel"
+        italic: True
+        size_hint_y: None
+        height: self.texture_size[1]
+        halign: 'left'
+        valign: 'middle'
+
+    Label:
+        id: message_time
+        text: root.message_time
+        color: get_color_from_hex("#8E8E93")
+        font_name: "Roboto"
+        italic: True
+        font_size: '12sp'
+        size_hint_y: None
+        height: self.texture_size[1]
+        halign: 'right'
+        valign: 'middle'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: dp(30)
+        spacing: dp(10)
+
+        Button:
+            text: "❤️"
+            size_hint: None, None
+            size: dp(36), dp(36)
+            background_color: 0, 0, 0, 0
+            background_normal: ''
+            color: get_color_from_hex("#FF69B4")
+            font_size: '20sp'
+            on_release:
+                self.size = (dp(40), dp(40))
+                root.parent.parent.parent.parent.ajouter_aux_favoris(root.message_text, root.message_time)
+            canvas.before:
+                Color:
+                    rgba: (1, 0.6, 0.8, 0.2)
+                Ellipse:
+                    pos: self.x - dp(3), self.y - dp(3)
+                    size: dp(42), dp(42)
+            canvas.after:
+                Color:
+                    rgba: 1, 1, 1, 0.05
+                Ellipse:
+                    pos: self.x + dp(4), self.y + dp(4)
+                    size: dp(28), dp(28)
+
+        Button:
+            text: "✨"
+            size_hint: None, None
+            size: dp(36), dp(36)
+            background_color: 0, 0, 0, 0
+            background_normal: ''
+            color: get_color_from_hex("#9B30FF")
+            font_size: '20sp'
+            on_release:
+                self.size = (dp(40), dp(40))
+                root.parent.parent.parent.parent.ajouter_aux_favoris_magiques(root.message_text, root.message_time)
+            canvas.before:
+                Color:
+                    rgba: (0.8, 0.5, 1, 0.25)
+                Ellipse:
+                    pos: self.x - dp(3), self.y - dp(3)
+                    size: dp(42), dp(42)
+            canvas.after:
+                Color:
+                    rgba: 1, 1, 1, 0.05
+                Ellipse:
+                    pos: self.x + dp(4), self.y + dp(4)
+                    size: dp(28), dp(28)
+
+<MessagesRecusScreen>:
+    name: "messages_recus"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20), dp(20)
+        spacing: dp(10)
+        canvas.before:
+            Color:
+                rgba: 1, 0.95, 0.99, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+
+            GridLayout:
+                id: messages_layout
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: dp(60)
+                row_force_default: False
+                spacing: dp(10)
+                padding: dp(10)
+
+                # The messages will be populated from the Python file dynamically

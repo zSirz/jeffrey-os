@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.675570'
+emotion: fear
+language: en
+original_goemotions_label: fear
+preprocessing:
+  emoji_demojized: true
+  original_length: 135
+  processed_length: 145
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02097
+source: go_emotions
+text: '>[NAME] One of the most horrifying stories I''ve ever heard of: the mom should
+  be in psychiatric care and the doctor thrown in jail in my opinion.'

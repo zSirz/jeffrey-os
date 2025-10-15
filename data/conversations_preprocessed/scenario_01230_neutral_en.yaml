@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.473461'
+emotion: neutral
+language: en
+original_goemotions_label: confusion
+preprocessing:
+  emoji_demojized: true
+  original_length: 108
+  processed_length: 108
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01230
+source: go_emotions
+text: What the actual fuck, does seeing something terrible prevent you from enjoying
+  the entire rest of your life?

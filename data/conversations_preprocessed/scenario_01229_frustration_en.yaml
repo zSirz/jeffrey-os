@@ -1,0 +1,13 @@
+created_at: '2025-10-13T11:58:53.473221'
+emotion: frustration
+language: en
+original_goemotions_label: disappointment
+preprocessing:
+  emoji_demojized: true
+  original_length: 76
+  processed_length: 76
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01229
+source: go_emotions
+text: Unfortunately this is just as illegal as impeding traffic all over the city.

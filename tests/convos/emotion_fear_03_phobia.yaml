@@ -1,0 +1,26 @@
+metadata:
+  scenario_id: "emotion_fear_03"
+  title: "Phobie Situationnelle"
+  expected_emotion: "fear"
+  difficulty: "easy"
+  tags: ["fear", "phobia", "panic"]
+
+conversation:
+  - role: "user"
+    content: "Je dois prendre l'avion la semaine prochaine et je suis déjà en panique... J'ai la phobie de l'avion."
+    expected_emotion: "fear"
+    expected_intensity: 0.8
+
+  - role: "assistant"
+    content: "Les phobies peuvent être très handicapantes. Tu as déjà essayé des techniques de relaxation ?"
+    emotional_tone: "calm"
+
+  - role: "user"
+    content: "J'ai essayé la respiration mais dès que j'y pense mon cœur s'emballe... Ça va être l'enfer."
+    expected_emotion: "fear"
+    expected_intensity: 0.85
+
+validation:
+  should_detect: ["fear", "phobia", "panic", "anticipation"]
+  should_remember: "user has flight phobia, flight next week, tried breathing exercises"
+  continuity_check: true

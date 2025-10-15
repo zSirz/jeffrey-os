@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.614356'
+emotion: joy
+language: en
+original_goemotions_label: gratitude
+preprocessing:
+  emoji_demojized: true
+  original_length: 98
+  processed_length: 98
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_01839
+source: go_emotions
+text: I love the downvote followed by zero response. Thank you ladies and gentlemen,
+  goodnight *mic drop

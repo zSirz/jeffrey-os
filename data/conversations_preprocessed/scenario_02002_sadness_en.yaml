@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.654031'
+emotion: sadness
+language: en
+original_goemotions_label: sadness
+preprocessing:
+  emoji_demojized: true
+  original_length: 136
+  processed_length: 136
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02002
+source: go_emotions
+text: True, but I meant he has no holiday themed skin from any of those events and
+  all his skins (volsksya included) are pretty bland sadly...

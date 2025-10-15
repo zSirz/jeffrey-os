@@ -1,0 +1,14 @@
+created_at: '2025-10-13T11:58:53.939761'
+emotion: frustration
+language: en
+original_goemotions_label: annoyance
+preprocessing:
+  emoji_demojized: true
+  original_length: 98
+  processed_length: 98
+  slang_normalized: true
+quality: public_dataset_single_label
+scenario_id: goemo_02979
+source: go_emotions
+text: Imagine being so deluded you believe that not condoning a country’s poor behavior
+  will lead to war

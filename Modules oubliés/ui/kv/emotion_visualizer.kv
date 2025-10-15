@@ -1,0 +1,11 @@
+#:kivy 2.0.0
+#: import hex kivy.utils.get_color_from_hex
+
+<EmotionVisualizer>:
+    canvas.before:
+        # Fond légèrement transparent pour améliorer la visibilité des particules
+        Color:
+            rgba: 0, 0, 0, 0.1
+        Rectangle:
+            pos: self.pos
+            size: self.size

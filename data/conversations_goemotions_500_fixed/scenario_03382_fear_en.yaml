@@ -1,0 +1,9 @@
+created_at: '2025-10-13T11:58:54.077175'
+emotion: fear
+language: en
+original_goemotions_label: fear
+quality: public_dataset_single_label
+scenario_id: goemo_03382
+source: go_emotions
+text: It would probably be horrifying if we tried, when a bug causes an integer overflow
+  and resets our aggression levels.
