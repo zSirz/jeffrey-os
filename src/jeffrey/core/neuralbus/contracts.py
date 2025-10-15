@@ -99,3 +99,63 @@ class SystemEventData(BaseModel):
     status: str
     message: str | None = None
     metrics: dict[str, float] | None = None
+
+
+# ========================================
+# JEFFREY BRAIN TOPICS - COGNITIVE EVENTS
+# ========================================
+
+# Emotions
+EMOTION_DETECTED = "emotion.ml.detected.v1"
+
+# Memory
+MEMORY_STORE_REQ = "memory.store.request.v1"
+MEMORY_STORED = "memory.stored.v1"
+MEMORY_RECALL_REQ = "memory.recall.request.v1"
+MEMORY_RECALLED = "memory.recalled.v1"
+
+# Consciousness
+THOUGHT_EVENT = "cognition.thought.v1"
+
+# Biorhythms
+CIRCADIAN_UPDATE = "state.circadian.updated.v1"
+
+# Security & Ethics
+ETHICS_VIOLATION = "ethics.guard.violated.v1"
+SECURITY_THREAT = "security.threat.detected.v1"
+
+# Innovations
+CURIOSITY_QUESTION = "curiosity.question.v1"
+ATTACHMENT_UPDATE = "attachment.bond.updated.v1"
+DREAM_TRIGGERED = "dream.trigger.v1"
+DREAM_GENERATED = "dream.generated.v1"
+
+
+class EmotionEventData(BaseModel):
+    """Emotion detection event data"""
+
+    text: str
+    emotion: str
+    confidence: float
+    all_scores: dict[str, float]
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+
+
+class MemoryEventData(BaseModel):
+    """Memory operation event data"""
+
+    entry_id: str | None = None
+    content: dict[str, Any] | None = None
+    query: str | None = None
+    success: bool
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+
+
+class ThoughtEventData(BaseModel):
+    """Consciousness thought event data"""
+
+    state: str
+    context_size: int
+    mode: str
+    content: dict[str, Any] | None = None
+    timestamp: datetime = Field(default_factory=datetime.utcnow)

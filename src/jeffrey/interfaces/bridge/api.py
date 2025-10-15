@@ -212,7 +212,36 @@ async def detect_emotion_ml(
             timeout=5.0,  # API timeout plus strict
         )
 
-        return EmotionDetectResponse(**result)
+        resp = EmotionDetectResponse(**result)
+
+        # NOUVELLE PARTIE : Publication sur NeuralBus
+        try:
+            from jeffrey.core.neuralbus.contracts import EMOTION_DETECTED
+
+            # Récupérer ou créer le bus (singleton pattern)
+            bus = getattr(app.state, "_neural_bus", None)
+            if bus:
+                # Publier l'événement
+                await bus.publish(topic=EMOTION_DETECTED, data={
+                    "text": request.text,
+                    "emotion": resp.emotion,
+                    "confidence": resp.confidence,
+                    "all_scores": resp.all_scores,
+                    "timestamp": datetime.utcnow().isoformat()
+                })
+
+                # Tracking pour monitoring (thread-safe best-effort)
+                app.state._event_counts = getattr(app.state, "_event_counts", {})
+                app.state._event_counts[EMOTION_DETECTED] = app.state._event_counts.get(EMOTION_DETECTED, 0) + 1
+                logger.info(f"✅ Published emotion event #{app.state._event_counts[EMOTION_DETECTED]}")
+            else:
+                logger.debug("NeuralBus not available, skipping event publication")
+
+        except Exception as e:
+            logger.warning(f"Could not publish emotion event: {e}")
+            # Ne pas bloquer la réponse API
+
+        return resp
 
     except TimeoutError:
         raise HTTPException(status_code=504, detail="Detection timeout")
@@ -266,6 +295,61 @@ async def emotion_health_check(emotion_adapter=Depends(get_emotion_adapter)):
         }
     except Exception as e:
         return {"status": "unhealthy", "error": str(e)}
+
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialisation au démarrage du serveur"""
+    try:
+        # Warmup ML (existant si disponible)
+        try:
+            from jeffrey.ml.emotion_ml_adapter import EmotionMLAdapter
+            adapter = await EmotionMLAdapter.get_instance()
+            await adapter.detect_emotion("warmup")
+            logger.info("✅ ML warmup completed")
+        except Exception as e:
+            logger.warning(f"ML warmup failed: {e}")
+
+        # NOUVEAU : Bootstrap du cerveau
+        from jeffrey.core.brain_bootstrap import BrainBootstrap
+
+        app.state._neural_bus = getattr(app.state, "_neural_bus", None)
+        bootstrap = BrainBootstrap(app.state._neural_bus)
+        app.state._neural_bus = await bootstrap.wire_minimal_loop()
+        app.state._brain_bootstrap = bootstrap
+        app.state._event_counts = {}
+
+        logger.info("🧠 Brain bootstrap completed")
+        logger.info(f"   Stats: {bootstrap.get_stats()}")
+
+    except Exception as e:
+        logger.error(f"❌ Startup bootstrap failed: {e}")
+        # Ne pas bloquer le démarrage
+
+
+@app.get("/api/v1/brain/status")
+async def brain_status():
+    """Endpoint pour vérifier l'état du cerveau"""
+    bootstrap = getattr(app.state, "_brain_bootstrap", None)
+    stats = bootstrap.get_stats() if bootstrap else {}
+    events = getattr(app.state, "_event_counts", {})
+
+    return {
+        "status": "active" if stats.get("wired") else "inactive",
+        "modules": {
+            "memory": stats.get("memory_available", False),
+            "consciousness": stats.get("consciousness_available", False),
+            "memory_type": stats.get("memory_type"),
+            "consciousness_type": stats.get("consciousness_type")
+        },
+        "activity": {
+            "emotions_processed": stats.get("emotions_received", 0),
+            "memories_stored": stats.get("memories_stored", 0),
+            "thoughts_generated": stats.get("thoughts_generated", 0)
+        },
+        "events": events,
+        "errors": stats.get("errors", 0)
+    }
 
 
 if __name__ == "__main__":
