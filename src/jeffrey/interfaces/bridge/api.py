@@ -10,6 +10,8 @@ import time
 from datetime import datetime
 from typing import Any
 
+from jeffrey.core.contracts.thoughts import create_thought, ThoughtState, ensure_thought_format
+
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, validator
@@ -214,6 +216,9 @@ async def detect_emotion_ml(
 
         resp = EmotionDetectResponse(**result)
 
+        # Chronométrage pour monitoring
+        t0 = time.perf_counter()
+
         # NOUVELLE PARTIE : Traitement synchrone de la boucle cognitive
         try:
             bootstrap = getattr(app.state, "_brain_bootstrap", None)
@@ -230,7 +235,7 @@ async def detect_emotion_ml(
                 # 1. Traiter l'émotion
                 bootstrap.stats["emotions_received"] += 1
 
-                # 2. Stocker en mémoire
+                # 2. Stocker en mémoire avec MemoryPort
                 if bootstrap.memory:
                     memory_entry = {
                         "text": emotion_data["text"],
@@ -244,47 +249,57 @@ async def detect_emotion_ml(
                         }
                     }
 
-                    try:
-                        if hasattr(bootstrap.memory, 'store'):
-                            bootstrap.memory.store(memory_entry)
-                        elif hasattr(bootstrap.memory, 'add'):
-                            bootstrap.memory.add(memory_entry)
+                    # Utiliser le MemoryPort
+                    success = bootstrap.memory.store(memory_entry)
 
+                    if success:
                         bootstrap.stats["memories_stored"] += 1
                         logger.debug(f"📝 Stored emotion memory #{bootstrap.stats['memories_stored']}")
-                    except Exception as e:
-                        logger.error(f"Memory storage failed: {e}")
-                        bootstrap.stats["errors"] += 1
+                    else:
+                        bootstrap.stats["memory_errors"] = bootstrap.stats.get("memory_errors", 0) + 1
+                        bootstrap.stats["errors"] = bootstrap.stats.get("errors", 0) + 1
+                        bootstrap.stats["last_error"] = "memory_store_failed"
+                        logger.warning("Memory storage failed but saved to fallback")
 
-                # 3. Générer une pensée
+                # 3. Générer une pensée avec chronométrage
                 if bootstrap.consciousness:
                     try:
                         # Récupérer quelques mémoires récentes
                         memories = []
-                        if bootstrap.memory and hasattr(bootstrap.memory, 'search'):
+                        if bootstrap.memory:
                             memories = bootstrap.memory.search(query="", limit=3)
 
-                        # Traitement de conscience
-                        proc = getattr(bootstrap.consciousness, "process", None)
+                        # Chronométrage de la conscience
+                        t_consciousness = time.perf_counter()
                         thought = None
+                        proc = getattr(bootstrap.consciousness, "process", None)
                         if callable(proc):
                             maybe = proc(memories)
-                            if asyncio.iscoroutine(maybe):
-                                thought = await maybe
-                            else:
-                                thought = maybe
+                            thought = (await maybe) if asyncio.iscoroutine(maybe) else maybe
+                        elapsed_ms = (time.perf_counter() - t_consciousness) * 1000.0
 
-                        if thought is None:
-                            thought = {
-                                "state": "aware",
+                        if not thought:
+                            thought = create_thought(
+                                state=ThoughtState.AWARE,
+                                summary="Consciousness unavailable - basic processing",
+                                mode="fallback",
+                                context_size=len(memories),
+                                processing_time_ms=elapsed_ms
+                            )
+                        else:
+                            # Garantir le format avec ensure_thought_format
+                            thought = ensure_thought_format(thought)
+                            # Ajouter les métadonnées manquantes
+                            thought.update({
                                 "context_size": len(memories),
                                 "mode": "synchronous_processing",
-                                "emotion_processed": emotion_data["emotion"],
-                                "timestamp": datetime.utcnow().isoformat()
-                            }
+                                "emotion_context": emotion_data["emotion"],
+                                "confidence": emotion_data["confidence"],
+                                "processing_time_ms": elapsed_ms
+                            })
 
                         bootstrap.stats["thoughts_generated"] += 1
-                        logger.info(f"💭 Generated thought #{bootstrap.stats['thoughts_generated']}")
+                        logger.info(f"💭 Generated thought #{bootstrap.stats['thoughts_generated']} in {elapsed_ms:.1f}ms")
 
                     except Exception as e:
                         logger.error(f"Consciousness processing failed: {e}")
@@ -302,6 +317,10 @@ async def detect_emotion_ml(
         except Exception as e:
             logger.warning(f"Brain processing failed: {e}")
             # Ne pas bloquer la réponse API
+
+        # Enregistrer la latence totale pour monitoring
+        if hasattr(app.state, "_latencies"):
+            app.state._latencies.append(time.perf_counter() - t0)
 
         return resp
 
@@ -380,6 +399,8 @@ async def startup_event():
         app.state._neural_bus = await bootstrap.wire_minimal_loop()
         app.state._brain_bootstrap = bootstrap
         app.state._event_counts = {}
+        app.state._latencies = []  # Pour tracking des performances
+        app.state._startup_time = time.time()
 
         logger.info("🧠 Brain bootstrap completed")
         logger.info(f"   Stats: {bootstrap.get_stats()}")
@@ -387,6 +408,64 @@ async def startup_event():
     except Exception as e:
         logger.error(f"❌ Startup bootstrap failed: {e}")
         # Ne pas bloquer le démarrage
+
+
+def _pctl(values, p):
+    """Calcul de percentile simple et robuste"""
+    if not values:
+        return None
+    s = sorted(values)
+    k = (len(s) - 1) * (p / 100.0)
+    f = int(k)
+    c = min(f + 1, len(s) - 1)
+    if f == c:
+        return s[f]
+    return s[f] + (s[c] - s[f]) * (k - f)
+
+
+@app.get("/api/v1/brain/health")
+async def brain_health():
+    """Health check complet avec métriques détaillées"""
+    bootstrap = getattr(app.state, "_brain_bootstrap", None)
+
+    if not bootstrap:
+        return {"status": "unhealthy", "error": "Brain not initialized"}
+
+    uptime = time.time() - getattr(app.state, "_startup_time", time.time())
+    latencies = getattr(app.state, "_latencies", [])[-100:]  # Dernières 100 mesures
+
+    # Calculer les percentiles si on a des données
+    p50 = _pctl(latencies, 50)
+    p95 = _pctl(latencies, 95)
+    p99 = _pctl(latencies, 99)
+
+    # Stats de mémoire
+    memory_stats = {}
+    if bootstrap.memory:
+        memory_stats = bootstrap.memory.get_stats()
+
+    return {
+        "status": "healthy" if bootstrap.wired else "degraded",
+        "uptime_seconds": round(uptime, 2),
+        "brain_state": {
+            "wired": bootstrap.wired,
+            "memory_available": bootstrap.memory is not None,
+            "consciousness_available": bootstrap.consciousness is not None
+        },
+        "performance": {
+            "latency_p50_ms": round(p50 * 1000, 2) if p50 else None,
+            "latency_p95_ms": round(p95 * 1000, 2) if p95 else None,
+            "latency_p99_ms": round(p99 * 1000, 2) if p99 else None,
+            "total_requests": len(getattr(app.state, "_latencies", []))
+        },
+        "memory": memory_stats,
+        "activity": bootstrap.stats,
+        "errors": {
+            "total": bootstrap.stats.get("errors", 0),
+            "memory_errors": bootstrap.stats.get("memory_errors", 0),
+            "last_error": bootstrap.stats.get("last_error", None)
+        }
+    }
 
 
 @app.get("/api/v1/brain/status")

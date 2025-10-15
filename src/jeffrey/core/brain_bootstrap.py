@@ -4,8 +4,12 @@ Emotion → Memory → Consciousness sans stubs massifs
 """
 import logging
 import asyncio
+import time
 from datetime import datetime
 from typing import Optional, Dict, Any
+
+from jeffrey.core.ports.memory_port import MemoryPort
+from jeffrey.core.contracts.thoughts import create_thought, ThoughtState, ensure_thought_format
 
 logger = logging.getLogger(__name__)
 
@@ -26,26 +30,32 @@ class BrainBootstrap:
         }
 
         # Modules réels (pas de stubs)
-        self.memory = None
+        self.memory_impl = None
+        self.memory = None  # Sera un MemoryPort
         self.consciousness = None
 
     async def initialize_modules(self):
         """Charge uniquement les modules qui existent vraiment"""
 
-        # Memory - testons plusieurs variantes connues
+        # Memory - testons plusieurs variantes connues avec MemoryPort
         try:
             # Essayons d'abord UnifiedMemory
             from jeffrey.memory.unified_memory import UnifiedMemory
-            self.memory = UnifiedMemory()
-            logger.info("✅ Memory module loaded (UnifiedMemory)")
+            self.memory_impl = UnifiedMemory()
+            self.memory = MemoryPort(self.memory_impl)
+            logger.info(f"✅ Memory module loaded with interface: {self.memory.stats['method_used']}")
         except Exception:
             try:
                 # Fallback vers AdvancedUnifiedMemory
                 from jeffrey.core.memory.advanced_unified_memory import AdvancedUnifiedMemory
-                self.memory = AdvancedUnifiedMemory()
-                logger.info("✅ Memory module loaded (AdvancedUnifiedMemory)")
+                self.memory_impl = AdvancedUnifiedMemory()
+                self.memory = MemoryPort(self.memory_impl)
+                logger.info(f"✅ Memory module loaded with interface: {self.memory.stats['method_used']}")
             except Exception as e:
                 logger.error(f"❌ Memory loading failed: {e}")
+                # Créer un fallback simple
+                self.memory = MemoryPort(None)  # Utilisera le buffer interne
+                logger.warning("⚠️ Using fallback memory buffer")
 
         # Consciousness - peut ne pas exister, fallback gracieux
         try:
@@ -218,11 +228,14 @@ class BrainBootstrap:
 
     def get_stats(self) -> Dict[str, Any]:
         """Retourne les statistiques live pour monitoring"""
+        memory_stats = self.memory.get_stats() if self.memory else {}
+
         return {
             **self.stats,
             "wired": self.wired,
             "memory_available": self.memory is not None,
             "consciousness_available": self.consciousness is not None,
-            "memory_type": type(self.memory).__name__ if self.memory else None,
-            "consciousness_type": type(self.consciousness).__name__ if self.consciousness else None
+            "memory_type": type(self.memory_impl).__name__ if self.memory_impl else "fallback_buffer",
+            "consciousness_type": type(self.consciousness).__name__ if self.consciousness else None,
+            "memory_port_stats": memory_stats
         }
