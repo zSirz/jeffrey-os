@@ -214,31 +214,93 @@ async def detect_emotion_ml(
 
         resp = EmotionDetectResponse(**result)
 
-        # NOUVELLE PARTIE : Publication sur NeuralBus
+        # NOUVELLE PARTIE : Traitement synchrone de la boucle cognitive
         try:
-            from jeffrey.core.neuralbus.contracts import EMOTION_DETECTED
-
-            # Récupérer ou créer le bus (singleton pattern)
-            bus = getattr(app.state, "_neural_bus", None)
-            if bus:
-                # Publier l'événement
-                await bus.publish(topic=EMOTION_DETECTED, data={
+            bootstrap = getattr(app.state, "_brain_bootstrap", None)
+            if bootstrap and bootstrap.wired:
+                # Traitement direct : Emotion → Memory → Consciousness
+                emotion_data = {
                     "text": request.text,
                     "emotion": resp.emotion,
                     "confidence": resp.confidence,
                     "all_scores": resp.all_scores,
                     "timestamp": datetime.utcnow().isoformat()
-                })
+                }
 
-                # Tracking pour monitoring (thread-safe best-effort)
+                # 1. Traiter l'émotion
+                bootstrap.stats["emotions_received"] += 1
+
+                # 2. Stocker en mémoire
+                if bootstrap.memory:
+                    memory_entry = {
+                        "text": emotion_data["text"],
+                        "emotion": emotion_data["emotion"],
+                        "confidence": emotion_data["confidence"],
+                        "timestamp": emotion_data["timestamp"],
+                        "tags": [emotion_data["emotion"]],
+                        "meta": {
+                            "all_scores": emotion_data["all_scores"],
+                            "source": "emotion_ml"
+                        }
+                    }
+
+                    try:
+                        if hasattr(bootstrap.memory, 'store'):
+                            bootstrap.memory.store(memory_entry)
+                        elif hasattr(bootstrap.memory, 'add'):
+                            bootstrap.memory.add(memory_entry)
+
+                        bootstrap.stats["memories_stored"] += 1
+                        logger.debug(f"📝 Stored emotion memory #{bootstrap.stats['memories_stored']}")
+                    except Exception as e:
+                        logger.error(f"Memory storage failed: {e}")
+                        bootstrap.stats["errors"] += 1
+
+                # 3. Générer une pensée
+                if bootstrap.consciousness:
+                    try:
+                        # Récupérer quelques mémoires récentes
+                        memories = []
+                        if bootstrap.memory and hasattr(bootstrap.memory, 'search'):
+                            memories = bootstrap.memory.search(query="", limit=3)
+
+                        # Traitement de conscience
+                        proc = getattr(bootstrap.consciousness, "process", None)
+                        thought = None
+                        if callable(proc):
+                            maybe = proc(memories)
+                            if asyncio.iscoroutine(maybe):
+                                thought = await maybe
+                            else:
+                                thought = maybe
+
+                        if thought is None:
+                            thought = {
+                                "state": "aware",
+                                "context_size": len(memories),
+                                "mode": "synchronous_processing",
+                                "emotion_processed": emotion_data["emotion"],
+                                "timestamp": datetime.utcnow().isoformat()
+                            }
+
+                        bootstrap.stats["thoughts_generated"] += 1
+                        logger.info(f"💭 Generated thought #{bootstrap.stats['thoughts_generated']}")
+
+                    except Exception as e:
+                        logger.error(f"Consciousness processing failed: {e}")
+                        bootstrap.stats["errors"] += 1
+
+                # Tracking pour monitoring
                 app.state._event_counts = getattr(app.state, "_event_counts", {})
-                app.state._event_counts[EMOTION_DETECTED] = app.state._event_counts.get(EMOTION_DETECTED, 0) + 1
-                logger.info(f"✅ Published emotion event #{app.state._event_counts[EMOTION_DETECTED]}")
+                app.state._event_counts["emotions_processed"] = app.state._event_counts.get("emotions_processed", 0) + 1
+
+                logger.info(f"🧠 Brain processed emotion: {resp.emotion} -> Memory({bootstrap.stats['memories_stored']}) -> Thought({bootstrap.stats['thoughts_generated']})")
+
             else:
-                logger.debug("NeuralBus not available, skipping event publication")
+                logger.debug("Brain bootstrap not available or not wired")
 
         except Exception as e:
-            logger.warning(f"Could not publish emotion event: {e}")
+            logger.warning(f"Brain processing failed: {e}")
             # Ne pas bloquer la réponse API
 
         return resp

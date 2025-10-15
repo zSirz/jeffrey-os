@@ -1,0 +1,3915 @@
+{
+  "stats": {
+    "modules_found": 724,
+    "modules_expected": 34,
+    "stubs": 518,
+    "empty_functions": 27,
+    "cycles": 1,
+    "missing_ratio": 0.2647058823529412
+  },
+  "found_modules": {
+    "JeffreyAliasFinder": {
+      "file": "src/sitecustomize.py",
+      "line": 134,
+      "has_init": false
+    },
+    "EmotionalJournal": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 67,
+      "has_init": true
+    },
+    "ContextualEmpathy": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 74,
+      "has_init": true
+    },
+    "NarrativeMemory": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 81,
+      "has_init": true
+    },
+    "SecureImaginationEngine": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 88,
+      "has_init": true
+    },
+    "JeffreyBiorhythms": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 95,
+      "has_init": true
+    },
+    "CircadianRhythm": {
+      "file": "src/jeffrey_consciousness_evolution.py",
+      "line": 23,
+      "has_init": true
+    },
+    "CreativeMemoryWeb": {
+      "file": "src/jeffrey_consciousness_evolution.py",
+      "line": 126,
+      "has_init": true
+    },
+    "DreamEngine": {
+      "file": "src/jeffrey/core/dreaming/dream_engine.py",
+      "line": 11,
+      "has_init": true
+    },
+    "SubtleLearning": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 123,
+      "has_init": false
+    },
+    "MicroExpressions": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 126,
+      "has_init": false
+    },
+    "PersonalValues": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 129,
+      "has_init": false
+    },
+    "EmotionalMemoryManager": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 132,
+      "has_init": false
+    },
+    "MetaCognition": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 135,
+      "has_init": false
+    },
+    "ProactiveCuriosity": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 138,
+      "has_init": false
+    },
+    "EvolutiveAttachment": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 141,
+      "has_init": false
+    },
+    "EmotionMLEnhancer": {
+      "file": "src/jeffrey/core/emotions/core/emotion_ml_enhancer.py",
+      "line": 41,
+      "has_init": true
+    },
+    "CodeMetrics": {
+      "file": "src/jeffrey/infrastructure/monitoring/jeffrey_auditor.py",
+      "line": 47,
+      "has_init": false
+    },
+    "ProjectAuditResult": {
+      "file": "src/jeffrey/infrastructure/monitoring/jeffrey_auditor.py",
+      "line": 63,
+      "has_init": false
+    },
+    "JeffreyAuditor": {
+      "file": "src/jeffrey/infrastructure/monitoring/jeffrey_auditor.py",
+      "line": 77,
+      "has_init": true
+    },
+    "JeffreyEmotionalCore": {
+      "file": "src/jeffrey/core/emotions/core/jeffrey_emotional_core.py",
+      "line": 88,
+      "has_init": true
+    },
+    "PersonalityState": {
+      "file": "src/jeffrey/core/emotions/core/jeffrey_emotional_core.py",
+      "line": 64,
+      "has_init": false
+    },
+    "NeuralEnvelope": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 94,
+      "has_init": false
+    },
+    "MiniEmotionalCore": {
+      "file": "src/jeffrey/core/mini_emotional_core.py",
+      "line": 13,
+      "has_init": true
+    },
+    "BaseCognitiveModule": {
+      "file": "src/jeffrey/core/cognitive/base_module.py",
+      "line": 9,
+      "has_init": true
+    },
+    "LRUCache": {
+      "file": "src/jeffrey/utils/lru_cache.py",
+      "line": 8,
+      "has_init": true
+    },
+    "UnifiedMemory": {
+      "file": "src/jeffrey/memory/unified_memory.py",
+      "line": 32,
+      "has_init": true
+    },
+    "EmotionPromptDetector": {
+      "file": "src/jeffrey/core/emotions/core/emotion_prompt_detector.py",
+      "line": 23,
+      "has_init": false
+    },
+    "JeffreyRuntime": {
+      "file": "src/jeffrey/runtime.py",
+      "line": 18,
+      "has_init": false
+    },
+    "EthicalGuard": {
+      "file": "src/jeffrey/stubs/ethical_guard.py",
+      "line": 1,
+      "has_init": false
+    },
+    "DreamState": {
+      "file": "src/jeffrey/core/consciousness/dream_state.py",
+      "line": 14,
+      "has_init": true
+    },
+    "VariantGenerator": {
+      "file": "src/jeffrey/core/consciousness/variant_generator.py",
+      "line": 15,
+      "has_init": true
+    },
+    "CognitiveSynthesis": {
+      "file": "src/jeffrey/core/consciousness/cognitive_synthesis.py",
+      "line": 244,
+      "has_init": true
+    },
+    "NeuralMutator": {
+      "file": "src/jeffrey/core/consciousness/neural_mutator.py",
+      "line": 15,
+      "has_init": true
+    },
+    "DataAugmenter": {
+      "file": "src/jeffrey/core/consciousness/data_augmenter.py",
+      "line": 16,
+      "has_init": true
+    },
+    "CortexMemoriel": {
+      "file": "src/jeffrey/core/memory/cortex_memoriel.py",
+      "line": 139,
+      "has_init": true
+    },
+    "ImmuneSystem": {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 15,
+      "has_init": true
+    },
+    "PapaControl": {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 29,
+      "has_init": true
+    },
+    "IAOrchestratorUltimate": {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 40,
+      "has_init": true
+    },
+    "SurprisesEmotionnelles": {
+      "file": "src/jeffrey/core/emotions/surprises/surprises_emotionnelles.py",
+      "line": 11,
+      "has_init": false
+    },
+    "Colors": {
+      "file": "src/jeffrey/interfaces/ui/console/console_ui.py",
+      "line": 32,
+      "has_init": false
+    },
+    "AGIOrchestratorTester": {
+      "file": "src/jeffrey/core/test_agi_orchestrator.py",
+      "line": 43,
+      "has_init": true
+    },
+    "SecurityError": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 47,
+      "has_init": false
+    },
+    "PrivacyError": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 53,
+      "has_init": false
+    },
+    "ComplianceError": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 59,
+      "has_init": false
+    },
+    "AudioProcessingResult": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 66,
+      "has_init": false
+    },
+    "VoiceQuality": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 76,
+      "has_init": false
+    },
+    "EmotionType": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 84,
+      "has_init": false
+    },
+    "VoiceSettings": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 99,
+      "has_init": false
+    },
+    "AudioResponse": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 115,
+      "has_init": false
+    },
+    "EmotionPresets": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 127,
+      "has_init": false
+    },
+    "AudioCache": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 148,
+      "has_init": true
+    },
+    "VoiceEngine": {
+      "file": "src/jeffrey/services/voice/engine/voice_engine.py",
+      "line": 340,
+      "has_init": true
+    },
+    "Personnalit\u00e9\u00c9volutive": {
+      "file": "src/jeffrey/core/personality/personality_profile.py",
+      "line": 30,
+      "has_init": true
+    },
+    "MemoryManager": {
+      "file": "src/jeffrey/core/memory/advanced/memory_manager.py",
+      "line": 19,
+      "has_init": true
+    },
+    "NeuralBusConfig": {
+      "file": "src/jeffrey/core/neuralbus/config.py",
+      "line": 64,
+      "has_init": false
+    },
+    "BrainKernel": {
+      "file": "src/jeffrey/core/kernel.py",
+      "line": 25,
+      "has_init": true
+    },
+    "MemoryInterface": {
+      "file": "src/jeffrey/core/memory_interface.py",
+      "line": 25,
+      "has_init": true
+    },
+    "AGIMemoryIntegration": {
+      "file": "src/jeffrey/core/memory_interface.py",
+      "line": 476,
+      "has_init": true
+    },
+    "AuraEmotionnelle": {
+      "file": "src/jeffrey/core/aura_emotionnelle.py",
+      "line": 11,
+      "has_init": true
+    },
+    "RituelsDynamiques": {
+      "file": "src/jeffrey/core/rituels_dynamiques.py",
+      "line": 5,
+      "has_init": true
+    },
+    "SouvenirsCelebrations": {
+      "file": "src/jeffrey/core/souvenirs_celebrations.py",
+      "line": 6,
+      "has_init": true
+    },
+    "LearningPattern": {
+      "file": "src/jeffrey/core/self_learning_module.py",
+      "line": 25,
+      "has_init": false
+    },
+    "InteractionRecord": {
+      "file": "src/jeffrey/core/self_learning_module.py",
+      "line": 42,
+      "has_init": false
+    },
+    "SelfLearningModule": {
+      "file": "src/jeffrey/core/self_learning_module.py",
+      "line": 58,
+      "has_init": true
+    },
+    "EventPriority": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 30,
+      "has_init": false
+    },
+    "NeuralConnector": {
+      "file": "src/jeffrey/core/neural_bus.py",
+      "line": 63,
+      "has_init": true
+    },
+    "NeuralBus": {
+      "file": "src/jeffrey/core/neuralbus/bus.py",
+      "line": 22,
+      "has_init": true
+    },
+    "SoutienCreatif": {
+      "file": "src/jeffrey/core/soutien_creatif.py",
+      "line": 4,
+      "has_init": true
+    },
+    "ServiceRegistry": {
+      "file": "src/jeffrey/core/neuralbus/registry.py",
+      "line": 14,
+      "has_init": true
+    },
+    "ConsciousnessLoop": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 23,
+      "has_init": true
+    },
+    "EmotionStub": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 733,
+      "has_init": false
+    },
+    "ConscienceStub": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 746,
+      "has_init": false
+    },
+    "MemoryStub": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 762,
+      "has_init": true
+    },
+    "LanguageStub": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 792,
+      "has_init": true
+    },
+    "WernickeStub": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 801,
+      "has_init": false
+    },
+    "BrocaStub": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 811,
+      "has_init": false
+    },
+    "_Store": {
+      "file": "src/jeffrey/core/consciousness_loop.py",
+      "line": 769,
+      "has_init": true
+    },
+    "EmotionalMemory": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotion_garden_screen.py",
+      "line": 27,
+      "has_init": true
+    },
+    "IOManager": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotion_garden_screen.py",
+      "line": 61,
+      "has_init": true
+    },
+    "ModuleRegistry": {
+      "file": "src/jeffrey/core/module_registry.py",
+      "line": 8,
+      "has_init": true
+    },
+    "RituelsManager": {
+      "file": "src/jeffrey/core/rituels_manager.py",
+      "line": 6,
+      "has_init": true
+    },
+    "DetectionCyclesHumeur": {
+      "file": "src/jeffrey/core/detection_cycles_humeur.py",
+      "line": 7,
+      "has_init": true
+    },
+    "ContentStatus": {
+      "file": "src/jeffrey/core/sandbox_manager_enhanced.py",
+      "line": 35,
+      "has_init": false
+    },
+    "RiskLevel": {
+      "file": "src/jeffrey/core/sandbox_manager_enhanced.py",
+      "line": 46,
+      "has_init": false
+    },
+    "ValidationResult": {
+      "file": "src/jeffrey/core/sandbox_manager_enhanced.py",
+      "line": 57,
+      "has_init": false
+    },
+    "EnhancedSandboxManager": {
+      "file": "src/jeffrey/core/sandbox_manager_enhanced.py",
+      "line": 68,
+      "has_init": true
+    },
+    "LienAffectif": {
+      "file": "src/jeffrey/core/emotions/bonds/lien_affectif.py",
+      "line": 11,
+      "has_init": true
+    },
+    "ResourceError": {
+      "file": "src/jeffrey/core/errors.py",
+      "line": 29,
+      "has_init": false
+    },
+    "DependencyError": {
+      "file": "src/jeffrey/core/errors.py",
+      "line": 35,
+      "has_init": false
+    },
+    "DiscoveryError": {
+      "file": "src/jeffrey/core/errors.py",
+      "line": 41,
+      "has_init": false
+    },
+    "RegexEmotionDetector": {
+      "file": "src/jeffrey/core/emotion_backend.py",
+      "line": 252,
+      "has_init": true
+    },
+    "ProtoEmotionDetector": {
+      "file": "src/jeffrey/core/emotion_backend.py",
+      "line": 299,
+      "has_init": true
+    },
+    "JSONMemoryValidator": {
+      "file": "src/jeffrey/core/memory_systems.py",
+      "line": 35,
+      "has_init": true
+    },
+    "MemoryLevel": {
+      "file": "src/jeffrey/core/memory_systems.py",
+      "line": 231,
+      "has_init": false
+    },
+    "MemoryType": {
+      "file": "src/jeffrey/core/memory/advanced_unified_memory.py",
+      "line": 38,
+      "has_init": false
+    },
+    "EmotionalTag": {
+      "file": "src/jeffrey/core/memory_systems.py",
+      "line": 251,
+      "has_init": false
+    },
+    "ContextVector": {
+      "file": "src/jeffrey/core/memory_systems.py",
+      "line": 263,
+      "has_init": false
+    },
+    "MemoryEntry": {
+      "file": "src/jeffrey/core/memory/advanced_unified_memory.py",
+      "line": 68,
+      "has_init": false
+    },
+    "MemoryCore": {
+      "file": "src/jeffrey/core/memory_systems.py",
+      "line": 332,
+      "has_init": true
+    },
+    "HumeurDetector": {
+      "file": "src/jeffrey/core/emotions/core/humeur_detector.py",
+      "line": 7,
+      "has_init": false
+    },
+    "SouvenirsAffectifs": {
+      "file": "src/jeffrey/core/emotions/memory/souvenirs_affectifs.py",
+      "line": 22,
+      "has_init": true
+    },
+    "CognitiveModule": {
+      "file": "src/jeffrey/core/pipeline/cognitive_pipeline.py",
+      "line": 29,
+      "has_init": false
+    },
+    "ModuleAdapter": {
+      "file": "src/jeffrey/core/pipeline/cognitive_pipeline.py",
+      "line": 50,
+      "has_init": false
+    },
+    "PipelineMetrics": {
+      "file": "src/jeffrey/core/pipeline/cognitive_pipeline.py",
+      "line": 217,
+      "has_init": false
+    },
+    "CognitivePipeline": {
+      "file": "src/jeffrey/core/pipeline/cognitive_pipeline.py",
+      "line": 250,
+      "has_init": true
+    },
+    "TheoryOfMind": {
+      "file": "src/jeffrey/core/learning/theory_of_mind.py",
+      "line": 300,
+      "has_init": true
+    },
+    "CuriosityEngine": {
+      "file": "src/jeffrey/core/cognitive/curiosity_engine.py",
+      "line": 9,
+      "has_init": true
+    },
+    "AutoLearner": {
+      "file": "src/jeffrey/core/learning/auto_learner.py",
+      "line": 24,
+      "has_init": true
+    },
+    "ModuleOrchestrator": {
+      "file": "src/jeffrey/core/cognitive/orchestrator.py",
+      "line": 10,
+      "has_init": true
+    },
+    "HandlerCircuitBreaker": {
+      "file": "src/jeffrey/core/neuralbus/consumer.py",
+      "line": 38,
+      "has_init": true
+    },
+    "DynamicBatchSizer": {
+      "file": "src/jeffrey/core/neuralbus/consumer.py",
+      "line": 85,
+      "has_init": true
+    },
+    "NeuralConsumer": {
+      "file": "src/jeffrey/core/neuralbus/consumer.py",
+      "line": 129,
+      "has_init": true
+    },
+    "DecompressedMsg": {
+      "file": "src/jeffrey/core/neuralbus/consumer.py",
+      "line": 256,
+      "has_init": true
+    },
+    "EventMeta": {
+      "file": "src/jeffrey/core/neuralbus/contracts.py",
+      "line": 23,
+      "has_init": false
+    },
+    "CloudEvent": {
+      "file": "src/jeffrey/core/neuralbus/contracts.py",
+      "line": 73,
+      "has_init": false
+    },
+    "UserEventData": {
+      "file": "src/jeffrey/core/neuralbus/contracts.py",
+      "line": 87,
+      "has_init": false
+    },
+    "SystemEventData": {
+      "file": "src/jeffrey/core/neuralbus/contracts.py",
+      "line": 95,
+      "has_init": false
+    },
+    "NeuralBusError": {
+      "file": "src/jeffrey/core/neuralbus/exceptions.py",
+      "line": 6,
+      "has_init": false
+    },
+    "CircuitOpen": {
+      "file": "src/jeffrey/core/neuralbus/exceptions.py",
+      "line": 12,
+      "has_init": false
+    },
+    "DeduplicationError": {
+      "file": "src/jeffrey/core/neuralbus/exceptions.py",
+      "line": 18,
+      "has_init": false
+    },
+    "PublishError": {
+      "file": "src/jeffrey/core/neuralbus/exceptions.py",
+      "line": 24,
+      "has_init": false
+    },
+    "ConsumerError": {
+      "file": "src/jeffrey/core/neuralbus/exceptions.py",
+      "line": 30,
+      "has_init": false
+    },
+    "NeuralPublisher": {
+      "file": "src/jeffrey/core/neuralbus/publisher.py",
+      "line": 46,
+      "has_init": true
+    },
+    "ZeroCopyFFIBridge": {
+      "file": "src/jeffrey/core/neuralbus/ffi_cdata.py",
+      "line": 16,
+      "has_init": true
+    },
+    "Subscription": {
+      "file": "src/jeffrey/core/neuralbus/bus_v2.py",
+      "line": 21,
+      "has_init": true
+    },
+    "NeuralBusV2": {
+      "file": "src/jeffrey/core/neuralbus/bus_v2.py",
+      "line": 37,
+      "has_init": true
+    },
+    "EventEmitter": {
+      "file": "src/jeffrey/core/llm/apertus_client.py",
+      "line": 20,
+      "has_init": true
+    },
+    "ApertusConfig": {
+      "file": "src/jeffrey/core/llm/apertus_client.py",
+      "line": 40,
+      "has_init": false
+    },
+    "ApertusClient": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 46,
+      "has_init": true
+    },
+    "LLMError": {
+      "file": "src/jeffrey/core/llm/llm_provider.py",
+      "line": 12,
+      "has_init": false
+    },
+    "LLMProvider": {
+      "file": "src/jeffrey/core/llm/llm_provider.py",
+      "line": 18,
+      "has_init": true
+    },
+    "OllamaInterface": {
+      "file": "src/jeffrey/core/llm/ollama_interface.py",
+      "line": 14,
+      "has_init": true
+    },
+    "AutonomousLanguageSystem": {
+      "file": "src/jeffrey/core/llm/autonomous_language_system.py",
+      "line": 24,
+      "has_init": true
+    },
+    "ComplexityLevel": {
+      "file": "src/jeffrey/core/llm/hybrid_bridge.py",
+      "line": 17,
+      "has_init": false
+    },
+    "HybridOrchestrator": {
+      "file": "src/jeffrey/core/llm/hybrid_bridge.py",
+      "line": 26,
+      "has_init": true
+    },
+    "ModuleStats": {
+      "file": "src/jeffrey/core/response/basal_ganglia_ucb1.py",
+      "line": 11,
+      "has_init": false
+    },
+    "ContextualBanditScheduler": {
+      "file": "src/jeffrey/core/response/basal_ganglia_ucb1.py",
+      "line": 53,
+      "has_init": true
+    },
+    "ProcessingPhase": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 108,
+      "has_init": false
+    },
+    "CollectionStrategy": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 119,
+      "has_init": false
+    },
+    "NeuralSignal": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 129,
+      "has_init": false
+    },
+    "CycleDetector": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 180,
+      "has_init": true
+    },
+    "EarlyExitCache": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 236,
+      "has_init": true
+    },
+    "NeuralResponseOrchestrator": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 315,
+      "has_init": true
+    },
+    "MLEnabledMetrics": {
+      "file": "src/jeffrey/core/response/neural_response_orchestrator.py",
+      "line": 1208,
+      "has_init": true
+    },
+    "CircuitBreaker": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 112,
+      "has_init": true
+    },
+    "CapabilityToken": {
+      "file": "src/jeffrey/core/response/neural_blackboard_v2.py",
+      "line": 14,
+      "has_init": false
+    },
+    "CountingBloomFilter": {
+      "file": "src/jeffrey/core/response/neural_blackboard_v2.py",
+      "line": 45,
+      "has_init": true
+    },
+    "NeuralBlackboard": {
+      "file": "src/jeffrey/core/response/neural_blackboard_v2.py",
+      "line": 74,
+      "has_init": true
+    },
+    "WorkingMemory": {
+      "file": "src/jeffrey/memory/working_memory.py",
+      "line": 27,
+      "has_init": true
+    },
+    "RitualType": {
+      "file": "src/jeffrey/core/memory/memory_rituals.py",
+      "line": 23,
+      "has_init": false
+    },
+    "RitualMood": {
+      "file": "src/jeffrey/core/memory/memory_rituals.py",
+      "line": 38,
+      "has_init": false
+    },
+    "RitualTemplate": {
+      "file": "src/jeffrey/core/memory/memory_rituals.py",
+      "line": 54,
+      "has_init": false
+    },
+    "RitualContext": {
+      "file": "src/jeffrey/core/memory/memory_rituals.py",
+      "line": 83,
+      "has_init": false
+    },
+    "MemoryRitualsEngine": {
+      "file": "src/jeffrey/core/memory/memory_rituals.py",
+      "line": 108,
+      "has_init": true
+    },
+    "Episode": {
+      "file": "src/jeffrey/core/memory/triple_memory.py",
+      "line": 37,
+      "has_init": false
+    },
+    "LocalEmbedder": {
+      "file": "src/jeffrey/core/memory/triple_memory.py",
+      "line": 52,
+      "has_init": true
+    },
+    "EpisodicMemory": {
+      "file": "src/jeffrey/core/memory/triple_memory.py",
+      "line": 99,
+      "has_init": true
+    },
+    "SemanticMemory": {
+      "file": "src/jeffrey/core/memory/triple_memory.py",
+      "line": 361,
+      "has_init": true
+    },
+    "TripleMemorySystem": {
+      "file": "src/jeffrey/core/memory/triple_memory.py",
+      "line": 486,
+      "has_init": true
+    },
+    "HealthCheckResult": {
+      "file": "src/jeffrey/core/memory/memory_health_check.py",
+      "line": 35,
+      "has_init": false
+    },
+    "MaintenanceAction": {
+      "file": "src/jeffrey/core/memory/memory_health_check.py",
+      "line": 49,
+      "has_init": false
+    },
+    "MemoryHealthChecker": {
+      "file": "src/jeffrey/core/memory/memory_health_check.py",
+      "line": 62,
+      "has_init": true
+    },
+    "SemanticDeduplicator": {
+      "file": "src/jeffrey/core/memory/semantic_dedup_optional.py",
+      "line": 14,
+      "has_init": true
+    },
+    "MemoryAdapter": {
+      "file": "src/jeffrey/bridge/adapters/memory_adapter.py",
+      "line": 10,
+      "has_init": true
+    },
+    "JeffreyHumanMemory": {
+      "file": "src/jeffrey/core/memory/jeffrey_human_memory.py",
+      "line": 21,
+      "has_init": true
+    },
+    "MemoryPriority": {
+      "file": "src/jeffrey/core/memory/advanced_unified_memory.py",
+      "line": 47,
+      "has_init": false
+    },
+    "MemoryValidator": {
+      "file": "src/jeffrey/core/memory/unified_memory.py",
+      "line": 42,
+      "has_init": false
+    },
+    "MemoryLayer": {
+      "file": "src/jeffrey/core/memory/memory_federation_v2.py",
+      "line": 28,
+      "has_init": false
+    },
+    "MemoryFederationV2": {
+      "file": "src/jeffrey/core/memory/memory_federation_v2.py",
+      "line": 46,
+      "has_init": true
+    },
+    "MemoryOperation": {
+      "file": "src/jeffrey/core/memory/advanced_unified_memory.py",
+      "line": 57,
+      "has_init": false
+    },
+    "MemoryQuery": {
+      "file": "src/jeffrey/core/memory/advanced_unified_memory.py",
+      "line": 115,
+      "has_init": false
+    },
+    "AdvancedUnifiedMemory": {
+      "file": "src/jeffrey/core/memory/advanced_unified_memory.py",
+      "line": 196,
+      "has_init": true
+    },
+    "MemoryMoment": {
+      "file": "src/jeffrey/core/contracts/data_models.py",
+      "line": 41,
+      "has_init": false
+    },
+    "DreamInsight": {
+      "file": "src/jeffrey/core/memory/cortex_memoriel.py",
+      "line": 65,
+      "has_init": false
+    },
+    "SimpleEmbedder": {
+      "file": "src/jeffrey/core/memory/cortex_memoriel.py",
+      "line": 86,
+      "has_init": true
+    },
+    "SimpleIndex": {
+      "file": "src/jeffrey/core/memory/cortex_memoriel.py",
+      "line": 106,
+      "has_init": true
+    },
+    "PersistentCortexMemoriel": {
+      "file": "src/jeffrey/core/memory/cortex_memoriel.py",
+      "line": 275,
+      "has_init": true
+    },
+    "ContextualMemoryManager": {
+      "file": "src/jeffrey/core/memory/advanced/contextual_memory_manager.py",
+      "line": 18,
+      "has_init": true
+    },
+    "VoiceMemoryManager": {
+      "file": "src/jeffrey/core/memory/advanced/voice_memory_manager.py",
+      "line": 28,
+      "has_init": true
+    },
+    "UXEnrichmentResult": {
+      "file": "src/jeffrey/core/memory/cortex/memory_bridge.py",
+      "line": 38,
+      "has_init": false
+    },
+    "UXMemoryBridge": {
+      "file": "src/jeffrey/core/memory/cortex/memory_bridge.py",
+      "line": 68,
+      "has_init": true
+    },
+    "MemoireCerveau": {
+      "file": "src/jeffrey/core/memory/cortex/memoire_cerveau.py",
+      "line": 31,
+      "has_init": true
+    },
+    "MemoryMomentType": {
+      "file": "src/jeffrey/core/memory/living/living_memory.py",
+      "line": 23,
+      "has_init": false
+    },
+    "RelationshipStage": {
+      "file": "src/jeffrey/core/memory/living/living_memory.py",
+      "line": 38,
+      "has_init": false
+    },
+    "RelationshipProfile": {
+      "file": "src/jeffrey/core/memory/living/living_memory.py",
+      "line": 78,
+      "has_init": false
+    },
+    "LivingMemoryCore": {
+      "file": "src/jeffrey/core/memory/living/living_memory.py",
+      "line": 104,
+      "has_init": true
+    },
+    "SQLiteMemoryBackend": {
+      "file": "src/jeffrey/core/memory/sqlite/backend.py",
+      "line": 17,
+      "has_init": true
+    },
+    "JeffreySensoryImagination": {
+      "file": "src/jeffrey/core/memory/sensory/jeffrey_sensory_memory.py",
+      "line": 29,
+      "has_init": true
+    },
+    "SensorialMemory": {
+      "file": "src/jeffrey/core/memory/sensory/sensorial_memory.py",
+      "line": 29,
+      "has_init": true
+    },
+    "SensorialMemoryManager": {
+      "file": "src/jeffrey/core/memory/sensory/sensorial_memory.py",
+      "line": 489,
+      "has_init": true
+    },
+    "JeffreyMemorySync": {
+      "file": "src/jeffrey/core/memory/sync/jeffrey_memory_sync.py",
+      "line": 26,
+      "has_init": true
+    },
+    "AntiReplaySystem": {
+      "file": "src/jeffrey/core/security/anti_replay.py",
+      "line": 25,
+      "has_init": true
+    },
+    "EmotionalState": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/main_integration.py",
+      "line": 26,
+      "has_init": true
+    },
+    "LogPatternType": {
+      "file": "src/jeffrey/core/security/adaptive_rotator.py",
+      "line": 55,
+      "has_init": false
+    },
+    "EmotionalFeatures": {
+      "file": "src/jeffrey/core/security/adaptive_rotator.py",
+      "line": 67,
+      "has_init": false
+    },
+    "ARIMAParams": {
+      "file": "src/jeffrey/core/security/adaptive_rotator.py",
+      "line": 89,
+      "has_init": false
+    },
+    "PredictionResult": {
+      "file": "src/jeffrey/core/security/adaptive_rotator.py",
+      "line": 102,
+      "has_init": false
+    },
+    "RotationMetrics": {
+      "file": "src/jeffrey/core/security/adaptive_rotator.py",
+      "line": 130,
+      "has_init": false
+    },
+    "AdaptiveLogRotator": {
+      "file": "src/jeffrey/core/security/adaptive_rotator.py",
+      "line": 154,
+      "has_init": true
+    },
+    "CacheGuardian": {
+      "file": "src/jeffrey/core/security/cache_guardian.py",
+      "line": 19,
+      "has_init": true
+    },
+    "PIIRedactor": {
+      "file": "src/jeffrey/core/security/pii_redactor.py",
+      "line": 12,
+      "has_init": false
+    },
+    "MTLSBridge": {
+      "file": "src/jeffrey/core/security/mtls_bridge.py",
+      "line": 16,
+      "has_init": true
+    },
+    "SignerEdDSA": {
+      "file": "src/jeffrey/core/security/signer/signer_eddsa.py",
+      "line": 18,
+      "has_init": true
+    },
+    "SignerPQStub": {
+      "file": "src/jeffrey/core/security/signer/signer_pq_stub.py",
+      "line": 15,
+      "has_init": true
+    },
+    "SignerBase": {
+      "file": "src/jeffrey/core/security/signer/signer_base.py",
+      "line": 14,
+      "has_init": true
+    },
+    "InputParser": {
+      "file": "src/jeffrey/core/input/input_parser.py",
+      "line": 14,
+      "has_init": true
+    },
+    "CognitiveCore": {
+      "file": "src/jeffrey/core/cognition/cognitive_core_lite.py",
+      "line": 21,
+      "has_init": true
+    },
+    "CognitiveCycleEngine": {
+      "file": "src/jeffrey/core/learning/cognitive_cycle_engine.py",
+      "line": 19,
+      "has_init": true
+    },
+    "JeffreyLearningEngine": {
+      "file": "src/jeffrey/core/consciousness/living_soul_engine.py",
+      "line": 34,
+      "has_init": true
+    },
+    "ExplanationTemplate": {
+      "file": "src/jeffrey/core/learning/explainer.py",
+      "line": 18,
+      "has_init": false
+    },
+    "ExplainerModule": {
+      "file": "src/jeffrey/core/learning/explainer.py",
+      "line": 27,
+      "has_init": true
+    },
+    "ConceptCluster": {
+      "file": "src/jeffrey/core/learning/theory_of_mind.py",
+      "line": 56,
+      "has_init": false
+    },
+    "DecisionPattern": {
+      "file": "src/jeffrey/core/feedback/feedback_analyzer.py",
+      "line": 44,
+      "has_init": false
+    },
+    "MentalState": {
+      "file": "src/jeffrey/core/learning/theory_of_mind.py",
+      "line": 83,
+      "has_init": false
+    },
+    "ConceptExtractor": {
+      "file": "src/jeffrey/core/learning/theory_of_mind.py",
+      "line": 96,
+      "has_init": true
+    },
+    "PatternAnalyzer": {
+      "file": "src/jeffrey/core/learning/theory_of_mind.py",
+      "line": 202,
+      "has_init": true
+    },
+    "MetaLearningData": {
+      "file": "src/jeffrey/core/learning/meta_learner.py",
+      "line": 48,
+      "has_init": false
+    },
+    "UnderstandingResult": {
+      "file": "src/jeffrey/core/learning/meta_learner.py",
+      "line": 60,
+      "has_init": false
+    },
+    "EmotionalStateTracker": {
+      "file": "src/jeffrey/core/learning/meta_learner.py",
+      "line": 73,
+      "has_init": true
+    },
+    "CausalFactorExtractor": {
+      "file": "src/jeffrey/core/learning/meta_learner.py",
+      "line": 118,
+      "has_init": true
+    },
+    "NeuralClassifier": {
+      "file": "src/jeffrey/core/learning/meta_learner.py",
+      "line": 198,
+      "has_init": true
+    },
+    "MetaLearner": {
+      "file": "src/jeffrey/core/learning/meta_learner.py",
+      "line": 220,
+      "has_init": true
+    },
+    "CausalFactor": {
+      "file": "src/jeffrey/core/learning/causal_predictor.py",
+      "line": 56,
+      "has_init": false
+    },
+    "CausalExplanation": {
+      "file": "src/jeffrey/core/learning/causal_predictor.py",
+      "line": 70,
+      "has_init": false
+    },
+    "CausalGraph": {
+      "file": "src/jeffrey/core/learning/causal_predictor.py",
+      "line": 84,
+      "has_init": true
+    },
+    "SymbolicReasoningEngine": {
+      "file": "src/jeffrey/core/learning/causal_predictor.py",
+      "line": 183,
+      "has_init": true
+    },
+    "CausalPredictor": {
+      "file": "src/jeffrey/core/learning/causal_predictor.py",
+      "line": 341,
+      "has_init": true
+    },
+    "ContextualLearningEngine": {
+      "file": "src/jeffrey/core/learning/contextual_learning_engine.py",
+      "line": 14,
+      "has_init": true
+    },
+    "FeatureVector": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 55,
+      "has_init": false
+    },
+    "SemanticEmbedding": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 69,
+      "has_init": false
+    },
+    "MultiLanguageEmbedder": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 79,
+      "has_init": true
+    },
+    "CausalMarkerExtractor": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 248,
+      "has_init": true
+    },
+    "TemporalFeatureExtractor": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 484,
+      "has_init": true
+    },
+    "EmotionalFeatureExtractor": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 537,
+      "has_init": true
+    },
+    "LinguisticFeatureExtractor": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 656,
+      "has_init": true
+    },
+    "AdvancedFeatureExtractor": {
+      "file": "src/jeffrey/core/learning/feature_extractor.py",
+      "line": 806,
+      "has_init": true
+    },
+    "PatternExtractor": {
+      "file": "src/jeffrey/core/learning/jeffrey_meta_learning_integration.py",
+      "line": 19,
+      "has_init": false
+    },
+    "MetaLearningIntegration": {
+      "file": "src/jeffrey/core/learning/jeffrey_meta_learning_integration.py",
+      "line": 54,
+      "has_init": true
+    },
+    "ProcessingMode": {
+      "file": "src/jeffrey/core/learning/unified_curiosity_engine.py",
+      "line": 46,
+      "has_init": false
+    },
+    "UnifiedCuriosityEngine": {
+      "file": "src/jeffrey/core/learning/unified_curiosity_engine.py",
+      "line": 54,
+      "has_init": true
+    },
+    "IntuitivePerceptionModule": {
+      "file": "src/jeffrey/core/learning/unified_curiosity_engine.py",
+      "line": 279,
+      "has_init": true
+    },
+    "ConceptualWorldModel": {
+      "file": "src/jeffrey/core/learning/unified_curiosity_engine.py",
+      "line": 527,
+      "has_init": true
+    },
+    "MetaCognitiveController": {
+      "file": "src/jeffrey/core/learning/unified_curiosity_engine.py",
+      "line": 765,
+      "has_init": true
+    },
+    "UnifiedMemorySystem": {
+      "file": "src/jeffrey/core/learning/unified_curiosity_engine.py",
+      "line": 919,
+      "has_init": true
+    },
+    "EnrichmentStrategy": {
+      "file": "src/jeffrey/core/learning/adaptive_integrator.py",
+      "line": 17,
+      "has_init": false
+    },
+    "EnrichmentDecision": {
+      "file": "src/jeffrey/core/learning/adaptive_integrator.py",
+      "line": 31,
+      "has_init": false
+    },
+    "AdaptiveIntegrator": {
+      "file": "src/jeffrey/core/learning/adaptive_integrator.py",
+      "line": 42,
+      "has_init": true
+    },
+    "JeffreyDeepLearning": {
+      "file": "src/jeffrey/core/learning/jeffrey_deep_learning.py",
+      "line": 34,
+      "has_init": true
+    },
+    "FeedbackAnalysis": {
+      "file": "src/jeffrey/core/learning/feedback_learning_system.py",
+      "line": 16,
+      "has_init": false
+    },
+    "UserPreference": {
+      "file": "src/jeffrey/core/learning/feedback_learning_system.py",
+      "line": 27,
+      "has_init": false
+    },
+    "FeedbackLearningSystem": {
+      "file": "src/jeffrey/core/learning/feedback_learning_system.py",
+      "line": 37,
+      "has_init": true
+    },
+    "KnowledgeGraphProvider": {
+      "file": "src/jeffrey/core/learning/kg/__init__.py",
+      "line": 11,
+      "has_init": false
+    },
+    "InMemoryKnowledgeGraph": {
+      "file": "src/jeffrey/core/learning/kg/__init__.py",
+      "line": 37,
+      "has_init": true
+    },
+    "MessageSource": {
+      "file": "src/jeffrey/core/contracts/data_models.py",
+      "line": 20,
+      "has_init": false
+    },
+    "EmotionState": {
+      "file": "src/jeffrey/core/emotions/emotion_core.py",
+      "line": 15,
+      "has_init": false
+    },
+    "RelationTracker": {
+      "file": "src/jeffrey/core/personality/relation_tracker.py",
+      "line": 6,
+      "has_init": true
+    },
+    "PersonalityTrait": {
+      "file": "src/jeffrey/core/personality/personality_engine.py",
+      "line": 35,
+      "has_init": false
+    },
+    "DynamicPersonality": {
+      "file": "src/jeffrey/core/personality/personality_engine.py",
+      "line": 45,
+      "has_init": true
+    },
+    "StyleAffectifAdapter": {
+      "file": "src/jeffrey/core/personality/style_affectif_adapter.py",
+      "line": 9,
+      "has_init": true
+    },
+    "EmotionMetadata": {
+      "file": "src/jeffrey/core/personality/emotion_phrase_generator.py",
+      "line": 11,
+      "has_init": false
+    },
+    "EmotionPhraseGenerator": {
+      "file": "src/jeffrey/core/personality/emotion_phrase_generator.py",
+      "line": 19,
+      "has_init": true
+    },
+    "ConversationPersonality": {
+      "file": "src/jeffrey/core/personality/conversation_personality.py",
+      "line": 37,
+      "has_init": true
+    },
+    "AdaptivePersonalityEngine": {
+      "file": "src/jeffrey/core/emotions/profiles/adaptive_personality_engine.py",
+      "line": 27,
+      "has_init": true
+    },
+    "JeffreyLivingChat": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_chat_integration.py",
+      "line": 32,
+      "has_init": true
+    },
+    "EthicalFilter": {
+      "file": "src/jeffrey/core/consciousness/ethical_guard.py",
+      "line": 13,
+      "has_init": true
+    },
+    "LivingSoulEngine": {
+      "file": "src/jeffrey/core/consciousness/living_soul_engine.py",
+      "line": 53,
+      "has_init": true
+    },
+    "JeffreyDreamSystem": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_dream_system.py",
+      "line": 26,
+      "has_init": true
+    },
+    "IntentAnalysis": {
+      "file": "src/jeffrey/core/consciousness/cognitive_synthesis.py",
+      "line": 19,
+      "has_init": false
+    },
+    "CognitiveContext": {
+      "file": "src/jeffrey/core/consciousness/cognitive_synthesis.py",
+      "line": 33,
+      "has_init": false
+    },
+    "RelationalEmergence": {
+      "file": "src/jeffrey/core/consciousness/cognitive_synthesis.py",
+      "line": 45,
+      "has_init": true
+    },
+    "StructuredLogger": {
+      "file": "src/jeffrey/core/consciousness/monitoring.py",
+      "line": 28,
+      "has_init": true
+    },
+    "SystemMetrics": {
+      "file": "src/jeffrey/core/consciousness/monitoring.py",
+      "line": 86,
+      "has_init": false
+    },
+    "MonitoringSystem": {
+      "file": "src/jeffrey/core/consciousness/monitoring.py",
+      "line": 96,
+      "has_init": false
+    },
+    "JeffreyMonitor": {
+      "file": "src/jeffrey/core/consciousness/monitoring.py",
+      "line": 115,
+      "has_init": true
+    },
+    "MonitoringDaemon": {
+      "file": "src/jeffrey/core/consciousness/monitoring.py",
+      "line": 221,
+      "has_init": true
+    },
+    "CortexMonitor": {
+      "file": "src/jeffrey/core/consciousness/cortex_monitor.py",
+      "line": 62,
+      "has_init": true
+    },
+    "JeffreyLivingConsciousness": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_living_consciousness.py",
+      "line": 50,
+      "has_init": true
+    },
+    "JeffreyWorkInterface": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_work_interface.py",
+      "line": 40,
+      "has_init": true
+    },
+    "AwarenessSnapshot": {
+      "file": "src/jeffrey/core/consciousness/self_awareness_tracker.py",
+      "line": 20,
+      "has_init": false
+    },
+    "SelfAwarenessTracker": {
+      "file": "src/jeffrey/core/consciousness/self_awareness_tracker.py",
+      "line": 32,
+      "has_init": true
+    },
+    "ConsciousnessState": {
+      "file": "src/jeffrey/core/consciousness/conscience_engine.py",
+      "line": 42,
+      "has_init": false
+    },
+    "MemoryFragment": {
+      "file": "src/jeffrey/core/consciousness/conscience_engine.py",
+      "line": 60,
+      "has_init": false
+    },
+    "ConsciousnessEngine": {
+      "file": "src/jeffrey/core/consciousness/conscience_engine.py",
+      "line": 91,
+      "has_init": true
+    },
+    "JeffreyLivingMemory": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_living_memory.py",
+      "line": 28,
+      "has_init": true
+    },
+    "JeffreySecretDiary": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_secret_diary.py",
+      "line": 29,
+      "has_init": true
+    },
+    "IntelligentResponseGenerator": {
+      "file": "src/jeffrey/core/consciousness/real_intelligence.py",
+      "line": 11,
+      "has_init": true
+    },
+    "RealIntelligence": {
+      "file": "src/jeffrey/core/consciousness/real_intelligence.py",
+      "line": 141,
+      "has_init": true
+    },
+    "JeffreyLivingExpressions": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_living_expressions.py",
+      "line": 23,
+      "has_init": true
+    },
+    "MemoryTimeline": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_consciousness_v3.py",
+      "line": 42,
+      "has_init": true
+    },
+    "JeffreyConsciousnessV3": {
+      "file": "src/jeffrey/core/consciousness/jeffrey_consciousness_v3.py",
+      "line": 226,
+      "has_init": true
+    },
+    "NamespaceFirewall": {
+      "file": "src/jeffrey/core/discovery/namespace_firewall.py",
+      "line": 28,
+      "has_init": true
+    },
+    "ModuleNode": {
+      "file": "src/jeffrey/core/discovery/graph_engine.py",
+      "line": 28,
+      "has_init": false
+    },
+    "DependencyEdge": {
+      "file": "src/jeffrey/core/discovery/graph_engine.py",
+      "line": 48,
+      "has_init": false
+    },
+    "SimpleEvolutionaryGraph": {
+      "file": "src/jeffrey/core/discovery/graph_engine.py",
+      "line": 57,
+      "has_init": true
+    },
+    "SecurityReport": {
+      "file": "src/jeffrey/core/discovery/security_analyzer.py",
+      "line": 28,
+      "has_init": false
+    },
+    "SimpleSecurity": {
+      "file": "src/jeffrey/core/discovery/security_analyzer.py",
+      "line": 40,
+      "has_init": true
+    },
+    "BrainModuleContract": {
+      "file": "src/jeffrey/core/discovery/brain_discovery_final.py",
+      "line": 37,
+      "has_init": false
+    },
+    "DiscoveredBrainModule": {
+      "file": "src/jeffrey/core/discovery/brain_discovery_final.py",
+      "line": 55,
+      "has_init": false
+    },
+    "BrainDiscoveryFinal": {
+      "file": "src/jeffrey/core/discovery/brain_discovery_final.py",
+      "line": 66,
+      "has_init": true
+    },
+    "Domain": {
+      "file": "src/jeffrey/core/discovery/policy_bus.py",
+      "line": 29,
+      "has_init": false
+    },
+    "PolicyBus": {
+      "file": "src/jeffrey/core/discovery/policy_bus.py",
+      "line": 44,
+      "has_init": true
+    },
+    "CircuitState": {
+      "file": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py",
+      "line": 37,
+      "has_init": false
+    },
+    "BusMetrics": {
+      "file": "src/jeffrey/core/bus/local_async_bus.py",
+      "line": 38,
+      "has_init": false
+    },
+    "LocalAsyncBus": {
+      "file": "src/jeffrey/core/bus/local_async_bus.py",
+      "line": 115,
+      "has_init": true
+    },
+    "NeuroBusAdapter": {
+      "file": "src/jeffrey/core/bus/neurobus_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "HaikuCreation": {
+      "file": "src/jeffrey/core/Creativvity/creative_expression_engine.py",
+      "line": 21,
+      "has_init": false
+    },
+    "CreativeExpressionEngine": {
+      "file": "src/jeffrey/core/Creativvity/creative_expression_engine.py",
+      "line": 36,
+      "has_init": true
+    },
+    "LatencyBudget": {
+      "file": "src/jeffrey/core/utils/async_helpers.py",
+      "line": 70,
+      "has_init": true
+    },
+    "PrivacyGuard": {
+      "file": "src/jeffrey/core/utils/privacy.py",
+      "line": 16,
+      "has_init": true
+    },
+    "BiasDetection": {
+      "file": "src/jeffrey/core/feedback/feedback_analyzer.py",
+      "line": 59,
+      "has_init": false
+    },
+    "FeedbackAnalyzer": {
+      "file": "src/jeffrey/core/feedback/feedback_analyzer.py",
+      "line": 70,
+      "has_init": true
+    },
+    "SentimentAnalyzer": {
+      "file": "src/jeffrey/core/feedback/feedback_analyzer.py",
+      "line": 817,
+      "has_init": true
+    },
+    "BiasDetector": {
+      "file": "src/jeffrey/core/feedback/feedback_analyzer.py",
+      "line": 898,
+      "has_init": true
+    },
+    "SimpleDecisionPredictor": {
+      "file": "src/jeffrey/core/feedback/feedback_analyzer.py",
+      "line": 940,
+      "has_init": true
+    },
+    "HumanInterface": {
+      "file": "src/jeffrey/core/feedback/human_interface.py",
+      "line": 23,
+      "has_init": true
+    },
+    "VoiceInterface": {
+      "file": "src/jeffrey/core/feedback/human_interface.py",
+      "line": 635,
+      "has_init": true
+    },
+    "AccessibilityValidator": {
+      "file": "src/jeffrey/core/feedback/human_interface.py",
+      "line": 654,
+      "has_init": true
+    },
+    "ProposalManager": {
+      "file": "src/jeffrey/core/feedback/proposal_manager.py",
+      "line": 10,
+      "has_init": true
+    },
+    "PhilosophicalExchange": {
+      "file": "src/jeffrey/core/dialogue/philosophical_dialogue_engine.py",
+      "line": 15,
+      "has_init": false
+    },
+    "PhilosophicalThread": {
+      "file": "src/jeffrey/core/dialogue/philosophical_dialogue_engine.py",
+      "line": 29,
+      "has_init": false
+    },
+    "InteractivePhilosophicalEngine": {
+      "file": "src/jeffrey/core/dialogue/philosophical_dialogue_engine.py",
+      "line": 42,
+      "has_init": true
+    },
+    "DialogueContext": {
+      "file": "src/jeffrey/core/dialogue/dialogue_engine.py",
+      "line": 161,
+      "has_init": false
+    },
+    "DialogueEngine": {
+      "file": "src/jeffrey/core/orchestration/dialogue_engine.py",
+      "line": 13,
+      "has_init": true
+    },
+    "SymbiosisEngineAdapter": {
+      "file": "src/jeffrey/core/adapters/symbiosis_adapter.py",
+      "line": 4,
+      "has_init": true
+    },
+    "BrainKernelAdapter": {
+      "file": "src/jeffrey/core/adapters/kernel_adapter.py",
+      "line": 43,
+      "has_init": true
+    },
+    "SymbiosisEngine": {
+      "file": "src/jeffrey/core/living_memory/symbiosis_engine.py",
+      "line": 17,
+      "has_init": true
+    },
+    "GlobalPrivacyFilter": {
+      "file": "src/jeffrey/core/ethics/privacy_global.py",
+      "line": 12,
+      "has_init": true
+    },
+    "RejectionPattern": {
+      "file": "src/jeffrey/core/dreaming/dream_suggester.py",
+      "line": 44,
+      "has_init": false
+    },
+    "ReformulationSuggestion": {
+      "file": "src/jeffrey/core/dreaming/dream_suggester.py",
+      "line": 55,
+      "has_init": false
+    },
+    "ProactiveIntervention": {
+      "file": "src/jeffrey/core/dreaming/dream_suggester.py",
+      "line": 68,
+      "has_init": false
+    },
+    "RejectionAnalyzer": {
+      "file": "src/jeffrey/core/dreaming/dream_suggester.py",
+      "line": 79,
+      "has_init": true
+    },
+    "ReformulationEngine": {
+      "file": "src/jeffrey/core/dreaming/dream_suggester.py",
+      "line": 219,
+      "has_init": true
+    },
+    "DreamSuggester": {
+      "file": "src/jeffrey/core/dreaming/dream_suggester.py",
+      "line": 500,
+      "has_init": true
+    },
+    "JeffreyDreamModeIntegration": {
+      "file": "src/jeffrey/core/dreaming/jeffrey_dreammode_integration.py",
+      "line": 22,
+      "has_init": true
+    },
+    "EvaluationCriteria": {
+      "file": "src/jeffrey/core/dreaming/dream_evaluator.py",
+      "line": 18,
+      "has_init": false
+    },
+    "DreamEvaluator": {
+      "file": "src/jeffrey/core/dreaming/dream_evaluator.py",
+      "line": 29,
+      "has_init": true
+    },
+    "ScenarioSimulator": {
+      "file": "src/jeffrey/core/dreaming/scenario_simulator.py",
+      "line": 17,
+      "has_init": true
+    },
+    "EthicalPrinciple": {
+      "file": "src/jeffrey/core/guardians/ethical_guardian.py",
+      "line": 27,
+      "has_init": false
+    },
+    "EthicalDecisionType": {
+      "file": "src/jeffrey/core/guardians/ethical_guardian.py",
+      "line": 40,
+      "has_init": false
+    },
+    "EthicalSeverity": {
+      "file": "src/jeffrey/core/guardians/ethical_guardian.py",
+      "line": 52,
+      "has_init": false
+    },
+    "EthicalGuardian": {
+      "file": "src/jeffrey/core/guardians/ethical_guardian.py",
+      "line": 61,
+      "has_init": true
+    },
+    "Correlation": {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 40,
+      "has_init": false
+    },
+    "Insight": {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 51,
+      "has_init": false
+    },
+    "ImprovementProposal": {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 65,
+      "has_init": false
+    },
+    "GuardianSymphony": {
+      "file": "src/jeffrey/utilities/guardian_symphony.py",
+      "line": 78,
+      "has_init": true
+    },
+    "GuardiansHub": {
+      "file": "src/jeffrey/core/guardians/guardians_hub.py",
+      "line": 13,
+      "has_init": true
+    },
+    "VoiceSync": {
+      "file": "src/jeffrey/core/voice/voice_sync.py",
+      "line": 28,
+      "has_init": true
+    },
+    "AdaptiveMemoryClusterer": {
+      "file": "src/jeffrey/core/ml/memory_clusterer.py",
+      "line": 41,
+      "has_init": true
+    },
+    "AGIOrchestrator": {
+      "file": "src/jeffrey/core/orchestration/agi_orchestrator.py",
+      "line": 121,
+      "has_init": true
+    },
+    "SynthesisModule": {
+      "file": "src/jeffrey/core/agi_fusion/agi_orchestrator.py",
+      "line": 60,
+      "has_init": true
+    },
+    "BasicEmotionalState": {
+      "file": "src/jeffrey/core/orchestration/agi_orchestrator.py",
+      "line": 809,
+      "has_init": true
+    },
+    "EmotionalCore": {
+      "file": "src/jeffrey/interfaces/ui/avatar/main_emotion_screen.py",
+      "line": 146,
+      "has_init": true
+    },
+    "JeffreySystemHealth": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_system_health.py",
+      "line": 41,
+      "has_init": true
+    },
+    "ProfessorCapability": {
+      "file": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "line": 50,
+      "has_init": false
+    },
+    "OrchestrationRequest": {
+      "file": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "line": 62,
+      "has_init": false
+    },
+    "ProfessorLoadBalancer": {
+      "file": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "line": 73,
+      "has_init": true
+    },
+    "UserJourneyTracker": {
+      "file": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "line": 138,
+      "has_init": true
+    },
+    "IntelligentProfessorSelector": {
+      "file": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "line": 175,
+      "has_init": true
+    },
+    "UltimateOrchestrator": {
+      "file": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "line": 318,
+      "has_init": true
+    },
+    "MockProfessor": {
+      "file": "src/jeffrey/core/orchestration/ia_orchestrator_ultimate.py",
+      "line": 346,
+      "has_init": true
+    },
+    "ComponentStatus": {
+      "file": "src/jeffrey/core/emotions/emotional_initializer.py",
+      "line": 31,
+      "has_init": false
+    },
+    "ConfigError": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 43,
+      "has_init": false
+    },
+    "OrchestratorError": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 49,
+      "has_init": false
+    },
+    "Intent": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 55,
+      "has_init": false
+    },
+    "Message": {
+      "file": "src/jeffrey/interfaces/bridge/api.py",
+      "line": 34,
+      "has_init": false
+    },
+    "ConversationContext": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 78,
+      "has_init": false
+    },
+    "ContextSanitizer": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 110,
+      "has_init": true
+    },
+    "AdaptiveContextStrategy": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 126,
+      "has_init": true
+    },
+    "MessageImportanceAnalyzer": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 163,
+      "has_init": true
+    },
+    "LoaderMixin": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 175,
+      "has_init": true
+    },
+    "JeffreyOrchestrator": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 230,
+      "has_init": true
+    },
+    "LegacyEmotionDetectorBridge": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 846,
+      "has_init": true
+    },
+    "GPTConnector": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 532,
+      "has_init": true
+    },
+    "MinimalConfig": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 330,
+      "has_init": false
+    },
+    "MockMemoryManager": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_orchestrator.py",
+      "line": 451,
+      "has_init": true
+    },
+    "JeffreyOptimizer": {
+      "file": "src/jeffrey/core/orchestration/jeffrey_optimizer.py",
+      "line": 33,
+      "has_init": true
+    },
+    "OrchestratorBridge": {
+      "file": "src/jeffrey/core/orchestration/orchestrator_bridge.py",
+      "line": 30,
+      "has_init": true
+    },
+    "LinguisticOrchestrator": {
+      "file": "src/jeffrey/core/orchestration/linguistic_orchestrator.py",
+      "line": 28,
+      "has_init": true
+    },
+    "AICapability": {
+      "file": "src/jeffrey/core/orchestration/enhanced_orchestrator.py",
+      "line": 33,
+      "has_init": false
+    },
+    "EnhancedOrchestrator": {
+      "file": "src/jeffrey/core/orchestration/enhanced_orchestrator.py",
+      "line": 46,
+      "has_init": true
+    },
+    "MultiModelOrchestrator": {
+      "file": "src/jeffrey/core/orchestration/multi_model_orchestrator.py",
+      "line": 30,
+      "has_init": true
+    },
+    "IntegrationMode": {
+      "file": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+      "line": 73,
+      "has_init": false
+    },
+    "EmotionResult": {
+      "file": "src/jeffrey/nlp/emotion_detector_v3.py",
+      "line": 21,
+      "has_init": false
+    },
+    "CircuitBreakerState": {
+      "file": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+      "line": 142,
+      "has_init": false
+    },
+    "TTL_LRU_Cache": {
+      "file": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+      "line": 177,
+      "has_init": true
+    },
+    "EmotionEngineBridge": {
+      "file": "src/jeffrey/core/orchestration/emotion_engine_bridge.py",
+      "line": 358,
+      "has_init": true
+    },
+    "ValidationReport": {
+      "file": "src/jeffrey/core/brain/quality_critic.py",
+      "line": 17,
+      "has_init": false
+    },
+    "QualityCritic": {
+      "file": "src/jeffrey/core/brain/quality_critic.py",
+      "line": 68,
+      "has_init": true
+    },
+    "ArmStats": {
+      "file": "src/jeffrey/core/brain/executive_cortex.py",
+      "line": 19,
+      "has_init": false
+    },
+    "ExecutiveCortex": {
+      "file": "src/jeffrey/core/brain/executive_cortex.py",
+      "line": 42,
+      "has_init": true
+    },
+    "NullBus": {
+      "file": "src/jeffrey/utils/test_helpers.py",
+      "line": 9,
+      "has_init": false
+    },
+    "LoopManager": {
+      "file": "src/jeffrey/core/loops/loop_manager.py",
+      "line": 66,
+      "has_init": true
+    },
+    "MemoryClusterer": {
+      "file": "src/jeffrey/core/loops/ml_clustering.py",
+      "line": 46,
+      "has_init": true
+    },
+    "EmotionalDecayLoop": {
+      "file": "src/jeffrey/core/loops/emotional_decay.py",
+      "line": 16,
+      "has_init": true
+    },
+    "MemoryConsolidationLoop": {
+      "file": "src/jeffrey/core/loops/memory_consolidation.py",
+      "line": 22,
+      "has_init": true
+    },
+    "LoopInteraction": {
+      "file": "src/jeffrey/core/loops/symbiotic_graph.py",
+      "line": 24,
+      "has_init": false
+    },
+    "SymbioticGraph": {
+      "file": "src/jeffrey/core/loops/symbiotic_graph.py",
+      "line": 35,
+      "has_init": true
+    },
+    "AwarenessLoop": {
+      "file": "src/jeffrey/core/loops/awareness.py",
+      "line": 15,
+      "has_init": true
+    },
+    "CuriosityLoop": {
+      "file": "src/jeffrey/core/loops/curiosity.py",
+      "line": 16,
+      "has_init": true
+    },
+    "BaseLoop": {
+      "file": "src/jeffrey/core/loops/base.py",
+      "line": 18,
+      "has_init": true
+    },
+    "MetricsServer": {
+      "file": "src/jeffrey/core/loops/metrics_server.py",
+      "line": 25,
+      "has_init": true
+    },
+    "EntropyGuardian": {
+      "file": "src/jeffrey/core/monitoring/entropy_guardian.py",
+      "line": 24,
+      "has_init": true
+    },
+    "ModuleSpec": {
+      "file": "src/jeffrey/core/loaders/secure_module_loader.py",
+      "line": 19,
+      "has_init": false
+    },
+    "SecureModuleLoader": {
+      "file": "src/jeffrey/core/loaders/secure_module_loader.py",
+      "line": 29,
+      "has_init": true
+    },
+    "ChatRequest": {
+      "file": "src/jeffrey/interfaces/bridge/api.py",
+      "line": 39,
+      "has_init": false
+    },
+    "ReplayBuffer": {
+      "file": "src/jeffrey/core/rl/replay_buffer.py",
+      "line": 15,
+      "has_init": true
+    },
+    "ResponseGenerator": {
+      "file": "src/jeffrey/core/generation/response_generator.py",
+      "line": 11,
+      "has_init": true
+    },
+    "MemoryModule": {
+      "file": "src/jeffrey/core/interfaces/protocols.py",
+      "line": 16,
+      "has_init": false
+    },
+    "EmotionModule": {
+      "file": "src/jeffrey/core/interfaces/protocols.py",
+      "line": 45,
+      "has_init": false
+    },
+    "EmotionCategory": {
+      "file": "src/jeffrey/core/emotions/emotion_orchestrator_v2.py",
+      "line": 22,
+      "has_init": true
+    },
+    "EmotionOrchestratorV2": {
+      "file": "src/jeffrey/core/emotions/emotion_orchestrator_v2.py",
+      "line": 38,
+      "has_init": true
+    },
+    "EmotionalHandlers": {
+      "file": "src/jeffrey/core/emotions/emotional_handlers.py",
+      "line": 12,
+      "has_init": true
+    },
+    "EmotionCore": {
+      "file": "src/jeffrey/core/emotions/emotion_core.py",
+      "line": 30,
+      "has_init": true
+    },
+    "EmotionalSync": {
+      "file": "src/jeffrey/core/emotions/emotional_sync.py",
+      "line": 22,
+      "has_init": true
+    },
+    "InitializationStatus": {
+      "file": "src/jeffrey/core/emotions/emotional_initializer.py",
+      "line": 21,
+      "has_init": false
+    },
+    "EmotionalInitializer": {
+      "file": "src/jeffrey/core/emotions/emotional_initializer.py",
+      "line": 62,
+      "has_init": true
+    },
+    "EmotionalInterfaces": {
+      "file": "src/jeffrey/core/emotions/emotional_interfaces.py",
+      "line": 12,
+      "has_init": true
+    },
+    "EmotionAdapter": {
+      "file": "src/jeffrey/bridge/adapters/emotion_adapter.py",
+      "line": 11,
+      "has_init": true
+    },
+    "EmotionalBridge": {
+      "file": "src/jeffrey/core/emotions/transitions/emotional_bridge.py",
+      "line": 43,
+      "has_init": true
+    },
+    "EmotionalEffectsEngine": {
+      "file": "src/jeffrey/core/emotions/emotional_effects_engine.py",
+      "line": 19,
+      "has_init": true
+    },
+    "EmotionalLogic": {
+      "file": "src/jeffrey/core/emotions/emotional_logic.py",
+      "line": 13,
+      "has_init": true
+    },
+    "EmotionalVisuals": {
+      "file": "src/jeffrey/core/emotions/emotional_visuals.py",
+      "line": 12,
+      "has_init": true
+    },
+    "EmotionalConsciousness": {
+      "file": "src/jeffrey/core/emotions/core/emotional_consciousness.py",
+      "line": 54,
+      "has_init": true
+    },
+    "EmotionEngine": {
+      "file": "src/jeffrey/core/emotions/core/emotion_engine.py",
+      "line": 22,
+      "has_init": true
+    },
+    "JeffreyCuriosityEngine": {
+      "file": "src/jeffrey/core/emotions/core/jeffrey_curiosity_engine.py",
+      "line": 14,
+      "has_init": true
+    },
+    "MoodAnomalyDetector": {
+      "file": "src/jeffrey/core/emotions/core/mood_tracker.py",
+      "line": 14,
+      "has_init": false
+    },
+    "DistributedMoodTracker": {
+      "file": "src/jeffrey/core/emotions/core/mood_tracker.py",
+      "line": 76,
+      "has_init": true
+    },
+    "JeffreyIntimateMode": {
+      "file": "src/jeffrey/core/emotions/core/jeffrey_intimate_mode.py",
+      "line": 31,
+      "has_init": true
+    },
+    "EmpathyEngine": {
+      "file": "src/jeffrey/core/emotions/empathy/empathy_engine.py",
+      "line": 30,
+      "has_init": true
+    },
+    "EmotionalSeasonsManager": {
+      "file": "src/jeffrey/core/emotions/seasons/emotional_seasons.py",
+      "line": 15,
+      "has_init": true
+    },
+    "EmotionAuraManager": {
+      "file": "src/jeffrey/core/emotions/visuals/emotion_aura_manager.py",
+      "line": 18,
+      "has_init": false
+    },
+    "JeffreyEmotionalDisplay": {
+      "file": "src/jeffrey/core/emotions/visuals/jeffrey_emotional_display.py",
+      "line": 19,
+      "has_init": true
+    },
+    "PrivateSanctuaryUI": {
+      "file": "src/jeffrey/core/emotions/visuals/private_sanctuary_ui.py",
+      "line": 23,
+      "has_init": false
+    },
+    "SymbolicSceneEngine": {
+      "file": "src/jeffrey/core/emotions/visuals/symbolic_scene_engine.py",
+      "line": 23,
+      "has_init": false
+    },
+    "JeffreyVisualEmotions": {
+      "file": "src/jeffrey/core/emotions/visuals/jeffrey_visual_emotions.py",
+      "line": 27,
+      "has_init": true
+    },
+    "JeffreyVisualEffects": {
+      "file": "src/jeffrey/core/emotions/visuals/jeffrey_visual_emotions.py",
+      "line": 520,
+      "has_init": true
+    },
+    "EmotionalProfileManager": {
+      "file": "src/jeffrey/core/emotions/profiles/emotional_profile_manager.py",
+      "line": 539,
+      "has_init": true
+    },
+    "ContextualEmotionBridge": {
+      "file": "src/jeffrey/core/emotions/transitions/contextual_emotion_bridge.py",
+      "line": 57,
+      "has_init": true
+    },
+    "DeclarativeMemory": {
+      "file": "src/jeffrey/memory/memory_glue.py",
+      "line": 27,
+      "has_init": true
+    },
+    "ClusterEngine": {
+      "file": "src/jeffrey/memory/clustering.py",
+      "line": 14,
+      "has_init": true
+    },
+    "MemoryBridge": {
+      "file": "src/jeffrey/bundle2/memory_integration.py",
+      "line": 12,
+      "has_init": true
+    },
+    "StorageAdapter": {
+      "file": "src/jeffrey/memory/unified_memory.py",
+      "line": 760,
+      "has_init": false
+    },
+    "InMemoryStorage": {
+      "file": "src/jeffrey/memory/unified_memory.py",
+      "line": 771,
+      "has_init": true
+    },
+    "InvertedIndex": {
+      "file": "src/jeffrey/memory/unified_memory.py",
+      "line": 833,
+      "has_init": true
+    },
+    "VectorIndex": {
+      "file": "src/jeffrey/memory/unified_memory.py",
+      "line": 880,
+      "has_init": true
+    },
+    "Guardian": {
+      "file": "src/jeffrey/security/guardian.py",
+      "line": 27,
+      "has_init": true
+    },
+    "GlobalWorkspace": {
+      "file": "src/jeffrey/cognition/global_workspace.py",
+      "line": 29,
+      "has_init": true
+    },
+    "BridgeRegistry": {
+      "file": "src/jeffrey/bridge/registry.py",
+      "line": 15,
+      "has_init": true
+    },
+    "LanguageAdapter": {
+      "file": "src/jeffrey/bridge/adapters/language_adapter.py",
+      "line": 11,
+      "has_init": true
+    },
+    "MotorAdapter": {
+      "file": "src/jeffrey/bridge/adapters/motor_adapter.py",
+      "line": 9,
+      "has_init": true
+    },
+    "ConscienceAdapter": {
+      "file": "src/jeffrey/bridge/adapters/conscience_adapter.py",
+      "line": 10,
+      "has_init": true
+    },
+    "IntegrationAdapter": {
+      "file": "src/jeffrey/bridge/adapters/integration_adapter.py",
+      "line": 10,
+      "has_init": true
+    },
+    "PerceptionAdapter": {
+      "file": "src/jeffrey/bridge/adapters/perception_adapter.py",
+      "line": 12,
+      "has_init": true
+    },
+    "ExecutiveAdapter": {
+      "file": "src/jeffrey/bridge/adapters/executive_adapter.py",
+      "line": 9,
+      "has_init": true
+    },
+    "BaseBridgeAdapter": {
+      "file": "src/jeffrey/bridge/base/__init__.py",
+      "line": 13,
+      "has_init": true
+    },
+    "PredictionMonitor": {
+      "file": "src/jeffrey/utils/monitoring.py",
+      "line": 51,
+      "has_init": true
+    },
+    "SimpleState": {
+      "file": "src/jeffrey/utils/test_helpers.py",
+      "line": 19,
+      "has_init": true
+    },
+    "DummyMemoryFederation": {
+      "file": "src/jeffrey/utils/test_helpers.py",
+      "line": 40,
+      "has_init": true
+    },
+    "MemoryStore": {
+      "file": "src/jeffrey/bundle2/memory/memory_store.py",
+      "line": 11,
+      "has_init": false
+    },
+    "SQLiteMemoryStore": {
+      "file": "src/jeffrey/bundle2/memory/sqlite_store.py",
+      "line": 17,
+      "has_init": true
+    },
+    "BrocaWernickeRegion": {
+      "file": "src/jeffrey/bundle2/language/broca_wernicke.py",
+      "line": 9,
+      "has_init": true
+    },
+    "WernickeArea": {
+      "file": "src/jeffrey/bundle2/language/broca_wernicke.py",
+      "line": 56,
+      "has_init": false
+    },
+    "BrocaArea": {
+      "file": "src/jeffrey/bundle2/language/broca_wernicke.py",
+      "line": 103,
+      "has_init": false
+    },
+    "SearchResult": {
+      "file": "src/jeffrey/search/hybrid_searcher.py",
+      "line": 23,
+      "has_init": false
+    },
+    "HybridSearcher": {
+      "file": "src/jeffrey/search/hybrid_searcher.py",
+      "line": 33,
+      "has_init": true
+    },
+    "JeffreyDashboard": {
+      "file": "src/jeffrey/dashboard/streamlit_app.py",
+      "line": 45,
+      "has_init": true
+    },
+    "EventType": {
+      "file": "src/jeffrey/utilities/guardian_communication.py",
+      "line": 39,
+      "has_init": false
+    },
+    "GuardianEvent": {
+      "file": "src/jeffrey/utilities/guardian_communication.py",
+      "line": 70,
+      "has_init": false
+    },
+    "EventBus": {
+      "file": "src/jeffrey/utilities/guardian_communication.py",
+      "line": 98,
+      "has_init": true
+    },
+    "EmotionMLAdapter": {
+      "file": "src/jeffrey/ml/emotion_ml_adapter.py",
+      "line": 24,
+      "has_init": true
+    },
+    "FeedbackEvent": {
+      "file": "src/jeffrey/ml/feedback.py",
+      "line": 18,
+      "has_init": false
+    },
+    "FeedbackStore": {
+      "file": "src/jeffrey/ml/feedback.py",
+      "line": 33,
+      "has_init": true
+    },
+    "BaseEncoder": {
+      "file": "src/jeffrey/ml/encoder.py",
+      "line": 81,
+      "has_init": false
+    },
+    "SentenceEncoder": {
+      "file": "src/jeffrey/ml/encoder.py",
+      "line": 103,
+      "has_init": true
+    },
+    "EmotionPrediction": {
+      "file": "src/jeffrey/ml/proto.py",
+      "line": 19,
+      "has_init": false
+    },
+    "ProtoEmotion": {
+      "file": "src/jeffrey/ml/proto.py",
+      "line": 31,
+      "has_init": true
+    },
+    "ProtoClassifier": {
+      "file": "src/jeffrey/ml/proto.py",
+      "line": 267,
+      "has_init": true
+    },
+    "LinearHead": {
+      "file": "src/jeffrey/ml/heads.py",
+      "line": 11,
+      "has_init": true
+    },
+    "EmotionDetectorV2": {
+      "file": "src/jeffrey/nlp/emotion_detector_v2.py",
+      "line": 31,
+      "has_init": true
+    },
+    "EmotionDetectorV3": {
+      "file": "src/jeffrey/nlp/emotion_detector_v3.py",
+      "line": 31,
+      "has_init": true
+    },
+    "BudgetExceededException": {
+      "file": "src/jeffrey/api/audit_logger_enhanced.py",
+      "line": 34,
+      "has_init": false
+    },
+    "APICall": {
+      "file": "src/jeffrey/api/audit_logger_enhanced.py",
+      "line": 41,
+      "has_init": false
+    },
+    "EnhancedAuditLogger": {
+      "file": "src/jeffrey/api/audit_logger_enhanced.py",
+      "line": 58,
+      "has_init": true
+    },
+    "OrchestratorTissue": {
+      "file": "src/jeffrey/tissues/orchestrator_glue.py",
+      "line": 26,
+      "has_init": true
+    },
+    "ConsoleMotor": {
+      "file": "src/jeffrey/tissues/console_motor.py",
+      "line": 27,
+      "has_init": false
+    },
+    "SimpleParser": {
+      "file": "src/jeffrey/fallbacks/simple_parser.py",
+      "line": 17,
+      "has_init": true
+    },
+    "SimpleEmotion": {
+      "file": "src/jeffrey/fallbacks/simple_emotion.py",
+      "line": 17,
+      "has_init": true
+    },
+    "SimpleDecision": {
+      "file": "src/jeffrey/fallbacks/simple_decision.py",
+      "line": 17,
+      "has_init": true
+    },
+    "SimpleBus": {
+      "file": "src/jeffrey/fallbacks/simple_bus.py",
+      "line": 17,
+      "has_init": true
+    },
+    "SimpleMemory": {
+      "file": "src/jeffrey/fallbacks/simple_memory.py",
+      "line": 17,
+      "has_init": true
+    },
+    "SimplePipeline": {
+      "file": "src/jeffrey/fallbacks/simple_pipeline.py",
+      "line": 17,
+      "has_init": true
+    },
+    "SimpleBridge": {
+      "file": "src/jeffrey/fallbacks/simple_bridge.py",
+      "line": 13,
+      "has_init": true
+    },
+    "SimpleLearning": {
+      "file": "src/jeffrey/fallbacks/simple_learning.py",
+      "line": 13,
+      "has_init": true
+    },
+    "ThalamicGateway": {
+      "file": "src/jeffrey/perception/thalamic_gateway.py",
+      "line": 27,
+      "has_init": true
+    },
+    "DatabaseError": {
+      "file": "src/jeffrey/infrastructure/database/database_manager.py",
+      "line": 25,
+      "has_init": false
+    },
+    "DatabaseManager": {
+      "file": "src/jeffrey/infrastructure/database/database_manager.py",
+      "line": 31,
+      "has_init": true
+    },
+    "KeyType": {
+      "file": "src/jeffrey/infrastructure/security/key_manager.py",
+      "line": 44,
+      "has_init": false
+    },
+    "KeySecurity": {
+      "file": "src/jeffrey/infrastructure/security/key_manager.py",
+      "line": 55,
+      "has_init": false
+    },
+    "KeyMetadata": {
+      "file": "src/jeffrey/infrastructure/security/key_manager.py",
+      "line": 64,
+      "has_init": false
+    },
+    "KeyManager": {
+      "file": "src/jeffrey/infrastructure/security/key_manager.py",
+      "line": 79,
+      "has_init": true
+    },
+    "APIKeyConfig": {
+      "file": "src/jeffrey/infrastructure/security/secrets_manager.py",
+      "line": 73,
+      "has_init": false
+    },
+    "SecureConfigError": {
+      "file": "src/jeffrey/infrastructure/security/secrets_manager.py",
+      "line": 83,
+      "has_init": false
+    },
+    "SecureConfig": {
+      "file": "src/jeffrey/infrastructure/security/secrets_manager.py",
+      "line": 89,
+      "has_init": true
+    },
+    "RateLimitType": {
+      "file": "src/jeffrey/infrastructure/security/rate_limiter.py",
+      "line": 35,
+      "has_init": false
+    },
+    "RateLimitPeriod": {
+      "file": "src/jeffrey/infrastructure/security/rate_limiter.py",
+      "line": 44,
+      "has_init": false
+    },
+    "RateLimitRule": {
+      "file": "src/jeffrey/infrastructure/security/rate_limiter.py",
+      "line": 54,
+      "has_init": false
+    },
+    "RateLimitStatus": {
+      "file": "src/jeffrey/infrastructure/security/rate_limiter.py",
+      "line": 76,
+      "has_init": false
+    },
+    "RateLimiter": {
+      "file": "src/jeffrey/infrastructure/security/rate_limiter.py",
+      "line": 87,
+      "has_init": true
+    },
+    "ValidationError": {
+      "file": "src/jeffrey/infrastructure/security/security_validator.py",
+      "line": 34,
+      "has_init": false
+    },
+    "SecurityLevel": {
+      "file": "src/jeffrey/infrastructure/security/security_validator.py",
+      "line": 40,
+      "has_init": false
+    },
+    "ValidationRule": {
+      "file": "src/jeffrey/infrastructure/security/security_validator.py",
+      "line": 50,
+      "has_init": false
+    },
+    "SecurityValidator": {
+      "file": "src/jeffrey/infrastructure/security/security_validator.py",
+      "line": 62,
+      "has_init": true
+    },
+    "EncryptionLevel": {
+      "file": "src/jeffrey/infrastructure/security/encryption_manager.py",
+      "line": 41,
+      "has_init": false
+    },
+    "EncryptionConfig": {
+      "file": "src/jeffrey/infrastructure/security/encryption_manager.py",
+      "line": 51,
+      "has_init": false
+    },
+    "EncryptionManager": {
+      "file": "src/jeffrey/infrastructure/security/encryption_manager.py",
+      "line": 62,
+      "has_init": true
+    },
+    "PerformanceBaseline": {
+      "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+      "line": 45,
+      "has_init": false
+    },
+    "ScalabilityBaseline": {
+      "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+      "line": 91,
+      "has_init": false
+    },
+    "SecurityBaseline": {
+      "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+      "line": 110,
+      "has_init": false
+    },
+    "RobustnessBaseline": {
+      "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+      "line": 128,
+      "has_init": false
+    },
+    "BaselineTracker": {
+      "file": "src/jeffrey/infrastructure/monitoring/baseline_tracker.py",
+      "line": 145,
+      "has_init": true
+    },
+    "ConditionOperator": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 30,
+      "has_init": false
+    },
+    "LogicalOperator": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 46,
+      "has_init": false
+    },
+    "ActionType": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 54,
+      "has_init": false
+    },
+    "AlertSeverity": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 61,
+      "has_init": false
+    },
+    "Condition": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 83,
+      "has_init": false
+    },
+    "AlertRule": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 95,
+      "has_init": false
+    },
+    "AlertAction": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 132,
+      "has_init": false
+    },
+    "ActionExecution": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 163,
+      "has_init": false
+    },
+    "ControlTheoryEvaluator": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 183,
+      "has_init": true
+    },
+    "AlertChainer": {
+      "file": "src/jeffrey/infrastructure/monitoring/alert_chainer.py",
+      "line": 322,
+      "has_init": true
+    },
+    "MetricCategory": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 39,
+      "has_init": false
+    },
+    "ImpactLevel": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 50,
+      "has_init": false
+    },
+    "BaselineMetrics": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 62,
+      "has_init": false
+    },
+    "CurrentMetrics": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 93,
+      "has_init": false
+    },
+    "Innovation": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 131,
+      "has_init": false
+    },
+    "ROICalculation": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 156,
+      "has_init": false
+    },
+    "DeltaReport": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 188,
+      "has_init": false
+    },
+    "SymbolicROICalculator": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 221,
+      "has_init": true
+    },
+    "ASCIIChartGenerator": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 326,
+      "has_init": false
+    },
+    "DeltaAnalyzer": {
+      "file": "src/jeffrey/infrastructure/monitoring/delta_analyzer.py",
+      "line": 462,
+      "has_init": true
+    },
+    "DashboardMode": {
+      "file": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py",
+      "line": 55,
+      "has_init": false
+    },
+    "DashboardConfig": {
+      "file": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py",
+      "line": 66,
+      "has_init": false
+    },
+    "ASCIIChart": {
+      "file": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py",
+      "line": 77,
+      "has_init": false
+    },
+    "TerminalDashboard": {
+      "file": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py",
+      "line": 153,
+      "has_init": true
+    },
+    "DashboardLogHandler": {
+      "file": "src/jeffrey/infrastructure/monitoring/metrics_dashboard.py",
+      "line": 213,
+      "has_init": true
+    },
+    "ScalingProfile": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 37,
+      "has_init": false
+    },
+    "ScalingAction": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 47,
+      "has_init": false
+    },
+    "ScalingDecision": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 57,
+      "has_init": false
+    },
+    "ResourceLimits": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 74,
+      "has_init": false
+    },
+    "ProfileManager": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 89,
+      "has_init": true
+    },
+    "MetricsAnalyzer": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 189,
+      "has_init": true
+    },
+    "ComponentScaler": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 379,
+      "has_init": true
+    },
+    "AutoScaler": {
+      "file": "src/jeffrey/infrastructure/monitoring/auto_scaler.py",
+      "line": 525,
+      "has_init": true
+    },
+    "RotatingEventLogger": {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 36,
+      "has_init": true
+    },
+    "LoggerMaintenanceScheduler": {
+      "file": "src/jeffrey/infrastructure/monitoring/event_logger.py",
+      "line": 309,
+      "has_init": true
+    },
+    "FailureType": {
+      "file": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py",
+      "line": 45,
+      "has_init": false
+    },
+    "FailureRecord": {
+      "file": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py",
+      "line": 56,
+      "has_init": false
+    },
+    "CircuitMetrics": {
+      "file": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py",
+      "line": 69,
+      "has_init": false
+    },
+    "BackoffStrategy": {
+      "file": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py",
+      "line": 87,
+      "has_init": true
+    },
+    "FallbackStrategy": {
+      "file": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py",
+      "line": 123,
+      "has_init": true
+    },
+    "CircuitBreakerManager": {
+      "file": "src/jeffrey/infrastructure/monitoring/circuit_breaker.py",
+      "line": 576,
+      "has_init": true
+    },
+    "HealthStatus": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 52,
+      "has_init": false
+    },
+    "HealthMetrics": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 71,
+      "has_init": false
+    },
+    "Alert": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 93,
+      "has_init": false
+    },
+    "MetricsCollector": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 109,
+      "has_init": true
+    },
+    "ThresholdManager": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 219,
+      "has_init": true
+    },
+    "AlertManager": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 268,
+      "has_init": true
+    },
+    "HealthChecker": {
+      "file": "src/jeffrey/infrastructure/monitoring/health_checker.py",
+      "line": 402,
+      "has_init": true
+    },
+    "MetricsBase": {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/metrics.py",
+      "line": 180,
+      "has_init": true
+    },
+    "BenchmarkResult": {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/benchmark_manager.py",
+      "line": 36,
+      "has_init": false
+    },
+    "BenchmarkManager": {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/benchmark_manager.py",
+      "line": 120,
+      "has_init": true
+    },
+    "QualityCollector": {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/quality_collector.py",
+      "line": 12,
+      "has_init": true
+    },
+    "CostCollector": {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/cost_collector.py",
+      "line": 15,
+      "has_init": true
+    },
+    "StabilityCollector": {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/stability_collector.py",
+      "line": 14,
+      "has_init": true
+    },
+    "LatencyCollector": {
+      "file": "src/jeffrey/infrastructure/monitoring/benchmarking/collectors/latency_collector.py",
+      "line": 14,
+      "has_init": true
+    },
+    "AuditService": {
+      "file": "src/jeffrey/services/audit_glue.py",
+      "line": 28,
+      "has_init": true
+    },
+    "AIProvider": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 38,
+      "has_init": true
+    },
+    "GPTProvider": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 69,
+      "has_init": false
+    },
+    "ClaudeProvider": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 78,
+      "has_init": false
+    },
+    "GrokProvider": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 87,
+      "has_init": true
+    },
+    "LlamaProvider": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 143,
+      "has_init": false
+    },
+    "GenericSimulatedProvider": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 154,
+      "has_init": true
+    },
+    "APIProvider": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 174,
+      "has_init": true
+    },
+    "ProviderManager": {
+      "file": "src/jeffrey/services/providers/provider_manager.py",
+      "line": 783,
+      "has_init": true
+    },
+    "VoiceEmotionRenderer": {
+      "file": "src/jeffrey/services/voice/adapters/voice_emotion_renderer.py",
+      "line": 23,
+      "has_init": true
+    },
+    "SupportedLanguage": {
+      "file": "src/jeffrey/services/voice/adapters/multilingual_voice_adapter.py",
+      "line": 37,
+      "has_init": false
+    },
+    "CulturalVoiceProfile": {
+      "file": "src/jeffrey/services/voice/adapters/multilingual_voice_adapter.py",
+      "line": 65,
+      "has_init": false
+    },
+    "LanguageDetectionResult": {
+      "file": "src/jeffrey/services/voice/adapters/multilingual_voice_adapter.py",
+      "line": 78,
+      "has_init": false
+    },
+    "CulturalEmotionMapper": {
+      "file": "src/jeffrey/services/voice/adapters/multilingual_voice_adapter.py",
+      "line": 87,
+      "has_init": true
+    },
+    "LanguageDetector": {
+      "file": "src/jeffrey/services/voice/adapters/multilingual_voice_adapter.py",
+      "line": 224,
+      "has_init": true
+    },
+    "MultilingualVoiceAdapter": {
+      "file": "src/jeffrey/services/voice/adapters/multilingual_voice_adapter.py",
+      "line": 463,
+      "has_init": true
+    },
+    "VoiceEmotionAdapter": {
+      "file": "src/jeffrey/services/voice/adapters/voice_emotion_adapter.py",
+      "line": 32,
+      "has_init": true
+    },
+    "VoiceEffects": {
+      "file": "src/jeffrey/services/voice/effects/voice_effects.py",
+      "line": 59,
+      "has_init": true
+    },
+    "EmotionalContextAnalyzer": {
+      "file": "src/jeffrey/services/voice/controllers/voice_controller_v3.py",
+      "line": 61,
+      "has_init": true
+    },
+    "VoiceControllerV3": {
+      "file": "src/jeffrey/services/voice/controllers/voice_controller_v3.py",
+      "line": 317,
+      "has_init": true
+    },
+    "ElevenLabsError": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+      "line": 23,
+      "has_init": false
+    },
+    "VoiceNotFoundError": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+      "line": 27,
+      "has_init": false
+    },
+    "APIQuotaError": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+      "line": 31,
+      "has_init": false
+    },
+    "Voice": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+      "line": 65,
+      "has_init": false
+    },
+    "ElevenLabsClient": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_client.py",
+      "line": 80,
+      "has_init": true
+    },
+    "VoiceRecognitionErrorRecovery": {
+      "file": "src/jeffrey/services/voice/engine/voice_recognition_error_recovery.py",
+      "line": 21,
+      "has_init": true
+    },
+    "JeffreyVoiceSystem": {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_system.py",
+      "line": 36,
+      "has_init": true
+    },
+    "VoicePersona": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 51,
+      "has_init": false
+    },
+    "V3VoiceSettings": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 63,
+      "has_init": false
+    },
+    "EmotionalAudioTag": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 82,
+      "has_init": false
+    },
+    "DialogueSpeaker": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 92,
+      "has_init": false
+    },
+    "EmotionalTagProcessor": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 103,
+      "has_init": true
+    },
+    "ElevenLabsV3Engine": {
+      "file": "src/jeffrey/services/voice/engine/elevenlabs_v3_engine.py",
+      "line": 362,
+      "has_init": true
+    },
+    "VoiceGender": {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_dna.py",
+      "line": 44,
+      "has_init": false
+    },
+    "VoiceAge": {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_dna.py",
+      "line": 53,
+      "has_init": false
+    },
+    "VoicePersonality": {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_dna.py",
+      "line": 63,
+      "has_init": false
+    },
+    "VoiceDNAProfile": {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_dna.py",
+      "line": 79,
+      "has_init": false
+    },
+    "JeffreyVoiceDNA": {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_dna.py",
+      "line": 111,
+      "has_init": true
+    },
+    "DavidJeffreyVoiceSpecialist": {
+      "file": "src/jeffrey/services/voice/engine/jeffrey_voice_dna.py",
+      "line": 540,
+      "has_init": true
+    },
+    "AudioFormat": {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 45,
+      "has_init": false
+    },
+    "StreamingConfig": {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 55,
+      "has_init": false
+    },
+    "AudioChunk": {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 70,
+      "has_init": false
+    },
+    "StreamingAudioProcessor": {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 80,
+      "has_init": true
+    },
+    "IntelligentAudioCache": {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 314,
+      "has_init": true
+    },
+    "StreamingAudioPipeline": {
+      "file": "src/jeffrey/services/voice/engine/streaming_audio_pipeline.py",
+      "line": 497,
+      "has_init": true
+    },
+    "EmotionalProsodySynchronizer": {
+      "file": "src/jeffrey/services/sync/emotional_prosody_synchronizer.py",
+      "line": 13,
+      "has_init": true
+    },
+    "FaceSyncManager": {
+      "file": "src/jeffrey/services/sync/face_sync_manager.py",
+      "line": 33,
+      "has_init": true
+    },
+    "InterpersonalRhythmSynchronizer": {
+      "file": "src/jeffrey/services/sync/interpersonal_rhythm_synchronizer.py",
+      "line": 22,
+      "has_init": true
+    },
+    "CreditManager": {
+      "file": "src/jeffrey/services/credits/credit_manager.py",
+      "line": 29,
+      "has_init": true
+    },
+    "EmotionParticle": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/emotion_particles.py",
+      "line": 10,
+      "has_init": true
+    },
+    "EmotionParticleEmitter": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/emotion_particles.py",
+      "line": 112,
+      "has_init": true
+    },
+    "EmotionParticles": {
+      "file": "src/jeffrey/widgets/emotion_particles.py",
+      "line": 175,
+      "has_init": true
+    },
+    "MessageRequest": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 48,
+      "has_init": false
+    },
+    "AdaptiveLatencyPredictor": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 65,
+      "has_init": true
+    },
+    "ResponseCache": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 164,
+      "has_init": true
+    },
+    "UserRateLimiter": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 212,
+      "has_init": true
+    },
+    "ConnectionMonitor": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 243,
+      "has_init": true
+    },
+    "PerformanceProfiler": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 310,
+      "has_init": true
+    },
+    "JeffreyUIBridge": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 354,
+      "has_init": true
+    },
+    "Signal": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 672,
+      "has_init": false
+    },
+    "TestSignal": {
+      "file": "src/jeffrey/interfaces/ui/jeffrey_ui_bridge.py",
+      "line": 269,
+      "has_init": false
+    },
+    "KivyBridgeIntegration": {
+      "file": "src/jeffrey/interfaces/ui/kivy_bridge_integration.py",
+      "line": 16,
+      "has_init": true
+    },
+    "ChatScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/chat_screen.py",
+      "line": 21,
+      "has_init": false
+    },
+    "DashboardGenerator": {
+      "file": "src/jeffrey/interfaces/ui/dashboard/dashboard.py",
+      "line": 13,
+      "has_init": false
+    },
+    "DashboardPremiumGenerator": {
+      "file": "src/jeffrey/interfaces/ui/dashboard/dashboard_premium.py",
+      "line": 15,
+      "has_init": false
+    },
+    "VisualEmotionController": {
+      "file": "src/jeffrey/interfaces/ui/avatar/visual_emotion_controller.py",
+      "line": 14,
+      "has_init": true
+    },
+    "EmotionFaceController": {
+      "file": "src/jeffrey/interfaces/ui/avatar/emotion_face_controller.py",
+      "line": 21,
+      "has_init": true
+    },
+    "FaceDrawer": {
+      "file": "src/jeffrey/interfaces/ui/avatar/face_drawer.py",
+      "line": 13,
+      "has_init": true
+    },
+    "ConsoleUI": {
+      "file": "src/jeffrey/interfaces/ui/console/console_ui.py",
+      "line": 52,
+      "has_init": true
+    },
+    "EmotionBubble": {
+      "file": "src/jeffrey/interfaces/ui/avatar/emotion_bubble_engine.py",
+      "line": 7,
+      "has_init": true
+    },
+    "EmotionBubbleEngine": {
+      "file": "src/jeffrey/interfaces/ui/avatar/emotion_bubble_engine.py",
+      "line": 39,
+      "has_init": true
+    },
+    "GestureDetector": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_system.py",
+      "line": 100,
+      "has_init": true
+    },
+    "MultiTouchGestureDetector": {
+      "file": "src/jeffrey/interfaces/ui/avatar/main_emotion_screen.py",
+      "line": 40,
+      "has_init": false
+    },
+    "MoodSelector": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_app.py",
+      "line": 15,
+      "has_init": true
+    },
+    "DemoControls": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_app.py",
+      "line": 53,
+      "has_init": true
+    },
+    "GuidanceTestApp": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_app.py",
+      "line": 97,
+      "has_init": false
+    },
+    "ParticleSystem": {
+      "file": "src/jeffrey/interfaces/ui/avatar/main_emotion_screen.py",
+      "line": 54,
+      "has_init": true
+    },
+    "DreamBackground": {
+      "file": "src/jeffrey/interfaces/ui/avatar/main_emotion_screen.py",
+      "line": 380,
+      "has_init": true
+    },
+    "MainEmotionScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/main_emotion_screen.py",
+      "line": 515,
+      "has_init": true
+    },
+    "VisualEffectsEngine": {
+      "file": "src/jeffrey/interfaces/ui/avatar/visual_effects_engine.py",
+      "line": 16,
+      "has_init": true
+    },
+    "EvolutionDashboard": {
+      "file": "src/jeffrey/interfaces/ui/avatar/evolution_dashboard.py",
+      "line": 12,
+      "has_init": true
+    },
+    "AffectiveEvolutionTracker": {
+      "file": "src/jeffrey/interfaces/ui/avatar/tracker_evolution_affective.py",
+      "line": 12,
+      "has_init": true
+    },
+    "FaceEffects": {
+      "file": "src/jeffrey/interfaces/ui/avatar/face_effects.py",
+      "line": 18,
+      "has_init": true
+    },
+    "EmotionVisualizer": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotion_visualizer.py",
+      "line": 18,
+      "has_init": true
+    },
+    "JeffreyApp": {
+      "file": "src/jeffrey/interfaces/ui/avatar/main_app.py",
+      "line": 14,
+      "has_init": true
+    },
+    "GuidanceWaves": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_system.py",
+      "line": 566,
+      "has_init": true
+    },
+    "AuraAssistant": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_system.py",
+      "line": 712,
+      "has_init": true
+    },
+    "EmotionalCoach": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_system.py",
+      "line": 922,
+      "has_init": true
+    },
+    "LivingTutorial": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_system.py",
+      "line": 1135,
+      "has_init": true
+    },
+    "GuidanceManager": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_system.py",
+      "line": 1357,
+      "has_init": true
+    },
+    "JeffreyGuidanceApp": {
+      "file": "src/jeffrey/interfaces/ui/avatar/guidance_system.py",
+      "line": 1664,
+      "has_init": false
+    },
+    "EmotionEntry": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotion_journal_screen.py",
+      "line": 13,
+      "has_init": true
+    },
+    "EmotionJournalScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotion_journal_screen.py",
+      "line": 83,
+      "has_init": false
+    },
+    "HistoryScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/history_screen.py",
+      "line": 9,
+      "has_init": false
+    },
+    "HistoryCard": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/history_screen.py",
+      "line": 51,
+      "has_init": false
+    },
+    "EmotionFlower": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotion_garden_screen.py",
+      "line": 66,
+      "has_init": true
+    },
+    "EmotionGardenScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotion_garden_screen.py",
+      "line": 147,
+      "has_init": true
+    },
+    "EmotionCard": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotional_profile_screen.py",
+      "line": 24,
+      "has_init": true
+    },
+    "EmotionalProfileScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotional_profile_screen.py",
+      "line": 112,
+      "has_init": true
+    },
+    "EmotionalNavigation": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotional_navigation.py",
+      "line": 16,
+      "has_init": true
+    },
+    "MainIntegrationApp": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/main_integration.py",
+      "line": 61,
+      "has_init": false
+    },
+    "MessagesFavorisScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/messages_favoris_screen.py",
+      "line": 15,
+      "has_init": false
+    },
+    "MessagesRecusScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/messages_recus_screen.py",
+      "line": 18,
+      "has_init": false
+    },
+    "ContextMemoryScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/context_memory_screen.py",
+      "line": 8,
+      "has_init": false
+    },
+    "EmotionalMemoryVisualizer": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotional_memory_visualizer.py",
+      "line": 43,
+      "has_init": true
+    },
+    "AnimatedEmotionalFace": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/emotional_memory_visualizer.py",
+      "line": 369,
+      "has_init": true
+    },
+    "JeffreyMainScreen": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/jeffrey_main_screen.py",
+      "line": 23,
+      "has_init": false
+    },
+    "ContentDialogTone": {
+      "file": "src/jeffrey/interfaces/ui/avatar/screens/jeffrey_main_screen.py",
+      "line": 673,
+      "has_init": false
+    },
+    "StarlightTrails": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/starlight_trails.py",
+      "line": 17,
+      "has_init": true
+    },
+    "EmotionalLightPulse": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/emotional_widgets.py",
+      "line": 18,
+      "has_init": true
+    },
+    "HeartBeatPulse": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/emotional_widgets.py",
+      "line": 60,
+      "has_init": true
+    },
+    "FireflyField": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/emotional_widgets.py",
+      "line": 132,
+      "has_init": true
+    },
+    "VoiceWaveVisualizer": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/emotional_widgets.py",
+      "line": 296,
+      "has_init": true
+    },
+    "EmotionalNotificationHalo": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/emotional_widgets.py",
+      "line": 375,
+      "has_init": true
+    },
+    "VoiceFeedbackPopup": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/voice_feedback_popup.py",
+      "line": 16,
+      "has_init": true
+    },
+    "VoiceFeedbackContent": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/voice_feedback_popup.py",
+      "line": 50,
+      "has_init": true
+    },
+    "EmotionalMist": {
+      "file": "src/jeffrey/interfaces/ui/avatar/widgets/atmospheric_effects.py",
+      "line": 17,
+      "has_init": true
+    },
+    "LienAffectifWidget": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/LienAffectifWidget.py",
+      "line": 58,
+      "has_init": true
+    },
+    "TouchFloatingMenu": {
+      "file": "src/jeffrey/interfaces/ui/widgets/TouchFloatingMenu.py",
+      "line": 11,
+      "has_init": true
+    },
+    "JournalEntryCard": {
+      "file": "src/jeffrey/interfaces/ui/widgets/JournalEntryCard.py",
+      "line": 15,
+      "has_init": true
+    },
+    "ImmersiveEmotionFace": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/immersive_emotion_face.py",
+      "line": 37,
+      "has_init": true
+    },
+    "EnergyFaceCoreWidget": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/energy_face_core.py",
+      "line": 29,
+      "has_init": true
+    },
+    "MovementHandler": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/energy_face_movements.py",
+      "line": 19,
+      "has_init": true
+    },
+    "UtilityFunctions": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/energy_face_utils.py",
+      "line": 23,
+      "has_init": true
+    },
+    "MemoryHandler": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/energy_face_memory.py",
+      "line": 20,
+      "has_init": true
+    },
+    "EnergyFaceIntegration": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/energy_face_integration.py",
+      "line": 10,
+      "has_init": false
+    },
+    "IAOverlay": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/ia_overlay.py",
+      "line": 13,
+      "has_init": true
+    },
+    "SurprisePopup": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/surprise_popup.py",
+      "line": 18,
+      "has_init": true
+    },
+    "EnergyFaceWidget": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/energy_face.py",
+      "line": 14,
+      "has_init": true
+    },
+    "PenseeFugitiveWidget": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/pensee_fugitive_widget.py",
+      "line": 7,
+      "has_init": true
+    },
+    "IAHistoryWidget": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/ia_history_widget.py",
+      "line": 23,
+      "has_init": true
+    },
+    "RecommendationPopup": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/recommendation_popup.py",
+      "line": 15,
+      "has_init": true
+    },
+    "EmotionHandler": {
+      "file": "src/jeffrey/interfaces/ui/widgets/kivy/energy_face_emotions.py",
+      "line": 20,
+      "has_init": true
+    },
+    "CoreClient": {
+      "file": "src/jeffrey/interfaces/bridge/core_client.py",
+      "line": 14,
+      "has_init": true
+    },
+    "ChatResponse": {
+      "file": "src/jeffrey/interfaces/bridge/api.py",
+      "line": 46,
+      "has_init": false
+    },
+    "EmotionDetectRequest": {
+      "file": "src/jeffrey/interfaces/bridge/api.py",
+      "line": 56,
+      "has_init": false
+    },
+    "EmotionDetectResponse": {
+      "file": "src/jeffrey/interfaces/bridge/api.py",
+      "line": 66,
+      "has_init": false
+    },
+    "CuriosityAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/curiosity_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "WebhookHandlerAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/webhook_handler_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "CellularArchitectureAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/cellular_architecture_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "NlpEngineAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/nlp_engine_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "AuthServiceAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/auth_service_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "SpeechSynthesisAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/speech_synthesis_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "RateLimiterAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/rate_limiter_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "OcrServiceAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/ocr_service_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "CacheManagerAdapter": {
+      "file": "src/jeffrey/interfaces/bridge/adapters/cache_manager_adapter.py",
+      "line": 15,
+      "has_init": true
+    },
+    "JeffreyWebSocketHandler": {
+      "file": "src/jeffrey/interfaces/api/websocket/websocket_handler.py",
+      "line": 45,
+      "has_init": true
+    },
+    "LimbicSystem": {
+      "file": "src/jeffrey/emotions/limbic_glue.py",
+      "line": 27,
+      "has_init": true
+    }
+  },
+  "missing_modules": [
+    "CellManager|CellFactory|CellularManager",
+    "TissueOrganizer|TissueManager",
+    "SelfReflection|SelfAnalysis|Introspection",
+    "SensoryMemory|PerceptualMemory",
+    "PhilosophicalMemory|DeepMemory|WisdomMemory",
+    "EmotionalBonds|BondManager|AttachmentSystem",
+    "QuantumInspiredDecisionMaker|QuantumDecision|ProbabilisticChoice",
+    "EcosystemSimulator|MultiAgentEcosystem|IAEcosystem",
+    "NeuralPlasticityEngine|SynapticPlasticity|DynamicConnections"
+  ],
+  "stubs": [
+    {
+      "file": "src/sitecustomize.py",
+      "line": 31,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 31,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 35,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 38,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 113,
+      "type": "            return None\n\n    #"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 125,
+      "type": "\n    return None\n\n\n#"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 147,
+      "type": "            return None\n\n        #"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 152,
+      "type": "            return None\n\n        #"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 162,
+      "type": "            return None\n\n        #"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 170,
+      "type": "pass\n\n        #"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 187,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 223,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 229,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/sitecustomize.py",
+      "line": 242,
+      "type": "MOCK"
+    },
+    {
+      "file": "src/jeffrey_agi_synthesis.py",
+      "line": 1050,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey_agi_synthesis.py",
+      "line": 1162,
+      "type": "\n        return None\n\n\n#"
+    },
+    {
+      "file": "src/jeffrey_consciousness_evolution.py",
+      "line": 130,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey_consciousness_evolution.py",
+      "line": 1073,
+      "type": "stub"
+    },
+    {
+      "file": "src/vendors/icloud/emotion_ml_enhancer.py",
+      "line": 90,
+      "type": "pass\n\n        #"
+    },
+    {
+      "file": "src/vendors/icloud/emotion_ml_enhancer.py",
+      "line": 268,
+      "type": "            return {}\n\n        "
+    },
+    {
+      "file": "src/vendors/icloud/jeffrey_auditor.py",
+      "line": 536,
+      "type": "            return {}\n\n        "
+    },
+    {
+      "file": "src/vendors/icloud/jeffrey_emotional_core.py",
+      "line": 1325,
+      "type": "            return None  #"
+    },
+    {
+      "file": "src/vendors/icloud/jeffrey_emotional_core.py",
+      "line": 1366,
+      "type": "            return None  #"
+    },
+    {
+      "file": "src/vendors/icloud/jeffrey_emotional_core.py",
+      "line": 1745,
+      "type": "            return None  #"
+    },
+    {
+      "file": "src/vendors/icloud/jeffrey_emotional_core.py",
+      "line": 1790,
+      "type": "            return None\n\n        #"
+    },
+    {
+      "file": "src/vendors/icloud/core/jeffrey_emotional_core.py",
+      "line": 1325,
+      "type": "            return None  #"
+    },
+    {
+      "file": "src/vendors/icloud/core/jeffrey_emotional_core.py",
+      "line": 1366,
+      "type": "            return None  #"
+    },
+    {
+      "file": "src/vendors/icloud/core/jeffrey_emotional_core.py",
+      "line": 1745,
+      "type": "            return None  #"
+    },
+    {
+      "file": "src/vendors/icloud/core/jeffrey_emotional_core.py",
+      "line": 1790,
+      "type": "            return None\n\n        #"
+    },
+    {
+      "file": "src/vendors/icloud/memory/unified_memory.py",
+      "line": 376,
+      "type": "pass  #"
+    },
+    {
+      "file": "src/vendors/icloud/emotions/emotion_prompt_detector.py",
+      "line": 159,
+      "type": "            return {}\n\n        "
+    },
+    {
+      "file": "src/jeffrey/stubs/.!97597!__init__.py",
+      "line": 8,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!97597!__init__.py",
+      "line": 9,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!97597!__init__.py",
+      "line": 10,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/dream_engine.py",
+      "line": 11,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/data_augmenter.py",
+      "line": 3,
+      "type": "        return {}\n"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!41389!__init__.py",
+      "line": 8,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!41389!__init__.py",
+      "line": 9,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!41389!__init__.py",
+      "line": 10,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!91699!__init__.py",
+      "line": 8,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!91699!__init__.py",
+      "line": 9,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!91699!__init__.py",
+      "line": 10,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!143!__init__.py",
+      "line": 8,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!143!__init__.py",
+      "line": 9,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/stubs/.!143!__init__.py",
+      "line": 10,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 18,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 22,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 25,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 32,
+      "type": "stub"
+    },
+    {
+      "file": "src/jeffrey/compat/stubs.py",
+      "line": 36,
+      "type": "stub"
+    }
+  ],
+  "cycles": [
+    [
+      "emotion_engine"
+    ]
+  ],
+  "missing_topics": [
+    "emotion.ml.detected.v1",
+    "state.circadian.updated.v1",
+    "memory.recall.request.v1",
+    "cognition.thought.v1",
+    "ethics.guard.violated.v1",
+    "curiosity.question.v1",
+    "memory.stored.v1",
+    "attachment.bond.updated.v1",
+    "security.threat.detected.v1",
+    "dream.trigger.v1",
+    "dream.generated.v1",
+    "memory.store.request.v1",
+    "memory.recalled.v1"
+  ]
+}
