@@ -5,6 +5,7 @@ Manages stream, publishers, consumers, and self-optimization
 
 import asyncio
 import logging
+import time
 from typing import Any
 
 import nats
@@ -12,7 +13,7 @@ from nats.js.api import DiscardPolicy, RetentionPolicy, StorageType, StreamConfi
 
 from .config import config
 from .consumer import NeuralConsumer
-from .contracts import CloudEvent
+from .contracts import CloudEvent, EventMeta
 from .publisher import NeuralPublisher
 
 logger = logging.getLogger(__name__)
@@ -106,6 +107,74 @@ class NeuralBus:
             Event ID
         """
         return await self.publisher.publish(event, dedup=dedup)
+
+    async def publish_emotion_ml_detection(self, emotion_data: dict, tenant_id: str = "default"):
+        """
+        Publie un événement de détection d'émotion ML avec versioning.
+
+        Args:
+            emotion_data: Résultat de EmotionMLAdapter.detect_emotion()
+            tenant_id: Identifiant du tenant
+        """
+        # Versioning pour évolution future
+        VERSION = "1.0"
+
+        try:
+            # Payload normalisé avec schéma stable
+            payload = {
+                "version": VERSION,
+                "timestamp": time.time(),
+                "data": {
+                    "primary": emotion_data.get("emotion"),
+                    "confidence": emotion_data.get("confidence"),
+                    "all_scores": emotion_data.get("all_scores", {}),
+                    "method": emotion_data.get("method"),
+                    "latency_ms": emotion_data.get("latency_ms"),
+                },
+                "metadata": {
+                    "success": emotion_data.get("success", True),
+                    "text_length": emotion_data.get("text_length", 0),
+                },
+            }
+
+            # Créer l'événement CloudEvent versionné
+            event_meta = EventMeta(
+                type=f"emotion.ml.detected.v{VERSION}",
+                subject=f"emotion-detection-{emotion_data.get('emotion')}",
+                tenant_id=tenant_id,
+            )
+
+            event = CloudEvent(meta=event_meta, data=payload)
+
+            # Publier avec topic versionné
+            event_id = await self.publish(event, dedup=True)
+
+            # Aussi publier sur l'ancien topic pour compatibilité
+            legacy_event_meta = EventMeta(
+                type="emotion.detected", subject="emotion-detection-legacy", tenant_id=tenant_id
+            )
+
+            legacy_event = CloudEvent(
+                meta=legacy_event_meta,
+                data={
+                    "emotion": emotion_data.get("emotion"),
+                    "confidence": emotion_data.get("confidence"),
+                    "source": "ml_adapter",
+                },
+            )
+
+            await self.publish(legacy_event, dedup=True)
+
+            logger.info(
+                f"📢 Published ML emotion event v{VERSION}: "
+                f"{emotion_data.get('emotion')} ({emotion_data.get('confidence'):.2%})"
+            )
+
+            return event_id
+
+        except Exception as e:
+            logger.error(f"Failed to publish emotion event: {e}", exc_info=True)
+            raise
 
     def create_consumer(self, name: str, subject_filter: str) -> NeuralConsumer:
         """

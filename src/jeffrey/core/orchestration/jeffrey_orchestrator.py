@@ -209,6 +209,15 @@ class LoaderMixin:
 
 from jeffrey.core.emotion_backend import make_emotion_backend
 
+# Import pour l'adapter ML
+try:
+    from jeffrey.ml.emotion_ml_adapter import EmotionMLAdapter
+
+    ML_ADAPTER_AVAILABLE = True
+except ImportError:
+    ML_ADAPTER_AVAILABLE = False
+    logger.warning("EmotionMLAdapter not available, will use legacy emotion detection")
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -229,14 +238,32 @@ class JeffreyOrchestrator(LoaderMixin):
     - Métriques et monitoring intégrés
     """
 
-    def __init__(self, config=None) -> None:
-        """Initialize Jeffrey V1 orchestrator"""
+    def __init__(
+        self,
+        config=None,
+        memory=None,
+        neural_bus=None,
+        emotion_detector=None,  # NOUVEAU : injection de dépendances
+    ) -> None:
+        """
+        Initialize Jeffrey V1 orchestrator avec injection de dépendances.
+
+        Args:
+            config: Configuration
+            memory: Système de mémoire
+            neural_bus: Bus d'événements
+            emotion_detector: Détecteur d'émotions (optionnel, sinon créé)
+        """
         super().__init__()
 
         logger.info("🚀 Initializing Jeffrey V1 Orchestrator V2...")
 
         # Configuration
         self.config = config or self._load_default_config()
+
+        # Injection de dépendances
+        self.memory = memory
+        self.neural_bus = neural_bus
 
         # Initialisers de composants
         self.sanitizer = ContextSanitizer()
@@ -246,6 +273,15 @@ class JeffreyOrchestrator(LoaderMixin):
         # Créer backend émotionnel (singleton, feature flag)
         self.emotion_backend = make_emotion_backend()
         logger.info("✅ Emotion backend initialized")
+
+        # Injection de dépendances ou création du détecteur ML
+        self.emotion_detector = emotion_detector or self._create_emotion_detector()
+
+        # Feature flag pour activer/désactiver ML
+        self.use_ml = os.getenv("JEFFREY_EMO_ML", "true").lower() == "true"
+        self.fallback_to_legacy = os.getenv("EMO_FALLBACK_LEGACY", "true").lower() == "true"
+
+        logger.info(f"✅ Orchestrator initialized (ML: {self.use_ml})")
 
         # Caches et métriques
         self._context_cache = {}
@@ -265,6 +301,21 @@ class JeffreyOrchestrator(LoaderMixin):
 
         # Initialize core modules
         self._initialize_modules()
+
+    def _create_emotion_detector(self):
+        """Crée le détecteur d'émotions (ML ou fallback)"""
+        if ML_ADAPTER_AVAILABLE and self.use_ml:
+            try:
+                return EmotionMLAdapter()
+            except Exception as e:
+                logger.error(f"Failed to create ML emotion detector: {e}")
+                if self.fallback_to_legacy:
+                    logger.info("Falling back to legacy emotion detection")
+                    return None
+                raise
+        else:
+            logger.info("Using legacy emotion detection")
+            return None
 
     def _load_default_config(self) -> Any:
         """Charge la configuration par défaut"""
@@ -622,6 +673,80 @@ class JeffreyOrchestrator(LoaderMixin):
             logger.error(f"Failed to load voice engine: {e}")
             return None
 
+    async def process_user_input(self, user_input: str, context: dict = None):
+        """
+        Traite un input utilisateur avec détection d'émotion ML.
+
+        Args:
+            user_input: Texte de l'utilisateur
+            context: Contexte optionnel
+        """
+        try:
+            # Si ML activé, utiliser le nouvel adapter
+            if self.use_ml and self.emotion_detector:
+                try:
+                    # Timeout global pour ne pas bloquer l'orchestration
+                    emotion_data = await asyncio.wait_for(
+                        self.emotion_detector.detect_emotion(user_input),
+                        timeout=float(os.getenv("EMO_ORCHESTRATOR_TIMEOUT", "0.5")),
+                    )
+
+                    # Publier sur le NeuralBus
+                    if self.neural_bus and emotion_data["success"]:
+                        await self.neural_bus.publish_emotion_ml_detection(emotion_data)
+
+                    # Log pour monitoring
+                    logger.info(
+                        f"🎭 ML Emotion: {emotion_data['emotion']} "
+                        f"({emotion_data['confidence']:.2%}) via {emotion_data['method']} "
+                        f"in {emotion_data['latency_ms']:.1f}ms"
+                    )
+
+                    # Stocker dans le contexte
+                    if context is not None:
+                        context["last_emotion"] = {
+                            "emotion": emotion_data["emotion"],
+                            "confidence": emotion_data["confidence"],
+                            "method": emotion_data["method"],
+                            "timestamp": time.time(),
+                        }
+
+                except TimeoutError:
+                    logger.warning("ML emotion detection timeout in orchestrator")
+                    if self.fallback_to_legacy:
+                        await self._process_with_legacy_emotion(user_input, context)
+
+                except Exception as e:
+                    logger.error(f"ML emotion detection failed: {e}")
+                    if self.fallback_to_legacy:
+                        await self._process_with_legacy_emotion(user_input, context)
+
+            else:
+                # Utiliser l'ancien système
+                await self._process_with_legacy_emotion(user_input, context)
+
+            # Continuer le traitement normal...
+            # [REST OF YOUR EXISTING PROCESSING CODE]
+
+        except Exception as e:
+            logger.error(f"Orchestrator processing error: {e}", exc_info=True)
+            raise
+
+    async def _process_with_legacy_emotion(self, user_input: str, context: dict):
+        """Fallback vers l'ancien système d'émotion"""
+        try:
+            emotion = self.emotion_backend.predict_label(user_input)
+            if context is not None:
+                context["last_emotion"] = {
+                    "emotion": emotion,
+                    "confidence": 0.8,  # Valeur par défaut pour legacy
+                    "method": "legacy_backend",
+                    "timestamp": time.time(),
+                }
+            logger.debug(f"Legacy emotion detection: {emotion}")
+        except Exception as e:
+            logger.error(f"Legacy emotion detection failed: {e}")
+
     def detect_emotion(self, text: str) -> str:
         """
         Détecte émotion primaire (compat avec ancien code).
@@ -632,6 +757,27 @@ class JeffreyOrchestrator(LoaderMixin):
         Returns:
             Label émotion (core-8)
         """
+        # Si ML disponible, utiliser en mode sync (pour compat)
+        if self.use_ml and self.emotion_detector:
+            try:
+                # Version sync pour compatibilité
+                import asyncio
+
+                loop = asyncio.get_event_loop()
+                if loop.is_running():
+                    # Async context, utiliser le thread executor
+                    future = asyncio.ensure_future(self.emotion_detector.detect_emotion(text))
+                    # Attention: ceci peut bloquer si utilisé incorrectement
+                    logger.warning("Sync detect_emotion called in async context, consider using process_user_input")
+                    return "neutral"  # Fallback pour éviter le blocage
+                else:
+                    # Sync context
+                    result = loop.run_until_complete(self.emotion_detector.detect_emotion(text))
+                    return result.get("emotion", "neutral")
+            except Exception as e:
+                logger.error(f"ML emotion detection failed in sync mode: {e}")
+
+        # Fallback vers l'ancien système
         return self.emotion_backend.predict_label(text)
 
     def get_emotion_distribution(self, text: str) -> dict[str, float]:
@@ -644,6 +790,19 @@ class JeffreyOrchestrator(LoaderMixin):
         Returns:
             Dict {emotion: probability}
         """
+        # Si ML disponible, utiliser les scores complets
+        if self.use_ml and self.emotion_detector:
+            try:
+                import asyncio
+
+                loop = asyncio.get_event_loop()
+                if not loop.is_running():
+                    result = loop.run_until_complete(self.emotion_detector.detect_emotion(text))
+                    return result.get("all_scores", {})
+            except Exception as e:
+                logger.error(f"ML emotion distribution failed: {e}")
+
+        # Fallback vers l'ancien système
         # Note: Si backend est ProtoEmotionDetector, on reçoit le tuple
         result = self.emotion_backend.predict_proba(text)
 

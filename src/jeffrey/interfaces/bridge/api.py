@@ -3,13 +3,16 @@ Bridge API endpoints - Clean /v1/chat implementation
 Dedicated file for API routes to keep architecture clear
 """
 
+import asyncio
 import logging
+import os
+import time
 from datetime import datetime
 from typing import Any
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, validator
 
 from .core_client import CoreClient
 
@@ -49,8 +52,67 @@ class ChatResponse(BaseModel):
     usage: dict[str, int]
 
 
+# Modèles Pydantic pour l'émotion ML
+class EmotionDetectRequest(BaseModel):
+    """Requête de détection d'émotion"""
+
+    text: str = Field(..., min_length=1, max_length=2000, description="Text to analyze")
+
+    @validator('text')
+    def clean_text(cls, v):
+        return v.strip()
+
+
+class EmotionDetectResponse(BaseModel):
+    """Réponse de détection d'émotion"""
+
+    success: bool
+    emotion: str
+    confidence: float
+    all_scores: dict | None = None
+    method: str
+    latency_ms: float
+    error: str | None = None
+
+
 # Initialize CoreClient
 core_client = CoreClient()
+
+# Singleton pour l'adapter et rate limiting
+_emotion_adapter = None
+_adapter_lock = asyncio.Lock()
+_request_counts = {}
+
+
+async def get_emotion_adapter():
+    """Dependency injection pour l'adapter"""
+    global _emotion_adapter
+    if _emotion_adapter is None:
+        async with _adapter_lock:
+            if _emotion_adapter is None:
+                try:
+                    from jeffrey.ml.emotion_ml_adapter import EmotionMLAdapter
+
+                    _emotion_adapter = await EmotionMLAdapter.get_instance()
+                except ImportError:
+                    logger.error("EmotionMLAdapter not available")
+                    raise HTTPException(status_code=503, detail="ML emotion detection not available")
+    return _emotion_adapter
+
+
+def check_rate_limit(client_ip: str) -> bool:
+    """Simple rate limiting par IP"""
+    global _request_counts
+    rate_limit = int(os.getenv("EMO_RATE_LIMIT", "100"))  # per minute
+    current_minute = int(time.time() / 60)
+    key = f"{client_ip}:{current_minute}"
+
+    if key not in _request_counts:
+        _request_counts = {k: v for k, v in _request_counts.items() if int(k.split(':')[1]) >= current_minute - 1}
+        _request_counts[key] = 0
+
+    _request_counts[key] += 1
+    return _request_counts[key] <= rate_limit
 
 
 @app.get("/health")
@@ -123,6 +185,87 @@ async def simple_chat(messages: list[dict[str, str]]):
         return {"response": response.get("content", "") if response else "Core unavailable"}
     except Exception as e:
         return {"error": str(e)}
+
+
+@app.post("/api/v1/emotion/detect", response_model=EmotionDetectResponse)
+async def detect_emotion_ml(
+    request: EmotionDetectRequest, emotion_adapter=Depends(get_emotion_adapter), req: Request = None
+):
+    """
+    Détecte l'émotion d'un texte avec le système ML.
+
+    Features:
+    - ML avec fallback automatique
+    - Validation des inputs
+    - Timeout configurable
+    - Métriques de performance
+    """
+    try:
+        # Rate limiting basique
+        client_ip = req.client.host if req else "unknown"
+        if not check_rate_limit(client_ip):
+            raise HTTPException(status_code=429, detail="Rate limit exceeded")
+
+        # Détection avec timeout
+        result = await asyncio.wait_for(
+            emotion_adapter.detect_emotion(request.text),
+            timeout=5.0,  # API timeout plus strict
+        )
+
+        return EmotionDetectResponse(**result)
+
+    except TimeoutError:
+        raise HTTPException(status_code=504, detail="Detection timeout")
+    except Exception as e:
+        logger.error(f"API emotion detection error: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/v1/emotion/stats")
+async def get_emotion_stats(emotion_adapter=Depends(get_emotion_adapter)):
+    """
+    Retourne les statistiques du système ML.
+
+    Inclut:
+    - Nombre de prédictions
+    - Latence moyenne
+    - Taux de fallback
+    - Taux d'erreur
+    """
+    try:
+        stats = emotion_adapter.get_stats()
+        return {
+            "success": True,
+            "data": stats,
+            "service": "emotion_ml_adapter",
+            "version": "1.0.0",
+            "uptime_seconds": time.time() - getattr(app.state, '_start_time', time.time()),
+        }
+    except Exception as e:
+        logger.error(f"Stats endpoint error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/v1/emotion/health")
+async def emotion_health_check(emotion_adapter=Depends(get_emotion_adapter)):
+    """
+    Health check endpoint pour monitoring.
+    """
+    try:
+        # Test rapide
+        test_result = await emotion_adapter.detect_emotion("health check")
+
+        return {
+            "status": "healthy" if test_result["success"] else "degraded",
+            "ml_enabled": emotion_adapter.use_ml,
+            "checks": {
+                "ml_model": "ok" if emotion_adapter.use_ml else "disabled",
+                "fallback": "ok",
+                "latency_ms": test_result.get("latency_ms", 0),
+            },
+        }
+    except Exception as e:
+        return {"status": "unhealthy", "error": str(e)}
 
 
 if __name__ == "__main__":
