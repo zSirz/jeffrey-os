@@ -73,3 +73,9 @@ dream_memories_processed = Counter(
     'jeffrey_dream_memories_processed_total',
     'Total memories processed in dreams'
 )
+
+# Consciousness timeout metric (GPT correction #1)
+consciousness_cycle_timeouts_total = Counter(
+    'jeffrey_consciousness_cycle_timeouts_total',
+    'Total timeouts of consciousness cycle'
+)

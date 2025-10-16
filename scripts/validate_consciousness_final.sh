@@ -2,7 +2,7 @@
 echo "🔧 FINAL CONSCIOUSNESS VALIDATION"
 echo "=================================="
 
-API_KEY=$(grep JEFFREY_API_KEY .env | cut -d= -f2)
+API_KEY=$(grep JEFFREY_API_KEY .env | cut -d= -f2 2>/dev/null || echo "test-key")
 BASE_URL="http://localhost:8000"
 
 # Test 1: Trigger returns 202

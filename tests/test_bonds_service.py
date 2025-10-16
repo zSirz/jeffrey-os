@@ -53,22 +53,42 @@ async def test_semantic_search_validation():
     results = await store.semantic_search(None, limit=1)
     assert results == []
 
+    # Test avec NaN (GPT tweak #5)
+    nan_emb = np.full(384, np.nan, dtype=np.float32)
+    results = await store.semantic_search(nan_emb, limit=1)
+    assert results == []
+
+    # Test avec Inf (GPT tweak #5)
+    inf_emb = np.full(384, np.inf, dtype=np.float32)
+    results = await store.semantic_search(inf_emb, limit=1)
+    assert results == []
+
 @pytest.mark.asyncio
 async def test_trigger_endpoint():
-    """GPT tweak #5: Test endpoint trigger"""
+    """GPT tweak #5: Test endpoint trigger + teardown env vars"""
     from fastapi.testclient import TestClient
     from jeffrey.interfaces.bridge.api import app
-    
-    client = TestClient(app)
-    api_key = os.getenv("JEFFREY_API_KEY", "test-key")
-    
-    # Sans consciousness enabled -> 400
-    os.environ["ENABLE_CONSCIOUSNESS"] = "false"
-    resp = client.post("/api/v1/consciousness/trigger", headers={"X-API-Key": api_key})
-    assert resp.status_code == 400
-    
-    # Avec consciousness enabled -> 202
-    os.environ["ENABLE_CONSCIOUSNESS"] = "true"
-    resp = client.post("/api/v1/consciousness/trigger", headers={"X-API-Key": api_key})
-    assert resp.status_code == 202
-    assert "task_id" in resp.json()
+
+    # Sauvegarder état initial
+    original_consciousness = os.getenv("ENABLE_CONSCIOUSNESS")
+
+    try:
+        client = TestClient(app)
+        api_key = os.getenv("JEFFREY_API_KEY", "test-key")
+
+        # Sans consciousness enabled -> 400
+        os.environ["ENABLE_CONSCIOUSNESS"] = "false"
+        resp = client.post("/api/v1/consciousness/trigger", headers={"X-API-Key": api_key})
+        assert resp.status_code == 400
+
+        # Avec consciousness enabled -> 202
+        os.environ["ENABLE_CONSCIOUSNESS"] = "true"
+        resp = client.post("/api/v1/consciousness/trigger", headers={"X-API-Key": api_key})
+        assert resp.status_code == 202
+        assert "task_id" in resp.json()
+    finally:
+        # Restaurer état initial (teardown)
+        if original_consciousness:
+            os.environ["ENABLE_CONSCIOUSNESS"] = original_consciousness
+        else:
+            os.environ.pop("ENABLE_CONSCIOUSNESS", None)

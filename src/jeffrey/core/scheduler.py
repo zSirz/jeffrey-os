@@ -3,6 +3,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from datetime import datetime, timedelta
 import os
+import asyncio
 from sqlalchemy import text
 
 logger = logging.getLogger(__name__)
@@ -57,15 +58,17 @@ class DreamScheduler:
             replace_existing=True
         )
 
-        # Add consciousness cycle if enabled
+        # Add consciousness cycle if enabled (Grok optimization #1)
         if os.getenv("ENABLE_CONSCIOUSNESS", "false").lower() == "true":
             self.scheduler.add_job(
-                self.run_consciousness_cycle,
+                self._run_cycle_with_timeout,
                 trigger=IntervalTrigger(
                     minutes=int(os.getenv("CONSCIOUSNESS_CYCLE_MINUTES", "30"))
                 ),
                 id="consciousness_cycle",
                 name="Consciousness Cycle",
+                max_instances=1,  # ✅ Pas de chevauchement
+                coalesce=True,    # ✅ Si retard, exécute une seule fois
                 replace_existing=True
             )
             logger.info(f"Consciousness cycle scheduled every {os.getenv('CONSCIOUSNESS_CYCLE_MINUTES', '30')} minutes")
@@ -84,6 +87,23 @@ class DreamScheduler:
                 logger.info(f"Synced {synced} memories from fallback buffer")
         except Exception as e:
             logger.error(f"Fallback sync failed: {e}")
+
+    async def _run_cycle_with_timeout(self):
+        """Run cycle avec timeout soft (Grok optimization #1)"""
+        timeout = int(os.getenv("CONSCIOUSNESS_CYCLE_TIMEOUT", "120"))
+
+        try:
+            await asyncio.wait_for(
+                self.run_consciousness_cycle(),
+                timeout=timeout
+            )
+        except asyncio.TimeoutError:
+            logger.error(f"Consciousness cycle timeout after {timeout}s")
+            # Métrique timeout
+            from jeffrey.core.metrics import consciousness_cycle_timeouts_total
+            consciousness_cycle_timeouts_total.inc()
+        except Exception as e:
+            logger.error(f"Consciousness cycle failed: {e}")
 
     async def run_consciousness_cycle(self):
         """Cycle complet de conscience sécurisé avec flags"""

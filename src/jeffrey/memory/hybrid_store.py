@@ -9,7 +9,7 @@ from pgvector.sqlalchemy import Vector
 from jeffrey.memory.memory_store import MemoryStore
 from jeffrey.models.memory import Memory, EmotionEvent
 from jeffrey.db.session import AsyncSessionLocal, with_adaptive_retry
-from jeffrey.ml.embeddings_service import embeddings_service
+from jeffrey.ml.embeddings_service import embeddings_service, EMBED_DIM
 
 logger = logging.getLogger(__name__)
 
@@ -255,13 +255,19 @@ class HybridMemoryStore(MemoryStore):
     ) -> List[Dict]:
         """Search memories using vector similarity with safe binding"""
         try:
-            # VALIDATION (GPT tweak #2)
-            if query_embedding is None or len(query_embedding) != 384:
+            # VALIDATION CRITIQUE + NaN/Inf (GPT tweak #2)
+            if query_embedding is None or len(query_embedding) != EMBED_DIM:
                 logger.warning(f"Invalid embedding shape: {len(query_embedding) if query_embedding else 'None'}")
                 return []
 
-            # Ensure correct dtype
+            # Ensure correct dtype + handle NaN/Inf
             query_embedding = np.asarray(query_embedding, dtype=np.float32)
+            if np.any(np.isnan(query_embedding)) or np.any(np.isinf(query_embedding)):
+                logger.error("Embedding contains NaN or Inf values")
+                return []
+
+            # Flatten si nécessaire (handle [1, 384] vs [384])
+            query_embedding = query_embedding.flatten()
 
             async with AsyncSessionLocal() as session:
                 # Requête sécurisée avec bindparam typé
@@ -280,7 +286,7 @@ class HybridMemoryStore(MemoryStore):
                     ORDER BY embedding <=> :q
                     LIMIT :limit
                 """).bindparams(
-                    bindparam("q", type_=Vector(384))
+                    bindparam("q", type_=Vector(EMBED_DIM))
                 )
 
                 # Debug logging pour audit

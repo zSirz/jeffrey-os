@@ -30,6 +30,17 @@ groups:
         for: 10m
         labels:
           severity: warning
+          instance: "{{ $labels.instance }}"
         annotations:
           summary: "Consciousness cycle too slow"
           description: "P95 duration: {{ $value }}s"
+
+      # Alerte API down (Grok addition)
+      - alert: JeffreyAPIDown
+        expr: up{job="jeffrey-api"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Jeffrey API is down"
+          description: "API unreachable for 1+ minute"

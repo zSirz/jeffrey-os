@@ -1,0 +1,123 @@
+{
+  "dashboard": {
+    "title": "Jeffrey Consciousness System",
+    "tags": ["jeffrey", "consciousness", "ai"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Consciousness Cycles Total",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "jeffrey_consciousness_cycles_total",
+            "legendFormat": "Total Cycles"
+          }
+        ],
+        "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8}
+      },
+      {
+        "id": 2,
+        "title": "Consciousness Error Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(jeffrey_consciousness_cycle_errors_total[15m])",
+            "legendFormat": "Errors/sec"
+          }
+        ],
+        "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8},
+        "alert": {
+          "conditions": [
+            {
+              "evaluator": {"params": [0], "type": "gt"},
+              "query": {"model": "A", "params": ["5m", "now"]},
+              "reducer": {"params": [], "type": "avg"},
+              "type": "query"
+            }
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "title": "Consciousness Cycle Duration (P95)",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, sum(rate(jeffrey_consciousness_cycle_duration_seconds_bucket[5m])) by (le))",
+            "legendFormat": "P95 Duration"
+          }
+        ],
+        "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8},
+        "yAxes": [
+          {"format": "s", "label": "Duration"}
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Active Emotional Bonds",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "jeffrey_bonds_active",
+            "legendFormat": "Active Bonds"
+          }
+        ],
+        "gridPos": {"x": 12, "y": 8, "w": 12, "h": 8}
+      },
+      {
+        "id": 5,
+        "title": "Bonds Created per Hour",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "increase(jeffrey_bonds_upserted_total[1h])",
+            "legendFormat": "Bonds/hour"
+          }
+        ],
+        "gridPos": {"x": 0, "y": 16, "w": 12, "h": 8}
+      },
+      {
+        "id": 6,
+        "title": "Bonds Pruned",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "increase(jeffrey_bonds_pruned_total[1h])",
+            "legendFormat": "Pruned/hour"
+          }
+        ],
+        "gridPos": {"x": 12, "y": 16, "w": 12, "h": 8}
+      },
+      {
+        "id": 7,
+        "title": "API Response Time P95",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(jeffrey_api_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "API P95"
+          }
+        ],
+        "gridPos": {"x": 0, "y": 24, "w": 12, "h": 8}
+      },
+      {
+        "id": 8,
+        "title": "Memory Operations",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(jeffrey_memory_operations_total[5m])",
+            "legendFormat": "{{operation}}"
+          }
+        ],
+        "gridPos": {"x": 12, "y": 24, "w": 12, "h": 8}
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "30s"
+  }
+}

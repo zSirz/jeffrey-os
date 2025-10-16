@@ -1,7 +1,31 @@
 global:
   scrape_interval: 15s
+  evaluation_interval: 15s
+
+# Charger les règles d'alertes
+rule_files:
+  - 'alerts.yml'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - 'alertmanager:9093'
 
 scrape_configs:
   - job_name: 'jeffrey-api'
     static_configs:
       - targets: ['jeffrey-api:8000']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+    scrape_timeout: 10s
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+# Configuration storage
+storage:
+  tsdb:
+    retention.time: 30d
+    retention.size: 10GB

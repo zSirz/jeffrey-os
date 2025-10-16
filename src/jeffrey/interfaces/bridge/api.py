@@ -38,6 +38,17 @@ from .core_client import CoreClient
 
 logger = logging.getLogger(__name__)
 
+# GPT correction #4: Function pour get real IP from proxy headers
+def get_real_ip(request: Request) -> str:
+    """Get real IP from proxy headers"""
+    forwarded = request.headers.get("X-Forwarded-For")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    real_ip = request.headers.get("X-Real-IP")
+    if real_ip:
+        return real_ip
+    return request.client.host
+
 # LIFESPAN MANAGER (remplacer l'ancien startup_event)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -212,9 +223,9 @@ app = FastAPI(
     lifespan=lifespan  # Use the new lifespan manager
 )
 
-# Create limiter for rate limiting
+# Create limiter for rate limiting (with proxy support)
 limiter = Limiter(
-    key_func=get_remote_address,
+    key_func=get_real_ip,
     default_limits=["100 per minute"]
 )
 app.state.limiter = limiter
@@ -1059,9 +1070,17 @@ async def trigger_consciousness_cycle(request: Request):
                 detail="Consciousness is disabled. Set ENABLE_CONSCIOUSNESS=true"
             )
 
-        # GPT tweak #3: Async task avec 202 Accepted
+        # Async task avec 202 Accepted + audit log (GPT tweak #3)
         task_id = str(uuid.uuid4())
         asyncio.create_task(dream_scheduler.run_consciousness_cycle())
+
+        # Audit log (GPT recommandation)
+        logger.info(f"Consciousness cycle triggered manually", extra={
+            "task_id": task_id,
+            "triggered_by": "admin",
+            "timestamp": datetime.utcnow().isoformat(),
+            "real_ip": get_real_ip(request)
+        })
 
         return JSONResponse(
             content={
@@ -1078,6 +1097,37 @@ async def trigger_consciousness_cycle(request: Request):
         )
     except Exception as e:
         logger.error(f"Failed to trigger consciousness cycle: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/v1/memories/related")
+@limiter.limit("30/minute")  # Plus restrictif (query lourde)
+async def search_related_memories(
+    request: Request,
+    query: str,
+    limit: int = 10,
+    _: bool = Depends(verify_api_key)
+):
+    """
+    Search memories by semantic similarity + emotional bonds (BATCH OPTIMIZED)
+    Grok optimization #4
+    """
+    try:
+        from jeffrey.core.consciousness.related_service import get_related_memories_batch
+
+        results = await get_related_memories_batch(
+            query=query,
+            limit=limit
+        )
+
+        return {
+            "query": query,
+            "results": results,
+            "count": len(results),
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Related memories search failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

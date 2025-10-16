@@ -7,6 +7,9 @@ from functools import lru_cache
 
 logger = logging.getLogger(__name__)
 
+# GPT correction #5: Constante centrale pour dimension embeddings
+EMBED_DIM = 384
+
 class EmbeddingsService:
     """Service for generating semantic embeddings from text"""
 
