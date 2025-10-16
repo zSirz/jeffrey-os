@@ -3,10 +3,12 @@ from datetime import datetime
 from collections import OrderedDict
 import json
 import logging
-from sqlalchemy import select, update
+import numpy as np
+from sqlalchemy import select, update, text
 from jeffrey.memory.memory_store import MemoryStore
 from jeffrey.models.memory import Memory, EmotionEvent
 from jeffrey.db.session import AsyncSessionLocal, with_adaptive_retry
+from jeffrey.ml.embeddings_service import embeddings_service
 
 logger = logging.getLogger(__name__)
 
@@ -45,8 +47,23 @@ class HybridMemoryStore(MemoryStore):
             if "metadata" in memory_data and "meta" not in memory_data:
                 memory_data["meta"] = memory_data.pop("metadata")
 
+            # Generate embedding for text
+            text = memory_data.get('text', '')
+            embedding = None
+
+            if text:
+                try:
+                    embedding = await embeddings_service.generate_embedding(text)
+                    if embedding is not None:
+                        logger.debug(f"Generated embedding of shape: {embedding.shape}")
+                except Exception as e:
+                    logger.warning(f"Failed to generate embedding: {e}")
+
             async with AsyncSessionLocal() as session:
-                memory = Memory(**memory_data)
+                memory = Memory(
+                    **{k: v for k, v in memory_data.items() if k != 'embedding'},
+                    embedding=embedding.tolist() if embedding is not None else None
+                )
                 session.add(memory)
                 await session.commit()
 
@@ -228,6 +245,63 @@ class HybridMemoryStore(MemoryStore):
                 "fallback_buffer_size": len(self.fallback_buffer),
                 "error": str(e)
             }
+
+    async def semantic_search(
+        self,
+        query_embedding: np.ndarray,
+        limit: int = 10,
+        threshold: float = 0.5
+    ) -> List[Dict]:
+        """Search memories using vector similarity with pgvector"""
+        try:
+            async with AsyncSessionLocal() as session:
+                # Convert numpy array to list for SQL
+                embedding_list = query_embedding.tolist()
+
+                # Use pgvector's cosine distance operator with proper SQLAlchemy binding
+                query_sql = """
+                    SELECT
+                        id,
+                        text,
+                        emotion,
+                        confidence,
+                        timestamp,
+                        meta,
+                        1 - (embedding <=> :query_embedding) as similarity
+                    FROM memories
+                    WHERE embedding IS NOT NULL
+                        AND 1 - (embedding <=> :query_embedding) >= :threshold
+                    ORDER BY embedding <=> :query_embedding
+                    LIMIT :limit
+                """
+
+                result = await session.execute(
+                    text(query_sql),
+                    {
+                        "query_embedding": str(embedding_list),
+                        "threshold": threshold,
+                        "limit": limit
+                    }
+                )
+
+                rows = result.fetchall()
+
+                return [
+                    {
+                        "id": str(row.id),
+                        "text": row.text,
+                        "emotion": row.emotion,
+                        "confidence": row.confidence,
+                        "timestamp": row.timestamp,
+                        "meta": row.meta or {},
+                        "similarity": float(row.similarity)
+                    }
+                    for row in rows
+                ]
+
+        except Exception as e:
+            logger.error(f"Semantic search failed: {e}")
+            return []
 
     def _to_dict(self, memory: Memory) -> Dict:
         return {

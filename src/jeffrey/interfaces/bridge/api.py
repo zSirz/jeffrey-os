@@ -231,8 +231,10 @@ app.add_middleware(
 # Include routers
 from jeffrey.interfaces.bridge.emotion_endpoint import router as emotion_router
 from jeffrey.api.routes.memory import router as memory_router
+from jeffrey.api.routes.semantic_search import router as search_router
 app.include_router(emotion_router)
 app.include_router(memory_router)
+app.include_router(search_router)
 
 
 # Pydantic models for request/response validation
