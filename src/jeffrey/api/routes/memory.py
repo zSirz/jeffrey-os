@@ -6,6 +6,7 @@ from jeffrey.memory.hybrid_store import HybridMemoryStore
 from jeffrey.schemas.memory import MemoryCreate, MemoryResponse
 from jeffrey.db.session import get_db
 from jeffrey.core.config import settings
+from jeffrey.core.auth import require_write_permission, require_admin_permission
 
 router = APIRouter(prefix="/api/v1/memories", tags=["memories"])
 
@@ -15,7 +16,7 @@ if settings.MEMORY_BACKEND == "hybrid":
 else:
     memory_store = HybridMemoryStore()  # Default to hybrid for now
 
-@router.post("/", response_model=MemoryResponse)
+@router.post("/", response_model=MemoryResponse, dependencies=[Depends(require_write_permission)])
 async def create_memory(
     payload: MemoryCreate,
     db: AsyncSession = Depends(get_db)
@@ -67,7 +68,7 @@ async def search_memories(
         ) for mem in results
     ]
 
-@router.post("/sync-buffer")
+@router.post("/sync-buffer", dependencies=[Depends(require_admin_permission)])
 async def sync_fallback_buffer(db: AsyncSession = Depends(get_db)):
     """Force la synchronisation du buffer fallback"""
     synced = await memory_store.sync_fallback_buffer()

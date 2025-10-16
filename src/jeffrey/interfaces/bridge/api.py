@@ -28,6 +28,10 @@ from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel, Field, validator
+from jeffrey.core.auth import require_admin_permission
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 from .core_client import CoreClient
 
@@ -159,6 +163,11 @@ async def lifespan(app: FastAPI):
         logger.warning(f"DreamEngine initialization failed: {e}")
         app.state.dream_engine = None
 
+    # Initialize scheduler for automatic orchestration
+    from jeffrey.core.scheduler import dream_scheduler
+    await dream_scheduler.start()
+    app.state.dream_scheduler = dream_scheduler
+
     # Tracking
     app.state._latencies = []
     app.state._startup_time = time.time()
@@ -178,6 +187,9 @@ async def lifespan(app: FastAPI):
         logger.info("🛑 Shutting down Jeffrey OS Brain...")
 
         # Graceful shutdown
+        if hasattr(app.state, 'dream_scheduler') and app.state.dream_scheduler:
+            await app.state.dream_scheduler.stop()
+
         if hasattr(app.state, 'auto_debug') and app.state.auto_debug:
             await app.state.auto_debug.stop()
 
@@ -198,6 +210,14 @@ app = FastAPI(
     version="2.0.0",
     lifespan=lifespan  # Use the new lifespan manager
 )
+
+# Create limiter for rate limiting
+limiter = Limiter(
+    key_func=get_remote_address,
+    default_limits=["100 per minute"]
+)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # CORS configuration for web clients
 app.add_middleware(
@@ -849,7 +869,7 @@ async def toggle_dream(enable: bool = None, test_mode: bool = None):
     }
 
 
-@app.post("/api/v1/dream/run")
+@app.post("/api/v1/dream/run", dependencies=[Depends(require_admin_permission)])
 async def dream_run(force: bool = False, window_hours: int = 24):
     """Run dream consolidation - correctif GPT #3"""
     if not hasattr(app.state, 'dream_engine') or not app.state.dream_engine:
@@ -899,6 +919,45 @@ async def dream_status():
     except Exception as e:
         logger.error(f"Dream status failed: {e}")
         return {"error": str(e)}
+
+
+@app.get("/api/v1/dream/schedule")
+async def get_schedule_status():
+    """Get scheduler status and next run times"""
+    from jeffrey.core.scheduler import dream_scheduler
+
+    jobs = []
+    if dream_scheduler.scheduler.running:
+        for job in dream_scheduler.scheduler.get_jobs():
+            jobs.append({
+                "id": job.id,
+                "name": job.name,
+                "next_run": job.next_run_time.isoformat() if job.next_run_time else None,
+                "trigger": str(job.trigger)
+            })
+
+    return {
+        "enabled": dream_scheduler.enabled,
+        "running": dream_scheduler.scheduler.running,
+        "interval_minutes": dream_scheduler.interval_minutes,
+        "jobs": jobs
+    }
+
+
+@app.put("/api/v1/dream/schedule", dependencies=[Depends(require_admin_permission)])
+async def update_schedule(interval_minutes: int = 15):
+    """Update dream consolidation interval"""
+    from jeffrey.core.scheduler import dream_scheduler
+
+    dream_scheduler.interval_minutes = interval_minutes
+    # Reschedule the job
+    if dream_scheduler.scheduler.running:
+        dream_scheduler.scheduler.reschedule_job(
+            "dream_consolidation",
+            trigger=IntervalTrigger(minutes=interval_minutes)
+        )
+
+    return {"message": f"Schedule updated to {interval_minutes} minutes"}
 
 
 if __name__ == "__main__":

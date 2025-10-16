@@ -81,3 +81,4 @@ wrapt==1.17.3
 SQLAlchemy==2.0.36
 asyncpg==0.29.0
 alembic==1.13.1
+apscheduler==3.10.4

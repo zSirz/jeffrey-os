@@ -4,13 +4,16 @@ Endpoint simple pour emotion/detect avec métriques Prometheus
 Ce module fournit un endpoint de détection d'émotion basique pour les tests
 et le développement, avec intégration complète des métriques Prometheus.
 """
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 from typing import Dict, List
 import random
 import time
 import logging
 from datetime import datetime
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 # Métriques Prometheus - correctif GPT #1
 from prometheus_client import Counter, Histogram
@@ -48,6 +51,12 @@ emotion_detection_duration = Histogram(
     "jeffrey_emotion_detection_duration_seconds",
     "Time spent on emotion detection",
     buckets=[0.01, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0]
+)
+
+# Create limiter
+limiter = Limiter(
+    key_func=get_remote_address,
+    default_limits=["100 per minute"]
 )
 
 router = APIRouter(prefix="/api/v1/emotion", tags=["emotion"])
@@ -116,7 +125,8 @@ class EmotionResponse(BaseModel):
 
 
 @router.post("/detect", response_model=EmotionResponse)
-async def detect_emotion(request: EmotionRequest) -> EmotionResponse:
+@limiter.limit("30/minute")
+async def detect_emotion(request: Request, emotion_req: EmotionRequest) -> EmotionResponse:
     """
     Détection d'émotion avec ML réel et fallback
 
@@ -131,7 +141,7 @@ async def detect_emotion(request: EmotionRequest) -> EmotionResponse:
         # Essayer d'utiliser le modèle ML réel d'abord
         if emotion_classifier:
             try:
-                result = await emotion_classifier.detect_emotion(request.text)
+                result = await emotion_classifier.detect_emotion(emotion_req.text)
                 emotion = result['emotion']
                 confidence = result['confidence']
                 all_scores = result.get('all_scores', {})
@@ -140,18 +150,18 @@ async def detect_emotion(request: EmotionRequest) -> EmotionResponse:
             except Exception as e:
                 logger.warning(f"ML model failed, using fallback: {e}")
                 # Fallback to simple detection
-                emotion, confidence, all_scores = _simple_emotion_detection(request.text)
+                emotion, confidence, all_scores = _simple_emotion_detection(emotion_req.text)
                 method = "keyword_matching_fallback"
         else:
             # Use simple detection directly
-            emotion, confidence, all_scores = _simple_emotion_detection(request.text)
+            emotion, confidence, all_scores = _simple_emotion_detection(emotion_req.text)
             method = "keyword_matching_v1"
 
         # Créer la réponse
         response = EmotionResponse(
             emotion=emotion,
             confidence=confidence,
-            text=request.text,
+            text=emotion_req.text,
             method=method,
             timestamp=datetime.now().isoformat(),
             all_scores=all_scores
@@ -169,7 +179,7 @@ async def detect_emotion(request: EmotionRequest) -> EmotionResponse:
         # Sauvegarder en mémoire
         try:
             memory_data = {
-                'text': request.text,
+                'text': emotion_req.text,
                 'emotion': emotion,
                 'confidence': confidence,
                 'meta': {

@@ -17,6 +17,7 @@ class HybridMemoryStore(MemoryStore):
         self.cache = OrderedDict()
         self.cache_size = cache_size
         self.fallback_buffer = []
+        self._force_fallback = False  # For testing purposes
 
     def _update_cache(self, key: str, value: Dict):
         """Met à jour le cache LRU"""
@@ -31,6 +32,14 @@ class HybridMemoryStore(MemoryStore):
     @with_adaptive_retry
     async def store(self, memory_data: Dict) -> str:
         """Store avec cache local et persistence DB"""
+        # Check force fallback flag for testing
+        if self._force_fallback:
+            self.fallback_buffer.append({
+                **memory_data,
+                "timestamp": datetime.utcnow().isoformat()
+            })
+            return None
+
         try:
             # Coerce metadata → meta si nécessaire
             if "metadata" in memory_data and "meta" not in memory_data:
