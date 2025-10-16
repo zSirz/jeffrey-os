@@ -13,6 +13,7 @@ services:
       - ./src:/app/src:ro
       - ./data:/app/data
       - ./monitoring:/app/monitoring:ro
+      - ./tests:/app/tests:ro
     deploy:
       resources:
         limits:

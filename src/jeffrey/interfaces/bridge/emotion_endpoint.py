@@ -16,6 +16,12 @@ from datetime import datetime
 from prometheus_client import Counter, Histogram
 from jeffrey.memory.hybrid_store import HybridMemoryStore
 
+# ML emotion classifier with feature flag support
+try:
+    from jeffrey.ml.emotion_classifier import emotion_classifier
+except ImportError:
+    emotion_classifier = None
+
 logger = logging.getLogger(__name__)
 
 # Memory store pour sauvegarder les emotions
@@ -47,6 +53,48 @@ emotion_detection_duration = Histogram(
 router = APIRouter(prefix="/api/v1/emotion", tags=["emotion"])
 
 
+def _simple_emotion_detection(text: str):
+    """Fallback simple detection using keyword matching"""
+    text_lower = text.lower()
+
+    # Dictionnaire de mots-clés par émotion
+    emotion_keywords = {
+        "joy": ["happy", "joy", "excited", "great", "wonderful", "amazing", "love", "perfect", "fantastic"],
+        "sadness": ["sad", "depressed", "unhappy", "terrible", "awful", "disappointed", "crying", "grief"],
+        "anger": ["angry", "mad", "furious", "hate", "irritated", "annoyed", "frustrated", "rage"],
+        "fear": ["scared", "afraid", "terrified", "worried", "anxious", "nervous", "panic", "frightened"],
+        "surprise": ["surprised", "shocked", "unexpected", "amazed", "astonished", "wow", "incredible"],
+        "curiosity": ["curious", "wonder", "interesting", "question", "explore", "discover", "learn"]
+    }
+
+    # Calculer scores pour chaque émotion
+    all_scores = {}
+    for emotion, keywords in emotion_keywords.items():
+        score = 0.0
+        for keyword in keywords:
+            if keyword in text_lower:
+                score += 0.15  # Boost per keyword match
+
+        # Ajouter du bruit aléatoire
+        score += random.uniform(0.0, 0.3)
+        all_scores[emotion] = min(score, 1.0)
+
+    # Ajouter score neutral
+    all_scores["neutral"] = random.uniform(0.1, 0.4)
+
+    # Trouver l'émotion dominante
+    detected_emotion = max(all_scores.items(), key=lambda x: x[1])
+    emotion = detected_emotion[0]
+    confidence = detected_emotion[1]
+
+    # Normaliser les scores pour qu'ils soient plus réalistes
+    if confidence < 0.5:
+        confidence = random.uniform(0.5, 0.7)
+        all_scores[emotion] = confidence
+
+    return emotion, confidence, all_scores
+
+
 class EmotionRequest(BaseModel):
     """Requête de détection d'émotion"""
     text: str = Field(..., min_length=1, max_length=2000, description="Text to analyze for emotion")
@@ -70,60 +118,34 @@ class EmotionResponse(BaseModel):
 @router.post("/detect", response_model=EmotionResponse)
 async def detect_emotion(request: EmotionRequest) -> EmotionResponse:
     """
-    Détection d'émotion simple pour tests et développement
+    Détection d'émotion avec ML réel et fallback
 
-    Cette implémentation utilise des règles basiques et de la randomisation
-    pour simuler un système de détection d'émotion. En production, cet
-    endpoint devrait être remplacé par un vrai modèle ML.
+    Utilise un modèle ML réel si disponible, sinon fallback vers
+    détection simple par mots-clés.
 
     Métriques Prometheus intégrées pour monitoring.
     """
     start_time = time.time()
 
     try:
-        # Simulation simple pour tests
-        emotions = ["joy", "sadness", "anger", "fear", "surprise", "curiosity", "neutral"]
-
-        # Analyse basique basée sur mots-clés
-        text_lower = request.text.lower()
-
-        # Dictionnaire de mots-clés par émotion
-        emotion_keywords = {
-            "joy": ["happy", "joy", "excited", "great", "wonderful", "amazing", "love", "perfect", "fantastic"],
-            "sadness": ["sad", "depressed", "unhappy", "terrible", "awful", "disappointed", "crying", "grief"],
-            "anger": ["angry", "mad", "furious", "hate", "irritated", "annoyed", "frustrated", "rage"],
-            "fear": ["scared", "afraid", "terrified", "worried", "anxious", "nervous", "panic", "frightened"],
-            "surprise": ["surprised", "shocked", "unexpected", "amazed", "astonished", "wow", "incredible"],
-            "curiosity": ["curious", "wonder", "interesting", "question", "explore", "discover", "learn"]
-        }
-
-        # Calculer scores pour chaque émotion
-        all_scores = {}
-        for emotion, keywords in emotion_keywords.items():
-            score = 0.0
-            for keyword in keywords:
-                if keyword in text_lower:
-                    score += 0.15  # Boost per keyword match
-
-            # Ajouter du bruit aléatoire
-            score += random.uniform(0.0, 0.3)
-            all_scores[emotion] = min(score, 1.0)
-
-        # Ajouter score neutral
-        all_scores["neutral"] = random.uniform(0.1, 0.4)
-
-        # Trouver l'émotion dominante
-        detected_emotion = max(all_scores.items(), key=lambda x: x[1])
-        emotion = detected_emotion[0]
-        confidence = detected_emotion[1]
-
-        # Normaliser les scores pour qu'ils soient plus réalistes
-        if confidence < 0.5:
-            confidence = random.uniform(0.5, 0.7)
-            all_scores[emotion] = confidence
-
-        # Méthode utilisée
-        method = "keyword_matching_v1"
+        # Essayer d'utiliser le modèle ML réel d'abord
+        if emotion_classifier:
+            try:
+                result = await emotion_classifier.detect_emotion(request.text)
+                emotion = result['emotion']
+                confidence = result['confidence']
+                all_scores = result.get('all_scores', {})
+                method = result.get('method', 'ml_unknown')
+                logger.info(f"ML detection: {emotion} ({confidence:.2f})")
+            except Exception as e:
+                logger.warning(f"ML model failed, using fallback: {e}")
+                # Fallback to simple detection
+                emotion, confidence, all_scores = _simple_emotion_detection(request.text)
+                method = "keyword_matching_fallback"
+        else:
+            # Use simple detection directly
+            emotion, confidence, all_scores = _simple_emotion_detection(request.text)
+            method = "keyword_matching_v1"
 
         # Créer la réponse
         response = EmotionResponse(
