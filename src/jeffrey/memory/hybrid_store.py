@@ -4,7 +4,8 @@ from collections import OrderedDict
 import json
 import logging
 import numpy as np
-from sqlalchemy import select, update, text
+from sqlalchemy import select, update, text, bindparam
+from pgvector.sqlalchemy import Vector
 from jeffrey.memory.memory_store import MemoryStore
 from jeffrey.models.memory import Memory, EmotionEvent
 from jeffrey.db.session import AsyncSessionLocal, with_adaptive_retry
@@ -252,14 +253,19 @@ class HybridMemoryStore(MemoryStore):
         limit: int = 10,
         threshold: float = 0.5
     ) -> List[Dict]:
-        """Search memories using vector similarity with pgvector"""
+        """Search memories using vector similarity with safe binding"""
         try:
-            async with AsyncSessionLocal() as session:
-                # Convert numpy array to list for SQL
-                embedding_list = query_embedding.tolist()
+            # VALIDATION (GPT tweak #2)
+            if query_embedding is None or len(query_embedding) != 384:
+                logger.warning(f"Invalid embedding shape: {len(query_embedding) if query_embedding else 'None'}")
+                return []
 
-                # Use pgvector's cosine distance operator with proper SQLAlchemy binding
-                query_sql = """
+            # Ensure correct dtype
+            query_embedding = np.asarray(query_embedding, dtype=np.float32)
+
+            async with AsyncSessionLocal() as session:
+                # Requête sécurisée avec bindparam typé
+                query_sql = text("""
                     SELECT
                         id,
                         text,
@@ -267,18 +273,23 @@ class HybridMemoryStore(MemoryStore):
                         confidence,
                         timestamp,
                         meta,
-                        1 - (embedding <=> :query_embedding) as similarity
+                        1 - (embedding <=> :q) AS similarity
                     FROM memories
                     WHERE embedding IS NOT NULL
-                        AND 1 - (embedding <=> :query_embedding) >= :threshold
-                    ORDER BY embedding <=> :query_embedding
+                        AND 1 - (embedding <=> :q) >= :threshold
+                    ORDER BY embedding <=> :q
                     LIMIT :limit
-                """
+                """).bindparams(
+                    bindparam("q", type_=Vector(384))
+                )
+
+                # Debug logging pour audit
+                logger.debug(f"Semantic search with threshold={threshold}, limit={limit}")
 
                 result = await session.execute(
-                    text(query_sql),
+                    query_sql,
                     {
-                        "query_embedding": str(embedding_list),
+                        "q": query_embedding.tolist(),
                         "threshold": threshold,
                         "limit": limit
                     }

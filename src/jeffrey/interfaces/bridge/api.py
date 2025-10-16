@@ -992,7 +992,9 @@ async def get_curiosity_status(_: bool = Depends(verify_api_key)):
 
 
 @app.get("/api/v1/bonds/{memory_id}")
+@limiter.limit("60/minute")
 async def get_memory_bonds(
+    request: Request,
     memory_id: str,
     limit: int = 10,
     _: bool = Depends(verify_api_key)
@@ -1009,7 +1011,9 @@ async def get_memory_bonds(
 
 
 @app.get("/api/v1/bonds")
+@limiter.limit("60/minute")
 async def list_all_bonds(
+    request: Request,
     limit: int = 20,
     min_strength: float = 0.0,
     _: bool = Depends(verify_api_key)
@@ -1039,6 +1043,42 @@ async def list_all_bonds(
             ],
             "total": len(bonds)
         }
+
+
+@app.post("/api/v1/consciousness/trigger", dependencies=[Depends(require_admin_permission)])
+@limiter.limit("5/minute")
+async def trigger_consciousness_cycle(request: Request):
+    """Manually trigger consciousness cycle (admin only, rate limited)"""
+    try:
+        from jeffrey.core.scheduler import dream_scheduler
+
+        # Check if enabled
+        if not os.getenv("ENABLE_CONSCIOUSNESS", "false").lower() == "true":
+            raise HTTPException(
+                status_code=400,
+                detail="Consciousness is disabled. Set ENABLE_CONSCIOUSNESS=true"
+            )
+
+        # GPT tweak #3: Async task avec 202 Accepted
+        task_id = str(uuid.uuid4())
+        asyncio.create_task(dream_scheduler.run_consciousness_cycle())
+
+        return JSONResponse(
+            content={
+                "status": "triggered",
+                "task_id": task_id,
+                "timestamp": datetime.utcnow().isoformat(),
+                "flags": {
+                    "consciousness_enabled": True,
+                    "write_enabled": os.getenv("ENABLE_CONSCIOUSNESS_WRITE", "false").lower() == "true",
+                    "max_bonds": int(os.getenv("CONSCIOUSNESS_MAX_BONDS_UPDATES", "20"))
+                }
+            },
+            status_code=202  # Accepted for async processing
+        )
+    except Exception as e:
+        logger.error(f"Failed to trigger consciousness cycle: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":

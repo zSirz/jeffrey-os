@@ -3,6 +3,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from datetime import datetime, timedelta
 import os
+from sqlalchemy import text
 
 logger = logging.getLogger(__name__)
 
@@ -131,8 +132,9 @@ class DreamScheduler:
 
             # 3. Update Emotional Bonds pour mémoires récentes
             from jeffrey.core.consciousness.bonds_service import bonds_service
-            from jeffrey.core.embeddings.service import embeddings_service
+            from jeffrey.ml.embeddings_service import embeddings_service
             from jeffrey.memory.hybrid_store import HybridMemoryStore
+            from jeffrey.db.session import AsyncSessionLocal
             memory_store = HybridMemoryStore()
 
             since = datetime.utcnow() - timedelta(hours=1)
@@ -179,6 +181,17 @@ class DreamScheduler:
             duration = (datetime.utcnow() - start_time).total_seconds()
             consciousness_cycle_duration.observe(duration)
             consciousness_cycles_total.inc()
+
+            # Update bonds gauge
+            try:
+                from jeffrey.core.metrics import bonds_active_gauge
+                async with AsyncSessionLocal() as session:
+                    count_query = text("SELECT COUNT(*) FROM emotional_bonds WHERE strength > 0.1")
+                    active_count = (await session.execute(count_query)).scalar_one()
+                    bonds_active_gauge.set(active_count)
+                    logger.info(f"Active bonds gauge updated: {active_count}")
+            except Exception as e:
+                logger.warning(f"Failed to update bonds gauge: {e}")
 
             logger.info(f"✅ Consciousness cycle complete in {duration:.2f}s")
 
