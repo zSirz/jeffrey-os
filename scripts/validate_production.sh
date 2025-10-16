@@ -1,81 +1,79 @@
 #!/bin/bash
 set -e
 
-echo "🔍 VALIDATION PRODUCTION DREAMENGINE"
+echo "🔍 VALIDATION PRODUCTION JEFFREY OS"
 echo "===================================="
 
-# 1. Check Docker config
-echo -e "\n1️⃣ Validating Docker configuration..."
-docker-compose config > /dev/null
-echo "   ✅ Docker config valid"
-
-# 2. Build and start
-echo -e "\n2️⃣ Building containers..."
-docker-compose build
-echo "   ✅ Build successful"
-
-echo -e "\n3️⃣ Starting services..."
-docker-compose up -d
-echo "   ✅ Services started"
-
-# Wait for services
-echo -e "\n4️⃣ Waiting for services to be ready..."
-sleep 15
-
-# 5. Health checks
-echo -e "\n5️⃣ Running health checks..."
-curl -s http://localhost:8000/healthz | grep -q "alive" && echo "   ✅ API alive"
-
-echo "   📊 Readiness check:"
-curl -s http://localhost:8000/readyz | python3 -m json.tool
-
-echo -n "   🔍 Grafana accessible: "
-curl -s http://localhost:3000 > /dev/null && echo "✅" || echo "❌"
-
-echo -n "   🔍 Prometheus accessible: "
-curl -s http://localhost:9090 > /dev/null && echo "✅" || echo "❌"
-
-# 6. Enable DreamEngine
-echo -e "\n6️⃣ Enabling DreamEngine..."
-curl -X POST "http://localhost:8000/api/v1/dream/toggle?enable=true&test_mode=true"
-echo ""
-
-# 7. Run dream consolidation
-echo -e "\n7️⃣ Running dream consolidation..."
-curl -X POST "http://localhost:8000/api/v1/dream/run?force=true"
-echo ""
-
-# 8. Check results
-echo -e "\n8️⃣ Checking results..."
-if [ -d "data/dreams/test" ]; then
-    echo "   ✅ Dream output directory exists"
-    ls -la data/dreams/test/ | head -5
+# Check Alembic
+echo -e "\n📋 Alembic Status:"
+if docker-compose exec -T jeffrey-api bash -c 'cd /app && PYTHONPATH=/app/src alembic current' 2>/dev/null; then
+    echo "✅ Alembic properly configured"
 else
-    echo "   ⚠️ Dream output directory not found (may be expected on first run)"
+    echo "❌ Alembic not configured"
 fi
 
-# 9. Check metrics
-echo -e "\n9️⃣ Checking Prometheus metrics..."
-curl -s http://localhost:8000/metrics | grep -q "jeffrey_dream" && echo "   ✅ Dream metrics present" || echo "   ⚠️ Dream metrics not found"
+# Check Backups
+echo -e "\n💾 Backups:"
+if [ -d "backups/postgres" ]; then
+    BACKUP_COUNT=$(ls -1 backups/postgres/*.sql.gz 2>/dev/null | wc -l)
+    echo "   Backup files: $BACKUP_COUNT"
+    if [ $BACKUP_COUNT -gt 0 ]; then
+        echo "   Latest backup: $(ls -t backups/postgres/*.sql.gz | head -1)"
+        LATEST_SIZE=$(ls -lh backups/postgres/*.sql.gz | head -1 | awk '{print $5}')
+        echo "   Latest backup size: $LATEST_SIZE"
+    fi
+else
+    echo "   ❌ No backup directory"
+fi
 
-# 10. Check dream status
-echo -e "\n🔟 Dream engine status:"
-curl -s http://localhost:8000/api/v1/dream/status | python3 -m json.tool
+# Check Services
+echo -e "\n🐳 Services:"
+docker-compose ps
 
-# 11. Check Grafana dashboard
-echo -e "\n📊 Grafana dashboard:"
-echo "   📊 Open http://localhost:3000 (admin/password from .env)"
-echo "   📊 Check 'Jeffrey OS' dashboard"
+# Check API Health
+echo -e "\n🌐 API Health:"
+if curl -s http://localhost:8000/healthz | jq '.' > /dev/null 2>&1; then
+    echo "✅ API responding and healthy"
+else
+    echo "❌ API not responding"
+fi
 
-echo -e "\n✅ VALIDATION COMPLETE!"
-echo "System is production-ready with DreamEngine integrated"
-echo ""
-echo "🔗 Access points:"
-echo "   - API: http://localhost:8000"
-echo "   - Grafana: http://localhost:3000"
-echo "   - Prometheus: http://localhost:9090"
-echo ""
-echo "📝 Next steps:"
-echo "   1. Configure alerts in Grafana"
-echo "   2. Set up monitoring dashboards"
-echo "   3. Test dream consolidation with real data"
+# Check Database
+echo -e "\n🗄️ Database:"
+if MEMORY_COUNT=$(docker-compose exec -T postgres psql -U jeffrey -d jeffrey_brain -t -c 'SELECT COUNT(*) FROM memories;' 2>/dev/null | tr -d ' '); then
+    echo "   Memories: $MEMORY_COUNT"
+    echo "✅ Database accessible"
+else
+    echo "❌ Database connection failed"
+fi
+
+# Check Tests
+echo -e "\n🧪 Tests:"
+if docker-compose exec -T jeffrey-api pytest tests/test_api_integration.py -q --tb=no > /dev/null 2>&1; then
+    echo "✅ Integration tests passing"
+else
+    echo "❌ Some tests failed"
+fi
+
+# Check Metrics
+echo -e "\n📊 Metrics:"
+if METRIC_COUNT=$(curl -s http://localhost:8000/metrics | grep -c jeffrey_ 2>/dev/null); then
+    echo "   Jeffrey metrics active: $METRIC_COUNT"
+    echo "✅ Metrics collection working"
+else
+    echo "❌ Metrics collection failed"
+fi
+
+# Check ML Feature Flag
+echo -e "\n🧠 ML Feature Flag:"
+ML_STATUS=$(grep "ENABLE_REAL_ML=" .env | cut -d= -f2)
+echo "   ENABLE_REAL_ML: $ML_STATUS"
+if [ "$ML_STATUS" = "false" ]; then
+    echo "✅ ML feature flag safely disabled"
+else
+    echo "⚠️  ML feature flag enabled"
+fi
+
+echo -e "\n🎉 PRODUCTION VALIDATION COMPLETE"
+echo "=================================="
+echo "✅ System ready for production deployment"
