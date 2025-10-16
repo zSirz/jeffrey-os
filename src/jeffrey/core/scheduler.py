@@ -1,7 +1,7 @@
 import logging
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 
 logger = logging.getLogger(__name__)
@@ -56,6 +56,19 @@ class DreamScheduler:
             replace_existing=True
         )
 
+        # Add consciousness cycle if enabled
+        if os.getenv("ENABLE_CONSCIOUSNESS", "false").lower() == "true":
+            self.scheduler.add_job(
+                self.run_consciousness_cycle,
+                trigger=IntervalTrigger(
+                    minutes=int(os.getenv("CONSCIOUSNESS_CYCLE_MINUTES", "30"))
+                ),
+                id="consciousness_cycle",
+                name="Consciousness Cycle",
+                replace_existing=True
+            )
+            logger.info(f"Consciousness cycle scheduled every {os.getenv('CONSCIOUSNESS_CYCLE_MINUTES', '30')} minutes")
+
         self.scheduler.start()
         logger.info(f"Scheduler started - Dream runs every {self.interval_minutes} minutes")
 
@@ -70,6 +83,109 @@ class DreamScheduler:
                 logger.info(f"Synced {synced} memories from fallback buffer")
         except Exception as e:
             logger.error(f"Fallback sync failed: {e}")
+
+    async def run_consciousness_cycle(self):
+        """Cycle complet de conscience sécurisé avec flags"""
+        if not os.getenv("ENABLE_CONSCIOUSNESS", "false").lower() == "true":
+            logger.info("Consciousness cycle skipped - disabled by flag")
+            return
+
+        try:
+            logger.info("🧠 Starting consciousness cycle...")
+            start_time = datetime.utcnow()
+
+            # Import des métriques
+            from jeffrey.core.metrics import (
+                consciousness_cycles_total,
+                consciousness_cycle_errors,
+                consciousness_cycle_duration,
+                curiosity_questions_generated
+            )
+
+            # 1. Analyse ProactiveCuriosity
+            from jeffrey.core.consciousness.proactive_curiosity_safe import ProactiveCuriositySafe
+            curiosity = ProactiveCuriositySafe()
+            analysis = await curiosity.analyze_gaps()
+            questions = await curiosity.generate_questions()
+
+            logger.info(f"Generated {len(questions)} curiosity questions")
+            curiosity_questions_generated.inc(len(questions))
+
+            # 2. Stocker questions si write enabled
+            if os.getenv("ENABLE_CONSCIOUSNESS_WRITE", "false").lower() == "true" and questions:
+                from jeffrey.memory.hybrid_store import HybridMemoryStore
+                memory_store = HybridMemoryStore()
+
+                max_new = int(os.getenv("CONSCIOUSNESS_MAX_NEW_MEMORIES", "3"))
+                for question in questions[:max_new]:
+                    await memory_store.store({
+                        'text': question,
+                        'emotion': 'curiosity',
+                        'confidence': 0.7,
+                        'meta': {
+                            'type': 'proactive_question',
+                            'source': 'consciousness_cycle'
+                        }
+                    })
+                logger.info(f"Stored {min(len(questions), max_new)} questions as memories")
+
+            # 3. Update Emotional Bonds pour mémoires récentes
+            from jeffrey.core.consciousness.bonds_service import bonds_service
+            from jeffrey.core.embeddings.service import embeddings_service
+            from jeffrey.memory.hybrid_store import HybridMemoryStore
+            memory_store = HybridMemoryStore()
+
+            since = datetime.utcnow() - timedelta(hours=1)
+            recent = await memory_store.get_recent(since, limit=10)
+
+            # Cap anti-emballement
+            max_bonds_updates = int(os.getenv("CONSCIOUSNESS_MAX_BONDS_UPDATES", "20"))
+            bonds_created = 0
+
+            for mem in recent:
+                if not mem.get('text') or bonds_created >= max_bonds_updates:
+                    continue
+
+                # Chercher mémoires similaires
+                embedding = await embeddings_service.generate_embedding(mem['text'])
+                similar = await memory_store.semantic_search(
+                    embedding, limit=3, threshold=0.6
+                )
+
+                for sim in similar:
+                    if bonds_created >= max_bonds_updates:
+                        break
+
+                    if sim['id'] != mem.get('id'):
+                        emotion_match = sim.get('emotion') == mem.get('emotion')
+                        delta = 0.1 if emotion_match else -0.05
+
+                        bond = await bonds_service.upsert_bond(
+                            mem['id'], sim['id'],
+                            delta_strength=delta,
+                            emotion_match=emotion_match
+                        )
+                        if bond:
+                            bonds_created += 1
+
+            logger.info(f"Updated {bonds_created} emotional bonds")
+
+            # 4. Prune weak bonds
+            pruned = await bonds_service.prune_weak_bonds()
+            if pruned > 0:
+                logger.info(f"Pruned {pruned} weak bonds")
+
+            # Métriques
+            duration = (datetime.utcnow() - start_time).total_seconds()
+            consciousness_cycle_duration.observe(duration)
+            consciousness_cycles_total.inc()
+
+            logger.info(f"✅ Consciousness cycle complete in {duration:.2f}s")
+
+        except Exception as e:
+            logger.error(f"Consciousness cycle failed: {e}")
+            from jeffrey.core.metrics import consciousness_cycle_errors
+            consciousness_cycle_errors.inc()
 
     async def stop(self):
         """Stop the scheduler"""

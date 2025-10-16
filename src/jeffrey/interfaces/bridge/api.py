@@ -32,6 +32,7 @@ from jeffrey.core.auth import require_admin_permission, verify_api_key
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
+from sqlalchemy import select
 
 from .core_client import CoreClient
 
@@ -987,6 +988,56 @@ async def get_curiosity_status(_: bool = Depends(verify_api_key)):
             "status": "error",
             "error": str(e),
             "timestamp": datetime.utcnow().isoformat()
+        }
+
+
+@app.get("/api/v1/bonds/{memory_id}")
+async def get_memory_bonds(
+    memory_id: str,
+    limit: int = 10,
+    _: bool = Depends(verify_api_key)
+):
+    """Get emotional bonds for a specific memory"""
+    from jeffrey.core.consciousness.bonds_service import bonds_service
+
+    bonds = await bonds_service.get_bonds_for_memory(memory_id, limit)
+    return {
+        "memory_id": memory_id,
+        "bonds": bonds,
+        "count": len(bonds)
+    }
+
+
+@app.get("/api/v1/bonds")
+async def list_all_bonds(
+    limit: int = 20,
+    min_strength: float = 0.0,
+    _: bool = Depends(verify_api_key)
+):
+    """List all bonds sorted by strength"""
+    from jeffrey.models.emotional_bond import EmotionalBond
+    from jeffrey.db.session import AsyncSessionLocal
+
+    async with AsyncSessionLocal() as session:
+        query = select(EmotionalBond).where(
+            EmotionalBond.strength >= min_strength
+        ).order_by(EmotionalBond.strength.desc()).limit(limit)
+
+        result = await session.execute(query)
+        bonds = result.scalars().all()
+
+        return {
+            "bonds": [
+                {
+                    "id": str(bond.id),
+                    "memory_pair": [str(bond.memory_id_a), str(bond.memory_id_b)],
+                    "strength": bond.strength,
+                    "emotion_match": bond.emotion_match,
+                    "last_updated": bond.last_updated.isoformat()
+                }
+                for bond in bonds
+            ],
+            "total": len(bonds)
         }
 
 

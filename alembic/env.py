@@ -16,6 +16,7 @@ from jeffrey.core.config import settings
 from jeffrey.models.base import Base
 # Import explicite de tous les modèles pour peupler metadata
 from jeffrey.models.memory import Memory, EmotionEvent, DreamRun
+from jeffrey.models.emotional_bond import EmotionalBond
 
 target_metadata = Base.metadata
 
