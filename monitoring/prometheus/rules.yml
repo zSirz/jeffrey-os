@@ -1,0 +1,65 @@
+groups:
+  - name: jeffrey_alerts
+    rules:
+      - alert: NoDreamRuns
+        expr: rate(jeffrey_dream_runs_total[24h]) == 0 and up{job="jeffrey-api"} == 1
+        for: 1h
+        labels:
+          severity: warning
+        annotations:
+          summary: "No dream runs in 24h"
+          description: "Jeffrey has not performed any dream consolidation runs in the last 24 hours while the service is up"
+
+      - alert: HighDLQ
+        expr: jeffrey_dream_dlq_size > 10
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Dream DLQ has {{ $value }} failed entries"
+          description: "Dream engine DLQ (Dead Letter Queue) has accumulated {{ $value }} failed entries, indicating processing issues"
+
+      - alert: HighLatency
+        expr: histogram_quantile(0.95, jeffrey_pipeline_duration_seconds_bucket) > 0.5
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High pipeline latency detected"
+          description: "P95 pipeline latency is {{ $value }}s, which is above the 500ms threshold"
+
+      - alert: QueueSaturation
+        expr: jeffrey_queue_saturation_percent > 85
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Queue saturation critical"
+          description: "Event queue saturation is at {{ $value }}%, system may be overloaded"
+
+      - alert: ServiceDown
+        expr: up{job="jeffrey-api"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Jeffrey API service is down"
+          description: "Jeffrey API service has been down for more than 1 minute"
+
+      - alert: LowDreamQuality
+        expr: jeffrey_dream_quality < 0.05
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Dream quality score is low"
+          description: "Dream quality score is {{ $value }}, indicating poor consolidation performance"
+
+      - alert: HighErrorRate
+        expr: rate(jeffrey_events_failed_total[5m]) / rate(jeffrey_events_total[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High event error rate"
+          description: "Event processing error rate is {{ $value | humanizePercentage }}, above 10% threshold"

@@ -1,0 +1,204 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Jeffrey OS - Brain Complete Dashboard",
+    "tags": ["jeffrey", "brain", "monitoring"],
+    "style": "dark",
+    "timezone": "browser",
+    "refresh": "30s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Dream Quality",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "jeffrey_dream_quality",
+            "refId": "A",
+            "legendFormat": "Quality Score"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "yellow", "value": 0.1},
+                {"color": "green", "value": 0.2}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+        "options": {
+          "legend": {
+            "displayMode": "visible",
+            "placement": "bottom"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Batch Size Evolution",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "jeffrey_dream_batch_size",
+            "refId": "A",
+            "legendFormat": "Batch Size"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "min": 0,
+            "thresholds": {
+              "steps": [
+                {"color": "blue", "value": null},
+                {"color": "green", "value": 100},
+                {"color": "yellow", "value": 300}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+        "options": {
+          "legend": {
+            "displayMode": "visible",
+            "placement": "bottom"
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "DLQ Size",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "jeffrey_dream_dlq_size",
+            "refId": "A",
+            "legendFormat": "Dead Letter Queue Size"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "min": 0,
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 5},
+                {"color": "red", "value": 10}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+        "options": {
+          "legend": {
+            "displayMode": "visible",
+            "placement": "bottom"
+          }
+        }
+      },
+      {
+        "id": 4,
+        "title": "ML Confidence Average",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "rate(jeffrey_emotion_ml_confidence_sum[5m]) / rate(jeffrey_emotion_ml_confidence_count[5m])",
+            "refId": "A",
+            "legendFormat": "Average Confidence"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "yellow", "value": 0.5},
+                {"color": "green", "value": 0.7}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+        "options": {
+          "legend": {
+            "displayMode": "visible",
+            "placement": "bottom"
+          }
+        }
+      },
+      {
+        "id": 5,
+        "title": "System Overview",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "up{job=\"jeffrey-api\"}",
+            "refId": "A",
+            "legendFormat": "API Status"
+          },
+          {
+            "expr": "jeffrey_dream_runs_total",
+            "refId": "B",
+            "legendFormat": "Total Dreams"
+          },
+          {
+            "expr": "jeffrey_emotion_ml_confidence_count",
+            "refId": "C",
+            "legendFormat": "Emotions Processed"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "green", "value": 1}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 6, "w": 24, "x": 0, "y": 16},
+        "options": {
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "values": false,
+            "fields": "",
+            "calcs": ["lastNotNull"]
+          }
+        }
+      }
+    ],
+    "templating": {
+      "list": []
+    },
+    "annotations": {
+      "list": [
+        {
+          "name": "Dream Runs",
+          "datasource": "Prometheus",
+          "expr": "changes(jeffrey_dream_runs_total[1m]) > 0",
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "enable": true
+        }
+      ]
+    },
+    "schemaVersion": 27,
+    "version": 1
+  }
+}

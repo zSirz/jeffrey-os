@@ -1,0 +1,23 @@
+{
+  "run_id": "fc920da8142fa94f",
+  "timestamp": "2025-10-16T13:19:53.106775",
+  "window_hours": 24,
+  "memories_scanned": 51,
+  "memories_processed": 51,
+  "consolidation": {
+    "dominant_emotions": [
+      "sadness",
+      "surprise",
+      "joy"
+    ],
+    "memory_clusters": 7,
+    "top_topics": [],
+    "total_processed": 51
+  },
+  "insights": [
+    "Emotional pattern: sadness, surprise",
+    "High cognitive diversity detected"
+  ],
+  "quality_score": 0.0392156862745098,
+  "test_mode": true
+}

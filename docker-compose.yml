@@ -1,0 +1,105 @@
+services:
+  jeffrey-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - JEFFREY_BUS_ASYNC=true
+      - JEFFREY_DREAM_ENABLED=false  # Feature flag
+      - REDIS_URL=redis://:${REDIS_PASSWORD}@redis:6379/0
+    env_file:
+      - .env  # Secrets (GF_SECURITY_ADMIN_PASSWORD, etc.)
+    volumes:
+      - ./src:/app/src:ro
+      - ./data:/app/data
+      - ./monitoring:/app/monitoring:ro
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: "1G"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 30s
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+    networks:
+      - jeffrey-network
+
+  redis:
+    image: redis:alpine
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:-jeffrey_redis_secure_2024}"]
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-jeffrey_redis_secure_2024}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - jeffrey-network
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus:/etc/prometheus:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    depends_on:
+      - jeffrey-api
+    restart: unless-stopped
+    networks:
+      - jeffrey-network
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env  # GF_SECURITY_ADMIN_PASSWORD
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    networks:
+      - jeffrey-network
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: jeffrey_brain
+      POSTGRES_USER: jeffrey
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-jeffrey_secure_2024}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - jeffrey-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jeffrey -d jeffrey_brain"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+networks:
+  jeffrey-network:
+    driver: bridge
+
+volumes:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+  postgres_data:

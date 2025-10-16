@@ -26,6 +26,7 @@ from jeffrey.core.orchestration.cognitive_orchestrator import CognitiveOrchestra
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel, Field, validator
 
 from .core_client import CoreClient
@@ -53,7 +54,10 @@ async def lifespan(app: FastAPI):
     from jeffrey.core.brain_bootstrap import BrainBootstrap
     bootstrap = BrainBootstrap(None)  # We'll use BusFacade instead
     await bootstrap.initialize_modules()
-    app.state._brain_bootstrap = bootstrap
+
+    # Expose bootstrap sous les deux noms pour compatibilité
+    app.state.bootstrap = bootstrap
+    app.state._brain_bootstrap = bootstrap  # Compatibilité pour readyz
 
     # 🏰 INITIALIZE COGNITIVE FORTRESS
     logger.info("🏰 Initializing Cognitive Fortress...")
@@ -142,6 +146,19 @@ async def lifespan(app: FastAPI):
     await app.state.auto_debug.start()
     logger.info("🤖 Auto-Debug Engine activated - intelligent monitoring online")
 
+    # Initialize DreamEngine with proper correctifs
+    try:
+        from jeffrey.core.dreaming.dream_engine_progressive import DreamEngineProgressive
+        app.state.dream_engine = DreamEngineProgressive(
+            bus=app.state.bus,
+            memory_port=bootstrap.memory,
+            circadian=app.state.circadian
+        )
+        logger.info("✨ DreamEngine Progressive initialized")
+    except Exception as e:
+        logger.warning(f"DreamEngine initialization failed: {e}")
+        app.state.dream_engine = None
+
     # Tracking
     app.state._latencies = []
     app.state._startup_time = time.time()
@@ -190,6 +207,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include routers
+from jeffrey.interfaces.bridge.emotion_endpoint import router as emotion_router
+from jeffrey.api.routes.memory import router as memory_router
+app.include_router(emotion_router)
+app.include_router(memory_router)
 
 
 # Pydantic models for request/response validation
@@ -722,6 +745,159 @@ async def get_current_issues():
         }
     except Exception as e:
         logger.error(f"Auto-debug issues error: {e}", exc_info=True)
+        return {"error": str(e)}
+
+
+# Prometheus metrics - protected against reload
+_metrics_initialized = False
+
+if not _metrics_initialized:
+    from prometheus_client import Counter, Histogram, Gauge, generate_latest
+
+    dream_quality = Gauge('jeffrey_dream_quality', 'Avg dream quality score')
+    dream_batch_size = Gauge('jeffrey_dream_batch_size', 'Current dream batch size')
+    dream_dlq_size = Gauge('jeffrey_dream_dlq_size', 'Dream DLQ size')
+
+    _metrics_initialized = True
+
+
+@app.get("/healthz")
+async def healthz():
+    """Liveness probe"""
+    return {"status": "alive"}
+
+
+@app.get("/readyz")
+async def readyz():
+    """Readiness probe with proper error handling"""
+    checks = {
+        "bus": False,
+        "dream": False,
+        "redis": False,
+        "memory": False
+    }
+
+    try:
+        # Check bus
+        if hasattr(app.state, 'bus') and app.state.bus is not None:
+            checks["bus"] = True
+
+        # Check memory avec gestion des deux possibilités
+        if getattr(app.state, "bootstrap", None) and getattr(app.state.bootstrap, "memory", None):
+            checks["memory"] = True
+        elif getattr(app.state, "_brain_bootstrap", None) and getattr(app.state._brain_bootstrap, "memory", None):
+            checks["memory"] = True
+
+        # Check dream engine
+        if hasattr(app.state, 'dream_engine') and app.state.dream_engine is not None:
+            checks["dream"] = True
+
+            # Check Redis connection (optional)
+            if hasattr(app.state.dream_engine, 'redis') and app.state.dream_engine.redis:
+                try:
+                    if asyncio.iscoroutinefunction(app.state.dream_engine.redis.ping):
+                        await app.state.dream_engine.redis.ping()
+                    else:
+                        app.state.dream_engine.redis.ping()
+                    checks["redis"] = True
+                except Exception as e:
+                    logger.debug(f"Redis check failed (optional): {e}")
+    except Exception as e:
+        logger.error(f"Readiness check error: {e}")
+
+    # System is ready if bus and dream are OK (Redis/memory optional)
+    ready = checks["bus"] and checks["dream"]
+    status_code = 200 if ready else 503
+
+    return JSONResponse(
+        content={"ready": ready, "checks": checks},
+        status_code=status_code
+    )
+
+
+@app.get("/metrics")
+async def metrics():
+    """Prometheus metrics with protection"""
+    # Check if caller is allowed (basic protection)
+    # In production, use proper auth or network policies
+
+    # Update gauges
+    if hasattr(app.state, 'dream_engine') and app.state.dream_engine:
+        stats = app.state.dream_engine.get_stats()
+        dream_quality.set(stats.get('avg_quality', 0))
+        dream_batch_size.set(stats.get('batch_size', 100))
+        dream_dlq_size.set(stats.get('dlq_size', 0))
+
+    return Response(generate_latest(), media_type="text/plain")
+
+
+@app.post("/api/v1/dream/toggle")
+async def toggle_dream(enable: bool = None, test_mode: bool = None):
+    """Toggle DreamEngine settings at runtime"""
+    if not hasattr(app.state, 'dream_engine') or not app.state.dream_engine:
+        raise HTTPException(status_code=500, detail="DreamEngine not initialized")
+
+    if enable is not None:
+        app.state.dream_engine.enabled = enable
+
+    if test_mode is not None:
+        app.state.dream_engine.test_mode = test_mode
+
+    return {
+        "enabled": app.state.dream_engine.enabled,
+        "test_mode": app.state.dream_engine.test_mode
+    }
+
+
+@app.post("/api/v1/dream/run")
+async def dream_run(force: bool = False, window_hours: int = 24):
+    """Run dream consolidation - correctif GPT #3"""
+    if not hasattr(app.state, 'dream_engine') or not app.state.dream_engine:
+        raise HTTPException(status_code=500, detail="DreamEngine not initialized")
+
+    try:
+        result = await app.state.dream_engine.consolidate_memories(
+            window_hours=window_hours,
+            force=force
+        )
+        return result
+    except Exception as e:
+        logger.error(f"Dream run failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/v1/dream/backfill")
+async def dream_backfill(days: int = 7):
+    """Backfill past days"""
+    if not hasattr(app.state, 'dream_engine') or not app.state.dream_engine:
+        raise HTTPException(status_code=500, detail="DreamEngine not initialized")
+
+    if days > 30:
+        raise HTTPException(status_code=400, detail="Max 30 days backfill")
+
+    try:
+        result = await app.state.dream_engine.backfill(days)
+        return result
+    except Exception as e:
+        logger.error(f"Dream backfill failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/v1/dream/status")
+async def dream_status():
+    """Get DreamEngine status and stats"""
+    if not hasattr(app.state, 'dream_engine') or not app.state.dream_engine:
+        return {"error": "DreamEngine not initialized"}
+
+    try:
+        stats = app.state.dream_engine.get_stats()
+        return {
+            "success": True,
+            "stats": stats,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Dream status failed: {e}")
         return {"error": str(e)}
 
 

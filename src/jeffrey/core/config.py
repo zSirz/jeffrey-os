@@ -1,13 +1,14 @@
 """
-NeuralBus Configuration with auto-detection
+Jeffrey OS Configuration with database support
 Auto-detects available dependencies and configures accordingly
 """
 
 import logging
 import os
+from typing import Optional
 
 from pydantic import Field, field_validator
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from jeffrey.utils.logger import get_logger
 
@@ -141,8 +142,34 @@ class NeuralBusConfig(BaseSettings):
     }
 
 
-# Create singleton config
+class Settings(BaseSettings):
+    # Database
+    POSTGRES_USER: str = "jeffrey"
+    POSTGRES_PASSWORD: str
+    POSTGRES_SERVER: str = "postgres"
+    POSTGRES_DB: str = "jeffrey_brain"
+
+    # Feature flags
+    MEMORY_BACKEND: str = "postgres"  # postgres|inmemory|hybrid
+    ENABLE_WEBSOCKET: bool = False
+    ENABLE_ADAPTIVE_RETRY: bool = True
+
+    # Performance
+    DB_POOL_SIZE: int = 20
+    DB_MAX_OVERFLOW: int = 10
+
+    model_config = SettingsConfigDict(env_file=".env", case_sensitive=True)
+
+    @property
+    def DATABASE_URL(self) -> str:
+        return (
+            f"postgresql+asyncpg://{self.POSTGRES_USER}:"
+            f"{self.POSTGRES_PASSWORD}@{self.POSTGRES_SERVER}/{self.POSTGRES_DB}"
+        )
+
+# Create singleton configs
 config = NeuralBusConfig()
+settings = Settings()
 
 # Configure logging
 logging.basicConfig(

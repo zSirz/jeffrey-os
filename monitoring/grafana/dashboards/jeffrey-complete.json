@@ -1,0 +1,232 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Jeffrey OS - Complete Dashboard",
+    "tags": ["jeffrey", "dream", "production"],
+    "style": "dark",
+    "timezone": "browser",
+    "refresh": "30s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Pipeline Latency P95/P99",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, jeffrey_pipeline_duration_seconds_bucket)",
+            "refId": "A",
+            "legendFormat": "P95"
+          },
+          {
+            "expr": "histogram_quantile(0.99, jeffrey_pipeline_duration_seconds_bucket)",
+            "refId": "B",
+            "legendFormat": "P99"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 100},
+                {"color": "red", "value": 500}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}
+      },
+      {
+        "id": 2,
+        "title": "DreamEngine Quality Score",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "jeffrey_dream_quality",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "yellow", "value": 0.1},
+                {"color": "green", "value": 0.2}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0}
+      },
+      {
+        "id": 3,
+        "title": "Events/sec",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(jeffrey_events_published_total[5m])",
+            "refId": "A",
+            "legendFormat": "Published/sec"
+          },
+          {
+            "expr": "rate(jeffrey_events_processed_total[5m])",
+            "refId": "B",
+            "legendFormat": "Processed/sec"
+          }
+        ],
+        "yAxes": [
+          {"label": "events/sec", "min": 0}
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}
+      },
+      {
+        "id": 4,
+        "title": "Dream DLQ Size",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "jeffrey_dream_dlq_size",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 5},
+                {"color": "red", "value": 10}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8}
+      },
+      {
+        "id": 5,
+        "title": "Queue Saturation",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "jeffrey_queue_saturation_percent",
+            "refId": "A",
+            "legendFormat": "Queue Saturation %"
+          }
+        ],
+        "yAxes": [
+          {"label": "percent", "min": 0, "max": 100}
+        ],
+        "alert": {
+          "conditions": [
+            {
+              "query": {"params": ["A", "5m", "now"]},
+              "reducer": {"params": [], "type": "avg"},
+              "evaluator": {"params": [85], "type": "gt"}
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "10s",
+          "handler": 1,
+          "name": "High Queue Saturation",
+          "noDataState": "no_data",
+          "notifications": []
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16}
+      },
+      {
+        "id": 6,
+        "title": "Dream Runs (24h)",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "increase(jeffrey_dream_runs_total[24h])",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "yellow", "value": 1},
+                {"color": "green", "value": 2}
+              ]
+            }
+          }
+        },
+        "alert": {
+          "conditions": [
+            {
+              "query": {"params": ["A", "24h", "now"]},
+              "reducer": {"params": [], "type": "last"},
+              "evaluator": {"params": [0], "type": "lt"}
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "1h",
+          "frequency": "10s",
+          "handler": 1,
+          "name": "No Dream Runs in 24h",
+          "noDataState": "no_data",
+          "notifications": []
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 16}
+      },
+      {
+        "id": 7,
+        "title": "System Health Score",
+        "type": "gauge",
+        "targets": [
+          {
+            "expr": "jeffrey_health_score",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "min": 0,
+            "max": 100,
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "yellow", "value": 70},
+                {"color": "green", "value": 90}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 24}
+      }
+    ],
+    "templating": {
+      "list": []
+    },
+    "annotations": {
+      "list": [
+        {
+          "name": "Deployments",
+          "datasource": "-- Grafana --",
+          "type": "dashboard",
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "enable": true,
+          "hide": true
+        }
+      ]
+    },
+    "schemaVersion": 27,
+    "version": 1
+  }
+}
