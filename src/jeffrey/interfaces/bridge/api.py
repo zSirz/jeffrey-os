@@ -28,7 +28,7 @@ from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel, Field, validator
-from jeffrey.core.auth import require_admin_permission
+from jeffrey.core.auth import require_admin_permission, verify_api_key
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
@@ -960,6 +960,34 @@ async def update_schedule(interval_minutes: int = 15):
         )
 
     return {"message": f"Schedule updated to {interval_minutes} minutes"}
+
+
+@app.get("/api/v1/consciousness/curiosity/status")
+async def get_curiosity_status(_: bool = Depends(verify_api_key)):
+    """Get curiosity analysis without side effects"""
+    from jeffrey.core.consciousness.proactive_curiosity_safe import ProactiveCuriositySafe
+
+    try:
+        curiosity = ProactiveCuriositySafe()
+        analysis = await curiosity.analyze_gaps()
+        questions = await curiosity.generate_questions()
+        status = await curiosity.get_status()
+
+        return {
+            "service": "proactive_curiosity",
+            "status": status,
+            "analysis": analysis,
+            "questions": questions,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Curiosity status failed: {e}")
+        return {
+            "service": "proactive_curiosity",
+            "status": "error",
+            "error": str(e),
+            "timestamp": datetime.utcnow().isoformat()
+        }
 
 
 if __name__ == "__main__":
