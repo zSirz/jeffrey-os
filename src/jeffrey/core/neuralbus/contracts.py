@@ -130,6 +130,23 @@ ATTACHMENT_UPDATE = "attachment.bond.updated.v1"
 DREAM_TRIGGERED = "dream.trigger.v1"
 DREAM_GENERATED = "dream.generated.v1"
 
+# ============================================
+# COMPATIBILITY LAYER - Forward to events.py
+# ============================================
+from .events import (
+    make_event,
+    EMOTION_DETECTED as EMOTION_DETECTED_V2,
+    MEMORY_STORED as MEMORY_STORED_V2,
+    MEMORY_RECALLED as MEMORY_RECALLED_V2,
+    THOUGHT_GENERATED as THOUGHT_GENERATED_V2,
+    META_THOUGHT_GENERATED,
+    CIRCADIAN_UPDATE as CIRCADIAN_UPDATE_V2,
+    SELF_REFLECTION
+)
+
+# Aliases for backward compatibility
+EVENT_FACTORY = make_event
+
 
 class EmotionEventData(BaseModel):
     """Emotion detection event data"""

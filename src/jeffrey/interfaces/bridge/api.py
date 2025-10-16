@@ -7,10 +7,22 @@ import asyncio
 import logging
 import os
 import time
+import uuid
 from datetime import datetime
 from typing import Any
+from contextlib import asynccontextmanager
 
 from jeffrey.core.contracts.thoughts import create_thought, ThoughtState, ensure_thought_format
+from jeffrey.core.neuralbus.bus_facade import BusFacade
+from jeffrey.core.neuralbus.events import (
+    make_event, THOUGHT_GENERATED, EMOTION_DETECTED, MEMORY_STORED, CIRCADIAN_UPDATE
+)
+from jeffrey.core.consciousness.self_reflection import SelfReflection
+from jeffrey.core.biorhythms.circadian_runner import CircadianRunner
+from jeffrey.monitoring.auto_debug import AutoDebugEngine
+# FORTRESS IMPORTS
+from jeffrey.core.pipeline.thought_pipeline import ThoughtPipeline
+from jeffrey.core.orchestration.cognitive_orchestrator import CognitiveOrchestrator
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,7 +32,155 @@ from .core_client import CoreClient
 
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="Jeffrey Bridge API", version="2.0")
+# LIFESPAN MANAGER (remplacer l'ancien startup_event)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Lifespan manager for proper startup/shutdown
+    Implements GPT's clean lifecycle management
+    """
+    logger.info("🚀 Starting Jeffrey OS Brain v2.0 with Lifespan Manager")
+
+    # Initialize event bus
+    app.state.bus = BusFacade(
+        max_queue=5000,  # GPT OPTIMIZATION: Increased from 1000 for better concurrency
+        async_threshold_cpu=70.0,
+        pruning_enabled=True
+    )
+    app.state.bus.start()
+
+    # Initialize brain bootstrap (existing)
+    from jeffrey.core.brain_bootstrap import BrainBootstrap
+    bootstrap = BrainBootstrap(None)  # We'll use BusFacade instead
+    await bootstrap.initialize_modules()
+    app.state._brain_bootstrap = bootstrap
+
+    # 🏰 INITIALIZE COGNITIVE FORTRESS
+    logger.info("🏰 Initializing Cognitive Fortress...")
+
+    # Initialize Orchestrator (Grok's brain conductor)
+    app.state.orchestrator = CognitiveOrchestrator(
+        app.state.bus,
+        config={
+            "auto_heal_interval": 60,
+            "error_threshold": 5,
+            "inactive_threshold": 300
+        }
+    )
+    await app.state.orchestrator.start()
+
+    # Initialize ThoughtPipeline (GPT's robust processor)
+    app.state.pipeline = ThoughtPipeline(
+        bus=app.state.bus,
+        memory=bootstrap.memory,
+        consciousness=bootstrap.consciousness,
+        orchestrator=app.state.orchestrator,
+        max_concurrency=32,  # GPT OPTIMIZATION: Increased from 8 for better under-load performance
+        max_retries=3
+    )
+
+    # Register pipeline as agent in orchestrator
+    app.state.orchestrator.register_agent("thought_pipeline", app.state.pipeline)
+
+    # Wire pipeline handlers through orchestrator for monitoring
+    app.state.orchestrator.register_handler(
+        EMOTION_DETECTED,
+        app.state.pipeline.on_emotion_detected,
+        priority=10,
+        source_agent="thought_pipeline"
+    )
+
+    app.state.orchestrator.register_handler(
+        MEMORY_STORED,
+        app.state.pipeline.on_memory_stored,
+        priority=8,
+        source_agent="thought_pipeline"
+    )
+
+    # Subscribe orchestrator to bus (it will dispatch to handlers)
+    app.state.bus.subscribe(
+        EMOTION_DETECTED,
+        lambda event: asyncio.create_task(
+            app.state.orchestrator.dispatch(EMOTION_DETECTED, event)
+        )
+    )
+
+    app.state.bus.subscribe(
+        MEMORY_STORED,
+        lambda event: asyncio.create_task(
+            app.state.orchestrator.dispatch(MEMORY_STORED, event)
+        )
+    )
+
+    # Initialize SelfReflection (direct bus subscription)
+    app.state.self_reflection = SelfReflection(app.state.bus, interval=5)  # Every 5 thoughts
+    app.state.bus.subscribe(THOUGHT_GENERATED, app.state.self_reflection.on_thought)
+
+    # Initialize CircadianRhythm
+    app.state.circadian = CircadianRunner(app.state.bus, interval_sec=60)  # Every minute for testing
+    app.state.circadian.start()
+
+    # Update CircadianRunner to notify orchestrator
+    async def on_circadian_update(event):
+        if app.state.orchestrator:
+            app.state.orchestrator.update_circadian_state(event.get("data", {}))
+
+    app.state.bus.subscribe(CIRCADIAN_UPDATE, on_circadian_update)
+
+    logger.info("🌅 CircadianRhythm activated - Jeffrey has temporal awareness")
+
+    # Initialize Auto-Debug Engine - GPT INNOVATION
+    app.state.auto_debug = AutoDebugEngine(check_interval=30)
+    app.state.auto_debug.register_component("bus", app.state.bus)
+    app.state.auto_debug.register_component("pipeline", app.state.pipeline)
+    app.state.auto_debug.register_component("orchestrator", app.state.orchestrator)
+
+    # Register ML adapter when available
+    emotion_adapter = await get_emotion_adapter()
+    app.state.auto_debug.register_component("ml_adapter", emotion_adapter)
+
+    await app.state.auto_debug.start()
+    logger.info("🤖 Auto-Debug Engine activated - intelligent monitoring online")
+
+    # Tracking
+    app.state._latencies = []
+    app.state._startup_time = time.time()
+    app.state._request_ids = {}
+
+    logger.info("🏰 Cognitive Fortress initialized with:")
+    logger.info("  • Robust ThoughtPipeline (retries, circuit breakers, DLQ)")
+    logger.info("  • Adaptive CognitiveOrchestrator (auto-healing, predictions)")
+    logger.info("  • Full event-driven architecture (Blackboard pattern)")
+    logger.info("  • Self-reflection meta-cognition")
+    logger.info("  • Circadian temporal awareness")
+
+    try:
+        yield  # Server runs here
+    finally:
+        # Cleanup on shutdown
+        logger.info("🛑 Shutting down Jeffrey OS Brain...")
+
+        # Graceful shutdown
+        if hasattr(app.state, 'auto_debug') and app.state.auto_debug:
+            await app.state.auto_debug.stop()
+
+        if hasattr(app.state, 'orchestrator'):
+            await app.state.orchestrator.stop()
+
+        if hasattr(app.state, 'circadian') and app.state.circadian:
+            await app.state.circadian.stop()
+
+        if hasattr(app.state, 'bus') and app.state.bus:
+            await app.state.bus.stop(drain=True)
+
+        logger.info("👋 Jeffrey OS Brain shutdown complete")
+
+# Create app with lifespan
+app = FastAPI(
+    title="Jeffrey OS Brain API",
+    version="2.0.0",
+    lifespan=lifespan  # Use the new lifespan manager
+)
 
 # CORS configuration for web clients
 app.add_middleware(
@@ -189,146 +349,71 @@ async def simple_chat(messages: list[dict[str, str]]):
         return {"error": str(e)}
 
 
+# GPT CORRECTION 5: ENDPOINT SLIM - just publish event
 @app.post("/api/v1/emotion/detect", response_model=EmotionDetectResponse)
 async def detect_emotion_ml(
-    request: EmotionDetectRequest, emotion_adapter=Depends(get_emotion_adapter), req: Request = None
+    request: EmotionDetectRequest,
+    emotion_adapter=Depends(get_emotion_adapter),
+    req: Request = None
 ):
     """
-    Détecte l'émotion d'un texte avec le système ML.
-
-    Features:
-    - ML avec fallback automatique
-    - Validation des inputs
-    - Timeout configurable
-    - Métriques de performance
+    Slim emotion detection - publishes to fortress pipeline
     """
+    request_id = str(uuid.uuid4())
+    logger.info(f"REQ {request_id} emotion_detect start")
+
     try:
-        # Rate limiting basique
+        # Rate limiting
         client_ip = req.client.host if req else "unknown"
         if not check_rate_limit(client_ip):
             raise HTTPException(status_code=429, detail="Rate limit exceeded")
 
-        # Détection avec timeout
+        # ML detection
         result = await asyncio.wait_for(
             emotion_adapter.detect_emotion(request.text),
-            timeout=5.0,  # API timeout plus strict
+            timeout=5.0
         )
-
         resp = EmotionDetectResponse(**result)
 
-        # Chronométrage pour monitoring
-        t0 = time.perf_counter()
+        # Backpressure control before publishing - GPT ENHANCEMENT
+        if app.state.bus.is_saturated(threshold=0.85):
+            backpressure_delay = app.state.bus.get_backpressure_delay()
+            if backpressure_delay > 0.3:  # Reject if delay > 300ms
+                logger.warning(f"REQ {request_id} rejected due to backpressure ({backpressure_delay*1000:.0f}ms)")
+                raise HTTPException(
+                    status_code=503,
+                    detail=f"System overloaded, queue saturation: {app.state.bus.stats['queue_saturation_pct']:.1f}%"
+                )
 
-        # NOUVELLE PARTIE : Traitement synchrone de la boucle cognitive
-        try:
-            bootstrap = getattr(app.state, "_brain_bootstrap", None)
-            if bootstrap and bootstrap.wired:
-                # Traitement direct : Emotion → Memory → Consciousness
-                emotion_data = {
-                    "text": request.text,
-                    "emotion": resp.emotion,
-                    "confidence": resp.confidence,
-                    "all_scores": resp.all_scores,
-                    "timestamp": datetime.utcnow().isoformat()
-                }
+            # Apply adaptive delay for moderate saturation
+            if backpressure_delay > 0:
+                logger.info(f"REQ {request_id} applying backpressure delay: {backpressure_delay*1000:.0f}ms")
+                await asyncio.sleep(backpressure_delay)
 
-                # 1. Traiter l'émotion
-                bootstrap.stats["emotions_received"] += 1
+        # Just publish event, pipeline handles the rest
+        emotion_event = make_event(
+            EMOTION_DETECTED,
+            {
+                "text": request.text,
+                "emotion": resp.emotion,
+                "confidence": resp.confidence,
+                "all_scores": resp.all_scores,
+                "request_id": request_id,
+                "timestamp": datetime.now().isoformat()
+            },
+            source="jeffrey.api.emotion"
+        )
 
-                # 2. Stocker en mémoire avec MemoryPort
-                if bootstrap.memory:
-                    memory_entry = {
-                        "text": emotion_data["text"],
-                        "emotion": emotion_data["emotion"],
-                        "confidence": emotion_data["confidence"],
-                        "timestamp": emotion_data["timestamp"],
-                        "tags": [emotion_data["emotion"]],
-                        "meta": {
-                            "all_scores": emotion_data["all_scores"],
-                            "source": "emotion_ml"
-                        }
-                    }
-
-                    # Utiliser le MemoryPort
-                    success = bootstrap.memory.store(memory_entry)
-
-                    if success:
-                        bootstrap.stats["memories_stored"] += 1
-                        logger.debug(f"📝 Stored emotion memory #{bootstrap.stats['memories_stored']}")
-                    else:
-                        bootstrap.stats["memory_errors"] = bootstrap.stats.get("memory_errors", 0) + 1
-                        bootstrap.stats["errors"] = bootstrap.stats.get("errors", 0) + 1
-                        bootstrap.stats["last_error"] = "memory_store_failed"
-                        logger.warning("Memory storage failed but saved to fallback")
-
-                # 3. Générer une pensée avec chronométrage
-                if bootstrap.consciousness:
-                    try:
-                        # Récupérer quelques mémoires récentes
-                        memories = []
-                        if bootstrap.memory:
-                            memories = bootstrap.memory.search(query="", limit=3)
-
-                        # Chronométrage de la conscience
-                        t_consciousness = time.perf_counter()
-                        thought = None
-                        proc = getattr(bootstrap.consciousness, "process", None)
-                        if callable(proc):
-                            maybe = proc(memories)
-                            thought = (await maybe) if asyncio.iscoroutine(maybe) else maybe
-                        elapsed_ms = (time.perf_counter() - t_consciousness) * 1000.0
-
-                        if not thought:
-                            thought = create_thought(
-                                state=ThoughtState.AWARE,
-                                summary="Consciousness unavailable - basic processing",
-                                mode="fallback",
-                                context_size=len(memories),
-                                processing_time_ms=elapsed_ms
-                            )
-                        else:
-                            # Garantir le format avec ensure_thought_format
-                            thought = ensure_thought_format(thought)
-                            # Ajouter les métadonnées manquantes
-                            thought.update({
-                                "context_size": len(memories),
-                                "mode": "synchronous_processing",
-                                "emotion_context": emotion_data["emotion"],
-                                "confidence": emotion_data["confidence"],
-                                "processing_time_ms": elapsed_ms
-                            })
-
-                        bootstrap.stats["thoughts_generated"] += 1
-                        logger.info(f"💭 Generated thought #{bootstrap.stats['thoughts_generated']} in {elapsed_ms:.1f}ms")
-
-                    except Exception as e:
-                        logger.error(f"Consciousness processing failed: {e}")
-                        bootstrap.stats["errors"] += 1
-
-                # Tracking pour monitoring
-                app.state._event_counts = getattr(app.state, "_event_counts", {})
-                app.state._event_counts["emotions_processed"] = app.state._event_counts.get("emotions_processed", 0) + 1
-
-                logger.info(f"🧠 Brain processed emotion: {resp.emotion} -> Memory({bootstrap.stats['memories_stored']}) -> Thought({bootstrap.stats['thoughts_generated']})")
-
-            else:
-                logger.debug("Brain bootstrap not available or not wired")
-
-        except Exception as e:
-            logger.warning(f"Brain processing failed: {e}")
-            # Ne pas bloquer la réponse API
-
-        # Enregistrer la latence totale pour monitoring
-        if hasattr(app.state, "_latencies"):
-            app.state._latencies.append(time.perf_counter() - t0)
-
-        return resp
+        await app.state.bus.publish(emotion_event)
+        logger.info(f"REQ {request_id} emotion_detect published")
+        return resp  # Return immediately, processing happens async
 
     except TimeoutError:
         raise HTTPException(status_code=504, detail="Detection timeout")
     except Exception as e:
         logger.error(f"API emotion detection error: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
+
 
 
 @app.get("/api/v1/emotion/stats")
@@ -378,36 +463,7 @@ async def emotion_health_check(emotion_adapter=Depends(get_emotion_adapter)):
         return {"status": "unhealthy", "error": str(e)}
 
 
-@app.on_event("startup")
-async def startup_event():
-    """Initialisation au démarrage du serveur"""
-    try:
-        # Warmup ML (existant si disponible)
-        try:
-            from jeffrey.ml.emotion_ml_adapter import EmotionMLAdapter
-            adapter = await EmotionMLAdapter.get_instance()
-            await adapter.detect_emotion("warmup")
-            logger.info("✅ ML warmup completed")
-        except Exception as e:
-            logger.warning(f"ML warmup failed: {e}")
-
-        # NOUVEAU : Bootstrap du cerveau
-        from jeffrey.core.brain_bootstrap import BrainBootstrap
-
-        app.state._neural_bus = getattr(app.state, "_neural_bus", None)
-        bootstrap = BrainBootstrap(app.state._neural_bus)
-        app.state._neural_bus = await bootstrap.wire_minimal_loop()
-        app.state._brain_bootstrap = bootstrap
-        app.state._event_counts = {}
-        app.state._latencies = []  # Pour tracking des performances
-        app.state._startup_time = time.time()
-
-        logger.info("🧠 Brain bootstrap completed")
-        logger.info(f"   Stats: {bootstrap.get_stats()}")
-
-    except Exception as e:
-        logger.error(f"❌ Startup bootstrap failed: {e}")
-        # Ne pas bloquer le démarrage
+# DEPRECATED STARTUP EVENT REMOVED - Now using lifespan manager
 
 
 def _pctl(values, p):
@@ -491,6 +547,182 @@ async def brain_status():
         "events": events,
         "errors": stats.get("errors", 0)
     }
+
+
+@app.get("/api/v1/brain/enrichment")
+async def brain_enrichment_status():
+    """
+    Monitoring endpoint for Phase 2 brain enrichment
+    Shows status of advanced cognitive modules
+    """
+    # Bus stats
+    bus_stats = {}
+    bus = getattr(app.state, "bus", None)
+    if bus:
+        bus_stats = bus.get_stats()
+
+    # Self-reflection stats
+    reflection_stats = {}
+    reflection = getattr(app.state, "self_reflection", None)
+    if reflection:
+        reflection_stats = reflection.get_stats()
+
+    # Circadian stats
+    circadian_stats = {}
+    circadian = getattr(app.state, "circadian", None)
+    if circadian:
+        circadian_stats = circadian.get_stats()
+
+    # Overall health
+    healthy_modules = 0
+    total_modules = 3
+
+    if bus and bus_stats.get("running", False):
+        healthy_modules += 1
+    if reflection and reflection_stats.get("thoughts_analyzed", 0) >= 0:
+        healthy_modules += 1
+    if circadian and circadian_stats.get("running", False):
+        healthy_modules += 1
+
+    health_ratio = healthy_modules / total_modules
+
+    return {
+        "status": "healthy" if health_ratio >= 0.66 else "degraded" if health_ratio > 0 else "offline",
+        "health_ratio": round(health_ratio, 2),
+        "modules": {
+            "event_bus": {
+                "enabled": bus is not None,
+                "stats": bus_stats
+            },
+            "self_reflection": {
+                "enabled": reflection is not None,
+                "stats": reflection_stats
+            },
+            "circadian_rhythm": {
+                "enabled": circadian is not None,
+                "stats": circadian_stats
+            }
+        },
+        "cognitive_indicators": {
+            "temporal_awareness": circadian_stats.get("running", False),
+            "meta_cognition": reflection_stats.get("meta_thoughts_generated", 0) > 0,
+            "event_processing": bus_stats.get("events_published", 0) > 0
+        },
+        "timestamp": datetime.utcnow().isoformat()
+    }
+
+
+# 🏰 FORTRESS MONITORING ENDPOINTS
+@app.get("/api/v1/brain/fortress")
+async def brain_fortress_status():
+    """
+    Complete fortress monitoring - GPT CORRECTION 6
+    """
+
+    fortress_status = {
+        "status": "operational",
+        "timestamp": datetime.now().isoformat()
+    }
+
+    # Pipeline metrics
+    pipeline = getattr(app.state, 'pipeline', None)
+    if pipeline:
+        fortress_status["pipeline"] = pipeline.get_metrics()
+        fortress_status["dlq_sample"] = pipeline.get_dlq(5)
+    else:
+        fortress_status["pipeline"] = {}
+        fortress_status["dlq_sample"] = []
+
+    # Orchestrator stats
+    orchestrator = getattr(app.state, 'orchestrator', None)
+    if orchestrator:
+        fortress_status["orchestrator"] = orchestrator.get_stats()
+        fortress_status["predictions"] = await orchestrator.predict_issues()
+    else:
+        fortress_status["orchestrator"] = {}
+        fortress_status["predictions"] = {}
+
+    # Existing enrichment stats
+    bus = getattr(app.state, 'bus', None)
+    if bus:
+        fortress_status["event_bus"] = bus.get_stats()
+    else:
+        fortress_status["event_bus"] = {}
+
+    # Health assessment - GPT CORRECTION 6
+    pipeline_stats = fortress_status.get("pipeline", {})
+    if pipeline_stats.get("circuit_opens", 0) > 2:
+        fortress_status["status"] = "degraded"
+    elif pipeline_stats.get("events_failed", 0) > 10:
+        fortress_status["status"] = "warning"
+    else:
+        fortress_status["status"] = "operational"
+
+    return fortress_status
+
+
+@app.get("/api/v1/brain/graph")
+async def export_brain_graph(format: str = "json"):
+    """Export cognitive connection graph"""
+    orchestrator = getattr(app.state, 'orchestrator', None)
+    if not orchestrator:
+        return {"error": "Orchestrator not initialized"}
+
+    try:
+        graph_data = orchestrator.export_graph(format)
+        if format == "json":
+            import json
+            return json.loads(graph_data)
+        else:
+            return {"data": graph_data, "format": format}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+@app.get("/api/v1/brain/auto-debug")
+async def get_auto_debug_report():
+    """Get comprehensive auto-debug diagnostic report - GPT INNOVATION"""
+    auto_debug = getattr(app.state, 'auto_debug', None)
+    if not auto_debug:
+        return {"error": "Auto-Debug Engine not initialized"}
+
+    try:
+        return auto_debug.get_diagnostic_report()
+    except Exception as e:
+        logger.error(f"Auto-debug report error: {e}", exc_info=True)
+        return {"error": str(e)}
+
+
+@app.get("/api/v1/brain/auto-debug/issues")
+async def get_current_issues():
+    """Get current active issues detected by auto-debug - GPT INNOVATION"""
+    auto_debug = getattr(app.state, 'auto_debug', None)
+    if not auto_debug:
+        return {"error": "Auto-Debug Engine not initialized"}
+
+    try:
+        active_issues = {}
+        for issue_key, issue in auto_debug.active_issues.items():
+            active_issues[issue_key] = {
+                "severity": issue.severity,
+                "component": issue.component,
+                "title": issue.title,
+                "description": issue.description,
+                "suggested_actions": issue.suggested_actions,
+                "first_detected": issue.first_detected.isoformat(),
+                "last_seen": issue.last_seen.isoformat(),
+                "count": issue.count
+            }
+
+        return {
+            "active_issues": active_issues,
+            "total_critical": sum(1 for issue in auto_debug.active_issues.values() if issue.severity == "critical"),
+            "total_warning": sum(1 for issue in auto_debug.active_issues.values() if issue.severity == "warning"),
+            "health_score": auto_debug._calculate_health_score()
+        }
+    except Exception as e:
+        logger.error(f"Auto-debug issues error: {e}", exc_info=True)
+        return {"error": str(e)}
 
 
 if __name__ == "__main__":

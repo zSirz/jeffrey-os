@@ -7,8 +7,11 @@ import logging
 import os
 import threading
 import time
+import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from collections import OrderedDict
+from typing import Optional, Tuple
 
 # Monitoring (optionnel si prometheus installé)
 try:
@@ -59,29 +62,46 @@ class EmotionMLAdapter:
         self.data_dir = Path(os.getenv("EMO_DATA_DIR", "data"))
         self.warmup_enabled = os.getenv("EMO_WARMUP", "true").lower() == "true"
         self.warmup_text = os.getenv("EMO_WARMUP_TEXT", "test")
-        self.timeout_ms = float(os.getenv("EMO_TIMEOUT_MS", "250.0"))
+        self.timeout_ms = float(os.getenv("EMO_TIMEOUT_MS", "200.0"))  # GPT OPTIMIZATION: Reduced from 250ms
         self.max_text_length = int(os.getenv("EMO_MAX_TEXT_LENGTH", "2000"))
 
-        # Thread pool pour opérations CPU-bound
+        # GPT OPTIMIZATION: Cache configuration
+        self.cache_enabled = os.getenv("EMO_CACHE_ENABLED", "true").lower() == "true"
+        self.cache_size = int(os.getenv("EMO_CACHE_SIZE", "1000"))
+        self.cache_ttl_sec = int(os.getenv("EMO_CACHE_TTL", "300"))  # 5 minutes
+
+        # Thread pool pour opérations CPU-bound - GPT OPTIMIZATION: Increased workers
         self.executor = ThreadPoolExecutor(
-            max_workers=int(os.getenv("EMO_THREADS", "4")),
+            max_workers=int(os.getenv("EMO_THREADS", "8")),  # Increased from 4
             thread_name_prefix="emo_ml"
         )
+
+        # GPT OPTIMIZATION: Concurrency semaphore for better control
+        self.semaphore = asyncio.Semaphore(int(os.getenv("EMO_MAX_CONCURRENT", "16")))
+
+        # GPT OPTIMIZATION: LRU Cache with TTL for predictions
+        self._cache = OrderedDict()  # LRU cache
+        self._cache_timestamps = {}  # TTL tracking
+        self._cache_lock = threading.Lock()  # Thread-safe cache
 
         # Composants ML
         self._ml_detector: ProtoEmotionDetector | None = None
         self._regex_head: RegexEmotionDetector | None = None
         self._initialized = False
 
-        # Stats internes
+        # Stats internes - GPT OPTIMIZATION: Added cache metrics
         self._stats = {
             "total_predictions": 0,
             "ml_predictions": 0,
             "fallback_predictions": 0,
+            "cache_hits": 0,
+            "cache_misses": 0,
             "total_latency_ms": 0.0,
             "avg_latency_ms": 0.0,
             "failures": 0,
-            "timeouts": 0
+            "timeouts": 0,
+            "concurrent_requests": 0,
+            "max_concurrent_requests": 0
         }
 
         # Métriques Prometheus si disponible
@@ -201,9 +221,53 @@ class EmotionMLAdapter:
 
         return None  # Input valide
 
+    def _get_cache_key(self, text: str) -> str:
+        """Generate cache key from text - GPT OPTIMIZATION"""
+        return hashlib.sha256(text.encode('utf-8')).hexdigest()[:16]
+
+    def _get_from_cache(self, cache_key: str) -> Optional[Tuple[str, float, dict]]:
+        """Get cached result if valid - GPT OPTIMIZATION"""
+        if not self.cache_enabled:
+            return None
+
+        with self._cache_lock:
+            if cache_key not in self._cache:
+                return None
+
+            # Check TTL
+            timestamp = self._cache_timestamps.get(cache_key, 0)
+            if time.time() - timestamp > self.cache_ttl_sec:
+                # Expired, remove
+                del self._cache[cache_key]
+                del self._cache_timestamps[cache_key]
+                return None
+
+            # Move to end (LRU)
+            result = self._cache[cache_key]
+            self._cache.move_to_end(cache_key)
+            self._stats["cache_hits"] += 1
+            return result
+
+    def _put_in_cache(self, cache_key: str, result: Tuple[str, float, dict]) -> None:
+        """Store result in cache - GPT OPTIMIZATION"""
+        if not self.cache_enabled:
+            return
+
+        with self._cache_lock:
+            # Remove oldest if cache full
+            while len(self._cache) >= self.cache_size:
+                oldest_key = next(iter(self._cache))
+                del self._cache[oldest_key]
+                del self._cache_timestamps[oldest_key]
+
+            # Store new result
+            self._cache[cache_key] = result
+            self._cache_timestamps[cache_key] = time.time()
+            self._stats["cache_misses"] += 1
+
     async def detect_emotion(self, text: str) -> dict:
         """
-        Détecte l'émotion de manière asynchrone avec fallback.
+        Détecte l'émotion de manière asynchrone avec cache et semaphore - GPT OPTIMIZATION
 
         Args:
             text: Texte à analyser
@@ -219,65 +283,98 @@ class EmotionMLAdapter:
         # Ensure initialized
         self._ensure_initialized()
 
-        start = time.perf_counter()
-        loop = asyncio.get_running_loop()
+        # GPT OPTIMIZATION: Check cache first
+        text_cleaned = text.strip()
+        cache_key = self._get_cache_key(text_cleaned)
+        cached_result = self._get_from_cache(cache_key)
 
-        try:
-            # Prédiction avec timeout
-            emotion, confidence, all_scores = await asyncio.wait_for(
-                loop.run_in_executor(
-                    self.executor,
-                    self._predict_sync,
-                    text.strip()
-                ),
-                timeout=self.timeout_ms / 1000.0
+        if cached_result:
+            emotion, confidence, all_scores = cached_result
+            return {
+                "success": True,
+                "emotion": emotion,
+                "confidence": float(confidence),
+                "all_scores": all_scores,
+                "method": "cache_hit",
+                "latency_ms": 0.1,  # Minimal cache latency
+                "text_length": len(text)
+            }
+
+        # GPT OPTIMIZATION: Semaphore-controlled processing
+        async with self.semaphore:
+            # Track concurrent requests
+            self._stats["concurrent_requests"] += 1
+            self._stats["max_concurrent_requests"] = max(
+                self._stats["max_concurrent_requests"],
+                self._stats["concurrent_requests"]
             )
 
-            method = "ml_linear_head" if self.use_ml else "regex_fallback"
-            success = True
-
-        except TimeoutError:
-            logger.warning(f"ML prediction timeout after {self.timeout_ms}ms, using fallback")
-            self._stats["timeouts"] += 1
-
-            # Fallback to regex
-            emotion = self._regex_head.predict_label(text)
-            all_scores = self._regex_head.predict_proba(text)
-            confidence = all_scores.get(emotion, 0.8)
-            method = "regex_timeout_fallback"
-            success = True
-
-            if PROMETHEUS_AVAILABLE:
-                self._metrics["failures_total"].labels(reason="timeout").inc()
-
-        except Exception as e:
-            logger.error(f"Prediction failed: {e}", exc_info=True)
-            self._stats["failures"] += 1
-
-            # Fallback to regex
             try:
-                emotion = self._regex_head.predict_label(text)
-                all_scores = self._regex_head.predict_proba(text)
-                confidence = all_scores.get(emotion, 0.8)
-                method = "regex_error_fallback"
+                start = time.perf_counter()
+                loop = asyncio.get_running_loop()
+
+                # Prédiction avec timeout
+                emotion, confidence, all_scores = await asyncio.wait_for(
+                    loop.run_in_executor(
+                        self.executor,
+                        self._predict_sync,
+                        text_cleaned
+                    ),
+                    timeout=self.timeout_ms / 1000.0
+                )
+
+                method = "ml_linear_head" if self.use_ml else "regex_fallback"
                 success = True
-            except Exception as e2:
-                logger.error(f"Regex fallback also failed: {e2}")
-                return {
-                    "success": False,
-                    "error": str(e2),
-                    "emotion": "neutral",
-                    "confidence": 0.0,
-                    "all_scores": {},
-                    "method": "all_failed",
-                    "latency_ms": 0.0
-                }
 
-            if PROMETHEUS_AVAILABLE:
-                self._metrics["failures_total"].labels(reason="exception").inc()
+                # GPT OPTIMIZATION: Store in cache for future requests
+                self._put_in_cache(cache_key, (emotion, confidence, all_scores))
 
-        # Calcul latence
-        elapsed_ms = (time.perf_counter() - start) * 1000
+            except TimeoutError:
+                logger.warning(f"ML prediction timeout after {self.timeout_ms}ms, using fallback")
+                self._stats["timeouts"] += 1
+
+                # Fallback to regex
+                emotion = self._regex_head.predict_label(text_cleaned)
+                all_scores = self._regex_head.predict_proba(text_cleaned)
+                confidence = all_scores.get(emotion, 0.8)
+                method = "regex_timeout_fallback"
+                success = True
+
+                if PROMETHEUS_AVAILABLE:
+                    self._metrics["failures_total"].labels(reason="timeout").inc()
+
+            except Exception as e:
+                logger.error(f"Prediction failed: {e}", exc_info=True)
+                self._stats["failures"] += 1
+
+                # Fallback to regex
+                try:
+                    emotion = self._regex_head.predict_label(text_cleaned)
+                    all_scores = self._regex_head.predict_proba(text_cleaned)
+                    confidence = all_scores.get(emotion, 0.8)
+                    method = "regex_error_fallback"
+                    success = True
+                except Exception as e2:
+                    logger.error(f"Regex fallback also failed: {e2}")
+                    return {
+                        "success": False,
+                        "error": str(e2),
+                        "emotion": "neutral",
+                        "confidence": 0.0,
+                        "all_scores": {},
+                        "method": "all_failed",
+                        "latency_ms": 0.0
+                    }
+
+                if PROMETHEUS_AVAILABLE:
+                    self._metrics["failures_total"].labels(reason="exception").inc()
+
+            finally:
+                # GPT OPTIMIZATION: Decrement concurrent request counter
+                self._stats["concurrent_requests"] = max(0, self._stats["concurrent_requests"] - 1)
+
+            # Calcul latence
+            elapsed_ms = (time.perf_counter() - start) * 1000
 
         # Update stats
         self._stats["total_predictions"] += 1
@@ -333,10 +430,14 @@ class EmotionMLAdapter:
         return result
 
     def get_stats(self) -> dict:
-        """Retourne les statistiques détaillées"""
+        """Retourne les statistiques détaillées - GPT OPTIMIZATION with cache metrics"""
+        total_cache_ops = self._stats["cache_hits"] + self._stats["cache_misses"]
         return {
             **self._stats,
             "ml_enabled": self.use_ml,
+            "cache_enabled": self.cache_enabled,
+            "cache_size": len(self._cache),
+            "cache_max_size": self.cache_size,
             "ml_percentage": (
                 self._stats["ml_predictions"] / max(1, self._stats["total_predictions"]) * 100
                 if self._stats["total_predictions"] > 0 else 0
@@ -345,6 +446,10 @@ class EmotionMLAdapter:
                 self._stats["fallback_predictions"] / max(1, self._stats["total_predictions"]) * 100
                 if self._stats["total_predictions"] > 0 else 0
             ),
+            "cache_hit_rate": (
+                self._stats["cache_hits"] / max(1, total_cache_ops) * 100
+                if total_cache_ops > 0 else 0
+            ),
             "failure_rate": (
                 self._stats["failures"] / max(1, self._stats["total_predictions"]) * 100
                 if self._stats["total_predictions"] > 0 else 0
@@ -352,6 +457,9 @@ class EmotionMLAdapter:
             "timeout_rate": (
                 self._stats["timeouts"] / max(1, self._stats["total_predictions"]) * 100
                 if self._stats["total_predictions"] > 0 else 0
+            ),
+            "concurrency_utilization": (
+                self._stats["max_concurrent_requests"] / int(os.getenv("EMO_MAX_CONCURRENT", "16")) * 100
             )
         }
 
